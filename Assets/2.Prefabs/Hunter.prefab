@@ -2240,7 +2240,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &858039475833521813
 MonoBehaviour:
@@ -2257,13 +2257,13 @@ MonoBehaviour:
   _currentStamina: 0
   _recoverStamina: 10
   _maxStamina: 100
-  _dashCost: 0.01
+  _dashCost: 0.001
   _dashSpeed: 1
   _reverseRate: 0.5
   _moveSpeed: 4
   _turnSpeed: 4
-  _jumpCost: 0.1
-  _jumpSpeed: 4
+  _jumpCost: 0.05
+  _jumpSpeed: 6
   _jumpDistance: 0.501
   _jumpColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!114 &4677453552490134948
@@ -2283,14 +2283,14 @@ MonoBehaviour:
   _downInput:
     keyCodes: 7300000012010000
   _leftInput:
-    keyCodes: 
+    keyCodes: 6100000014010000
   _rightInput:
-    keyCodes: 
+    keyCodes: 6400000013010000
   _dashInput:
-    keyCodes: 
+    keyCodes: 300100002f010000
   _attackInput:
-    keyCodes: 
-  _jumpKeyCodes: 
+    keyCodes: 43010000
+  _jumpKeyCodes: 20000000
 --- !u!1 &4916990848978840438
 GameObject:
   m_ObjectHideFlags: 0

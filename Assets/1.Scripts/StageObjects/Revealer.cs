@@ -36,15 +36,8 @@ public sealed class Revealer : MonoBehaviour
     private LayerMask _layerMask;
     [Header("바라볼 대상과의 간격"), SerializeField]
     private Vector3 _offset;
-    [Header("가로 크기"), SerializeField, Range(0, byte.MaxValue)]
-    private float _width = 2;
-    [Header("세로 크기"), SerializeField, Range(0, byte.MaxValue)]
-    private float _height = 2;
-    [Header("블러 부드러움"), SerializeField, Range(0, byte.MaxValue)]
-    private float _blurSoftness = 0.2f;
-    [Header("블러 강도 조절"), SerializeField, Range(0, byte.MaxValue)]
-    private float _blurStrength = 5;
-
+    [Header("대상을 투과할 박스의 크기"), SerializeField]
+    private Vector3 _size;
 
     private List<Material> _list = new List<Material>();
 
@@ -61,11 +54,25 @@ public sealed class Revealer : MonoBehaviour
             Quaternion rotation = Quaternion.LookRotation(end - start);
             Gizmos.color = _gizmoColor;
             Gizmos.matrix = Matrix4x4.TRS((start + end) * 0.5f, rotation, Vector3.one);
-            Gizmos.DrawWireCube(Vector3.zero, new Vector3(_width, _height, Vector3.Distance(start, end)));
+            Gizmos.DrawWireCube(Vector3.zero, _size/*new Vector3(_width, _height, Vector3.Distance(start, end))*/);
         }
     }
 
-
+    private void OnValidate()
+    {
+        if(_size.x < 0)
+        {
+            _size.x = 0;
+        }
+        if (_size.y < 0)
+        {
+            _size.y = 0;
+        }
+        if (_size.z < 0)
+        {
+            _size.z = 0;
+        }
+    }
 #endif
 
     private void Update()
@@ -76,7 +83,7 @@ public sealed class Revealer : MonoBehaviour
             Vector3 end = _target.position + _offset;
             Vector3 center = (start + end) * 0.5f;
             Quaternion rotation = Quaternion.LookRotation(end - start);
-            Vector3 halfSize = new Vector3(_width * 0.5f, _height * 0.5f, Vector3.Distance(start, end) * 0.5f);
+            Vector3 halfSize = _size * 0.5f;//new Vector3(_width * 0.5f, _height * 0.5f, Vector3.Distance(start, end) * 0.5f);
             Matrix4x4 rotMatrix = Matrix4x4.TRS(Vector3.zero, rotation, Vector3.one);
             List<Material> list = new List<Material>();
             Collider[] colliders = Physics.OverlapBox(center, halfSize, rotation, _layerMask);
@@ -103,7 +110,7 @@ public sealed class Revealer : MonoBehaviour
             }
             for (int i = _list.Count - 1; i >= 0; i--)
             {
-                if(list.Contains(_list[i]) == false)
+                if (list.Contains(_list[i]) == false)
                 {
                     Material material = _list[i];
                     material.SetVector(ClippingMin, new Vector4(0, 0, 0, 0));
@@ -115,9 +122,9 @@ public sealed class Revealer : MonoBehaviour
                     _list.Remove(material);
                 }
             }
-            foreach(Material material in list)
+            foreach (Material material in list)
             {
-                if(_list.Contains(material) == false)
+                if (_list.Contains(material) == false)
                 {
                     _list.Add(material);
                 }

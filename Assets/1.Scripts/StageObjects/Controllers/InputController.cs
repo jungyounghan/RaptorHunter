@@ -108,18 +108,25 @@ public sealed class InputController : Controller
             SetKey(ref _dashInput);
             SetKey(ref _attackInput);
             getCharacter.dash = _dashInput.isPressed;
+            bool action = false;
             if (_upInput.isPressed != _downInput.isPressed)
             {
                 switch (_upInput.isPressed)
                 {
                     case IncreasingDirection:
-                        getCharacter.TryMoveForward();
+                        getCharacter.GetAdvanceSpeed();
                         break;
                     case DecreasingDirection:
-                        getCharacter.TryMoveBackward();
+                        getCharacter.GetRetreatSpeed();
                         break;
                 }
+                action = true;
             }
+            if(action == false)
+            {
+                getCharacter.MoveStop();
+            }
+            action = false;
             if (_rightInput.isPressed != _leftInput.isPressed)
             {
                 switch (_rightInput.isPressed)
@@ -131,6 +138,11 @@ public sealed class InputController : Controller
                         getCharacter.TryTurnLeft();
                         break;
                 }
+                action = true;
+            }
+            if (action == false)
+            {
+                getCharacter.TurnStop();
             }
             if (GetKey(_jumpKeyCodes) == true)
             {

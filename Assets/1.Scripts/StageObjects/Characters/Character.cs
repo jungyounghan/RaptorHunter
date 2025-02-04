@@ -28,7 +28,7 @@ public abstract class Character : MonoBehaviour
 
     private Rigidbody _rigidbody = null;
 
-    private Rigidbody getRigidbody {
+    protected Rigidbody getRigidbody {
         get
         {
             if(_hasRigidbody == false)
@@ -79,14 +79,6 @@ public abstract class Character : MonoBehaviour
         set
         {
             _dash = value;
-            if(_currentStamina < _maxStamina && Vector3.Distance(getRigidbody.velocity, Vector3.zero) <= float.Epsilon)
-            {
-                _currentStamina += Time.deltaTime * _recoverStamina;
-                if(_currentStamina > _maxStamina)
-                {
-                    _currentStamina = _maxStamina;
-                }
-            }
         }
     }
 
@@ -130,10 +122,38 @@ public abstract class Character : MonoBehaviour
     }
 #endif
 
-    private void Awake()
+    private void OnEnable()
     {
         _currentStamina = _maxStamina;
     }
+
+    private void Update()
+    {
+        switch(_alive)
+        {
+            case true:
+                if (_currentStamina < _maxStamina && Vector3.Distance(getRigidbody.velocity, Vector3.zero) <= _moveSpeed)
+                {
+                    _currentStamina += Time.deltaTime * _recoverStamina;
+                    if (_currentStamina > _maxStamina)
+                    {
+                        _currentStamina = _maxStamina;
+                    }
+                }
+                break;
+            case false:
+                if(_currentStamina > 0)
+                {
+                    _currentStamina = 0;
+                }
+                break;
+        }
+    }
+    public abstract void MoveStop();
+
+    public abstract void TurnStop();
+
+    public abstract bool TryAttack();
 
     public virtual bool TryTurnRight()
     {
@@ -155,38 +175,6 @@ public abstract class Character : MonoBehaviour
         return false;
     }
 
-    public virtual bool TryMoveForward()
-    {
-        if (_alive == true)
-        {
-            float speed = _moveSpeed;
-            if(_dash == true)
-            {
-                speed += _dashSpeed * staminaRate;
-                _currentStamina -= _currentStamina * _dashCost;
-            }
-            getRigidbody.MovePosition(getRigidbody.position + getTransform.forward.normalized * speed * Time.deltaTime);
-            return true;
-        }
-        return false;
-    }
-
-    public virtual bool TryMoveBackward()
-    {
-        if (_alive == true)
-        {
-            float speed = _moveSpeed;
-            if (_dash == true)
-            {
-                speed += _dashSpeed * staminaRate;
-                _currentStamina -= _currentStamina * _dashCost;
-            }
-            getRigidbody.MovePosition(getRigidbody.position - getTransform.forward.normalized * speed * _reverseRate * Time.deltaTime);
-            return true;
-        }
-        return false;
-    }
-
     public virtual bool TryJump()
     {
         if (_alive == true && Physics.Raycast(getTransform.position, Vector3.down, _jumpDistance) == true)
@@ -198,5 +186,37 @@ public abstract class Character : MonoBehaviour
         return false;
     }
 
-    public abstract bool TryAttack();
+    public virtual float GetAdvanceSpeed()
+    {
+        if (_alive == true)
+        {
+            float speed = _moveSpeed;
+            if(_dash == true)
+            {
+                speed += _dashSpeed * staminaRate;
+                _currentStamina -= _currentStamina * _dashCost;
+            }
+            Vector3 distance = getTransform.forward.normalized * speed * Time.deltaTime;
+            getRigidbody.MovePosition(getRigidbody.position + distance);
+            return distance.magnitude;
+        }
+        return 0;
+    }
+
+    public virtual float GetRetreatSpeed()
+    {
+        if (_alive == true)
+        {
+            float speed = _moveSpeed;
+            if (_dash == true)
+            {
+                speed += _dashSpeed * staminaRate;
+                _currentStamina -= _currentStamina * _dashCost;
+            }
+            Vector3 distance = getTransform.forward.normalized * speed * _reverseRate * Time.deltaTime;
+            getRigidbody.MovePosition(getRigidbody.position - distance);
+            return distance.magnitude;
+        }
+        return 0;
+    }
 }

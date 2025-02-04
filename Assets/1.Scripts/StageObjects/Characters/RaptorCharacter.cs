@@ -7,6 +7,16 @@ using UnityEngine;
 /// </summary>
 public class RaptorCharacter : Character
 {
+    public override void MoveStop()
+    {
+
+    }
+    public override void TurnStop()
+    {
+
+    }
+
+
     public override bool TryAttack()
     {
         return false;
