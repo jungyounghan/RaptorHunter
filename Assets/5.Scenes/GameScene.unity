@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 73124881}
   - component: {fileID: 73124880}
   - component: {fileID: 73124879}
+  - component: {fileID: 73124884}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -179,6 +180,8 @@ MonoBehaviour:
   _offset: {x: 0, y: 0, z: 0}
   _width: 2
   _height: 2
+  _blurSoftness: 0.2
+  _blurStrength: 5
   _gizmoColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!81 &73124881
 AudioListener:
@@ -254,6 +257,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 25, y: 0, z: 0}
+--- !u!114 &73124884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73124877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 431eeed7ea3e8a94aa1cc1b32b49c7b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _turnSpeed: 4
+  _moveSpeed: 4
+  _accelerationRate: 5
 --- !u!1001 &168898685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -432,6 +450,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4633380529286344699, guid: 9e1e6770d4e785346aaaf5287f900ce6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677453552490134948, guid: 9e1e6770d4e785346aaaf5287f900ce6, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4750831540735573091, guid: 9e1e6770d4e785346aaaf5287f900ce6, type: 3}
@@ -748,7 +770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1524497406
 Transform:
   m_ObjectHideFlags: 0
@@ -1086,6 +1108,10 @@ PrefabInstance:
     - target: {fileID: 6252114583379608693, guid: cfd0f49a0c409854ab6cec1f3b16989e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8399409456591583360, guid: cfd0f49a0c409854ab6cec1f3b16989e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
