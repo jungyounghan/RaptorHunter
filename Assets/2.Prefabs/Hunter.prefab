@@ -2586,7 +2586,7 @@ Animator:
   m_GameObject: {fileID: 5340489025596823327}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0e55d5c42cc96404f872b45455603f8b, type: 3}
-  m_Controller: {fileID: 9100000, guid: f75c2b3dc557bf94b91cf7f63ca680cd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 944cdf748d393c74a9f8da6e373d698a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2663,7 +2663,7 @@ MonoBehaviour:
   _recoverStamina: 10
   _maxStamina: 100
   _dashCost: 0.001
-  _dashSpeed: 1
+  _dashSpeed: 3
   _reverseRate: 0.5
   _moveSpeed: 4
   _turnSpeed: 4
@@ -2683,19 +2683,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a75fd8b89d79584489ba5bff254104f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _upInput:
-    keyCodes: 7700000011010000
-  _downInput:
-    keyCodes: 7300000012010000
-  _leftInput:
-    keyCodes: 6100000014010000
-  _rightInput:
-    keyCodes: 6400000013010000
-  _dashInput:
-    keyCodes: 300100002f010000
-  _attackInput:
-    keyCodes: 43010000
-  _jumpKeyCodes: 20000000
 --- !u!1 &5735015372669508516
 GameObject:
   m_ObjectHideFlags: 0

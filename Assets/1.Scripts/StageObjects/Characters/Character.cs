@@ -12,7 +12,7 @@ public abstract class Character : MonoBehaviour
 
     private Transform _transform = null;
 
-    private Transform getTransform {
+    protected Transform getTransform {
         get
         {
             if (_hasTransform == false)
@@ -21,6 +21,22 @@ public abstract class Character : MonoBehaviour
                 _transform = transform;
             }
             return _transform;
+        }
+    }
+
+    private bool _hasAnimator = false;
+
+    private Animator _animator = null;
+
+    protected Animator getAnimator {
+        get
+        {
+            if (_hasAnimator == false)
+            {
+                _hasAnimator = true;
+                _animator = GetComponent<Animator>();
+            }
+            return _animator;
         }
     }
 
@@ -40,22 +56,6 @@ public abstract class Character : MonoBehaviour
         }
     }
 
-    private bool _hasAnimator = false;
-
-    private Animator _animator = null;
-
-    protected Animator getAnimator {
-        get
-        {
-            if(_hasAnimator == false)
-            {
-                _hasAnimator = true;
-                _animator = GetComponent<Animator>();
-            }
-            return _animator;
-        }
-    }
-
     private bool _alive = true;
 
     public bool alive {
@@ -72,7 +72,7 @@ public abstract class Character : MonoBehaviour
     private bool _dash = false;
 
     public bool dash {
-        private get
+        protected get
         {
             return _dash;
         }
@@ -90,21 +90,21 @@ public abstract class Character : MonoBehaviour
     }
 
     [SerializeField]
-    private float _currentStamina = 0;
+    protected float _currentStamina = 0;
     [Header("스태미나 회복력"), SerializeField, Range(float.Epsilon, byte.MaxValue)]
     private float _recoverStamina = 10;
     [Header("스태미나 최대치"), SerializeField, Range(float.Epsilon, byte.MaxValue)]
     private float _maxStamina = 100;
     [Header("돌진 기본 비용"), SerializeField, Range(0, 1)]
-    private float _dashCost = 0.01f;
+    protected float _dashCost = 0.01f;
     [Header("돌진 기본 속도"), SerializeField, Range(float.Epsilon, byte.MaxValue)]
-    private float _dashSpeed = 1;
+    protected float _dashSpeed = 1;
     [Header("후진 속도 비율"), SerializeField, Range(0, 1)]
-    private float _reverseRate = 0.5f;
+    protected float _reverseRate = 0.5f;
     [Header("기본 이동 속도"), SerializeField, Range(0, byte.MaxValue)]
     private float _moveSpeed = 4;
     [Header("기본 회전 속도"), SerializeField, Range(0, byte.MaxValue)]
-    private float _turnSpeed = 4;
+    protected float _turnSpeed = 4;
     [Header("도약 기본 비용"), SerializeField, Range(0, 1)]
     private float _jumpCost = 0.1f;
     [Header("도약 기본 속도"), SerializeField, Range(0, byte.MaxValue)]
@@ -149,11 +149,17 @@ public abstract class Character : MonoBehaviour
                 break;
         }
     }
+
+    public abstract void Move(float value);
+
+    public abstract void Turn(float value);
+
     public abstract void MoveStop();
 
     public abstract void TurnStop();
 
     public abstract bool TryAttack();
+
 
     public virtual bool TryTurnRight()
     {

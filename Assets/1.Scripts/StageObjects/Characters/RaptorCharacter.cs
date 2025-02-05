@@ -7,6 +7,16 @@ using UnityEngine;
 /// </summary>
 public class RaptorCharacter : Character
 {
+    public override void Move(float value)
+    {
+
+    }
+
+    public override void Turn(float value)
+    {
+
+    }
+
     public override void MoveStop()
     {
 
