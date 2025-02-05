@@ -53,21 +53,24 @@ public sealed class InputController : Controller
 
     private void CheckKey(ref KeyCode[] keyCodes)
     {
-        List<KeyCode> list = new List<KeyCode>();
-        int length = keyCodes.Length;
-        for (int i = 0; i < length; i++)
+        if (keyCodes != null)
         {
-            KeyCode keyCode = keyCodes[i];
-            if (list.Contains(keyCode) == false)
+            List<KeyCode> list = new List<KeyCode>();
+            int length = keyCodes.Length;
+            for (int i = 0; i < length; i++)
             {
-                list.Add(keyCode);
+                KeyCode keyCode = keyCodes[i];
+                if (list.Contains(keyCode) == false)
+                {
+                    list.Add(keyCode);
+                }
+                else if (i == length - 1)
+                {
+                    list.Add(KeyCode.None);
+                }
             }
-            else if(i == length - 1)
-            {
-                list.Add(KeyCode.None);
-            }
+            keyCodes = list.ToArray();
         }
-        keyCodes = list.ToArray();
     }
 
 #endif

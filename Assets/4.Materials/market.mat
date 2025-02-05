@@ -88,7 +88,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _ClipCenter: {r: 0, g: 0, b: 0, a: 0}
-    - _ClipMax: {r: 1, g: 1, b: 1, a: 0}
+    - _ClipMax: {r: 0, g: 0, b: 0, a: 0}
     - _ClipMin: {r: 0, g: 0, b: 0, a: 0}
     - _ClipRotRow0: {r: 1, g: 0, b: 0, a: 0}
     - _ClipRotRow1: {r: 0, g: 1, b: 0, a: 0}

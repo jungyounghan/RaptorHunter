@@ -43,18 +43,16 @@ public sealed class Revealer : MonoBehaviour
 
 #if UNITY_EDITOR
     [Header("충돌선 표시 색깔"), SerializeField]
-    private Color _gizmoColor = Color.blue;
+    private Color _gizmoColor = Color.green;
 
     private void OnDrawGizmos()
     {
         if (_target != null)
         {
             Vector3 start = getTransform.position;
-            Vector3 end = _target.position + _offset;
-            Quaternion rotation = Quaternion.LookRotation(end - start);
             Gizmos.color = _gizmoColor;
-            Gizmos.matrix = Matrix4x4.TRS((start + end) * 0.5f, rotation, Vector3.one);
-            Gizmos.DrawWireCube(Vector3.zero, _size/*new Vector3(_width, _height, Vector3.Distance(start, end))*/);
+            Gizmos.matrix = Matrix4x4.TRS(start, Quaternion.LookRotation((_target.position + _offset) - start), Vector3.one);
+            Gizmos.DrawWireCube(new Vector3(0, 0, _size.z * 0.5f), _size);
         }
     }
 
@@ -80,11 +78,11 @@ public sealed class Revealer : MonoBehaviour
         if (_target != null)
         {
             Vector3 start = getTransform.position;
-            Vector3 end = _target.position + _offset;
-            Vector3 center = (start + end) * 0.5f;
-            Quaternion rotation = Quaternion.LookRotation(end - start);
-            Vector3 halfSize = _size * 0.5f;//new Vector3(_width * 0.5f, _height * 0.5f, Vector3.Distance(start, end) * 0.5f);
-            Matrix4x4 rotMatrix = Matrix4x4.TRS(Vector3.zero, rotation, Vector3.one);
+            Vector3 direction = (_target.position + _offset) - start;
+            Vector3 halfSize = _size * 0.5f;
+            Vector3 center = start + direction.normalized * halfSize.z;
+            Quaternion rotation = Quaternion.LookRotation(direction);
+            Matrix4x4 rotMatrix = Matrix4x4.TRS(center, rotation, Vector3.one);
             List<Material> list = new List<Material>();
             Collider[] colliders = Physics.OverlapBox(center, halfSize, rotation, _layerMask);
             foreach (Collider collider in colliders)

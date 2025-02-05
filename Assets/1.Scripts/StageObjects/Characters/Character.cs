@@ -3,8 +3,8 @@ using UnityEngine;
 /// <summary>
 /// 조종 가능한 추상 캐릭터 클래스
 /// </summary>
-[RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Rigidbody))]
 [DisallowMultipleComponent]
 public abstract class Character : MonoBehaviour
 {
