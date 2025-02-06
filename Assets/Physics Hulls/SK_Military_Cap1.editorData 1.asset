@@ -1,0 +1,1293 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d507e28e164ca43927bfa73379f646, type: 3}
+  m_Name: SK_Military_Cap1.editorData 1
+  m_EditorClassIdentifier: 
+  runtimeData: {fileID: 11400000, guid: 3a884032c327f5044960fcf1c46a8957, type: 2}
+  defaultAddRigidbody: 1
+  defaultMass: 1
+  defaultLinearDrag: 0
+  defaultAngularDrag: 0.05
+  defaultLinearDamping: 0
+  defaultAngularDamping: 0
+  defaultMaterial: {fileID: 0}
+  defaultColliderType: 0
+  defaultIsTrigger: 0
+  defaultMaxPlanes: 255
+  boneData:
+  - targetBoneName: root
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: pelvis
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: spine_01
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: spine_02
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: spine_03
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: clavicle_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: upperarm_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: lowerarm_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: hand_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: index_01_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: index_02_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: index_03_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: middle_01_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: middle_02_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: middle_03_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: pinky_01_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: pinky_02_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: pinky_03_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: ring_01_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: ring_02_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: ring_03_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: thumb_01_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: thumb_02_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: thumb_03_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: lowerarm_twist_01_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: upperarm_twist_01_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: clavicle_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: upperarm_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: lowerarm_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: hand_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: index_01_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: index_02_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: index_03_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: middle_01_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: middle_02_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: middle_03_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: pinky_01_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: pinky_02_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: pinky_03_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: ring_01_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: ring_02_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: ring_03_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: thumb_01_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: thumb_02_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: thumb_03_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: lowerarm_twist_01_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: upperarm_twist_01_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: neck_01
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: head
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: thigh_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: calf_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: calf_twist_01_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: foot_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: ball_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: thigh_twist_01_l
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: thigh_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: calf_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: calf_twist_01_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: foot_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: ball_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: thigh_twist_01_r
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  boneHullData:
+  - targetBoneName: head
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0, g: 1, b: 1, a: 0.7}
+    hullMesh: {fileID: -1145404219910717429, guid: 3a884032c327f5044960fcf1c46a8957, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 390100003a0100003b0100003c0100003d0100003e0100003f010000400100004101000042010000430100004401000045010000460100004701000048010000490100004a0100004b0100004c0100004d0100004e0100004f0100005001000010010000110100000f0100000e01000032010000330100003001000012010000340100000d010000350100001301000036010000140100000c010000370100001501000016010000310100002e0100002f0100002d0100002c0100002a0100002b0100002901000028010000260100002701000025010000240100001701000022010000180100002001000021010000230100001f010000190100001e0100001d0100001a0100001c0100001b010000680100005101000038010000
+    cachedTriangleVertices:
+    - {x: -0.08231273, y: 1.7897968, z: 0.04345541}
+    - {x: -0.08019451, y: 1.777881, z: 0.08510169}
+    - {x: -0.074747495, y: 1.7925148, z: 0.060799334}
+    - {x: -0.074747495, y: 1.7925148, z: 0.060799334}
+    - {x: -0.08019451, y: 1.777881, z: 0.08510169}
+    - {x: -0.07615969, y: 1.7759833, z: 0.10750495}
+    - {x: -0.074747495, y: 1.7925148, z: 0.060799334}
+    - {x: -0.07615969, y: 1.7759833, z: 0.10750495}
+    - {x: -0.06556834, y: 1.7980641, z: 0.07387279}
+    - {x: -0.06556834, y: 1.7980641, z: 0.07387279}
+    - {x: -0.07615969, y: 1.7759833, z: 0.10750495}
+    - {x: -0.067888364, y: 1.7787105, z: 0.1250504}
+    - {x: -0.06556834, y: 1.7980641, z: 0.07387279}
+    - {x: -0.067888364, y: 1.7787105, z: 0.1250504}
+    - {x: -0.050347965, y: 1.8020976, z: 0.08654562}
+    - {x: -0.050347965, y: 1.8020976, z: 0.08654562}
+    - {x: -0.067888364, y: 1.7787105, z: 0.1250504}
+    - {x: -0.05497691, y: 1.7823597, z: 0.13851427}
+    - {x: -0.050347965, y: 1.8020976, z: 0.08654562}
+    - {x: -0.05497691, y: 1.7823597, z: 0.13851427}
+    - {x: -0.037324704, y: 1.8049415, z: 0.09385253}
+    - {x: -0.037324704, y: 1.8049415, z: 0.09385253}
+    - {x: -0.05497691, y: 1.7823597, z: 0.13851427}
+    - {x: -0.037728146, y: 1.7857172, z: 0.1478515}
+    - {x: -0.037324704, y: 1.8049415, z: 0.09385253}
+    - {x: -0.037728146, y: 1.7857172, z: 0.1478515}
+    - {x: -0.019268904, y: 1.8060707, z: 0.09864743}
+    - {x: -0.019268904, y: 1.8060707, z: 0.09864743}
+    - {x: -0.037728146, y: 1.7857172, z: 0.1478515}
+    - {x: -0.019571561, y: 1.7878315, z: 0.15209618}
+    - {x: -0.019268904, y: 1.8060707, z: 0.09864743}
+    - {x: -0.019571561, y: 1.7878315, z: 0.15209618}
+    - {x: -0.00060793874, y: 1.8061403, z: 0.10015887}
+    - {x: -0.00060793874, y: 1.8061403, z: 0.10015887}
+    - {x: -0.019571561, y: 1.7878315, z: 0.15209618}
+    - {x: -0.001112318, y: 1.7870271, z: 0.15435472}
+    - {x: 0.017246066, y: 1.7859864, z: 0.15369578}
+    - {x: -0.00060793874, y: 1.8061403, z: 0.10015887}
+    - {x: -0.001112318, y: 1.7870271, z: 0.15435472}
+    - {x: 0.018153887, y: 1.8051643, z: 0.09868918}
+    - {x: -0.00060793874, y: 1.8061403, z: 0.10015887}
+    - {x: 0.017246066, y: 1.7859864, z: 0.15369578}
+    - {x: 0.035301864, y: 1.78373, z: 0.14854884}
+    - {x: 0.018153887, y: 1.8051643, z: 0.09868918}
+    - {x: 0.017246066, y: 1.7859864, z: 0.15369578}
+    - {x: 0.03600789, y: 1.8029219, z: 0.093844555}
+    - {x: 0.018153887, y: 1.8051643, z: 0.09868918}
+    - {x: 0.035301864, y: 1.78373, z: 0.14854884}
+    - {x: 0.05244977, y: 1.7793739, z: 0.13945954}
+    - {x: 0.03600789, y: 1.8029219, z: 0.093844555}
+    - {x: 0.035301864, y: 1.78373, z: 0.14854884}
+    - {x: 0.05164281, y: 1.7985835, z: 0.085158296}
+    - {x: 0.03600789, y: 1.8029219, z: 0.093844555}
+    - {x: 0.05244977, y: 1.7793739, z: 0.13945954}
+    - {x: 0.06505857, y: 1.7747993, z: 0.12563436}
+    - {x: 0.05164281, y: 1.7985835, z: 0.085158296}
+    - {x: 0.05244977, y: 1.7793739, z: 0.13945954}
+    - {x: 0.063848086, y: 1.794134, z: 0.07405373}
+    - {x: 0.05164281, y: 1.7985835, z: 0.085158296}
+    - {x: 0.06505857, y: 1.7747993, z: 0.12563436}
+    - {x: 0.07312817, y: 1.7729096, z: 0.10653571}
+    - {x: 0.063848086, y: 1.794134, z: 0.07405373}
+    - {x: 0.06505857, y: 1.7747993, z: 0.12563436}
+    - {x: 0.07302731, y: 1.7885847, z: 0.060980245}
+    - {x: 0.063848086, y: 1.794134, z: 0.07405373}
+    - {x: 0.07312817, y: 1.7729096, z: 0.10653571}
+    - {x: 0.0775665, y: 1.7739601, z: 0.08548413}
+    - {x: 0.07302731, y: 1.7885847, z: 0.060980245}
+    - {x: 0.07312817, y: 1.7729096, z: 0.10653571}
+    - {x: 0.081903875, y: 1.7868208, z: 0.04460221}
+    - {x: 0.07302731, y: 1.7885847, z: 0.060980245}
+    - {x: 0.0775665, y: 1.7739601, z: 0.08548413}
+    - {x: 0.03570531, y: 1.7807429, z: 0.1472727}
+    - {x: 0.046397522, y: 1.8103559, z: 0.040388368}
+    - {x: 0.052248046, y: 1.7764516, z: 0.13959408}
+    - {x: 0.017851304, y: 1.7829902, z: 0.1522181}
+    - {x: 0.046397522, y: 1.8103559, z: 0.040388368}
+    - {x: 0.03570531, y: 1.7807429, z: 0.1472727}
+    - {x: 0.052248046, y: 1.7764516, z: 0.13959408}
+    - {x: 0.046397522, y: 1.8103559, z: 0.040388368}
+    - {x: 0.0644534, y: 1.7708974, z: 0.12641987}
+    - {x: 0.0644534, y: 1.7708974, z: 0.12641987}
+    - {x: 0.046397522, y: 1.8103559, z: 0.040388368}
+    - {x: 0.072321214, y: 1.769059, z: 0.10842961}
+    - {x: 0.072321214, y: 1.769059, z: 0.10842961}
+    - {x: 0.06505857, y: 1.7747993, z: 0.12563436}
+    - {x: 0.0644534, y: 1.7708974, z: 0.12641987}
+    - {x: 0.07312817, y: 1.7729096, z: 0.10653571}
+    - {x: 0.06505857, y: 1.7747993, z: 0.12563436}
+    - {x: 0.072321214, y: 1.769059, z: 0.10842961}
+    - {x: 0.05244977, y: 1.7793739, z: 0.13945954}
+    - {x: 0.052248046, y: 1.7764516, z: 0.13959408}
+    - {x: 0.06505857, y: 1.7747993, z: 0.12563436}
+    - {x: 0.017851304, y: 1.7829902, z: 0.1522181}
+    - {x: -0.0012131786, y: 1.7839478, z: 0.15328474}
+    - {x: 0.046397522, y: 1.8103559, z: 0.040388368}
+    - {x: 0.07675954, y: 1.7709596, z: 0.0839057}
+    - {x: 0.07312817, y: 1.7729096, z: 0.10653571}
+    - {x: 0.072321214, y: 1.769059, z: 0.10842961}
+    - {x: 0.072321214, y: 1.769059, z: 0.10842961}
+    - {x: 0.046397522, y: 1.8103559, z: 0.040388368}
+    - {x: 0.07675954, y: 1.7709596, z: 0.0839057}
+    - {x: 0.0775665, y: 1.7739601, z: 0.08548413}
+    - {x: 0.07312817, y: 1.7729096, z: 0.10653571}
+    - {x: 0.07675954, y: 1.7709596, z: 0.0839057}
+    - {x: 0.046397522, y: 1.8103559, z: 0.040388368}
+    - {x: -0.0012131786, y: 1.7839478, z: 0.15328474}
+    - {x: -0.046806514, y: 1.8152663, z: 0.03955646}
+    - {x: 0.0775665, y: 1.7739601, z: 0.08548413}
+    - {x: 0.07675954, y: 1.7709596, z: 0.0839057}
+    - {x: 0.081903875, y: 1.7868208, z: 0.04460221}
+    - {x: -0.020479383, y: 1.783841, z: 0.15096718}
+    - {x: -0.046806514, y: 1.8152663, z: 0.03955646}
+    - {x: -0.0012131786, y: 1.7839478, z: 0.15328474}
+    - {x: 0.046397522, y: 1.8103559, z: 0.040388368}
+    - {x: 0.08022823, y: 1.7866999, z: 0.04425586}
+    - {x: 0.07675954, y: 1.7709596, z: 0.0839057}
+    - {x: 0.081903875, y: 1.7868208, z: 0.04460221}
+    - {x: 0.07675954, y: 1.7709596, z: 0.0839057}
+    - {x: 0.08022823, y: 1.7866999, z: 0.04425586}
+    - {x: -0.03843425, y: 1.7827028, z: 0.14597075}
+    - {x: -0.046806514, y: 1.8152663, z: 0.03955646}
+    - {x: -0.020479383, y: 1.783841, z: 0.15096718}
+    - {x: -0.055077773, y: 1.7793226, z: 0.13835114}
+    - {x: -0.046806514, y: 1.8152663, z: 0.03955646}
+    - {x: -0.03843425, y: 1.7827028, z: 0.14597075}
+    - {x: 0.06505857, y: 1.7747993, z: 0.12563436}
+    - {x: 0.052248046, y: 1.7764516, z: 0.13959408}
+    - {x: 0.0644534, y: 1.7708974, z: 0.12641987}
+    - {x: 0.035301864, y: 1.78373, z: 0.14854884}
+    - {x: 0.03570531, y: 1.7807429, z: 0.1472727}
+    - {x: 0.05244977, y: 1.7793739, z: 0.13945954}
+    - {x: 0.05244977, y: 1.7793739, z: 0.13945954}
+    - {x: 0.03570531, y: 1.7807429, z: 0.1472727}
+    - {x: 0.052248046, y: 1.7764516, z: 0.13959408}
+    - {x: 0.035301864, y: 1.78373, z: 0.14854884}
+    - {x: 0.017851304, y: 1.7829902, z: 0.1522181}
+    - {x: 0.03570531, y: 1.7807429, z: 0.1472727}
+    - {x: 0.017246066, y: 1.7859864, z: 0.15369578}
+    - {x: 0.017851304, y: 1.7829902, z: 0.1522181}
+    - {x: 0.035301864, y: 1.78373, z: 0.14854884}
+    - {x: -0.001112318, y: 1.7870271, z: 0.15435472}
+    - {x: -0.0012131786, y: 1.7839478, z: 0.15328474}
+    - {x: 0.017246066, y: 1.7859864, z: 0.15369578}
+    - {x: 0.017246066, y: 1.7859864, z: 0.15369578}
+    - {x: -0.0012131786, y: 1.7839478, z: 0.15328474}
+    - {x: 0.017851304, y: 1.7829902, z: 0.1522181}
+    - {x: -0.001112318, y: 1.7870271, z: 0.15435472}
+    - {x: -0.019571561, y: 1.7878315, z: 0.15209618}
+    - {x: -0.0012131786, y: 1.7839478, z: 0.15328474}
+    - {x: -0.0012131786, y: 1.7839478, z: 0.15328474}
+    - {x: -0.019571561, y: 1.7878315, z: 0.15209618}
+    - {x: -0.020479383, y: 1.783841, z: 0.15096718}
+    - {x: -0.020479383, y: 1.783841, z: 0.15096718}
+    - {x: -0.037728146, y: 1.7857172, z: 0.1478515}
+    - {x: -0.03843425, y: 1.7827028, z: 0.14597075}
+    - {x: -0.019571561, y: 1.7878315, z: 0.15209618}
+    - {x: -0.037728146, y: 1.7857172, z: 0.1478515}
+    - {x: -0.020479383, y: 1.783841, z: 0.15096718}
+    - {x: -0.037728146, y: 1.7857172, z: 0.1478515}
+    - {x: -0.05497691, y: 1.7823597, z: 0.13851427}
+    - {x: -0.03843425, y: 1.7827028, z: 0.14597075}
+    - {x: -0.03843425, y: 1.7827028, z: 0.14597075}
+    - {x: -0.05497691, y: 1.7823597, z: 0.13851427}
+    - {x: -0.055077773, y: 1.7793226, z: 0.13835114}
+    - {x: -0.067182265, y: 1.77576, z: 0.124580346}
+    - {x: -0.046806514, y: 1.8152663, z: 0.03955646}
+    - {x: -0.055077773, y: 1.7793226, z: 0.13835114}
+    - {x: -0.055077773, y: 1.7793226, z: 0.13835114}
+    - {x: -0.067888364, y: 1.7787105, z: 0.1250504}
+    - {x: -0.067182265, y: 1.77576, z: 0.124580346}
+    - {x: -0.074949294, y: 1.7739314, z: 0.1067916}
+    - {x: -0.046806514, y: 1.8152663, z: 0.03955646}
+    - {x: -0.067182265, y: 1.77576, z: 0.124580346}
+    - {x: -0.067182265, y: 1.77576, z: 0.124580346}
+    - {x: -0.07615969, y: 1.7759833, z: 0.10750495}
+    - {x: -0.074949294, y: 1.7739314, z: 0.1067916}
+    - {x: -0.067888364, y: 1.7787105, z: 0.1250504}
+    - {x: -0.07615969, y: 1.7759833, z: 0.10750495}
+    - {x: -0.067182265, y: 1.77576, z: 0.124580346}
+    - {x: -0.05497691, y: 1.7823597, z: 0.13851427}
+    - {x: -0.067888364, y: 1.7787105, z: 0.1250504}
+    - {x: -0.055077773, y: 1.7793226, z: 0.13835114}
+    - {x: -0.08019451, y: 1.777881, z: 0.08510169}
+    - {x: -0.074949294, y: 1.7739314, z: 0.1067916}
+    - {x: -0.07615969, y: 1.7759833, z: 0.10750495}
+    - {x: -0.07858058, y: 1.7767433, z: 0.082326695}
+    - {x: -0.046806514, y: 1.8152663, z: 0.03955646}
+    - {x: -0.074949294, y: 1.7739314, z: 0.1067916}
+    - {x: -0.07858058, y: 1.7767433, z: 0.082326695}
+    - {x: -0.074949294, y: 1.7739314, z: 0.1067916}
+    - {x: -0.08019451, y: 1.777881, z: 0.08510169}
+    - {x: -0.08231273, y: 1.7897968, z: 0.04345541}
+    - {x: -0.07858058, y: 1.7767433, z: 0.082326695}
+    - {x: -0.08019451, y: 1.777881, z: 0.08510169}
+    - {x: -0.07954798, y: 1.788678, z: 0.042620912}
+    - {x: -0.046806514, y: 1.8152663, z: 0.03955646}
+    - {x: -0.07858058, y: 1.7767433, z: 0.082326695}
+    - {x: -0.07954798, y: 1.788678, z: 0.042620912}
+    - {x: -0.07858058, y: 1.7767433, z: 0.082326695}
+    - {x: -0.08231273, y: 1.7897968, z: 0.04345541}
+    - {x: -0.08389439, y: 1.7866175, z: 0.018256573}
+    - {x: -0.07954798, y: 1.788678, z: 0.042620912}
+    - {x: -0.08231273, y: 1.7897968, z: 0.04345541}
+    - {x: -0.07954798, y: 1.788678, z: 0.042620912}
+    - {x: -0.08389439, y: 1.7866175, z: 0.018256573}
+    - {x: -0.046806514, y: 1.8152663, z: 0.03955646}
+    - {x: 0.08022823, y: 1.7866999, z: 0.04425586}
+    - {x: 0.046397522, y: 1.8103559, z: 0.040388368}
+    - {x: 0.08661643, y: 1.7873116, z: 0.016296823}
+    - {x: 0.081903875, y: 1.7868208, z: 0.04460221}
+    - {x: 0.08022823, y: 1.7866999, z: 0.04425586}
+    - {x: 0.08661643, y: 1.7873116, z: 0.016296823}
+  sourceMesh: {fileID: 6625263807930785595, guid: 0e55d5c42cc96404f872b45455603f8b, type: 3}
+  sourceMeshHash:
+    data: 8a2078ae30a8d0e035980f7ae53f3b86feaf9be8
+  suppressMeshModificationWarning: 0

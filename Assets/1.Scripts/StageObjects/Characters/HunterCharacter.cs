@@ -18,19 +18,19 @@ public sealed class HunterCharacter : Character
                 getAnimator.SetFloat(MoveFloat, value * 2);
                 if (value >= 0)
                 {
-                    value += _dashSpeed * staminaRate;
+                    value *= (_moveSpeed + _dashSpeed) * staminaRate;
                 }
                 else
                 {
-                    value -= _dashSpeed * staminaRate * _reverseRate;
+                    value *= -(_moveSpeed + _dashSpeed) * staminaRate * _reverseRate;
                 }
                 _currentStamina -= _currentStamina * _dashCost;
             }
             else
             {
                 getAnimator.SetFloat(MoveFloat, value);
+                value *= _moveSpeed;
             }
-            //Debug.Log(value);
             //getRigidbody.MovePosition(getRigidbody.position + getTransform.forward.normalized * value * Time.deltaTime);
         }
     }
@@ -40,7 +40,7 @@ public sealed class HunterCharacter : Character
         if(alive == true)
         {
             getAnimator.SetFloat(TurnFloat, value);
-           // getRigidbody.MoveRotation(getRigidbody.rotation * Quaternion.Euler(0, value * _turnSpeed * Mathf.Rad2Deg * Time.deltaTime, 0));
+            //getRigidbody.MoveRotation(getRigidbody.rotation * Quaternion.Euler(0, value * _turnSpeed * Mathf.Rad2Deg * Time.deltaTime, 0));
         }
     }
 

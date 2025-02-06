@@ -37,25 +37,26 @@ public class Follower : MonoBehaviour
     private Transform _target = null;
 
     [Header("멀어질 거리"), SerializeField, Range(2.0f, 20)]
-    private float _distance = 10.0f;
+    private float _distance = 3.5f;
 
     [Header("높이"), SerializeField, Range(0, 10)]
-    private float height = 2.0f;
+    private float height = 3.0f;
 
     [Header("오프셋"), SerializeField, Range(0.5f, 15.0f)]
     private float _offset = 2.0f;
 
     [Header("보간 속도"), SerializeField, Range(float.Epsilon, 20)]
-    private float _speed = 1;
+    private float _speed = 1.0f;
 
     private void LateUpdate()
     {
         if (_target != null)
         {
-            getTransform.position = Vector3.Lerp(getTransform.position, _target.position + (-_target.forward * _distance) + (Vector3.up * height), _speed * Time.deltaTime);
-            //getTransform.LookAt(_target.position + _target.up * _offset);
-            Quaternion targetRotation = Quaternion.LookRotation((_target.position + _target.up * _offset) - getTransform.position);
-            getTransform.rotation = Quaternion.Slerp(getTransform.rotation, targetRotation, _speed * Time.deltaTime);
+            float deltaTime = Time.deltaTime;
+            Vector3 pivot = getTransform.position;
+            Vector3 focus = _target.position;
+            getTransform.position = Vector3.Lerp(pivot, focus + (-_target.forward * _distance) + (Vector3.up * height), _speed * deltaTime);
+            getTransform.rotation = Quaternion.Slerp(getTransform.rotation, Quaternion.LookRotation((focus + _target.up * _offset) - pivot), _speed * deltaTime);
         }
     }
 }

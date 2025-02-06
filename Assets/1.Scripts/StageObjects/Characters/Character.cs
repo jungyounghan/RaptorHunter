@@ -4,7 +4,6 @@ using UnityEngine;
 /// 조종 가능한 추상 캐릭터 클래스
 /// </summary>
 [RequireComponent(typeof(Animator))]
-//[RequireComponent(typeof(Rigidbody))]
 [DisallowMultipleComponent]
 public abstract class Character : MonoBehaviour
 {
@@ -102,7 +101,7 @@ public abstract class Character : MonoBehaviour
     [Header("후진 속도 비율"), SerializeField, Range(0, 1)]
     protected float _reverseRate = 0.5f;
     [Header("기본 이동 속도"), SerializeField, Range(0, byte.MaxValue)]
-    private float _moveSpeed = 4;
+    protected float _moveSpeed = 4;
     [Header("기본 회전 속도"), SerializeField, Range(0, byte.MaxValue)]
     protected float _turnSpeed = 4;
     [Header("도약 기본 비용"), SerializeField, Range(0, 1)]
