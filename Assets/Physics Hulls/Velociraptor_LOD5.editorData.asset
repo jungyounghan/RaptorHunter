@@ -1,0 +1,4205 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d507e28e164ca43927bfa73379f646, type: 3}
+  m_Name: Velociraptor_LOD5.editorData
+  m_EditorClassIdentifier: 
+  runtimeData: {fileID: 11400000, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+  defaultAddRigidbody: 1
+  defaultMass: 1
+  defaultLinearDrag: 0
+  defaultAngularDrag: 0.05
+  defaultLinearDamping: 0
+  defaultAngularDamping: 0
+  defaultMaterial: {fileID: 0}
+  defaultColliderType: 0
+  defaultIsTrigger: 0
+  defaultMaxPlanes: 255
+  boneData:
+  - targetBoneName: Root
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Spine_1
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Spine_2
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Spine_3
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Neck_1
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Neck_2
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Neck_3
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Head
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Eye.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Eye.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Jaw_1
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Jaw_2
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Tongue_1
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Tongue_2
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Tongue_3
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Tongue_4
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Shoulder.R
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: UpperArm.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: LowerArm.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Hand.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: PinkyFinger1.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: PinkyFinger2.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: PinkyFinger3.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: MiddleFinger1.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: MiddleFinger2.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: MiddleFinger3.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: ForeFinger1.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: ForeFinger2.R
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: ForeFinger3.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Shoulder.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: UpperArm.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: LowerArm.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Hand.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: PinkyFinger1.L
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: PinkyFinger2.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: PinkyFinger3.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: MiddleFinger1.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: MiddleFinger2.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: MiddleFinger3.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: ForeFinger1.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: ForeFinger2.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: ForeFinger3.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Breast.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Breast.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Pelvis.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Hip.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: UpperLeg.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: LowerLeg.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Ankle.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Foot.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: PinkyToe1.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: PinkyToe2.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: MiddleToe1.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: MiddleToe2.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: BigToe1.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: BigToe2.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: BigToe3.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Tail_1
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Tail_2
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Tail_3
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Tail_4
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Tail_5
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Tail_6
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Tail_7
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Tail_8
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Tail_9
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Tail_10
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Thigh.R
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Pelvis.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Hip.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: UpperLeg.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: LowerLeg.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Ankle.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Foot.L
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: PinkyToe1.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: PinkyToe2.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: MiddleToe1.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: MiddleToe2.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: BigToe1.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: BigToe2.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: BigToe3.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Thigh.L
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 1
+    addJoint: 0
+    jointType: 2
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Tail_IK
+    addRigidbody: 1
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: Tongue_IK
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: FootIK.R
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  - targetBoneName: FootIK.L
+    addRigidbody: 0
+    mass: 1
+    linearDrag: 0
+    angularDrag: 0.05
+    isKinematic: 0
+    addJoint: 0
+    jointType: 0
+    primaryAxis: {x: 0, y: 0, z: 1}
+    secondaryAxis: {x: 0, y: 1, z: 0}
+    primaryLowerAngularLimit: 0
+    primaryUpperAngularLimit: 0
+    secondaryAngularLimit: 0
+    tertiaryAngularLimit: 0
+    translationLimit: 0
+    linearDamping: 0
+    angularDamping: 0
+  boneHullData:
+  - targetBoneName: Eye.R
+    type: 0
+    colliderType: 0
+    previewColour: {r: 0, g: 1, b: 0, a: 0.7}
+    hullMesh: {fileID: -2843151515326599598, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 1
+    selectedFaces: 
+    cachedTriangleVertices: []
+  - targetBoneName: Eye.L
+    type: 0
+    colliderType: 0
+    previewColour: {r: 1, g: 0.5, b: 0, a: 0.7}
+    hullMesh: {fileID: -1278876601131623495, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0.4
+    maxThreshold: 1
+    selectedFaces: 
+    cachedTriangleVertices: []
+  - targetBoneName: Tongue_4
+    type: 0
+    colliderType: 0
+    previewColour: {r: 1, g: 0, b: 0.5, a: 0.7}
+    hullMesh: {fileID: 0}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0.4
+    maxThreshold: 1
+    selectedFaces: 
+    cachedTriangleVertices: []
+  - targetBoneName: Head
+    type: 1
+    colliderType: 0
+    previewColour: {r: 1, g: 0, b: 0.5, a: 0.7}
+    hullMesh: {fileID: 1857282294542578438, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 450200004402000048020000530200004f02000046020000540200005202000059020000570200005502000056020000c1010000c30100005802000034000000c2010000510200004e020000d0000000e5020000d1000000500200003c0200003a0200003d0200003f0200003c00000038020000e801000048000000e9010000ea010000ab020000a6020000a90200004002000058000000e0010000e20100001f00000039020000570000005c000000e401000040000000440000005b000000360200008a000000370200005d000000830000007700000035020000ea020000340200003b020000e90200003302000008010000c602000007010000e80200003e020000420200004302000047020000e101000023000000410000006d00000090000000e3010000880000006600000081000000e5010000e70100006c00000097000000e601000078000000490200004a0200004b0200004d0200004c0200000c0100000a0100000b01000009010000d40000005a020000a5020000a402000084000000170000001a00000011000000240000007200000020000000e40200001c00000019000000160000001400000022000000450000001000000053000000560000004e000000490000004b0000005100000046000000520000004c0000007d000000730000007b00000086000000690000008c0000007e000000760000007c0000006a0000007000000082000000940000009a0000007f000000790000004f00000055000000260000005a000000c5020000e602000047000000430000005e00000050000000150000004a00000018000000130000008f00000092000000980000004d0000001d0000002500000012000000870000006700000091000000420000005400000065000000710000006b000000960000005900000080000000680000006e0000007a000000740000001b000000750000006f0000001e00000021000000890000008b000000990000008e0000005b02000041020000
+    cachedTriangleVertices:
+    - {x: -0.27441627, y: 7.432714, z: -5.231795}
+    - {x: -0.08483945, y: 6.954523, z: -5.563629}
+    - {x: -0.2560775, y: 6.9091783, z: -5.3738313}
+    - {x: -0.039268125, y: 7.4052987, z: -5.493936}
+    - {x: -0.08483945, y: 6.954523, z: -5.563629}
+    - {x: -0.27441627, y: 7.432714, z: -5.231795}
+    - {x: 0.020506691, y: 7.5856915, z: -5.1327252}
+    - {x: -0.039268125, y: 7.4052987, z: -5.493936}
+    - {x: -0.27441627, y: 7.432714, z: -5.231795}
+    - {x: -0.47200122, y: 7.4280076, z: -4.3743863}
+    - {x: -0.27441627, y: 7.432714, z: -5.231795}
+    - {x: -0.414286, y: 6.962216, z: -4.769103}
+    - {x: -0.20793372, y: 7.892802, z: -4.248346}
+    - {x: 0.020506691, y: 7.5856915, z: -5.1327252}
+    - {x: -0.27441627, y: 7.432714, z: -5.231795}
+    - {x: -0.27441627, y: 7.432714, z: -5.231795}
+    - {x: -0.2560775, y: 6.9091783, z: -5.3738313}
+    - {x: -0.414286, y: 6.962216, z: -4.769103}
+    - {x: -0.27441627, y: 7.432714, z: -5.231795}
+    - {x: -0.47200122, y: 7.4280076, z: -4.3743863}
+    - {x: -0.52446586, y: 7.7507133, z: -4.4053326}
+    - {x: -0.52446586, y: 7.7507133, z: -4.4053326}
+    - {x: -0.20793372, y: 7.892802, z: -4.248346}
+    - {x: -0.27441627, y: 7.432714, z: -5.231795}
+    - {x: -0.6074901, y: 7.055462, z: -4.1102185}
+    - {x: -0.4831782, y: 6.933248, z: -4.3847036}
+    - {x: -0.5312264, y: 6.963451, z: -3.9223557}
+    - {x: -0.414286, y: 6.962216, z: -4.769103}
+    - {x: -0.4831782, y: 6.933248, z: -4.3847036}
+    - {x: -0.6074901, y: 7.055462, z: -4.1102185}
+    - {x: -0.47200122, y: 7.4280076, z: -4.3743863}
+    - {x: -0.414286, y: 6.962216, z: -4.769103}
+    - {x: -0.6074901, y: 7.055462, z: -4.1102185}
+    - {x: -0.46880248, y: 7.5557523, z: -4.0834727}
+    - {x: -0.47200122, y: 7.4280076, z: -4.3743863}
+    - {x: -0.6074901, y: 7.055462, z: -4.1102185}
+    - {x: -0.46880248, y: 7.5557523, z: -4.0834727}
+    - {x: -0.52446586, y: 7.7507133, z: -4.4053326}
+    - {x: -0.37453136, y: 7.429582, z: -4.294931}
+    - {x: -0.4973777, y: 7.2054563, z: -3.5861626}
+    - {x: -0.49363336, y: 7.874258, z: -4.01887}
+    - {x: -0.46880248, y: 7.5557523, z: -4.0834727}
+    - {x: -0.46880248, y: 7.5557523, z: -4.0834727}
+    - {x: -0.6074901, y: 7.055462, z: -4.1102185}
+    - {x: -0.4973777, y: 7.2054563, z: -3.5861626}
+    - {x: -0.47200122, y: 7.4280076, z: -4.3743863}
+    - {x: -0.37453136, y: 7.429582, z: -4.294931}
+    - {x: -0.52446586, y: 7.7507133, z: -4.4053326}
+    - {x: -0.49363336, y: 7.874258, z: -4.01887}
+    - {x: -0.52446586, y: 7.7507133, z: -4.4053326}
+    - {x: -0.46880248, y: 7.5557523, z: -4.0834727}
+    - {x: -0.49363336, y: 7.874258, z: -4.01887}
+    - {x: -0.20793372, y: 7.892802, z: -4.248346}
+    - {x: -0.52446586, y: 7.7507133, z: -4.4053326}
+    - {x: -0.20793372, y: 7.892802, z: -4.248346}
+    - {x: -0.072137006, y: 7.891493, z: -3.1130514}
+    - {x: 0.1560288, y: 7.9138713, z: -4.1788173}
+    - {x: -0.4973777, y: 7.2054563, z: -3.5861626}
+    - {x: -0.2773894, y: 7.2544646, z: -2.7489696}
+    - {x: -0.49363336, y: 7.874258, z: -4.01887}
+    - {x: -0.48512423, y: 7.460095, z: -4.373772}
+    - {x: -0.36605787, y: 7.3446074, z: -4.1925325}
+    - {x: -0.4990386, y: 7.668721, z: -4.260164}
+    - {x: -0.2773894, y: 7.2544646, z: -2.7489696}
+    - {x: -0.072137006, y: 7.891493, z: -3.1130514}
+    - {x: -0.49363336, y: 7.874258, z: -4.01887}
+    - {x: -0.49363336, y: 7.874258, z: -4.01887}
+    - {x: -0.072137006, y: 7.891493, z: -3.1130514}
+    - {x: -0.20793372, y: 7.892802, z: -4.248346}
+    - {x: 0.48110348, y: 7.4061365, z: -4.2254877}
+    - {x: 0.61292416, y: 7.062257, z: -4.0784383}
+    - {x: 0.49919814, y: 6.9327226, z: -4.4243693}
+    - {x: 0.49919814, y: 6.9327226, z: -4.4243693}
+    - {x: 0.46137255, y: 7.5219254, z: -4.4269924}
+    - {x: 0.48110348, y: 7.4061365, z: -4.2254877}
+    - {x: 0.48110348, y: 7.4061365, z: -4.2254877}
+    - {x: 0.4916091, y: 7.5837684, z: -4.090775}
+    - {x: 0.61292416, y: 7.062257, z: -4.0784383}
+    - {x: 0.4916091, y: 7.5837684, z: -4.090775}
+    - {x: 0.45642093, y: 7.0093455, z: -3.4665563}
+    - {x: 0.61292416, y: 7.062257, z: -4.0784383}
+    - {x: 0.61292416, y: 7.062257, z: -4.0784383}
+    - {x: 0.5227558, y: 6.96966, z: -3.9232118}
+    - {x: 0.49919814, y: 6.9327226, z: -4.4243693}
+    - {x: 0.35775802, y: 6.9151373, z: -5.0721717}
+    - {x: 0.46137255, y: 7.5219254, z: -4.4269924}
+    - {x: 0.49919814, y: 6.9327226, z: -4.4243693}
+    - {x: -0.20506999, y: 7.2242966, z: -3.9176338}
+    - {x: -0.414286, y: 6.962216, z: -4.769103}
+    - {x: 0.04934085, y: 7.2807717, z: -4.59269}
+    - {x: -0.3632118, y: 6.9531126, z: -4.615997}
+    - {x: -0.35591835, y: 7.1786613, z: -4.67743}
+    - {x: -0.27796662, y: 7.21054, z: -4.5894675}
+    - {x: -0.4831782, y: 6.933248, z: -4.3847036}
+    - {x: -0.414286, y: 6.962216, z: -4.769103}
+    - {x: -0.20506999, y: 7.2242966, z: -3.9176338}
+    - {x: -0.20506999, y: 7.2242966, z: -3.9176338}
+    - {x: -0.5312264, y: 6.963451, z: -3.9223557}
+    - {x: -0.4831782, y: 6.933248, z: -4.3847036}
+    - {x: -0.5312264, y: 6.963451, z: -3.9223557}
+    - {x: -0.20506999, y: 7.2242966, z: -3.9176338}
+    - {x: -0.31840774, y: 6.890758, z: -3.7006392}
+    - {x: 0.0773085, y: 7.3107214, z: -4.0654407}
+    - {x: 0.12177894, y: 7.028362, z: -3.619721}
+    - {x: -0.20506999, y: 7.2242966, z: -3.9176338}
+    - {x: -0.20506999, y: 7.2242966, z: -3.9176338}
+    - {x: 0.12177894, y: 7.028362, z: -3.619721}
+    - {x: -0.31840774, y: 6.890758, z: -3.7006392}
+    - {x: 0.61292416, y: 7.062257, z: -4.0784383}
+    - {x: 0.45642093, y: 7.0093455, z: -3.4665563}
+    - {x: 0.5227558, y: 6.96966, z: -3.9232118}
+    - {x: -0.07996311, y: 6.9403653, z: -5.422156}
+    - {x: -0.07969828, y: 7.0149198, z: -5.29919}
+    - {x: -0.10259633, y: 7.023942, z: -5.2569895}
+    - {x: 0.20905755, y: 6.9735312, z: -5.504763}
+    - {x: 0.35775802, y: 6.9151373, z: -5.0721717}
+    - {x: -0.08483945, y: 6.954523, z: -5.563629}
+    - {x: -0.2560775, y: 6.9091783, z: -5.3738313}
+    - {x: -0.08483945, y: 6.954523, z: -5.563629}
+    - {x: 0.04934085, y: 7.2807717, z: -4.59269}
+    - {x: -0.0458919, y: 6.9401298, z: -5.4593234}
+    - {x: -0.07095804, y: 7.009906, z: -5.2844934}
+    - {x: -0.10297433, y: 7.000991, z: -5.3149433}
+    - {x: 0.19016072, y: 7.389856, z: -5.3969235}
+    - {x: 0.35775802, y: 6.9151373, z: -5.0721717}
+    - {x: 0.20905755, y: 6.9735312, z: -5.504763}
+    - {x: -0.013534848, y: 6.9380245, z: -5.4765887}
+    - {x: -0.03871597, y: 6.9996586, z: -5.3555865}
+    - {x: -0.04253951, y: 7.0001316, z: -5.2969065}
+    - {x: -0.116094604, y: 6.938769, z: -5.3980365}
+    - {x: -0.11326406, y: 7.0209775, z: -5.275784}
+    - {x: -0.1327348, y: 7.022329, z: -5.2338057}
+    - {x: -0.2560775, y: 6.9091783, z: -5.3738313}
+    - {x: 0.04934085, y: 7.2807717, z: -4.59269}
+    - {x: -0.414286, y: 6.962216, z: -4.769103}
+    - {x: -0.3151454, y: 6.929536, z: -4.8027673}
+    - {x: -0.30300426, y: 7.124264, z: -4.8158298}
+    - {x: -0.24828656, y: 7.146415, z: -4.742386}
+    - {x: -0.3400754, y: 6.93837, z: -4.7054253}
+    - {x: -0.33378607, y: 7.1500597, z: -4.7523775}
+    - {x: -0.25501737, y: 7.178611, z: -4.662479}
+    - {x: -0.3063301, y: 6.911929, z: -4.897899}
+    - {x: -0.29349533, y: 7.0872307, z: -4.881845}
+    - {x: -0.24766235, y: 7.106075, z: -4.8252115}
+    - {x: 0.47230783, y: 7.6708374, z: -4.665422}
+    - {x: 0.46137255, y: 7.5219254, z: -4.4269924}
+    - {x: 0.35775802, y: 6.9151373, z: -5.0721717}
+    - {x: 0.2992799, y: 6.9121575, z: -4.9643836}
+    - {x: 0.28717655, y: 7.0732565, z: -4.934909}
+    - {x: 0.29657125, y: 7.105555, z: -4.852721}
+    - {x: 0.19016072, y: 7.389856, z: -5.3969235}
+    - {x: 0.47230783, y: 7.6708374, z: -4.665422}
+    - {x: 0.35775802, y: 6.9151373, z: -5.0721717}
+    - {x: -0.116094604, y: 6.938769, z: -5.3980365}
+    - {x: -0.12912917, y: 7.022412, z: -5.2933946}
+    - {x: -0.11326406, y: 7.0209775, z: -5.275784}
+    - {x: 0.2690441, y: 6.911194, z: -5.0492883}
+    - {x: 0.26379216, y: 7.0565844, z: -5.0150666}
+    - {x: 0.26541036, y: 7.08942, z: -4.9257073}
+    - {x: 0.23557022, y: 6.9076586, z: -5.1835165}
+    - {x: 0.23940042, y: 7.0263267, z: -5.1280565}
+    - {x: 0.24801318, y: 7.063, z: -5.040187}
+    - {x: 0.47230783, y: 7.6708374, z: -4.665422}
+    - {x: 0.5031396, y: 7.8695335, z: -4.0363283}
+    - {x: 0.46137255, y: 7.5219254, z: -4.4269924}
+    - {x: 0.48417243, y: 7.5692563, z: -4.3838177}
+    - {x: 0.5027896, y: 7.5005364, z: -4.156504}
+    - {x: 0.37438542, y: 7.3877897, z: -4.1407757}
+    - {x: 0.46137255, y: 7.5219254, z: -4.4269924}
+    - {x: 0.5031396, y: 7.8695335, z: -4.0363283}
+    - {x: 0.4916091, y: 7.5837684, z: -4.090775}
+    - {x: 0.48110348, y: 7.4061365, z: -4.2254877}
+    - {x: 0.46137255, y: 7.5219254, z: -4.4269924}
+    - {x: 0.39968687, y: 7.516341, z: -4.1686883}
+    - {x: 0.360585, y: 7.417941, z: -4.3697014}
+    - {x: 0.48417243, y: 7.5692563, z: -4.3838177}
+    - {x: 0.37438542, y: 7.3877897, z: -4.1407757}
+    - {x: 0.39968687, y: 7.516341, z: -4.1686883}
+    - {x: 0.46137255, y: 7.5219254, z: -4.4269924}
+    - {x: 0.4916091, y: 7.5837684, z: -4.090775}
+    - {x: 0.4916091, y: 7.5837684, z: -4.090775}
+    - {x: 0.5031396, y: 7.8695335, z: -4.0363283}
+    - {x: 0.30492854, y: 7.23422, z: -2.7596917}
+    - {x: 0.358585, y: 7.6378202, z: -4.392365}
+    - {x: 0.48417243, y: 7.5692563, z: -4.3838177}
+    - {x: 0.360585, y: 7.417941, z: -4.3697014}
+    - {x: 0.4916091, y: 7.5837684, z: -4.090775}
+    - {x: 0.30492854, y: 7.23422, z: -2.7596917}
+    - {x: 0.45642093, y: 7.0093455, z: -3.4665563}
+    - {x: 0.5027896, y: 7.5005364, z: -4.156504}
+    - {x: 0.48417243, y: 7.5692563, z: -4.3838177}
+    - {x: 0.37109077, y: 7.679352, z: -4.1482997}
+    - {x: 0.4916091, y: 7.5837684, z: -4.090775}
+    - {x: 0.48110348, y: 7.4061365, z: -4.2254877}
+    - {x: 0.39968687, y: 7.516341, z: -4.1686883}
+    - {x: 0.20905755, y: 6.9735312, z: -5.504763}
+    - {x: -0.039268125, y: 7.4052987, z: -5.493936}
+    - {x: 0.19016072, y: 7.389856, z: -5.3969235}
+    - {x: 0.20905755, y: 6.9735312, z: -5.504763}
+    - {x: -0.08483945, y: 6.954523, z: -5.563629}
+    - {x: -0.039268125, y: 7.4052987, z: -5.493936}
+    - {x: -0.039268125, y: 7.4052987, z: -5.493936}
+    - {x: 0.020506691, y: 7.5856915, z: -5.1327252}
+    - {x: 0.19016072, y: 7.389856, z: -5.3969235}
+    - {x: 0.35775802, y: 6.9151373, z: -5.0721717}
+    - {x: 0.04934085, y: 7.2807717, z: -4.59269}
+    - {x: -0.08483945, y: 6.954523, z: -5.563629}
+    - {x: -0.013534848, y: 6.9380245, z: -5.4765887}
+    - {x: -0.04253951, y: 7.0001316, z: -5.2969065}
+    - {x: -0.072667666, y: 6.9972496, z: -5.326512}
+    - {x: -0.15240611, y: 6.9294615, z: -5.366447}
+    - {x: -0.12071114, y: 7.015965, z: -5.2262125}
+    - {x: -0.16786884, y: 7.0257053, z: -5.200549}
+    - {x: 0.16830625, y: 7.022283, z: -5.1600738}
+    - {x: 0.19169913, y: 6.920966, z: -5.300052}
+    - {x: 0.21777575, y: 7.028585, z: -5.1401715}
+    - {x: 0.28717655, y: 7.0732565, z: -4.934909}
+    - {x: 0.2992799, y: 6.9121575, z: -4.9643836}
+    - {x: 0.24359296, y: 7.0905156, z: -4.882281}
+    - {x: 0.04934085, y: 7.2807717, z: -4.59269}
+    - {x: 0.35775802, y: 6.9151373, z: -5.0721717}
+    - {x: 0.49919814, y: 6.9327226, z: -4.4243693}
+    - {x: 0.26379216, y: 7.0565844, z: -5.0150666}
+    - {x: 0.2690441, y: 6.911194, z: -5.0492883}
+    - {x: 0.21072735, y: 7.0712476, z: -4.961477}
+    - {x: 0.30299303, y: 7.1242566, z: -4.8158145}
+    - {x: 0.31504482, y: 6.929126, z: -4.8026767}
+    - {x: 0.24828655, y: 7.146415, z: -4.742386}
+    - {x: 0.25804156, y: 7.043833, z: -5.0733166}
+    - {x: 0.25672674, y: 6.912485, z: -5.1201}
+    - {x: 0.21158172, y: 7.056949, z: -5.019765}
+    - {x: 0.04934085, y: 7.2807717, z: -4.59269}
+    - {x: 0.49919814, y: 6.9327226, z: -4.4243693}
+    - {x: 0.0773085, y: 7.3107214, z: -4.0654407}
+    - {x: -0.20506999, y: 7.2242966, z: -3.9176338}
+    - {x: 0.04934085, y: 7.2807717, z: -4.59269}
+    - {x: 0.0773085, y: 7.3107214, z: -4.0654407}
+    - {x: 0.33382952, y: 7.1500664, z: -4.752364}
+    - {x: 0.33989304, y: 6.937815, z: -4.705302}
+    - {x: 0.25501737, y: 7.178611, z: -4.662479}
+    - {x: 0.2935306, y: 7.0872097, z: -4.881702}
+    - {x: 0.3062769, y: 6.9116755, z: -4.8978105}
+    - {x: 0.24766234, y: 7.106075, z: -4.8252115}
+    - {x: 0.5227558, y: 6.96966, z: -3.9232118}
+    - {x: 0.0773085, y: 7.3107214, z: -4.0654407}
+    - {x: 0.49919814, y: 6.9327226, z: -4.4243693}
+    - {x: 0.37111896, y: 6.9443345, z: -4.4979877}
+    - {x: 0.30917612, y: 7.224387, z: -4.5162907}
+    - {x: 0.36662617, y: 7.2233586, z: -4.564003}
+    - {x: 0.020506691, y: 7.5856915, z: -5.1327252}
+    - {x: 0.47230783, y: 7.6708374, z: -4.665422}
+    - {x: 0.19016072, y: 7.389856, z: -5.3969235}
+    - {x: 0.020506691, y: 7.5856915, z: -5.1327252}
+    - {x: 0.1560288, y: 7.9138713, z: -4.1788173}
+    - {x: 0.47230783, y: 7.6708374, z: -4.665422}
+    - {x: 0.47230783, y: 7.6708374, z: -4.665422}
+    - {x: 0.1560288, y: 7.9138713, z: -4.1788173}
+    - {x: 0.5031396, y: 7.8695335, z: -4.0363283}
+    - {x: -0.20793372, y: 7.892802, z: -4.248346}
+    - {x: 0.1560288, y: 7.9138713, z: -4.1788173}
+    - {x: 0.020506691, y: 7.5856915, z: -5.1327252}
+    - {x: 0.1560288, y: 7.9138713, z: -4.1788173}
+    - {x: -0.072137006, y: 7.891493, z: -3.1130514}
+    - {x: 0.5031396, y: 7.8695335, z: -4.0363283}
+    - {x: -0.072137006, y: 7.891493, z: -3.1130514}
+    - {x: 0.13501023, y: 7.726382, z: -2.9579558}
+    - {x: 0.5031396, y: 7.8695335, z: -4.0363283}
+    - {x: 0.13501023, y: 7.726382, z: -2.9579558}
+    - {x: 0.30492854, y: 7.23422, z: -2.7596917}
+    - {x: 0.5031396, y: 7.8695335, z: -4.0363283}
+    - {x: -0.010457494, y: 7.2257624, z: -2.635491}
+    - {x: 0.13501023, y: 7.726382, z: -2.9579558}
+    - {x: -0.072137006, y: 7.891493, z: -3.1130514}
+    - {x: 0.13501023, y: 7.726382, z: -2.9579558}
+    - {x: -0.010457494, y: 7.2257624, z: -2.635491}
+    - {x: 0.30492854, y: 7.23422, z: -2.7596917}
+    - {x: -0.2773894, y: 7.2544646, z: -2.7489696}
+    - {x: -0.010457494, y: 7.2257624, z: -2.635491}
+    - {x: -0.072137006, y: 7.891493, z: -3.1130514}
+    - {x: -0.6074901, y: 7.055462, z: -4.1102185}
+    - {x: -0.5312264, y: 6.963451, z: -3.9223557}
+    - {x: -0.4973777, y: 7.2054563, z: -3.5861626}
+    - {x: 0.0773085, y: 7.3107214, z: -4.0654407}
+    - {x: 0.33435333, y: 6.91858, z: -3.7373226}
+    - {x: 0.12177894, y: 7.028362, z: -3.619721}
+    - {x: 0.5227558, y: 6.96966, z: -3.9232118}
+    - {x: 0.33435333, y: 6.91858, z: -3.7373226}
+    - {x: 0.0773085, y: 7.3107214, z: -4.0654407}
+    - {x: 0.38678566, y: 6.9438767, z: -4.357979}
+    - {x: 0.33211306, y: 7.244756, z: -4.388634}
+    - {x: 0.37451166, y: 7.2447186, z: -4.424489}
+    - {x: -0.37123355, y: 6.9439993, z: -4.4979653}
+    - {x: -0.3668588, y: 7.223376, z: -4.563745}
+    - {x: -0.3093981, y: 7.2244077, z: -4.516347}
+    - {x: -0.3787046, y: 6.9512467, z: -4.4286747}
+    - {x: -0.37286213, y: 7.2373557, z: -4.475197}
+    - {x: -0.3281716, y: 7.2403727, z: -4.4454975}
+    - {x: -0.3400754, y: 6.93837, z: -4.7054253}
+    - {x: -0.3281896, y: 7.201256, z: -4.61336}
+    - {x: -0.33378607, y: 7.1500597, z: -4.7523775}
+    - {x: -0.3063301, y: 6.911929, z: -4.897899}
+    - {x: -0.30326238, y: 7.12165, z: -4.7942104}
+    - {x: -0.29349533, y: 7.0872307, z: -4.881845}
+    - {x: 0.35594383, y: 7.1786566, z: -4.6774516}
+    - {x: 0.3630314, y: 6.9525757, z: -4.615862}
+    - {x: 0.2779666, y: 7.21054, z: -4.5894675}
+    - {x: -0.29933986, y: 6.912378, z: -4.964468}
+    - {x: -0.29664266, y: 7.105624, z: -4.852757}
+    - {x: -0.28711978, y: 7.073297, z: -4.9351025}
+    - {x: -0.4990386, y: 7.668721, z: -4.260164}
+    - {x: -0.36461422, y: 7.541511, z: -4.4129353}
+    - {x: -0.48512423, y: 7.460095, z: -4.373772}
+    - {x: -0.26913583, y: 6.9114423, z: -5.0493736}
+    - {x: -0.26545486, y: 7.08937, z: -4.925525}
+    - {x: -0.26380855, y: 7.056563, z: -5.015044}
+    - {x: -0.2568052, y: 6.9126925, z: -5.1201873}
+    - {x: -0.26610067, y: 7.074545, z: -4.9896035}
+    - {x: -0.25807625, y: 7.0437675, z: -5.0732183}
+    - {x: -0.23564826, y: 6.907833, z: -5.183566}
+    - {x: -0.2480407, y: 7.062728, z: -5.0397825}
+    - {x: -0.23947145, y: 7.0261173, z: -5.1277804}
+    - {x: -0.20961538, y: 6.9103894, z: -5.253109}
+    - {x: -0.23110156, y: 7.039741, z: -5.0960736}
+    - {x: -0.21222173, y: 7.0138793, z: -5.179378}
+    - {x: -0.07996311, y: 6.9403653, z: -5.422156}
+    - {x: -0.10259633, y: 7.023942, z: -5.2569895}
+    - {x: -0.0952956, y: 7.0137067, z: -5.317857}
+    - {x: -0.19173636, y: 6.9208164, z: -5.3000965}
+    - {x: -0.16830625, y: 7.022283, z: -5.1600738}
+    - {x: -0.21787456, y: 7.0290146, z: -5.140432}
+    - {x: -0.15240611, y: 6.9294615, z: -5.366447}
+    - {x: -0.16786884, y: 7.0257053, z: -5.200549}
+    - {x: -0.1571376, y: 7.012635, z: -5.2722473}
+    - {x: -0.26913583, y: 6.9114423, z: -5.0493736}
+    - {x: -0.26380855, y: 7.056563, z: -5.015044}
+    - {x: -0.21072735, y: 7.0712476, z: -4.961477}
+    - {x: -0.29933986, y: 6.912378, z: -4.964468}
+    - {x: -0.28711978, y: 7.073297, z: -4.9351025}
+    - {x: -0.24359296, y: 7.0905156, z: -4.882281}
+    - {x: -0.23564826, y: 6.907833, z: -5.183566}
+    - {x: -0.23947145, y: 7.0261173, z: -5.1277804}
+    - {x: -0.18975398, y: 7.040453, z: -5.070499}
+    - {x: -0.20961538, y: 6.9103894, z: -5.253109}
+    - {x: -0.1730533, y: 7.0242558, z: -5.1205773}
+    - {x: -0.23110156, y: 7.039741, z: -5.0960736}
+    - {x: -0.20961538, y: 6.9103894, z: -5.253109}
+    - {x: -0.21222173, y: 7.0138793, z: -5.179378}
+    - {x: -0.1730533, y: 7.0242558, z: -5.1205773}
+    - {x: -0.2568052, y: 6.9126925, z: -5.1201873}
+    - {x: -0.25807625, y: 7.0437675, z: -5.0732183}
+    - {x: -0.21158172, y: 7.056949, z: -5.019765}
+    - {x: -0.19173636, y: 6.9208164, z: -5.3000965}
+    - {x: -0.19739848, y: 7.0163856, z: -5.2100034}
+    - {x: -0.16830625, y: 7.022283, z: -5.1600738}
+    - {x: -0.26913583, y: 6.9114423, z: -5.0493736}
+    - {x: -0.21072735, y: 7.0712476, z: -4.961477}
+    - {x: -0.26545486, y: 7.08937, z: -4.925525}
+    - {x: -0.23564826, y: 6.907833, z: -5.183566}
+    - {x: -0.18975398, y: 7.040453, z: -5.070499}
+    - {x: -0.2480407, y: 7.062728, z: -5.0397825}
+    - {x: 0.25672674, y: 6.912485, z: -5.1201}
+    - {x: 0.25804156, y: 7.043833, z: -5.0733166}
+    - {x: 0.2660569, y: 7.0746536, z: -4.9898357}
+    - {x: 0.1730533, y: 7.0242558, z: -5.1205773}
+    - {x: 0.2095314, y: 6.910569, z: -5.253113}
+    - {x: 0.23103648, y: 7.039515, z: -5.0959096}
+    - {x: 0.23940042, y: 7.0263267, z: -5.1280565}
+    - {x: 0.23557022, y: 6.9076586, z: -5.1835165}
+    - {x: 0.18975398, y: 7.040453, z: -5.070499}
+    - {x: 0.21072735, y: 7.0712476, z: -4.961477}
+    - {x: 0.2690441, y: 6.911194, z: -5.0492883}
+    - {x: 0.26541036, y: 7.08942, z: -4.9257073}
+    - {x: 0.15716809, y: 7.0125036, z: -5.2721543}
+    - {x: 0.15242894, y: 6.929579, z: -5.3663144}
+    - {x: 0.12071114, y: 7.015965, z: -5.2262125}
+    - {x: 0.24359296, y: 7.0905156, z: -4.882281}
+    - {x: 0.2992799, y: 6.9121575, z: -4.9643836}
+    - {x: 0.29657125, y: 7.105555, z: -4.852721}
+    - {x: 0.37863234, y: 6.9513535, z: -4.428729}
+    - {x: 0.3280588, y: 7.2403684, z: -4.445455}
+    - {x: 0.37270522, y: 7.237337, z: -4.4753475}
+    - {x: 0.37111896, y: 6.9443345, z: -4.4979877}
+    - {x: 0.367275, y: 7.2261167, z: -4.4423966}
+    - {x: 0.30917612, y: 7.224387, z: -4.5162907}
+    - {x: 0.37863234, y: 6.9513535, z: -4.428729}
+    - {x: 0.37065575, y: 7.2449346, z: -4.4010973}
+    - {x: 0.3280588, y: 7.2403684, z: -4.445455}
+    - {x: 0.25501737, y: 7.178611, z: -4.662479}
+    - {x: 0.33989304, y: 6.937815, z: -4.705302}
+    - {x: 0.32808173, y: 7.201236, z: -4.613641}
+    - {x: 0.2779666, y: 7.21054, z: -4.5894675}
+    - {x: 0.3630314, y: 6.9525757, z: -4.615862}
+    - {x: 0.34878287, y: 7.2336984, z: -4.5410457}
+    - {x: 0.38678566, y: 6.9438767, z: -4.357979}
+    - {x: 0.3778252, y: 7.2461424, z: -4.326387}
+    - {x: 0.33211306, y: 7.244756, z: -4.388634}
+    - {x: 0.24766234, y: 7.106075, z: -4.8252115}
+    - {x: 0.3062769, y: 6.9116755, z: -4.8978105}
+    - {x: 0.30318367, y: 7.1216006, z: -4.794235}
+    - {x: 0.24828655, y: 7.146415, z: -4.742386}
+    - {x: 0.31504482, y: 6.929126, z: -4.8026767}
+    - {x: 0.31246465, y: 7.1625004, z: -4.7057543}
+    - {x: 0.21158172, y: 7.056949, z: -5.019765}
+    - {x: 0.25672674, y: 6.912485, z: -5.1201}
+    - {x: 0.2660569, y: 7.0746536, z: -4.9898357}
+    - {x: 0.18975398, y: 7.040453, z: -5.070499}
+    - {x: 0.23557022, y: 6.9076586, z: -5.1835165}
+    - {x: 0.24801318, y: 7.063, z: -5.040187}
+    - {x: -0.2568052, y: 6.9126925, z: -5.1201873}
+    - {x: -0.21158172, y: 7.056949, z: -5.019765}
+    - {x: -0.26610067, y: 7.074545, z: -4.9896035}
+    - {x: -0.29933986, y: 6.912378, z: -4.964468}
+    - {x: -0.24359296, y: 7.0905156, z: -4.882281}
+    - {x: -0.29664266, y: 7.105624, z: -4.852757}
+    - {x: -0.3151454, y: 6.929536, z: -4.8027673}
+    - {x: -0.31257752, y: 7.1625266, z: -4.7055697}
+    - {x: -0.30300426, y: 7.124264, z: -4.8158298}
+    - {x: -0.3063301, y: 6.911929, z: -4.897899}
+    - {x: -0.24766235, y: 7.106075, z: -4.8252115}
+    - {x: -0.30326238, y: 7.12165, z: -4.7942104}
+    - {x: -0.48512423, y: 7.460095, z: -4.373772}
+    - {x: -0.36461422, y: 7.541511, z: -4.4129353}
+    - {x: -0.36605787, y: 7.3446074, z: -4.1925325}
+    - {x: -0.36605787, y: 7.3446074, z: -4.1925325}
+    - {x: -0.38105807, y: 7.5381646, z: -4.0878587}
+    - {x: -0.4990386, y: 7.668721, z: -4.260164}
+    - {x: -0.3632118, y: 6.9531126, z: -4.615997}
+    - {x: -0.27796662, y: 7.21054, z: -4.5894675}
+    - {x: -0.34888947, y: 7.2337413, z: -4.54077}
+    - {x: -0.3400754, y: 6.93837, z: -4.7054253}
+    - {x: -0.25501737, y: 7.178611, z: -4.662479}
+    - {x: -0.3281896, y: 7.201256, z: -4.61336}
+    - {x: -0.3151454, y: 6.929536, z: -4.8027673}
+    - {x: -0.24828656, y: 7.146415, z: -4.742386}
+    - {x: -0.31257752, y: 7.1625266, z: -4.7055697}
+    - {x: -0.38678512, y: 6.9436893, z: -4.3580832}
+    - {x: -0.3778496, y: 7.2461443, z: -4.326386}
+    - {x: -0.37461525, y: 7.2447305, z: -4.4243374}
+    - {x: -0.37123355, y: 6.9439993, z: -4.4979653}
+    - {x: -0.3093981, y: 7.2244077, z: -4.516347}
+    - {x: -0.36726412, y: 7.2261157, z: -4.442404}
+    - {x: -0.37123355, y: 6.9439993, z: -4.4979653}
+    - {x: -0.36726412, y: 7.2261157, z: -4.442404}
+    - {x: -0.3668588, y: 7.223376, z: -4.563745}
+    - {x: -0.3787046, y: 6.9512467, z: -4.4286747}
+    - {x: -0.3281716, y: 7.2403727, z: -4.4454975}
+    - {x: -0.3706333, y: 7.2449265, z: -4.401197}
+    - {x: -0.3632118, y: 6.9531126, z: -4.615997}
+    - {x: -0.34888947, y: 7.2337413, z: -4.54077}
+    - {x: -0.35591835, y: 7.1786613, z: -4.67743}
+    - {x: 0.013507968, y: 6.9380918, z: -5.476458}
+    - {x: 0.07258865, y: 6.9960456, z: -5.326091}
+    - {x: 0.042447247, y: 7.0001574, z: -5.296998}
+    - {x: 0.3062769, y: 6.9116755, z: -4.8978105}
+    - {x: 0.2935306, y: 7.0872097, z: -4.881702}
+    - {x: 0.30318367, y: 7.1216006, z: -4.794235}
+    - {x: 0.31504482, y: 6.929126, z: -4.8026767}
+    - {x: 0.30299303, y: 7.1242566, z: -4.8158145}
+    - {x: 0.31246465, y: 7.1625004, z: -4.7057543}
+    - {x: -0.3787046, y: 6.9512467, z: -4.4286747}
+    - {x: -0.3706333, y: 7.2449265, z: -4.401197}
+    - {x: -0.37286213, y: 7.2373557, z: -4.475197}
+    - {x: -0.38678512, y: 6.9436893, z: -4.3580832}
+    - {x: -0.37461525, y: 7.2447305, z: -4.4243374}
+    - {x: -0.33234322, y: 7.2447762, z: -4.3886733}
+    - {x: -0.116094604, y: 6.938769, z: -5.3980365}
+    - {x: -0.1327348, y: 7.022329, z: -5.2338057}
+    - {x: -0.12912917, y: 7.022412, z: -5.2933946}
+    - {x: -0.19173636, y: 6.9208164, z: -5.3000965}
+    - {x: -0.21787456, y: 7.0290146, z: -5.140432}
+    - {x: -0.19739848, y: 7.0163856, z: -5.2100034}
+    - {x: 0.045831066, y: 6.940221, z: -5.459201}
+    - {x: 0.10281284, y: 6.9985228, z: -5.314046}
+    - {x: 0.07084691, y: 7.009919, z: -5.2845984}
+    - {x: 0.12071114, y: 7.015965, z: -5.2262125}
+    - {x: 0.15242894, y: 6.929579, z: -5.3663144}
+    - {x: 0.1677988, y: 7.0256214, z: -5.2005386}
+    - {x: 0.038840476, y: 6.999639, z: -5.3557096}
+    - {x: 0.013507968, y: 6.9380918, z: -5.476458}
+    - {x: 0.042447247, y: 7.0001574, z: -5.296998}
+    - {x: -0.15240611, y: 6.9294615, z: -5.366447}
+    - {x: -0.1571376, y: 7.012635, z: -5.2722473}
+    - {x: -0.12071114, y: 7.015965, z: -5.2262125}
+    - {x: -0.0458919, y: 6.9401298, z: -5.4593234}
+    - {x: -0.06683614, y: 6.9999347, z: -5.345863}
+    - {x: -0.07095804, y: 7.009906, z: -5.2844934}
+    - {x: 0.15242894, y: 6.929579, z: -5.3663144}
+    - {x: 0.15716809, y: 7.0125036, z: -5.2721543}
+    - {x: 0.1677988, y: 7.0256214, z: -5.2005386}
+    - {x: 0.2095314, y: 6.910569, z: -5.253113}
+    - {x: 0.21232897, y: 7.013642, z: -5.179101}
+    - {x: 0.23103648, y: 7.039515, z: -5.0959096}
+    - {x: 0.19169913, y: 6.920966, z: -5.300052}
+    - {x: 0.1976172, y: 7.0160007, z: -5.209626}
+    - {x: 0.21777575, y: 7.028585, z: -5.1401715}
+    - {x: 0.116092935, y: 6.9388328, z: -5.3979197}
+    - {x: 0.14608961, y: 7.0203204, z: -5.27799}
+    - {x: 0.1327869, y: 7.0225177, z: -5.233952}
+    - {x: -0.07996311, y: 6.9403653, z: -5.422156}
+    - {x: -0.0952956, y: 7.0137067, z: -5.317857}
+    - {x: -0.07969828, y: 7.0149198, z: -5.29919}
+    - {x: 0.3778252, y: 7.2461424, z: -4.326387}
+    - {x: 0.38678566, y: 6.9438767, z: -4.357979}
+    - {x: 0.37451166, y: 7.2447186, z: -4.424489}
+    - {x: 0.33989304, y: 6.937815, z: -4.705302}
+    - {x: 0.33382952, y: 7.1500664, z: -4.752364}
+    - {x: 0.32808173, y: 7.201236, z: -4.613641}
+    - {x: 0.3630314, y: 6.9525757, z: -4.615862}
+    - {x: 0.35594383, y: 7.1786566, z: -4.6774516}
+    - {x: 0.34878287, y: 7.2336984, z: -4.5410457}
+    - {x: 0.37065575, y: 7.2449346, z: -4.4010973}
+    - {x: 0.37863234, y: 6.9513535, z: -4.428729}
+    - {x: 0.37270522, y: 7.237337, z: -4.4753475}
+    - {x: 0.367275, y: 7.2261167, z: -4.4423966}
+    - {x: 0.37111896, y: 6.9443345, z: -4.4979877}
+    - {x: 0.36662617, y: 7.2233586, z: -4.564003}
+    - {x: -0.38678512, y: 6.9436893, z: -4.3580832}
+    - {x: -0.33234322, y: 7.2447762, z: -4.3886733}
+    - {x: -0.3778496, y: 7.2461443, z: -4.326386}
+    - {x: 0.21232897, y: 7.013642, z: -5.179101}
+    - {x: 0.2095314, y: 6.910569, z: -5.253113}
+    - {x: 0.1730533, y: 7.0242558, z: -5.1205773}
+    - {x: 0.1976172, y: 7.0160007, z: -5.209626}
+    - {x: 0.19169913, y: 6.920966, z: -5.300052}
+    - {x: 0.16830625, y: 7.022283, z: -5.1600738}
+    - {x: -0.0458919, y: 6.9401298, z: -5.4593234}
+    - {x: -0.10297433, y: 7.000991, z: -5.3149433}
+    - {x: -0.06683614, y: 6.9999347, z: -5.345863}
+    - {x: -0.013534848, y: 6.9380245, z: -5.4765887}
+    - {x: -0.072667666, y: 6.9972496, z: -5.326512}
+    - {x: -0.03871597, y: 6.9996586, z: -5.3555865}
+    - {x: 0.06696736, y: 6.999894, z: -5.345992}
+    - {x: 0.045831066, y: 6.940221, z: -5.459201}
+    - {x: 0.07084691, y: 7.009919, z: -5.2845984}
+    - {x: 0.013507968, y: 6.9380918, z: -5.476458}
+    - {x: 0.038840476, y: 6.999639, z: -5.3557096}
+    - {x: 0.07258865, y: 6.9960456, z: -5.326091}
+    - {x: 0.12828772, y: 7.020898, z: -5.2918296}
+    - {x: 0.116092935, y: 6.9388328, z: -5.3979197}
+    - {x: 0.1327869, y: 7.0225177, z: -5.233952}
+    - {x: 0.0799558, y: 6.9404306, z: -5.4220395}
+    - {x: 0.11418858, y: 7.0136695, z: -5.3033805}
+    - {x: 0.10271677, y: 7.0242963, z: -5.257182}
+    - {x: -0.4973777, y: 7.2054563, z: -3.5861626}
+    - {x: -0.5312264, y: 6.963451, z: -3.9223557}
+    - {x: -0.5068746, y: 6.5390654, z: -3.8751452}
+    - {x: 0.5227558, y: 6.96966, z: -3.9232118}
+    - {x: 0.45642093, y: 7.0093455, z: -3.4665563}
+    - {x: 0.55240786, y: 6.5433707, z: -3.958226}
+  - targetBoneName: Jaw_2
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0, g: 0, b: 1, a: 0.7}
+    hullMesh: {fileID: 8899017185249700490, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: c9010000c8010000cc010000c5010000c4010000c6010000c7010000d0010000d1010000d7010000cf010000d8010000d9010000d5010000d4010000d6010000cb010000d3010000640000003d0000003f000000610000005f000000620000003e0000000f0000000e000000d2010000cd010000ca010000ce01000031000000
+    cachedTriangleVertices:
+    - {x: -0.27834, y: 6.3474946, z: -4.9439883}
+    - {x: -0.37818512, y: 6.690345, z: -4.6852117}
+    - {x: -0.170078, y: 6.4262834, z: -5.3351645}
+    - {x: -0.27834, y: 6.3474946, z: -4.9439883}
+    - {x: -0.170078, y: 6.4262834, z: -5.3351645}
+    - {x: -0.025235742, y: 6.2333775, z: -5.204747}
+    - {x: -0.37818512, y: 6.690345, z: -4.6852117}
+    - {x: -0.27834, y: 6.3474946, z: -4.9439883}
+    - {x: -0.49605715, y: 6.447062, z: -4.103387}
+    - {x: 0.0020693496, y: 6.3685803, z: -4.3290014}
+    - {x: -0.27834, y: 6.3474946, z: -4.9439883}
+    - {x: -0.025235742, y: 6.2333775, z: -5.204747}
+    - {x: 0.0020693496, y: 6.3685803, z: -4.3290014}
+    - {x: -0.49605715, y: 6.447062, z: -4.103387}
+    - {x: -0.27834, y: 6.3474946, z: -4.9439883}
+    - {x: 0.29883346, y: 6.3676715, z: -4.832901}
+    - {x: 0.0020693496, y: 6.3685803, z: -4.3290014}
+    - {x: -0.025235742, y: 6.2333775, z: -5.204747}
+    - {x: 0.29883346, y: 6.3676715, z: -4.832901}
+    - {x: 0.55240786, y: 6.5433707, z: -3.958226}
+    - {x: 0.0020693496, y: 6.3685803, z: -4.3290014}
+    - {x: 0.3276644, y: 6.5816555, z: -4.9385443}
+    - {x: 0.55240786, y: 6.5433707, z: -3.958226}
+    - {x: 0.29883346, y: 6.3676715, z: -4.832901}
+    - {x: 0.3276644, y: 6.5816555, z: -4.9385443}
+    - {x: 0.5227558, y: 6.96966, z: -3.9232118}
+    - {x: 0.55240786, y: 6.5433707, z: -3.958226}
+    - {x: 0.3276644, y: 6.5816555, z: -4.9385443}
+    - {x: 0.118885875, y: 6.4064817, z: -5.3647757}
+    - {x: 0.0009837365, y: 6.489487, z: -4.8418055}
+    - {x: 0.3276644, y: 6.5816555, z: -4.9385443}
+    - {x: 0.29883346, y: 6.3676715, z: -4.832901}
+    - {x: 0.118885875, y: 6.4064817, z: -5.3647757}
+    - {x: 0.07965986, y: 6.715162, z: -4.3148565}
+    - {x: 0.3276644, y: 6.5816555, z: -4.9385443}
+    - {x: 0.0009837365, y: 6.489487, z: -4.8418055}
+    - {x: 0.07965986, y: 6.715162, z: -4.3148565}
+    - {x: 0.5227558, y: 6.96966, z: -3.9232118}
+    - {x: 0.3276644, y: 6.5816555, z: -4.9385443}
+    - {x: -0.170078, y: 6.4262834, z: -5.3351645}
+    - {x: 0.0009837365, y: 6.489487, z: -4.8418055}
+    - {x: 0.118885875, y: 6.4064817, z: -5.3647757}
+    - {x: 0.0009837365, y: 6.489487, z: -4.8418055}
+    - {x: -0.170078, y: 6.4262834, z: -5.3351645}
+    - {x: -0.37818512, y: 6.690345, z: -4.6852117}
+    - {x: 0.0009837365, y: 6.489487, z: -4.8418055}
+    - {x: -0.25090235, y: 6.853405, z: -4.268353}
+    - {x: 0.07965986, y: 6.715162, z: -4.3148565}
+    - {x: 0.29883346, y: 6.3676715, z: -4.832901}
+    - {x: -0.025235742, y: 6.2333775, z: -5.204747}
+    - {x: 0.118885875, y: 6.4064817, z: -5.3647757}
+    - {x: -0.37818512, y: 6.690345, z: -4.6852117}
+    - {x: -0.25090235, y: 6.853405, z: -4.268353}
+    - {x: 0.0009837365, y: 6.489487, z: -4.8418055}
+    - {x: 0.28497395, y: 6.682857, z: -4.7587843}
+    - {x: 0.32516772, y: 6.5772185, z: -4.744204}
+    - {x: 0.29125953, y: 6.5669804, z: -4.772215}
+    - {x: -0.2777071, y: 6.653491, z: -4.818126}
+    - {x: -0.27039996, y: 6.5631638, z: -4.765817}
+    - {x: -0.29957557, y: 6.5473986, z: -4.8182855}
+    - {x: -0.2849559, y: 6.6831784, z: -4.7588563}
+    - {x: -0.29438666, y: 6.5934978, z: -4.690842}
+    - {x: -0.2912347, y: 6.5669885, z: -4.772177}
+    - {x: 0.29957557, y: 6.5473986, z: -4.8182855}
+    - {x: 0.277719, y: 6.653214, z: -4.818085}
+    - {x: 0.30792335, y: 6.5646133, z: -4.7641273}
+    - {x: 0.27039996, y: 6.5631638, z: -4.765817}
+    - {x: 0.277719, y: 6.653214, z: -4.818085}
+    - {x: 0.29957557, y: 6.5473986, z: -4.8182855}
+    - {x: 0.2943942, y: 6.593495, z: -4.690845}
+    - {x: 0.28497395, y: 6.682857, z: -4.7587843}
+    - {x: 0.29125953, y: 6.5669804, z: -4.772215}
+    - {x: -0.2777071, y: 6.653491, z: -4.818126}
+    - {x: -0.29957557, y: 6.5473986, z: -4.8182855}
+    - {x: -0.30788702, y: 6.564602, z: -4.764138}
+    - {x: -0.2849559, y: 6.6831784, z: -4.7588563}
+    - {x: -0.2912347, y: 6.5669885, z: -4.772177}
+    - {x: -0.32515383, y: 6.577212, z: -4.7442465}
+    - {x: -0.2849559, y: 6.6831784, z: -4.7588563}
+    - {x: -0.32515383, y: 6.577212, z: -4.7442465}
+    - {x: -0.29438666, y: 6.5934978, z: -4.690842}
+    - {x: -0.37818512, y: 6.690345, z: -4.6852117}
+    - {x: -0.5312264, y: 6.963451, z: -3.9223557}
+    - {x: -0.25090235, y: 6.853405, z: -4.268353}
+    - {x: -0.37818512, y: 6.690345, z: -4.6852117}
+    - {x: -0.49605715, y: 6.447062, z: -4.103387}
+    - {x: -0.5312264, y: 6.963451, z: -3.9223557}
+    - {x: -0.170078, y: 6.4262834, z: -5.3351645}
+    - {x: 0.118885875, y: 6.4064817, z: -5.3647757}
+    - {x: -0.025235742, y: 6.2333775, z: -5.204747}
+    - {x: -0.5068746, y: 6.5390654, z: -3.8751452}
+    - {x: -0.5312264, y: 6.963451, z: -3.9223557}
+    - {x: -0.49605715, y: 6.447062, z: -4.103387}
+    - {x: -0.5068746, y: 6.5390654, z: -3.8751452}
+    - {x: -0.49605715, y: 6.447062, z: -4.103387}
+    - {x: 0.0020693496, y: 6.3685803, z: -4.3290014}
+  - targetBoneName: Neck_3
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0.9553981, g: 0, b: 1, a: 0.7}
+    hullMesh: {fileID: 6086108522551173510, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: ce000000e3000000d50000000401000003010000060100000d010000050100000e010000790200007a020000c7000000c6000000cd000000cf000000d200000002010000
+    cachedTriangleVertices:
+    - {x: -0.4973777, y: 7.2054563, z: -3.5861626}
+    - {x: -0.5068746, y: 6.5390654, z: -3.8751452}
+    - {x: -0.4214784, y: 6.4007983, z: -3.5241354}
+    - {x: 0.17327331, y: 5.9080615, z: -2.6412704}
+    - {x: -0.010457494, y: 7.2257624, z: -2.635491}
+    - {x: -0.19134127, y: 5.895652, z: -2.6517172}
+    - {x: -0.19134127, y: 5.895652, z: -2.6517172}
+    - {x: -0.010457494, y: 7.2257624, z: -2.635491}
+    - {x: -0.2773894, y: 7.2544646, z: -2.7489696}
+    - {x: 0.17327331, y: 5.9080615, z: -2.6412704}
+    - {x: 0.30492854, y: 7.23422, z: -2.7596917}
+    - {x: -0.010457494, y: 7.2257624, z: -2.635491}
+    - {x: 0.17327331, y: 5.9080615, z: -2.6412704}
+    - {x: 0.3992798, y: 6.138148, z: -2.9167395}
+    - {x: 0.30492854, y: 7.23422, z: -2.7596917}
+    - {x: 0.3992798, y: 6.138148, z: -2.9167395}
+    - {x: 0.45642093, y: 7.0093455, z: -3.4665563}
+    - {x: 0.30492854, y: 7.23422, z: -2.7596917}
+    - {x: 0.5022047, y: 5.8676043, z: -3.1490612}
+    - {x: 0.36046252, y: 6.312538, z: -3.6099346}
+    - {x: 0.45642093, y: 7.0093455, z: -3.4665563}
+    - {x: 0.3992798, y: 6.138148, z: -2.9167395}
+    - {x: 0.5022047, y: 5.8676043, z: -3.1490612}
+    - {x: 0.45642093, y: 7.0093455, z: -3.4665563}
+    - {x: 0.45642093, y: 7.0093455, z: -3.4665563}
+    - {x: 0.36046252, y: 6.312538, z: -3.6099346}
+    - {x: 0.55240786, y: 6.5433707, z: -3.958226}
+    - {x: 0.55240786, y: 6.5433707, z: -3.958226}
+    - {x: 0.36046252, y: 6.312538, z: -3.6099346}
+    - {x: 0.0020693496, y: 6.3685803, z: -4.3290014}
+    - {x: 0.36046252, y: 6.312538, z: -3.6099346}
+    - {x: -0.005380674, y: 5.945211, z: -3.89505}
+    - {x: 0.0020693496, y: 6.3685803, z: -4.3290014}
+    - {x: -0.5068746, y: 6.5390654, z: -3.8751452}
+    - {x: 0.0020693496, y: 6.3685803, z: -4.3290014}
+    - {x: -0.005380674, y: 5.945211, z: -3.89505}
+    - {x: -0.4214784, y: 6.4007983, z: -3.5241354}
+    - {x: -0.5068746, y: 6.5390654, z: -3.8751452}
+    - {x: -0.005380674, y: 5.945211, z: -3.89505}
+    - {x: -0.40673658, y: 5.984112, z: -2.8816485}
+    - {x: -0.4973777, y: 7.2054563, z: -3.5861626}
+    - {x: -0.4214784, y: 6.4007983, z: -3.5241354}
+    - {x: -0.40673658, y: 5.984112, z: -2.8816485}
+    - {x: -0.2773894, y: 7.2544646, z: -2.7489696}
+    - {x: -0.4973777, y: 7.2054563, z: -3.5861626}
+    - {x: -0.19134127, y: 5.895652, z: -2.6517172}
+    - {x: -0.2773894, y: 7.2544646, z: -2.7489696}
+    - {x: -0.40673658, y: 5.984112, z: -2.8816485}
+    - {x: 0.17327331, y: 5.9080615, z: -2.6412704}
+    - {x: 0.5022047, y: 5.8676043, z: -3.1490612}
+    - {x: 0.3992798, y: 6.138148, z: -2.9167395}
+  - targetBoneName: Neck_1
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0, g: 0, b: 1, a: 0.7}
+    hullMesh: {fileID: -6047886542019299002, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: c8000000cc000000e1000000d3000000c5000000060000007b0200000f010000fc00000010010000fb000000ef000000e2000000cb000000ca000000c9000000be00000011010000
+    cachedTriangleVertices:
+    - {x: -0.42824572, y: 4.0769434, z: -3.265985}
+    - {x: -0.4214784, y: 6.4007983, z: -3.5241354}
+    - {x: -0.005380674, y: 5.945211, z: -3.89505}
+    - {x: -0.5914756, y: 5.3449755, z: -2.231297}
+    - {x: -0.40673658, y: 5.984112, z: -2.8816485}
+    - {x: -0.7491488, y: 4.6812196, z: -2.704371}
+    - {x: -0.034658335, y: 5.6446, z: -2.286009}
+    - {x: -0.19134127, y: 5.895652, z: -2.6517172}
+    - {x: -0.5914756, y: 5.3449755, z: -2.231297}
+    - {x: -0.19134127, y: 5.895652, z: -2.6517172}
+    - {x: -0.40673658, y: 5.984112, z: -2.8816485}
+    - {x: -0.5914756, y: 5.3449755, z: -2.231297}
+    - {x: -0.42824572, y: 4.0769434, z: -3.265985}
+    - {x: -0.005380674, y: 5.945211, z: -3.89505}
+    - {x: 0.07081082, y: 4.135324, z: -3.5740979}
+    - {x: 0.48116907, y: 4.6907926, z: -3.2863579}
+    - {x: 0.07081082, y: 4.135324, z: -3.5740979}
+    - {x: -0.005380674, y: 5.945211, z: -3.89505}
+    - {x: 0.48116907, y: 4.6907926, z: -3.2863579}
+    - {x: -0.005380674, y: 5.945211, z: -3.89505}
+    - {x: 0.36046252, y: 6.312538, z: -3.6099346}
+    - {x: 0.5022047, y: 5.8676043, z: -3.1490612}
+    - {x: 0.48116907, y: 4.6907926, z: -3.2863579}
+    - {x: 0.36046252, y: 6.312538, z: -3.6099346}
+    - {x: 0.46471164, y: 5.506157, z: -2.314738}
+    - {x: 0.7415405, y: 4.9613366, z: -2.6262293}
+    - {x: 0.5022047, y: 5.8676043, z: -3.1490612}
+    - {x: 0.7415405, y: 4.9613366, z: -2.6262293}
+    - {x: 0.48116907, y: 4.6907926, z: -3.2863579}
+    - {x: 0.5022047, y: 5.8676043, z: -3.1490612}
+    - {x: 0.46471164, y: 5.506157, z: -2.314738}
+    - {x: 0.5022047, y: 5.8676043, z: -3.1490612}
+    - {x: 0.17327331, y: 5.9080615, z: -2.6412704}
+    - {x: -0.034658335, y: 5.6446, z: -2.286009}
+    - {x: 0.46471164, y: 5.506157, z: -2.314738}
+    - {x: 0.17327331, y: 5.9080615, z: -2.6412704}
+    - {x: -0.034658335, y: 5.6446, z: -2.286009}
+    - {x: 0.17327331, y: 5.9080615, z: -2.6412704}
+    - {x: -0.19134127, y: 5.895652, z: -2.6517172}
+    - {x: -0.40673658, y: 5.984112, z: -2.8816485}
+    - {x: -0.4214784, y: 6.4007983, z: -3.5241354}
+    - {x: -0.7491488, y: 4.6812196, z: -2.704371}
+    - {x: -0.7491488, y: 4.6812196, z: -2.704371}
+    - {x: -0.4214784, y: 6.4007983, z: -3.5241354}
+    - {x: -0.66295815, y: 4.1488295, z: -2.8547661}
+    - {x: -0.66295815, y: 4.1488295, z: -2.8547661}
+    - {x: -0.4214784, y: 6.4007983, z: -3.5241354}
+    - {x: -0.42824572, y: 4.0769434, z: -3.265985}
+    - {x: 0.6408035, y: 3.844948, z: -2.867091}
+    - {x: 0.07081082, y: 4.135324, z: -3.5740979}
+    - {x: 0.48116907, y: 4.6907926, z: -3.2863579}
+    - {x: 0.6408035, y: 3.844948, z: -2.867091}
+    - {x: 0.48116907, y: 4.6907926, z: -3.2863579}
+    - {x: 0.7415405, y: 4.9613366, z: -2.6262293}
+  - targetBoneName: UpperArm.L
+    type: 1
+    colliderType: 0
+    previewColour: {r: 1, g: 0, b: 1, a: 0.7}
+    hullMesh: {fileID: -1301054659952201986, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 120100001b010000140100001701000016010000130100008f0200008e0200008c0200008d0200001c0100001a010000
+    cachedTriangleVertices:
+    - {x: 1.0828029, y: 4.4612556, z: -2.3314207}
+    - {x: 1.0127231, y: 3.5760372, z: -3.054943}
+    - {x: 0.7415405, y: 4.9613366, z: -2.6262293}
+    - {x: 0.6408035, y: 3.844948, z: -2.867091}
+    - {x: 0.7415405, y: 4.9613366, z: -2.6262293}
+    - {x: 1.0127231, y: 3.5760372, z: -3.054943}
+    - {x: 1.0127231, y: 3.5760372, z: -3.054943}
+    - {x: 1.0828029, y: 4.4612556, z: -2.3314207}
+    - {x: 1.3535047, y: 3.2349565, z: -2.9096406}
+    - {x: 1.3535047, y: 3.2349565, z: -2.9096406}
+    - {x: 1.0828029, y: 4.4612556, z: -2.3314207}
+    - {x: 0.9538848, y: 4.0314574, z: -2.0582259}
+    - {x: 0.94393367, y: 4.572311, z: -1.8497988}
+    - {x: 0.9538848, y: 4.0314574, z: -2.0582259}
+    - {x: 1.0828029, y: 4.4612556, z: -2.3314207}
+    - {x: 0.7415405, y: 4.9613366, z: -2.6262293}
+    - {x: 0.94393367, y: 4.572311, z: -1.8497988}
+    - {x: 1.0828029, y: 4.4612556, z: -2.3314207}
+    - {x: 0.9538848, y: 4.0314574, z: -2.0582259}
+    - {x: 1.1584097, y: 2.892839, z: -2.805359}
+    - {x: 1.3535047, y: 3.2349565, z: -2.9096406}
+    - {x: 0.9538848, y: 4.0314574, z: -2.0582259}
+    - {x: 0.7889912, y: 3.7168252, z: -2.2490962}
+    - {x: 1.1584097, y: 2.892839, z: -2.805359}
+    - {x: 0.86374754, y: 3.089674, z: -2.9398503}
+    - {x: 1.1584097, y: 2.892839, z: -2.805359}
+    - {x: 0.7889912, y: 3.7168252, z: -2.2490962}
+    - {x: 0.6408035, y: 3.844948, z: -2.867091}
+    - {x: 0.86374754, y: 3.089674, z: -2.9398503}
+    - {x: 0.7889912, y: 3.7168252, z: -2.2490962}
+    - {x: 0.6408035, y: 3.844948, z: -2.867091}
+    - {x: 0.8763941, y: 3.5719626, z: -3.037804}
+    - {x: 0.86374754, y: 3.089674, z: -2.9398503}
+    - {x: 0.6408035, y: 3.844948, z: -2.867091}
+    - {x: 1.0127231, y: 3.5760372, z: -3.054943}
+    - {x: 0.8763941, y: 3.5719626, z: -3.037804}
+  - targetBoneName: UpperArm.R
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0.066278934, g: 1, b: 0, a: 0.7}
+    hullMesh: {fileID: -4215761767653763981, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: d8000000d7000000e0000000df000000de000000e700000068010000bc01000066010000
+    cachedTriangleVertices:
+    - {x: -1.0752848, y: 4.507619, z: -2.3216722}
+    - {x: -0.93351746, y: 3.587069, z: -3.066534}
+    - {x: -1.3593682, y: 3.1962292, z: -2.9335363}
+    - {x: -1.0752848, y: 4.507619, z: -2.3216722}
+    - {x: -0.7491488, y: 4.6812196, z: -2.704371}
+    - {x: -0.93351746, y: 3.587069, z: -3.066534}
+    - {x: -0.66295815, y: 4.1488295, z: -2.8547661}
+    - {x: -0.93351746, y: 3.587069, z: -3.066534}
+    - {x: -0.7491488, y: 4.6812196, z: -2.704371}
+    - {x: -0.6323399, y: 3.675492, z: -2.7011232}
+    - {x: -0.93351746, y: 3.587069, z: -3.066534}
+    - {x: -0.66295815, y: 4.1488295, z: -2.8547661}
+    - {x: -0.6323399, y: 3.675492, z: -2.7011232}
+    - {x: -0.85023344, y: 3.148113, z: -2.8826745}
+    - {x: -0.93351746, y: 3.587069, z: -3.066534}
+    - {x: -0.97533435, y: 4.1797643, z: -2.009075}
+    - {x: -1.0752848, y: 4.507619, z: -2.3216722}
+    - {x: -1.3593682, y: 3.1962292, z: -2.9335363}
+    - {x: -0.97533435, y: 4.1797643, z: -2.009075}
+    - {x: -1.3593682, y: 3.1962292, z: -2.9335363}
+    - {x: -1.1388376, y: 2.8901458, z: -2.8025634}
+    - {x: -0.84603626, y: 3.7759764, z: -2.1273375}
+    - {x: -1.1388376, y: 2.8901458, z: -2.8025634}
+    - {x: -0.6323399, y: 3.675492, z: -2.7011232}
+    - {x: -0.97533435, y: 4.1797643, z: -2.009075}
+    - {x: -1.1388376, y: 2.8901458, z: -2.8025634}
+    - {x: -0.84603626, y: 3.7759764, z: -2.1273375}
+  - targetBoneName: Shoulder.R
+    type: 1
+    colliderType: 0
+    previewColour: {r: 1, g: 1, b: 0, a: 0.7}
+    hullMesh: {fileID: -6467655396635269804, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: d6000000e4000000e5000000
+    cachedTriangleVertices:
+    - {x: -1.0752848, y: 4.507619, z: -2.3216722}
+    - {x: -0.5914756, y: 5.3449755, z: -2.231297}
+    - {x: -0.7491488, y: 4.6812196, z: -2.704371}
+    - {x: -0.8394755, y: 4.908552, z: -1.8679115}
+    - {x: -0.5914756, y: 5.3449755, z: -2.231297}
+    - {x: -1.0752848, y: 4.507619, z: -2.3216722}
+    - {x: -0.97533435, y: 4.1797643, z: -2.009075}
+    - {x: -0.8394755, y: 4.908552, z: -1.8679115}
+    - {x: -1.0752848, y: 4.507619, z: -2.3216722}
+  - targetBoneName: Shoulder.L
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0.99636734, g: 1, b: 0, a: 0.7}
+    hullMesh: {fileID: 5687598292591089058, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: fe000000fa000000
+    cachedTriangleVertices:
+    - {x: 0.94393367, y: 4.572311, z: -1.8497988}
+    - {x: 0.7415405, y: 4.9613366, z: -2.6262293}
+    - {x: 0.63657635, y: 5.311646, z: -1.8212925}
+    - {x: 0.46471164, y: 5.506157, z: -2.314738}
+    - {x: 0.63657635, y: 5.311646, z: -1.8212925}
+    - {x: 0.7415405, y: 4.9613366, z: -2.6262293}
+  - targetBoneName: Spine_3
+    type: 1
+    colliderType: 0
+    previewColour: {r: 1, g: 0.1537725, b: 0, a: 0.7}
+    hullMesh: {fileID: -2620608928761799157, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: ea000000e8000000eb000000ee000000f0000000f2000000
+    cachedTriangleVertices:
+    - {x: -0.5914756, y: 5.3449755, z: -2.231297}
+    - {x: -0.5727103, y: 5.433911, z: -1.2076393}
+    - {x: -0.0001921147, y: 5.7348304, z: -1.360805}
+    - {x: -0.5727103, y: 5.433911, z: -1.2076393}
+    - {x: -0.5914756, y: 5.3449755, z: -2.231297}
+    - {x: -0.8394755, y: 4.908552, z: -1.8679115}
+    - {x: -0.5914756, y: 5.3449755, z: -2.231297}
+    - {x: -0.0001921147, y: 5.7348304, z: -1.360805}
+    - {x: -0.034658335, y: 5.6446, z: -2.286009}
+    - {x: -0.0001921147, y: 5.7348304, z: -1.360805}
+    - {x: 0.63657635, y: 5.311646, z: -1.8212925}
+    - {x: -0.034658335, y: 5.6446, z: -2.286009}
+    - {x: -0.034658335, y: 5.6446, z: -2.286009}
+    - {x: 0.63657635, y: 5.311646, z: -1.8212925}
+    - {x: 0.46471164, y: 5.506157, z: -2.314738}
+    - {x: -0.0001921147, y: 5.7348304, z: -1.360805}
+    - {x: 0.55822533, y: 5.4180017, z: -1.114719}
+    - {x: 0.63657635, y: 5.311646, z: -1.8212925}
+  - targetBoneName: Breast.L
+    type: 1
+    colliderType: 0
+    previewColour: {r: 1, g: 0.9151789, b: 0, a: 0.7}
+    hullMesh: {fileID: -5055549195723107308, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: c3000000c2000000c4000000c0000000
+    cachedTriangleVertices:
+    - {x: -0.42824572, y: 4.0769434, z: -3.265985}
+    - {x: 0.07081082, y: 4.135324, z: -3.5740979}
+    - {x: 0.022063171, y: 3.5746858, z: -3.133314}
+    - {x: 0.022063171, y: 3.5746858, z: -3.133314}
+    - {x: -0.6323399, y: 3.675492, z: -2.7011232}
+    - {x: -0.42824572, y: 4.0769434, z: -3.265985}
+    - {x: -0.66295815, y: 4.1488295, z: -2.8547661}
+    - {x: -0.42824572, y: 4.0769434, z: -3.265985}
+    - {x: -0.6323399, y: 3.675492, z: -2.7011232}
+    - {x: -0.6323399, y: 3.675492, z: -2.7011232}
+    - {x: 0.022063171, y: 3.5746858, z: -3.133314}
+    - {x: -0.012972883, y: 2.9112427, z: -1.6913993}
+  - targetBoneName: Breast.R
+    type: 1
+    colliderType: 0
+    previewColour: {r: 1, g: 0.5, b: 0, a: 0.7}
+    hullMesh: {fileID: 8598214926049174462, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: c1000000bd000000b9000000bf000000
+    cachedTriangleVertices:
+    - {x: 0.07081082, y: 4.135324, z: -3.5740979}
+    - {x: 0.52715546, y: 3.4793582, z: -2.5833538}
+    - {x: 0.022063171, y: 3.5746858, z: -3.133314}
+    - {x: 0.6408035, y: 3.844948, z: -2.867091}
+    - {x: 0.52715546, y: 3.4793582, z: -2.5833538}
+    - {x: 0.07081082, y: 4.135324, z: -3.5740979}
+    - {x: 0.7889912, y: 3.7168252, z: -2.2490962}
+    - {x: 0.52715546, y: 3.4793582, z: -2.5833538}
+    - {x: 0.6408035, y: 3.844948, z: -2.867091}
+    - {x: 0.52715546, y: 3.4793582, z: -2.5833538}
+    - {x: -0.012972883, y: 2.9112427, z: -1.6913993}
+    - {x: 0.022063171, y: 3.5746858, z: -3.133314}
+  - targetBoneName: Spine_2
+    type: 1
+    colliderType: 0
+    previewColour: {r: 1, g: 0, b: 0.5, a: 0.7}
+    hullMesh: {fileID: -747216041902903815, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: fd000000f300000021010000200100002201000023010000b8000000b7000000bc000000ba000000bb000000b4000000b300000065010000640100005d010000e6000000e9000000ec000000ed000000f1000000f4000000f5000000
+    cachedTriangleVertices:
+    - {x: 0.63657635, y: 5.311646, z: -1.8212925}
+    - {x: 0.91213036, y: 4.7006845, z: -0.2775524}
+    - {x: 0.94393367, y: 4.572311, z: -1.8497988}
+    - {x: 0.55822533, y: 5.4180017, z: -1.114719}
+    - {x: 0.91213036, y: 4.7006845, z: -0.2775524}
+    - {x: 0.63657635, y: 5.311646, z: -1.8212925}
+    - {x: 0.94393367, y: 4.572311, z: -1.8497988}
+    - {x: 0.91213036, y: 4.7006845, z: -0.2775524}
+    - {x: 0.992644, y: 4.139215, z: -0.6107327}
+    - {x: 0.94393367, y: 4.572311, z: -1.8497988}
+    - {x: 0.992644, y: 4.139215, z: -0.6107327}
+    - {x: 0.9538848, y: 4.0314574, z: -2.0582259}
+    - {x: 0.7863099, y: 3.1188762, z: -0.53170705}
+    - {x: 0.9538848, y: 4.0314574, z: -2.0582259}
+    - {x: 0.992644, y: 4.139215, z: -0.6107327}
+    - {x: 0.7863099, y: 3.1188762, z: -0.53170705}
+    - {x: 0.7889912, y: 3.7168252, z: -2.2490962}
+    - {x: 0.9538848, y: 4.0314574, z: -2.0582259}
+    - {x: 0.7889912, y: 3.7168252, z: -2.2490962}
+    - {x: 0.7863099, y: 3.1188762, z: -0.53170705}
+    - {x: 0.52715546, y: 3.4793582, z: -2.5833538}
+    - {x: 0.52715546, y: 3.4793582, z: -2.5833538}
+    - {x: 0.7863099, y: 3.1188762, z: -0.53170705}
+    - {x: 0.16626409, y: 2.7552118, z: -0.81989104}
+    - {x: 0.52715546, y: 3.4793582, z: -2.5833538}
+    - {x: 0.16626409, y: 2.7552118, z: -0.81989104}
+    - {x: -0.012972883, y: 2.9112427, z: -1.6913993}
+    - {x: -0.5785627, y: 3.0016701, z: -0.90461105}
+    - {x: -0.012972883, y: 2.9112427, z: -1.6913993}
+    - {x: 0.16626409, y: 2.7552118, z: -0.81989104}
+    - {x: -0.5785627, y: 3.0016701, z: -0.90461105}
+    - {x: -0.6323399, y: 3.675492, z: -2.7011232}
+    - {x: -0.012972883, y: 2.9112427, z: -1.6913993}
+    - {x: -0.5785627, y: 3.0016701, z: -0.90461105}
+    - {x: -0.84603626, y: 3.7759764, z: -2.1273375}
+    - {x: -0.6323399, y: 3.675492, z: -2.7011232}
+    - {x: -0.5785627, y: 3.0016701, z: -0.90461105}
+    - {x: -0.8896496, y: 3.4341524, z: -0.64699596}
+    - {x: -0.84603626, y: 3.7759764, z: -2.1273375}
+    - {x: -0.84603626, y: 3.7759764, z: -2.1273375}
+    - {x: -0.8896496, y: 3.4341524, z: -0.64699596}
+    - {x: -0.9928115, y: 4.12068, z: -0.61453986}
+    - {x: -0.97533435, y: 4.1797643, z: -2.009075}
+    - {x: -0.84603626, y: 3.7759764, z: -2.1273375}
+    - {x: -0.9928115, y: 4.12068, z: -0.61453986}
+    - {x: -0.9928115, y: 4.12068, z: -0.61453986}
+    - {x: -0.7725183, y: 4.9814024, z: -0.12216988}
+    - {x: -0.97533435, y: 4.1797643, z: -2.009075}
+    - {x: -0.7725183, y: 4.9814024, z: -0.12216988}
+    - {x: -0.8394755, y: 4.908552, z: -1.8679115}
+    - {x: -0.97533435, y: 4.1797643, z: -2.009075}
+    - {x: -0.5727103, y: 5.433911, z: -1.2076393}
+    - {x: -0.8394755, y: 4.908552, z: -1.8679115}
+    - {x: -0.7725183, y: 4.9814024, z: -0.12216988}
+    - {x: 0.0024333834, y: 5.365794, z: -0.0033081986}
+    - {x: -0.5727103, y: 5.433911, z: -1.2076393}
+    - {x: -0.7725183, y: 4.9814024, z: -0.12216988}
+    - {x: 0.0024333834, y: 5.365794, z: -0.0033081986}
+    - {x: -0.0001921147, y: 5.7348304, z: -1.360805}
+    - {x: -0.5727103, y: 5.433911, z: -1.2076393}
+    - {x: 0.0024333834, y: 5.365794, z: -0.0033081986}
+    - {x: 0.55822533, y: 5.4180017, z: -1.114719}
+    - {x: -0.0001921147, y: 5.7348304, z: -1.360805}
+    - {x: 0.0024333834, y: 5.365794, z: -0.0033081986}
+    - {x: 0.6074187, y: 5.0756493, z: -0.09490834}
+    - {x: 0.55822533, y: 5.4180017, z: -1.114719}
+    - {x: 0.91213036, y: 4.7006845, z: -0.2775524}
+    - {x: 0.55822533, y: 5.4180017, z: -1.114719}
+    - {x: 0.6074187, y: 5.0756493, z: -0.09490834}
+  - targetBoneName: LowerArm.R
+    type: 1
+    colliderType: 0
+    previewColour: {r: 1, g: 0, b: 0.08445263, a: 0.7}
+    hullMesh: {fileID: 7908118789078151808, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: db000000dd000000da000000d9000000c0010000dc000000bf010000be0100006b010000690100006a010000
+    cachedTriangleVertices:
+    - {x: -0.93351746, y: 3.587069, z: -3.066534}
+    - {x: -0.71667683, y: 3.2878497, z: -3.5757437}
+    - {x: -0.8968902, y: 3.3354192, z: -4.6288753}
+    - {x: -0.93351746, y: 3.587069, z: -3.066534}
+    - {x: -0.85023344, y: 3.148113, z: -2.8826745}
+    - {x: -0.71667683, y: 3.2878497, z: -3.5757437}
+    - {x: -0.93351746, y: 3.587069, z: -3.066534}
+    - {x: -0.8968902, y: 3.3354192, z: -4.6288753}
+    - {x: -1.1812032, y: 3.3741243, z: -4.2251434}
+    - {x: -0.93351746, y: 3.587069, z: -3.066534}
+    - {x: -1.1812032, y: 3.3741243, z: -4.2251434}
+    - {x: -1.3593682, y: 3.1962292, z: -2.9335363}
+    - {x: -0.71667683, y: 3.2878497, z: -3.5757437}
+    - {x: -0.88798875, y: 3.073738, z: -4.1927905}
+    - {x: -0.7400908, y: 3.1009917, z: -4.5763803}
+    - {x: -0.8968902, y: 3.3354192, z: -4.6288753}
+    - {x: -0.71667683, y: 3.2878497, z: -3.5757437}
+    - {x: -0.7400908, y: 3.1009917, z: -4.5763803}
+    - {x: -0.71667683, y: 3.2878497, z: -3.5757437}
+    - {x: -1.1388376, y: 2.8901458, z: -2.8025634}
+    - {x: -0.88798875, y: 3.073738, z: -4.1927905}
+    - {x: -0.85023344, y: 3.148113, z: -2.8826745}
+    - {x: -1.1388376, y: 2.8901458, z: -2.8025634}
+    - {x: -0.71667683, y: 3.2878497, z: -3.5757437}
+    - {x: -1.1388376, y: 2.8901458, z: -2.8025634}
+    - {x: -1.1411988, y: 3.1711245, z: -4.1822248}
+    - {x: -0.88798875, y: 3.073738, z: -4.1927905}
+    - {x: -1.3593682, y: 3.1962292, z: -2.9335363}
+    - {x: -1.1411988, y: 3.1711245, z: -4.1822248}
+    - {x: -1.1388376, y: 2.8901458, z: -2.8025634}
+    - {x: -1.3593682, y: 3.1962292, z: -2.9335363}
+    - {x: -1.1812032, y: 3.3741243, z: -4.2251434}
+    - {x: -1.1411988, y: 3.1711245, z: -4.1822248}
+  - targetBoneName: Hand.R
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0, g: 0.40704632, b: 1, a: 0.7}
+    hullMesh: {fileID: -4369965187776258552, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 6902000067020000680200006a0200006b020000a9010000aa010000ab010000af010000ae010000620200006102000063020000ac010000ad010000040000002f0000006c0200006d020000b2010000b90100002e000000
+    cachedTriangleVertices:
+    - {x: -1.2821243, y: 2.4931226, z: -4.557225}
+    - {x: -0.8968902, y: 3.3354192, z: -4.6288753}
+    - {x: -0.9711932, y: 2.4140017, z: -4.6098495}
+    - {x: -0.9711932, y: 2.4140017, z: -4.6098495}
+    - {x: -0.7400908, y: 3.1009917, z: -4.5763803}
+    - {x: -0.7195817, y: 2.3614962, z: -4.5287175}
+    - {x: -0.9711932, y: 2.4140017, z: -4.6098495}
+    - {x: -0.8968902, y: 3.3354192, z: -4.6288753}
+    - {x: -0.7400908, y: 3.1009917, z: -4.5763803}
+    - {x: -1.1812032, y: 3.3741243, z: -4.2251434}
+    - {x: -0.8968902, y: 3.3354192, z: -4.6288753}
+    - {x: -1.2821243, y: 2.4931226, z: -4.557225}
+    - {x: -1.2357471, y: 2.7375827, z: -4.307742}
+    - {x: -1.1812032, y: 3.3741243, z: -4.2251434}
+    - {x: -1.2821243, y: 2.4931226, z: -4.557225}
+    - {x: -1.1411988, y: 3.1711245, z: -4.1822248}
+    - {x: -1.1812032, y: 3.3741243, z: -4.2251434}
+    - {x: -1.2357471, y: 2.7375827, z: -4.307742}
+    - {x: -0.88798875, y: 3.073738, z: -4.1927905}
+    - {x: -1.1411988, y: 3.1711245, z: -4.1822248}
+    - {x: -1.2357471, y: 2.7375827, z: -4.307742}
+    - {x: -1.2357471, y: 2.7375827, z: -4.307742}
+    - {x: -0.8254368, y: 2.4544299, z: -4.2858825}
+    - {x: -0.88798875, y: 3.073738, z: -4.1927905}
+    - {x: -0.7400908, y: 3.1009917, z: -4.5763803}
+    - {x: -0.8254368, y: 2.4544299, z: -4.2858825}
+    - {x: -0.7195817, y: 2.3614962, z: -4.5287175}
+    - {x: -0.88798875, y: 3.073738, z: -4.1927905}
+    - {x: -0.8254368, y: 2.4544299, z: -4.2858825}
+    - {x: -0.7400908, y: 3.1009917, z: -4.5763803}
+    - {x: -1.2821243, y: 2.4931226, z: -4.557225}
+    - {x: -0.9711932, y: 2.4140017, z: -4.6098495}
+    - {x: -1.0872246, y: 2.1171696, z: -4.281145}
+    - {x: -0.9711932, y: 2.4140017, z: -4.6098495}
+    - {x: -0.93103653, y: 2.2992907, z: -4.386779}
+    - {x: -1.0872246, y: 2.1171696, z: -4.281145}
+    - {x: -0.93103653, y: 2.2992907, z: -4.386779}
+    - {x: -0.9711932, y: 2.4140017, z: -4.6098495}
+    - {x: -0.7195817, y: 2.3614962, z: -4.5287175}
+    - {x: -1.2357471, y: 2.7375827, z: -4.307742}
+    - {x: -1.033434, y: 2.3362038, z: -4.1881137}
+    - {x: -0.8254368, y: 2.4544299, z: -4.2858825}
+    - {x: -1.2357471, y: 2.7375827, z: -4.307742}
+    - {x: -1.1445692, y: 2.349059, z: -4.2774224}
+    - {x: -1.033434, y: 2.3362038, z: -4.1881137}
+    - {x: -1.1445692, y: 2.349059, z: -4.2774224}
+    - {x: -1.2357471, y: 2.7375827, z: -4.307742}
+    - {x: -1.2355478, y: 2.3795006, z: -4.1079745}
+    - {x: -1.2357471, y: 2.7375827, z: -4.307742}
+    - {x: -1.391217, y: 2.091042, z: -4.1596675}
+    - {x: -1.2355478, y: 2.3795006, z: -4.1079745}
+    - {x: -1.2821243, y: 2.4931226, z: -4.557225}
+    - {x: -1.391217, y: 2.091042, z: -4.1596675}
+    - {x: -1.2357471, y: 2.7375827, z: -4.307742}
+    - {x: -1.2672628, y: 2.094721, z: -4.2926445}
+    - {x: -1.391217, y: 2.091042, z: -4.1596675}
+    - {x: -1.2821243, y: 2.4931226, z: -4.557225}
+    - {x: -1.1445692, y: 2.349059, z: -4.2774224}
+    - {x: -1.2821243, y: 2.4931226, z: -4.557225}
+    - {x: -1.0872246, y: 2.1171696, z: -4.281145}
+    - {x: -1.2821243, y: 2.4931226, z: -4.557225}
+    - {x: -1.1445692, y: 2.349059, z: -4.2774224}
+    - {x: -1.2672628, y: 2.094721, z: -4.2926445}
+    - {x: -1.033434, y: 2.3362038, z: -4.1881137}
+    - {x: -0.93103653, y: 2.2992907, z: -4.386779}
+    - {x: -0.8254368, y: 2.4544299, z: -4.2858825}
+  - targetBoneName: MiddleFinger3.R
+    type: 0
+    colliderType: 0
+    previewColour: {r: 1, g: 0, b: 1, a: 0.7}
+    hullMesh: {fileID: 0}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 1
+    selectedFaces: 
+    cachedTriangleVertices: []
+  - targetBoneName: PinkyFinger1.R
+    type: 1
+    colliderType: 0
+    previewColour: {r: 1, g: 0.9747956, b: 0, a: 0.7}
+    hullMesh: {fileID: 4582558123387643668, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: b6010000b7010000b2020000b80100002d000000b1020000
+    cachedTriangleVertices:
+    - {x: -1.2672628, y: 2.094721, z: -4.2926445}
+    - {x: -1.408175, y: 2.316065, z: -3.4748766}
+    - {x: -1.391217, y: 2.091042, z: -4.1596675}
+    - {x: -1.408175, y: 2.316065, z: -3.4748766}
+    - {x: -1.2672628, y: 2.094721, z: -4.2926445}
+    - {x: -1.1445692, y: 2.349059, z: -4.2774224}
+    - {x: -1.2355478, y: 2.3795006, z: -4.1079745}
+    - {x: -1.3890779, y: 2.4440646, z: -3.4763863}
+    - {x: -1.408175, y: 2.316065, z: -3.4748766}
+    - {x: -1.408175, y: 2.316065, z: -3.4748766}
+    - {x: -1.1445692, y: 2.349059, z: -4.2774224}
+    - {x: -1.2355478, y: 2.3795006, z: -4.1079745}
+    - {x: -1.2355478, y: 2.3795006, z: -4.1079745}
+    - {x: -1.391217, y: 2.091042, z: -4.1596675}
+    - {x: -1.3890779, y: 2.4440646, z: -3.4763863}
+    - {x: -1.3890779, y: 2.4440646, z: -3.4763863}
+    - {x: -1.391217, y: 2.091042, z: -4.1596675}
+    - {x: -1.408175, y: 2.316065, z: -3.4748766}
+  - targetBoneName: MiddleFinger1.R
+    type: 1
+    colliderType: 0
+    previewColour: {r: 1, g: 1, b: 0, a: 0.7}
+    hullMesh: {fileID: 3575982794716703830, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: b3010000b4010000b50100006f020000b30200005f0200006e02000060020000
+    cachedTriangleVertices:
+    - {x: -1.1445692, y: 2.349059, z: -4.2774224}
+    - {x: -1.0872246, y: 2.1171696, z: -4.281145}
+    - {x: -1.033434, y: 2.3362038, z: -4.1881137}
+    - {x: -1.033434, y: 2.3362038, z: -4.1881137}
+    - {x: -1.0872246, y: 2.1171696, z: -4.281145}
+    - {x: -1.1621476, y: 2.1183488, z: -3.6103804}
+    - {x: -1.033434, y: 2.3362038, z: -4.1881137}
+    - {x: -1.1621476, y: 2.1183488, z: -3.6103804}
+    - {x: -1.193066, y: 2.2211292, z: -3.4668617}
+    - {x: -1.1271216, y: 2.2702234, z: -3.3162396}
+    - {x: -1.033434, y: 2.3362038, z: -4.1881137}
+    - {x: -1.193066, y: 2.2211292, z: -3.4668617}
+    - {x: -1.193066, y: 2.2211292, z: -3.4668617}
+    - {x: -1.1621476, y: 2.1183488, z: -3.6103804}
+    - {x: -1.1271216, y: 2.2702234, z: -3.3162396}
+    - {x: -1.1621476, y: 2.1183488, z: -3.6103804}
+    - {x: -0.93103653, y: 2.2992907, z: -4.386779}
+    - {x: -1.1271216, y: 2.2702234, z: -3.3162396}
+    - {x: -1.1271216, y: 2.2702234, z: -3.3162396}
+    - {x: -0.93103653, y: 2.2992907, z: -4.386779}
+    - {x: -1.033434, y: 2.3362038, z: -4.1881137}
+    - {x: -1.1621476, y: 2.1183488, z: -3.6103804}
+    - {x: -1.0872246, y: 2.1171696, z: -4.281145}
+    - {x: -0.93103653, y: 2.2992907, z: -4.386779}
+  - targetBoneName: ForeFinger1.R
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0.917791, g: 1, b: 0, a: 0.7}
+    hullMesh: {fileID: 2537977759101762958, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 650200006402000066020000bb010000ba010000b0010000b101000003000000
+    cachedTriangleVertices:
+    - {x: -0.93103653, y: 2.2992907, z: -4.386779}
+    - {x: -0.8513261, y: 2.0512078, z: -4.2652426}
+    - {x: -0.8785463, y: 1.958039, z: -3.6182494}
+    - {x: -0.93103653, y: 2.2992907, z: -4.386779}
+    - {x: -0.7195817, y: 2.3614962, z: -4.5287175}
+    - {x: -0.8513261, y: 2.0512078, z: -4.2652426}
+    - {x: -0.93103653, y: 2.2992907, z: -4.386779}
+    - {x: -0.8785463, y: 1.958039, z: -3.6182494}
+    - {x: -0.9531036, y: 2.1037025, z: -3.5272615}
+    - {x: -0.8254368, y: 2.4544299, z: -4.2858825}
+    - {x: -0.93103653, y: 2.2992907, z: -4.386779}
+    - {x: -0.8844874, y: 2.1205156, z: -3.5288906}
+    - {x: -0.8844874, y: 2.1205156, z: -3.5288906}
+    - {x: -0.93103653, y: 2.2992907, z: -4.386779}
+    - {x: -0.9531036, y: 2.1037025, z: -3.5272615}
+    - {x: -0.8785463, y: 1.958039, z: -3.6182494}
+    - {x: -0.7195817, y: 2.3614962, z: -4.5287175}
+    - {x: -0.8254368, y: 2.4544299, z: -4.2858825}
+    - {x: -0.8785463, y: 1.958039, z: -3.6182494}
+    - {x: -0.8254368, y: 2.4544299, z: -4.2858825}
+    - {x: -0.8844874, y: 2.1205156, z: -3.5288906}
+    - {x: -0.7195817, y: 2.3614962, z: -4.5287175}
+    - {x: -0.8785463, y: 1.958039, z: -3.6182494}
+    - {x: -0.8513261, y: 2.0512078, z: -4.2652426}
+  - targetBoneName: ForeFinger3.R
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0, g: 1, b: 0, a: 0.7}
+    hullMesh: {fileID: 1255452016027360279, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: ec020000eb020000d4020000d5020000b4020000
+    cachedTriangleVertices:
+    - {x: -0.9531036, y: 2.1037025, z: -3.5272615}
+    - {x: -0.91576034, y: 2.023741, z: -3.3309808}
+    - {x: -0.93318486, y: 2.2942545, z: -3.2462075}
+    - {x: -0.91576034, y: 2.023741, z: -3.3309808}
+    - {x: -0.9531036, y: 2.1037025, z: -3.5272615}
+    - {x: -0.8785463, y: 1.958039, z: -3.6182494}
+    - {x: -0.8844874, y: 2.1205156, z: -3.5288906}
+    - {x: -0.93318486, y: 2.2942545, z: -3.2462075}
+    - {x: -0.91576034, y: 2.023741, z: -3.3309808}
+    - {x: -0.8844874, y: 2.1205156, z: -3.5288906}
+    - {x: -0.91576034, y: 2.023741, z: -3.3309808}
+    - {x: -0.8785463, y: 1.958039, z: -3.6182494}
+    - {x: -0.9531036, y: 2.1037025, z: -3.5272615}
+    - {x: -0.93318486, y: 2.2942545, z: -3.2462075}
+    - {x: -0.8844874, y: 2.1205156, z: -3.5288906}
+  - targetBoneName: LowerArm.L
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0, g: 1, b: 0, a: 0.7}
+    hullMesh: {fileID: -3799308408272242627, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 1501000090020000910200001901000018010000890200008a0200001d0100008b0200001f0100001e01000088020000
+    cachedTriangleVertices:
+    - {x: 1.0127231, y: 3.5760372, z: -3.054943}
+    - {x: 1.3535047, y: 3.2349565, z: -2.9096406}
+    - {x: 1.1882569, y: 3.3615096, z: -4.2470045}
+    - {x: 1.3535047, y: 3.2349565, z: -2.9096406}
+    - {x: 1.1584097, y: 2.892839, z: -2.805359}
+    - {x: 1.1364588, y: 3.1902423, z: -4.1879163}
+    - {x: 1.3535047, y: 3.2349565, z: -2.9096406}
+    - {x: 1.1364588, y: 3.1902423, z: -4.1879163}
+    - {x: 1.1882569, y: 3.3615096, z: -4.2470045}
+    - {x: 0.8763941, y: 3.5719626, z: -3.037804}
+    - {x: 1.1882569, y: 3.3615096, z: -4.2470045}
+    - {x: 0.8950837, y: 3.3073268, z: -4.6462755}
+    - {x: 0.8763941, y: 3.5719626, z: -3.037804}
+    - {x: 1.0127231, y: 3.5760372, z: -3.054943}
+    - {x: 1.1882569, y: 3.3615096, z: -4.2470045}
+    - {x: 0.8884057, y: 3.0827217, z: -4.177481}
+    - {x: 0.86374754, y: 3.089674, z: -2.9398503}
+    - {x: 0.73297185, y: 3.3629317, z: -3.4882576}
+    - {x: 0.8884057, y: 3.0827217, z: -4.177481}
+    - {x: 1.1584097, y: 2.892839, z: -2.805359}
+    - {x: 0.86374754, y: 3.089674, z: -2.9398503}
+    - {x: 0.73297185, y: 3.3629317, z: -3.4882576}
+    - {x: 0.86374754, y: 3.089674, z: -2.9398503}
+    - {x: 0.8763941, y: 3.5719626, z: -3.037804}
+    - {x: 1.1584097, y: 2.892839, z: -2.805359}
+    - {x: 0.8884057, y: 3.0827217, z: -4.177481}
+    - {x: 1.1364588, y: 3.1902423, z: -4.1879163}
+    - {x: 0.7428865, y: 3.1284077, z: -4.5786796}
+    - {x: 0.73297185, y: 3.3629317, z: -3.4882576}
+    - {x: 0.8950837, y: 3.3073268, z: -4.6462755}
+    - {x: 0.8950837, y: 3.3073268, z: -4.6462755}
+    - {x: 0.73297185, y: 3.3629317, z: -3.4882576}
+    - {x: 0.8763941, y: 3.5719626, z: -3.037804}
+    - {x: 0.8884057, y: 3.0827217, z: -4.177481}
+    - {x: 0.73297185, y: 3.3629317, z: -3.4882576}
+    - {x: 0.7428865, y: 3.1284077, z: -4.5786796}
+  - targetBoneName: Hand.L
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0.5, g: 0, b: 1, a: 0.7}
+    hullMesh: {fileID: -3483522572681227963, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 220200002402000021020000260200009c0200009b0200009a02000099020000920200009302000025020000370000000b0000003b0000002c02000094020000
+    cachedTriangleVertices:
+    - {x: 1.073657, y: 2.3659854, z: -4.542251}
+    - {x: 0.8950837, y: 3.3073268, z: -4.6462755}
+    - {x: 1.3068397, y: 2.633262, z: -4.5356936}
+    - {x: 0.72387135, y: 2.4651284, z: -4.5677958}
+    - {x: 0.8950837, y: 3.3073268, z: -4.6462755}
+    - {x: 1.073657, y: 2.3659854, z: -4.542251}
+    - {x: 1.3068397, y: 2.633262, z: -4.5356936}
+    - {x: 0.8950837, y: 3.3073268, z: -4.6462755}
+    - {x: 1.1882569, y: 3.3615096, z: -4.2470045}
+    - {x: 0.7428865, y: 3.1284077, z: -4.5786796}
+    - {x: 0.8950837, y: 3.3073268, z: -4.6462755}
+    - {x: 0.72387135, y: 2.4651284, z: -4.5677958}
+    - {x: 1.1882569, y: 3.3615096, z: -4.2470045}
+    - {x: 1.2752229, y: 2.4648852, z: -4.2574673}
+    - {x: 1.3068397, y: 2.633262, z: -4.5356936}
+    - {x: 1.1882569, y: 3.3615096, z: -4.2470045}
+    - {x: 1.1364588, y: 3.1902423, z: -4.1879163}
+    - {x: 1.2752229, y: 2.4648852, z: -4.2574673}
+    - {x: 1.1364588, y: 3.1902423, z: -4.1879163}
+    - {x: 0.8884057, y: 3.0827217, z: -4.177481}
+    - {x: 1.2752229, y: 2.4648852, z: -4.2574673}
+    - {x: 0.8884057, y: 3.0827217, z: -4.177481}
+    - {x: 0.82751274, y: 2.4514492, z: -4.291503}
+    - {x: 1.2752229, y: 2.4648852, z: -4.2574673}
+    - {x: 0.8884057, y: 3.0827217, z: -4.177481}
+    - {x: 0.7428865, y: 3.1284077, z: -4.5786796}
+    - {x: 0.82751274, y: 2.4514492, z: -4.291503}
+    - {x: 0.82751274, y: 2.4514492, z: -4.291503}
+    - {x: 0.7428865, y: 3.1284077, z: -4.5786796}
+    - {x: 0.72387135, y: 2.4651284, z: -4.5677958}
+    - {x: 0.72387135, y: 2.4651284, z: -4.5677958}
+    - {x: 1.073657, y: 2.3659854, z: -4.542251}
+    - {x: 0.7929351, y: 2.1135545, z: -4.3265386}
+    - {x: 1.2752229, y: 2.4648852, z: -4.2574673}
+    - {x: 0.82751274, y: 2.4514492, z: -4.291503}
+    - {x: 1.037966, y: 2.3526137, z: -4.194726}
+    - {x: 1.2752229, y: 2.4648852, z: -4.2574673}
+    - {x: 1.037966, y: 2.3526137, z: -4.194726}
+    - {x: 1.1532046, y: 2.3254502, z: -4.2587967}
+    - {x: 0.9359473, y: 2.2807207, z: -4.330604}
+    - {x: 1.037966, y: 2.3526137, z: -4.194726}
+    - {x: 0.82751274, y: 2.4514492, z: -4.291503}
+    - {x: 0.7929351, y: 2.1135545, z: -4.3265386}
+    - {x: 1.073657, y: 2.3659854, z: -4.542251}
+    - {x: 0.9359473, y: 2.2807207, z: -4.330604}
+    - {x: 0.82751274, y: 2.4514492, z: -4.291503}
+    - {x: 0.72387135, y: 2.4651284, z: -4.5677958}
+    - {x: 0.7929351, y: 2.1135545, z: -4.3265386}
+  - targetBoneName: PinkyFinger1.L
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0, g: 1, b: 0.5, a: 0.7}
+    hullMesh: {fileID: -4708047928059634767, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 230200009d0200009e02000038000000870200009f020000c30200000a00000086020000c20200008502000008000000
+    cachedTriangleVertices:
+    - {x: 1.073657, y: 2.3659854, z: -4.542251}
+    - {x: 1.3068397, y: 2.633262, z: -4.5356936}
+    - {x: 1.3394104, y: 2.116032, z: -4.3132977}
+    - {x: 1.073657, y: 2.3659854, z: -4.542251}
+    - {x: 1.3394104, y: 2.116032, z: -4.3132977}
+    - {x: 1.22181, y: 2.0837314, z: -4.1600285}
+    - {x: 1.073657, y: 2.3659854, z: -4.542251}
+    - {x: 1.22181, y: 2.0837314, z: -4.1600285}
+    - {x: 1.1532046, y: 2.3254502, z: -4.2587967}
+    - {x: 1.2752229, y: 2.4648852, z: -4.2574673}
+    - {x: 1.1532046, y: 2.3254502, z: -4.2587967}
+    - {x: 1.4170097, y: 2.394626, z: -3.5891194}
+    - {x: 1.3068397, y: 2.633262, z: -4.5356936}
+    - {x: 1.2752229, y: 2.4648852, z: -4.2574673}
+    - {x: 1.3394104, y: 2.116032, z: -4.3132977}
+    - {x: 1.1532046, y: 2.3254502, z: -4.2587967}
+    - {x: 1.22181, y: 2.0837314, z: -4.1600285}
+    - {x: 1.3797207, y: 2.4627888, z: -3.4574904}
+    - {x: 1.22181, y: 2.0837314, z: -4.1600285}
+    - {x: 1.436351, y: 2.311893, z: -3.49751}
+    - {x: 1.3797207, y: 2.4627888, z: -3.4574904}
+    - {x: 1.22181, y: 2.0837314, z: -4.1600285}
+    - {x: 1.3394104, y: 2.116032, z: -4.3132977}
+    - {x: 1.436351, y: 2.311893, z: -3.49751}
+    - {x: 1.2752229, y: 2.4648852, z: -4.2574673}
+    - {x: 1.436351, y: 2.311893, z: -3.49751}
+    - {x: 1.3394104, y: 2.116032, z: -4.3132977}
+    - {x: 1.436351, y: 2.311893, z: -3.49751}
+    - {x: 1.4170097, y: 2.394626, z: -3.5891194}
+    - {x: 1.3797207, y: 2.4627888, z: -3.4574904}
+    - {x: 1.2752229, y: 2.4648852, z: -4.2574673}
+    - {x: 1.4170097, y: 2.394626, z: -3.5891194}
+    - {x: 1.436351, y: 2.311893, z: -3.49751}
+    - {x: 1.4170097, y: 2.394626, z: -3.5891194}
+    - {x: 1.1532046, y: 2.3254502, z: -4.2587967}
+    - {x: 1.3797207, y: 2.4627888, z: -3.4574904}
+  - targetBoneName: MiddleFinger1.L
+    type: 1
+    colliderType: 0
+    previewColour: {r: 1, g: 0.16159368, b: 0, a: 0.7}
+    hullMesh: {fileID: 2973191603608101243, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 2a0200002b020000980200002902000009000000390000002802000027020000c402000097020000
+    cachedTriangleVertices:
+    - {x: 0.9359473, y: 2.2807207, z: -4.330604}
+    - {x: 1.092738, y: 2.120679, z: -4.2963085}
+    - {x: 1.1700628, y: 2.1564727, z: -3.409143}
+    - {x: 0.9359473, y: 2.2807207, z: -4.330604}
+    - {x: 1.1700628, y: 2.1564727, z: -3.409143}
+    - {x: 1.1291593, y: 2.2990534, z: -3.3176394}
+    - {x: 1.037966, y: 2.3526137, z: -4.194726}
+    - {x: 1.1700628, y: 2.1564727, z: -3.409143}
+    - {x: 1.092738, y: 2.120679, z: -4.2963085}
+    - {x: 0.9359473, y: 2.2807207, z: -4.330604}
+    - {x: 1.073657, y: 2.3659854, z: -4.542251}
+    - {x: 1.092738, y: 2.120679, z: -4.2963085}
+    - {x: 1.092738, y: 2.120679, z: -4.2963085}
+    - {x: 1.073657, y: 2.3659854, z: -4.542251}
+    - {x: 1.1532046, y: 2.3254502, z: -4.2587967}
+    - {x: 1.092738, y: 2.120679, z: -4.2963085}
+    - {x: 1.1532046, y: 2.3254502, z: -4.2587967}
+    - {x: 1.037966, y: 2.3526137, z: -4.194726}
+    - {x: 1.037966, y: 2.3526137, z: -4.194726}
+    - {x: 0.9359473, y: 2.2807207, z: -4.330604}
+    - {x: 1.1108279, y: 2.3032396, z: -3.6925893}
+    - {x: 1.1108279, y: 2.3032396, z: -3.6925893}
+    - {x: 0.9359473, y: 2.2807207, z: -4.330604}
+    - {x: 1.1291593, y: 2.2990534, z: -3.3176394}
+    - {x: 1.1700628, y: 2.1564727, z: -3.409143}
+    - {x: 1.1108279, y: 2.3032396, z: -3.6925893}
+    - {x: 1.1291593, y: 2.2990534, z: -3.3176394}
+    - {x: 1.037966, y: 2.3526137, z: -4.194726}
+    - {x: 1.1108279, y: 2.3032396, z: -3.6925893}
+    - {x: 1.1700628, y: 2.1564727, z: -3.409143}
+  - targetBoneName: ForeFinger1.L
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0, g: 0.5, b: 1, a: 0.7}
+    hullMesh: {fileID: -1855543029796318569, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 2d0200003a00000095020000960200002f0200002e020000
+    cachedTriangleVertices:
+    - {x: 0.9132825, y: 1.9390026, z: -3.8136752}
+    - {x: 0.7929351, y: 2.1135545, z: -4.3265386}
+    - {x: 0.9359473, y: 2.2807207, z: -4.330604}
+    - {x: 0.7929351, y: 2.1135545, z: -4.3265386}
+    - {x: 0.9132825, y: 1.9390026, z: -3.8136752}
+    - {x: 0.8529576, y: 2.0382695, z: -3.4580364}
+    - {x: 0.8529576, y: 2.0382695, z: -3.4580364}
+    - {x: 0.82751274, y: 2.4514492, z: -4.291503}
+    - {x: 0.7929351, y: 2.1135545, z: -4.3265386}
+    - {x: 0.8529576, y: 2.0382695, z: -3.4580364}
+    - {x: 0.939114, y: 2.1123824, z: -3.4695623}
+    - {x: 0.82751274, y: 2.4514492, z: -4.291503}
+    - {x: 0.9359473, y: 2.2807207, z: -4.330604}
+    - {x: 0.82751274, y: 2.4514492, z: -4.291503}
+    - {x: 0.939114, y: 2.1123824, z: -3.4695623}
+    - {x: 0.9132825, y: 1.9390026, z: -3.8136752}
+    - {x: 0.9359473, y: 2.2807207, z: -4.330604}
+    - {x: 0.939114, y: 2.1123824, z: -3.4695623}
+  - targetBoneName: ForeFinger3.L
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0, g: 1, b: 1, a: 0.7}
+    hullMesh: {fileID: -6362632480247158431, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: b9020000c1020000b8020000
+    cachedTriangleVertices:
+    - {x: 0.8529576, y: 2.0382695, z: -3.4580364}
+    - {x: 0.9132825, y: 1.9390026, z: -3.8136752}
+    - {x: 0.92343, y: 2.0632718, z: -3.2740254}
+    - {x: 0.939114, y: 2.1123824, z: -3.4695623}
+    - {x: 0.92343, y: 2.0632718, z: -3.2740254}
+    - {x: 0.9132825, y: 1.9390026, z: -3.8136752}
+    - {x: 0.939114, y: 2.1123824, z: -3.4695623}
+    - {x: 0.8529576, y: 2.0382695, z: -3.4580364}
+    - {x: 0.92343, y: 2.0632718, z: -3.2740254}
+  - targetBoneName: BigToe3.R
+    type: 0
+    colliderType: 0
+    previewColour: {r: 0, g: 1, b: 1, a: 0.7}
+    hullMesh: {fileID: 1658035731791790073, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0.96451616
+    maxThreshold: 1
+    selectedFaces: 
+    cachedTriangleVertices: []
+  - targetBoneName: BigToe1.R
+    type: 1
+    colliderType: 0
+    previewColour: {r: 1, g: 0, b: 1, a: 0.7}
+    hullMesh: {fileID: 830816483628225053, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 5c0200005d0200005e020000b00200009f0100009e010000d0020000d1020000d2020000
+    cachedTriangleVertices:
+    - {x: -0.88769937, y: 0.82528794, z: -0.43523017}
+    - {x: -0.90094864, y: 0.26397365, z: -0.35731602}
+    - {x: -1.045204, y: 0.118617214, z: -0.043393042}
+    - {x: -0.88769937, y: 0.82528794, z: -0.43523017}
+    - {x: -1.045204, y: 0.118617214, z: -0.043393042}
+    - {x: -0.8587245, y: 0.9904976, z: -0.35584906}
+    - {x: -0.8544125, y: 0.5545652, z: -0.009907705}
+    - {x: -0.8587245, y: 0.9904976, z: -0.35584906}
+    - {x: -1.045204, y: 0.118617214, z: -0.043393042}
+    - {x: -0.88769937, y: 0.82528794, z: -0.43523017}
+    - {x: -0.7445414, y: 0.9191337, z: -0.49327484}
+    - {x: -0.6738536, y: 0.13956036, z: -0.30496764}
+    - {x: -0.6738536, y: 0.13956036, z: -0.30496764}
+    - {x: -0.90094864, y: 0.26397365, z: -0.35731602}
+    - {x: -0.88769937, y: 0.82528794, z: -0.43523017}
+    - {x: -0.6738536, y: 0.13956036, z: -0.30496764}
+    - {x: -1.045204, y: 0.118617214, z: -0.043393042}
+    - {x: -0.90094864, y: 0.26397365, z: -0.35731602}
+    - {x: -0.67138183, y: 0.48817202, z: -0.20918651}
+    - {x: -0.6738536, y: 0.13956036, z: -0.30496764}
+    - {x: -0.7445414, y: 0.9191337, z: -0.49327484}
+    - {x: -0.8587245, y: 0.9904976, z: -0.35584906}
+    - {x: -0.67138183, y: 0.48817202, z: -0.20918651}
+    - {x: -0.7445414, y: 0.9191337, z: -0.49327484}
+    - {x: -0.8544125, y: 0.5545652, z: -0.009907705}
+    - {x: -0.67138183, y: 0.48817202, z: -0.20918651}
+    - {x: -0.8587245, y: 0.9904976, z: -0.35584906}
+  - targetBoneName: MiddleToe2.R
+    type: 0
+    colliderType: 0
+    previewColour: {r: 1, g: 1, b: 0, a: 0.7}
+    hullMesh: {fileID: -8351879426453721890, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0.4
+    maxThreshold: 1
+    selectedFaces: 
+    cachedTriangleVertices: []
+  - targetBoneName: MiddleToe1.R
+    type: 1
+    colliderType: 0
+    previewColour: {r: 1, g: 0, b: 0, a: 0.7}
+    hullMesh: {fileID: 8553044065047107851, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: c90200002b000000a2010000a101000002000000cc020000
+    cachedTriangleVertices:
+    - {x: -1.2550379, y: 0.44845772, z: -0.486378}
+    - {x: -1.3125823, y: 0.3153158, z: -0.48909315}
+    - {x: -1.2666223, y: 0.39833182, z: -0.05431854}
+    - {x: -1.2666223, y: 0.39833182, z: -0.05431854}
+    - {x: -1.3125823, y: 0.3153158, z: -0.48909315}
+    - {x: -1.4085081, y: 0.05208601, z: -0.084358014}
+    - {x: -1.1811776, y: 0.32873568, z: -0.46595943}
+    - {x: -1.4085081, y: 0.05208601, z: -0.084358014}
+    - {x: -1.3125823, y: 0.3153158, z: -0.48909315}
+    - {x: -1.1811776, y: 0.32873568, z: -0.46595943}
+    - {x: -1.045204, y: 0.118617214, z: -0.043393042}
+    - {x: -1.4085081, y: 0.05208601, z: -0.084358014}
+    - {x: -1.045204, y: 0.118617214, z: -0.043393042}
+    - {x: -1.1811776, y: 0.32873568, z: -0.46595943}
+    - {x: -1.2666223, y: 0.39833182, z: -0.05431854}
+    - {x: -1.2550379, y: 0.44845772, z: -0.486378}
+    - {x: -1.2666223, y: 0.39833182, z: -0.05431854}
+    - {x: -1.1811776, y: 0.32873568, z: -0.46595943}
+  - targetBoneName: PinkyToe1.R
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0, g: 0, b: 1, a: 0.7}
+    hullMesh: {fileID: -717014387811940854, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 87010000ca020000ce020000bb020000a6010000cf020000cb020000af020000
+    cachedTriangleVertices:
+    - {x: -1.8414243, y: 0.2906383, z: -0.36852363}
+    - {x: -1.9167476, y: 0.077125035, z: -0.040686853}
+    - {x: -1.7670408, y: 0.4151624, z: -0.19946189}
+    - {x: -1.6954292, y: 0.38345283, z: -0.3452893}
+    - {x: -1.8539546, y: 0.4531832, z: -0.5189863}
+    - {x: -1.7670408, y: 0.4151624, z: -0.19946189}
+    - {x: -1.8414243, y: 0.2906383, z: -0.36852363}
+    - {x: -1.7670408, y: 0.4151624, z: -0.19946189}
+    - {x: -1.8539546, y: 0.4531832, z: -0.5189863}
+    - {x: -1.8414243, y: 0.2906383, z: -0.36852363}
+    - {x: -1.6954292, y: 0.38345283, z: -0.3452893}
+    - {x: -1.6910566, y: 0.019580698, z: -0.14890334}
+    - {x: -1.8414243, y: 0.2906383, z: -0.36852363}
+    - {x: -1.6910566, y: 0.019580698, z: -0.14890334}
+    - {x: -1.9167476, y: 0.077125035, z: -0.040686853}
+    - {x: -1.8414243, y: 0.2906383, z: -0.36852363}
+    - {x: -1.8539546, y: 0.4531832, z: -0.5189863}
+    - {x: -1.8643353, y: 0.15702696, z: -0.76056135}
+    - {x: -1.8539546, y: 0.4531832, z: -0.5189863}
+    - {x: -1.6954292, y: 0.38345283, z: -0.3452893}
+    - {x: -1.8643353, y: 0.15702696, z: -0.76056135}
+    - {x: -1.8414243, y: 0.2906383, z: -0.36852363}
+    - {x: -1.8643353, y: 0.15702696, z: -0.76056135}
+    - {x: -1.6954292, y: 0.38345283, z: -0.3452893}
+  - targetBoneName: Foot.R
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0.00965035, g: 1, b: 0, a: 0.7}
+    hullMesh: {fileID: 7328778818444689693, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: a8010000a70100008301000082010000010000007a0100007b010000800100008601000085010000a5010000a4010000a0010000a30100009c0100009d0100007f0100007e0100007d0100007c010000330000008c0100008d0100009b0100008b0100008a010000880100008401000081010000
+    cachedTriangleVertices:
+    - {x: -1.6910566, y: 0.019580698, z: -0.14890334}
+    - {x: -1.6954292, y: 0.38345283, z: -0.3452893}
+    - {x: -1.2666223, y: 0.39833182, z: -0.05431854}
+    - {x: -1.4085081, y: 0.05208601, z: -0.084358014}
+    - {x: -1.6910566, y: 0.019580698, z: -0.14890334}
+    - {x: -1.2666223, y: 0.39833182, z: -0.05431854}
+    - {x: -1.2666223, y: 0.39833182, z: -0.05431854}
+    - {x: -1.6954292, y: 0.38345283, z: -0.3452893}
+    - {x: -1.7670408, y: 0.4151624, z: -0.19946189}
+    - {x: -1.6092428, y: 0.5671508, z: 0.22709209}
+    - {x: -1.2666223, y: 0.39833182, z: -0.05431854}
+    - {x: -1.7670408, y: 0.4151624, z: -0.19946189}
+    - {x: -1.2666223, y: 0.39833182, z: -0.05431854}
+    - {x: -0.8544125, y: 0.5545652, z: -0.009907705}
+    - {x: -1.045204, y: 0.118617214, z: -0.043393042}
+    - {x: -1.0320483, y: 1.0860319, z: 0.4632088}
+    - {x: -0.8734941, y: 0.7423431, z: 0.32719886}
+    - {x: -1.2666223, y: 0.39833182, z: -0.05431854}
+    - {x: -1.2666223, y: 0.39833182, z: -0.05431854}
+    - {x: -0.8734941, y: 0.7423431, z: 0.32719886}
+    - {x: -0.8544125, y: 0.5545652, z: -0.009907705}
+    - {x: -1.0320483, y: 1.0860319, z: 0.4632088}
+    - {x: -1.2666223, y: 0.39833182, z: -0.05431854}
+    - {x: -1.6092428, y: 0.5671508, z: 0.22709209}
+    - {x: -1.9167476, y: 0.077125035, z: -0.040686853}
+    - {x: -1.6092428, y: 0.5671508, z: 0.22709209}
+    - {x: -1.7670408, y: 0.4151624, z: -0.19946189}
+    - {x: -1.6832731, y: 0.18387993, z: 0.54978615}
+    - {x: -1.6092428, y: 0.5671508, z: 0.22709209}
+    - {x: -1.9167476, y: 0.077125035, z: -0.040686853}
+    - {x: -1.6910566, y: 0.019580698, z: -0.14890334}
+    - {x: -1.6832731, y: 0.18387993, z: 0.54978615}
+    - {x: -1.9167476, y: 0.077125035, z: -0.040686853}
+    - {x: -1.1955818, y: 0.015445405, z: 0.5865625}
+    - {x: -1.6832731, y: 0.18387993, z: 0.54978615}
+    - {x: -1.6910566, y: 0.019580698, z: -0.14890334}
+    - {x: -1.1955818, y: 0.015445405, z: 0.5865625}
+    - {x: -1.4085081, y: 0.05208601, z: -0.084358014}
+    - {x: -1.045204, y: 0.118617214, z: -0.043393042}
+    - {x: -1.4085081, y: 0.05208601, z: -0.084358014}
+    - {x: -1.1955818, y: 0.015445405, z: 0.5865625}
+    - {x: -1.6910566, y: 0.019580698, z: -0.14890334}
+    - {x: -0.65608436, y: 0.1117329, z: 0.4437405}
+    - {x: -1.1955818, y: 0.015445405, z: 0.5865625}
+    - {x: -0.6738536, y: 0.13956036, z: -0.30496764}
+    - {x: -0.6738536, y: 0.13956036, z: -0.30496764}
+    - {x: -1.1955818, y: 0.015445405, z: 0.5865625}
+    - {x: -1.045204, y: 0.118617214, z: -0.043393042}
+    - {x: -0.65608436, y: 0.1117329, z: 0.4437405}
+    - {x: -0.6738536, y: 0.13956036, z: -0.30496764}
+    - {x: -0.67138183, y: 0.48817202, z: -0.20918651}
+    - {x: -0.77091134, y: 0.6818767, z: 0.5264729}
+    - {x: -0.65608436, y: 0.1117329, z: 0.4437405}
+    - {x: -0.67138183, y: 0.48817202, z: -0.20918651}
+    - {x: -0.8544125, y: 0.5545652, z: -0.009907705}
+    - {x: -0.77091134, y: 0.6818767, z: 0.5264729}
+    - {x: -0.67138183, y: 0.48817202, z: -0.20918651}
+    - {x: -0.8544125, y: 0.5545652, z: -0.009907705}
+    - {x: -0.8734941, y: 0.7423431, z: 0.32719886}
+    - {x: -0.77091134, y: 0.6818767, z: 0.5264729}
+    - {x: -0.77091134, y: 0.6818767, z: 0.5264729}
+    - {x: -0.7553309, y: 0.74295735, z: 0.6283147}
+    - {x: -0.65608436, y: 0.1117329, z: 0.4437405}
+    - {x: -0.65608436, y: 0.1117329, z: 0.4437405}
+    - {x: -1.1075472, y: 0.8835818, z: 0.8882952}
+    - {x: -1.2075412, y: 0.15745401, z: 0.7839031}
+    - {x: -1.1075472, y: 0.8835818, z: 0.8882952}
+    - {x: -0.65608436, y: 0.1117329, z: 0.4437405}
+    - {x: -0.7553309, y: 0.74295735, z: 0.6283147}
+    - {x: -0.65608436, y: 0.1117329, z: 0.4437405}
+    - {x: -1.2075412, y: 0.15745401, z: 0.7839031}
+    - {x: -1.1955818, y: 0.015445405, z: 0.5865625}
+    - {x: -1.2075412, y: 0.15745401, z: 0.7839031}
+    - {x: -1.6832731, y: 0.18387993, z: 0.54978615}
+    - {x: -1.1955818, y: 0.015445405, z: 0.5865625}
+    - {x: -1.1075472, y: 0.8835818, z: 0.8882952}
+    - {x: -1.6832731, y: 0.18387993, z: 0.54978615}
+    - {x: -1.2075412, y: 0.15745401, z: 0.7839031}
+    - {x: -1.1247239, y: 1.2437139, z: 0.75885457}
+    - {x: -1.6832731, y: 0.18387993, z: 0.54978615}
+    - {x: -1.1075472, y: 0.8835818, z: 0.8882952}
+    - {x: -1.1247239, y: 1.2437139, z: 0.75885457}
+    - {x: -1.6092428, y: 0.5671508, z: 0.22709209}
+    - {x: -1.6832731, y: 0.18387993, z: 0.54978615}
+    - {x: -1.1247239, y: 1.2437139, z: 0.75885457}
+    - {x: -1.0320483, y: 1.0860319, z: 0.4632088}
+    - {x: -1.6092428, y: 0.5671508, z: 0.22709209}
+  - targetBoneName: LowerLeg.R
+    type: 1
+    colliderType: 0
+    previewColour: {r: 1, g: 0.5, b: 0, a: 0.7}
+    hullMesh: {fileID: -968293916729896408, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 75010000780100008901000076010000000000008f01000091010000900100008e01000093010000740100007701000095010000790100009201000094010000
+    cachedTriangleVertices:
+    - {x: -1.1456032, y: 1.8722183, z: 0.7569693}
+    - {x: -0.9044781, y: 1.5975524, z: 0.56135154}
+    - {x: -1.1247239, y: 1.2437139, z: 0.75885457}
+    - {x: -1.1247239, y: 1.2437139, z: 0.75885457}
+    - {x: -0.9044781, y: 1.5975524, z: 0.56135154}
+    - {x: -1.0320483, y: 1.0860319, z: 0.4632088}
+    - {x: -1.1247239, y: 1.2437139, z: 0.75885457}
+    - {x: -1.1075472, y: 0.8835818, z: 0.8882952}
+    - {x: -0.87869656, y: 1.9195865, z: 1.0282079}
+    - {x: -1.1456032, y: 1.8722183, z: 0.7569693}
+    - {x: -1.1247239, y: 1.2437139, z: 0.75885457}
+    - {x: -0.87869656, y: 1.9195865, z: 1.0282079}
+    - {x: -0.87869656, y: 1.9195865, z: 1.0282079}
+    - {x: -1.1075472, y: 0.8835818, z: 0.8882952}
+    - {x: -0.84646505, y: 1.7144821, z: 1.2053719}
+    - {x: -0.84646505, y: 1.7144821, z: 1.2053719}
+    - {x: -1.1075472, y: 0.8835818, z: 0.8882952}
+    - {x: -0.8302256, y: 1.2982664, z: 1.0710301}
+    - {x: -0.73543096, y: 1.6739169, z: 1.1955533}
+    - {x: -0.8302256, y: 1.2982664, z: 1.0710301}
+    - {x: -0.7553309, y: 0.74295735, z: 0.6283147}
+    - {x: -0.8302256, y: 1.2982664, z: 1.0710301}
+    - {x: -0.73543096, y: 1.6739169, z: 1.1955533}
+    - {x: -0.84646505, y: 1.7144821, z: 1.2053719}
+    - {x: -0.7553309, y: 0.74295735, z: 0.6283147}
+    - {x: -0.8302256, y: 1.2982664, z: 1.0710301}
+    - {x: -1.1075472, y: 0.8835818, z: 0.8882952}
+    - {x: -0.73543096, y: 1.6739169, z: 1.1955533}
+    - {x: -0.7553309, y: 0.74295735, z: 0.6283147}
+    - {x: -0.6556896, y: 1.6831416, z: 0.6765507}
+    - {x: -0.7192062, y: 0.6931478, z: 0.54641384}
+    - {x: -0.9044781, y: 1.5975524, z: 0.56135154}
+    - {x: -0.6556896, y: 1.6831416, z: 0.6765507}
+    - {x: -0.7192062, y: 0.6931478, z: 0.54641384}
+    - {x: -1.0320483, y: 1.0860319, z: 0.4632088}
+    - {x: -0.9044781, y: 1.5975524, z: 0.56135154}
+    - {x: -0.6556896, y: 1.6831416, z: 0.6765507}
+    - {x: -0.7553309, y: 0.74295735, z: 0.6283147}
+    - {x: -0.7192062, y: 0.6931478, z: 0.54641384}
+    - {x: -1.0320483, y: 1.0860319, z: 0.4632088}
+    - {x: -0.7192062, y: 0.6931478, z: 0.54641384}
+    - {x: -0.8734941, y: 0.7423431, z: 0.32719886}
+    - {x: -0.87869656, y: 1.9195865, z: 1.0282079}
+    - {x: -0.84646505, y: 1.7144821, z: 1.2053719}
+    - {x: -0.73543096, y: 1.6739169, z: 1.1955533}
+    - {x: -0.6556896, y: 1.6831416, z: 0.6765507}
+    - {x: -0.87869656, y: 1.9195865, z: 1.0282079}
+    - {x: -0.73543096, y: 1.6739169, z: 1.1955533}
+  - targetBoneName: UpperLeg.R
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0, g: 0.13428688, b: 1, a: 0.7}
+    hullMesh: {fileID: 6669476864998443012, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 5f0100005e0100006001000061010000970100009601000070010000720100007101000073010000
+    cachedTriangleVertices:
+    - {x: -1.4157819, y: 2.7920363, z: 0.24172246}
+    - {x: -1.4162239, y: 2.5755904, z: -0.50867903}
+    - {x: -1.1456032, y: 1.8722183, z: 0.7569693}
+    - {x: -1.4157819, y: 2.7920363, z: 0.24172246}
+    - {x: -1.1456032, y: 1.8722183, z: 0.7569693}
+    - {x: -1.1579592, y: 2.7836056, z: 0.57230175}
+    - {x: -1.1456032, y: 1.8722183, z: 0.7569693}
+    - {x: -0.87869656, y: 1.9195865, z: 1.0282079}
+    - {x: -1.1579592, y: 2.7836056, z: 0.57230175}
+    - {x: -0.8599846, y: 2.748207, z: 0.5570096}
+    - {x: -1.1579592, y: 2.7836056, z: 0.57230175}
+    - {x: -0.87869656, y: 1.9195865, z: 1.0282079}
+    - {x: -0.55178577, y: 2.3521302, z: 0.34962988}
+    - {x: -0.8599846, y: 2.748207, z: 0.5570096}
+    - {x: -0.87869656, y: 1.9195865, z: 1.0282079}
+    - {x: -0.55178577, y: 2.3521302, z: 0.34962988}
+    - {x: -0.87869656, y: 1.9195865, z: 1.0282079}
+    - {x: -0.6556896, y: 1.6831416, z: 0.6765507}
+    - {x: -0.55178577, y: 2.3521302, z: 0.34962988}
+    - {x: -0.6556896, y: 1.6831416, z: 0.6765507}
+    - {x: -1.0649124, y: 2.4688377, z: -0.5703278}
+    - {x: -1.0649124, y: 2.4688377, z: -0.5703278}
+    - {x: -0.6556896, y: 1.6831416, z: 0.6765507}
+    - {x: -0.9044781, y: 1.5975524, z: 0.56135154}
+    - {x: -1.0649124, y: 2.4688377, z: -0.5703278}
+    - {x: -0.9044781, y: 1.5975524, z: 0.56135154}
+    - {x: -1.4162239, y: 2.5755904, z: -0.50867903}
+    - {x: -1.4162239, y: 2.5755904, z: -0.50867903}
+    - {x: -0.9044781, y: 1.5975524, z: 0.56135154}
+    - {x: -1.1456032, y: 1.8722183, z: 0.7569693}
+  - targetBoneName: BigToe3.L
+    type: 0
+    colliderType: 0
+    previewColour: {r: 0.5, g: 1, b: 0, a: 0.7}
+    hullMesh: {fileID: -3881812234663505874, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0.68494624
+    maxThreshold: 1
+    selectedFaces: 
+    cachedTriangleVertices: []
+  - targetBoneName: BigToe1.L
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0, g: 0.14518571, b: 1, a: 0.7}
+    hullMesh: {fileID: -8338334074877989843, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 070000001e020000c0020000d9020000da020000dc020000de02000020020000830200001f02000084020000
+    cachedTriangleVertices:
+    - {x: 0.849383, y: 0.5570638, z: -0.01505799}
+    - {x: 1.0567286, y: 0.2459465, z: -0.020296602}
+    - {x: 0.9135768, y: 0.8458114, z: -0.3896865}
+    - {x: 0.6598639, y: 0.22060628, z: -0.3238667}
+    - {x: 0.665587, y: 0.5088658, z: -0.21738863}
+    - {x: 0.80134404, y: 1.0645009, z: -0.4816557}
+    - {x: 0.665587, y: 0.5088658, z: -0.21738863}
+    - {x: 0.849383, y: 0.5570638, z: -0.01505799}
+    - {x: 0.80134404, y: 1.0645009, z: -0.4816557}
+    - {x: 0.9135768, y: 0.8458114, z: -0.3896865}
+    - {x: 0.89604163, y: 0.48591197, z: -0.37741232}
+    - {x: 0.7585145, y: 0.8591154, z: -0.4732177}
+    - {x: 0.6598639, y: 0.22060628, z: -0.3238667}
+    - {x: 0.7585145, y: 0.8591154, z: -0.4732177}
+    - {x: 0.89604163, y: 0.48591197, z: -0.37741232}
+    - {x: 0.849383, y: 0.5570638, z: -0.01505799}
+    - {x: 0.9135768, y: 0.8458114, z: -0.3896865}
+    - {x: 0.80134404, y: 1.0645009, z: -0.4816557}
+    - {x: 0.7585145, y: 0.8591154, z: -0.4732177}
+    - {x: 0.6598639, y: 0.22060628, z: -0.3238667}
+    - {x: 0.80134404, y: 1.0645009, z: -0.4816557}
+    - {x: 1.0567286, y: 0.2459465, z: -0.020296602}
+    - {x: 0.89604163, y: 0.48591197, z: -0.37741232}
+    - {x: 0.9135768, y: 0.8458114, z: -0.3896865}
+    - {x: 1.0330433, y: 0.070594236, z: -0.03629088}
+    - {x: 0.6970661, y: 0.037885454, z: -0.11603057}
+    - {x: 0.89604163, y: 0.48591197, z: -0.37741232}
+    - {x: 1.0567286, y: 0.2459465, z: -0.020296602}
+    - {x: 1.0330433, y: 0.070594236, z: -0.03629088}
+    - {x: 0.89604163, y: 0.48591197, z: -0.37741232}
+    - {x: 0.6970661, y: 0.037885454, z: -0.11603057}
+    - {x: 0.6598639, y: 0.22060628, z: -0.3238667}
+    - {x: 0.89604163, y: 0.48591197, z: -0.37741232}
+  - targetBoneName: MiddleToe1.L
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0.2937672, g: 1, b: 0, a: 0.7}
+    hullMesh: {fileID: -5788592523310465949, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: ed020000b7020000be020000ee020000ef020000f0020000b6020000
+    cachedTriangleVertices:
+    - {x: 1.241451, y: 0.3919036, z: -0.06497546}
+    - {x: 1.1672798, y: 0.3454423, z: -0.5470297}
+    - {x: 1.0567286, y: 0.2459465, z: -0.020296602}
+    - {x: 1.1672798, y: 0.3454423, z: -0.5470297}
+    - {x: 1.241451, y: 0.3919036, z: -0.06497546}
+    - {x: 1.2859344, y: 0.29081815, z: -0.68581253}
+    - {x: 1.2859344, y: 0.29081815, z: -0.68581253}
+    - {x: 1.241451, y: 0.3919036, z: -0.06497546}
+    - {x: 1.4406649, y: 0.13351513, z: -0.12376235}
+    - {x: 1.0567286, y: 0.2459465, z: -0.020296602}
+    - {x: 1.1672798, y: 0.3454423, z: -0.5470297}
+    - {x: 1.0330433, y: 0.070594236, z: -0.03629088}
+    - {x: 1.1672798, y: 0.3454423, z: -0.5470297}
+    - {x: 1.2930546, y: 0.11645771, z: -0.27810594}
+    - {x: 1.0330433, y: 0.070594236, z: -0.03629088}
+    - {x: 1.2930546, y: 0.11645771, z: -0.27810594}
+    - {x: 1.1672798, y: 0.3454423, z: -0.5470297}
+    - {x: 1.2859344, y: 0.29081815, z: -0.68581253}
+    - {x: 1.2930546, y: 0.11645771, z: -0.27810594}
+    - {x: 1.2859344, y: 0.29081815, z: -0.68581253}
+    - {x: 1.4406649, y: 0.13351513, z: -0.12376235}
+  - targetBoneName: PinkyToe2.L
+    type: 0
+    colliderType: 0
+    previewColour: {r: 0, g: 0.5, b: 1, a: 0.7}
+    hullMesh: {fileID: -4809484513663234100, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0.78530467
+    maxThreshold: 1
+    selectedFaces: 
+    cachedTriangleVertices: []
+  - targetBoneName: PinkyToe1.L
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0.990566, g: 0, b: 0.5619631, a: 0.7}
+    hullMesh: {fileID: -5324324025805475252, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: e1020000d7020000d8020000df020000e0020000
+    cachedTriangleVertices:
+    - {x: 1.8512183, y: 0.3414886, z: -0.375712}
+    - {x: 1.8354357, y: 0.46664864, z: -0.54103994}
+    - {x: 1.6130025, y: 0.34897688, z: -0.17505826}
+    - {x: 1.6130025, y: 0.34897688, z: -0.17505826}
+    - {x: 1.8354357, y: 0.46664864, z: -0.54103994}
+    - {x: 1.7355056, y: 0.32832307, z: -0.4810699}
+    - {x: 1.6130025, y: 0.34897688, z: -0.17505826}
+    - {x: 1.7355056, y: 0.32832307, z: -0.4810699}
+    - {x: 1.7084956, y: 0.04613747, z: -0.19747692}
+    - {x: 1.7084956, y: 0.04613747, z: -0.19747692}
+    - {x: 1.7355056, y: 0.32832307, z: -0.4810699}
+    - {x: 1.8512183, y: 0.3414886, z: -0.375712}
+    - {x: 1.8512183, y: 0.3414886, z: -0.375712}
+    - {x: 1.927181, y: 0.09275301, z: -0.053384803}
+    - {x: 1.7084956, y: 0.04613747, z: -0.19747692}
+  - targetBoneName: Foot.L
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0, g: 1, b: 0.67422724, a: 0.7}
+    hullMesh: {fileID: 4996238122724211840, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 75020000720200007702000078020000760200000f0200000e0200007c0200007d0200007e0200007f0200008002000081020000820200001c0200001d02000073020000740200001b0200001a020000190200000d0200000c0200000b020000090200000a0200000702000008020000
+    cachedTriangleVertices:
+    - {x: 1.6130025, y: 0.34897688, z: -0.17505826}
+    - {x: 1.241451, y: 0.3919036, z: -0.06497546}
+    - {x: 1.4682407, y: 0.73432434, z: 0.4415871}
+    - {x: 1.241451, y: 0.3919036, z: -0.06497546}
+    - {x: 0.985705, y: 0.962167, z: 0.36960062}
+    - {x: 1.4682407, y: 0.73432434, z: 0.4415871}
+    - {x: 1.4406649, y: 0.13351513, z: -0.12376235}
+    - {x: 1.241451, y: 0.3919036, z: -0.06497546}
+    - {x: 1.6130025, y: 0.34897688, z: -0.17505826}
+    - {x: 1.4406649, y: 0.13351513, z: -0.12376235}
+    - {x: 1.6130025, y: 0.34897688, z: -0.17505826}
+    - {x: 1.7084956, y: 0.04613747, z: -0.19747692}
+    - {x: 1.6130025, y: 0.34897688, z: -0.17505826}
+    - {x: 1.4682407, y: 0.73432434, z: 0.4415871}
+    - {x: 1.8512183, y: 0.3414886, z: -0.375712}
+    - {x: 1.8512183, y: 0.3414886, z: -0.375712}
+    - {x: 1.4682407, y: 0.73432434, z: 0.4415871}
+    - {x: 1.927181, y: 0.09275301, z: -0.053384803}
+    - {x: 1.4682407, y: 0.73432434, z: 0.4415871}
+    - {x: 1.6690118, y: 0.16615163, z: 0.54923093}
+    - {x: 1.927181, y: 0.09275301, z: -0.053384803}
+    - {x: 1.6690118, y: 0.16615163, z: 0.54923093}
+    - {x: 1.7084956, y: 0.04613747, z: -0.19747692}
+    - {x: 1.927181, y: 0.09275301, z: -0.053384803}
+    - {x: 1.6690118, y: 0.16615163, z: 0.54923093}
+    - {x: 1.2177482, y: 0.014743017, z: 0.66036564}
+    - {x: 1.7084956, y: 0.04613747, z: -0.19747692}
+    - {x: 1.4406649, y: 0.13351513, z: -0.12376235}
+    - {x: 1.7084956, y: 0.04613747, z: -0.19747692}
+    - {x: 1.2177482, y: 0.014743017, z: 0.66036564}
+    - {x: 1.2177482, y: 0.014743017, z: 0.66036564}
+    - {x: 1.2930546, y: 0.11645771, z: -0.27810594}
+    - {x: 1.4406649, y: 0.13351513, z: -0.12376235}
+    - {x: 1.2177482, y: 0.014743017, z: 0.66036564}
+    - {x: 1.0330433, y: 0.070594236, z: -0.03629088}
+    - {x: 1.2930546, y: 0.11645771, z: -0.27810594}
+    - {x: 0.6970661, y: 0.037885454, z: -0.11603057}
+    - {x: 1.0330433, y: 0.070594236, z: -0.03629088}
+    - {x: 1.2177482, y: 0.014743017, z: 0.66036564}
+    - {x: 0.6422771, y: 0.17098369, z: 0.44878545}
+    - {x: 0.6970661, y: 0.037885454, z: -0.11603057}
+    - {x: 1.2177482, y: 0.014743017, z: 0.66036564}
+    - {x: 0.6598639, y: 0.22060628, z: -0.3238667}
+    - {x: 0.6422771, y: 0.17098369, z: 0.44878545}
+    - {x: 0.665587, y: 0.5088658, z: -0.21738863}
+    - {x: 0.6598639, y: 0.22060628, z: -0.3238667}
+    - {x: 0.6970661, y: 0.037885454, z: -0.11603057}
+    - {x: 0.6422771, y: 0.17098369, z: 0.44878545}
+    - {x: 0.849383, y: 0.5570638, z: -0.01505799}
+    - {x: 0.985705, y: 0.962167, z: 0.36960062}
+    - {x: 1.241451, y: 0.3919036, z: -0.06497546}
+    - {x: 1.241451, y: 0.3919036, z: -0.06497546}
+    - {x: 1.0567286, y: 0.2459465, z: -0.020296602}
+    - {x: 0.849383, y: 0.5570638, z: -0.01505799}
+    - {x: 0.6422771, y: 0.17098369, z: 0.44878545}
+    - {x: 0.849383, y: 0.5570638, z: -0.01505799}
+    - {x: 0.665587, y: 0.5088658, z: -0.21738863}
+    - {x: 0.6422771, y: 0.17098369, z: 0.44878545}
+    - {x: 0.985705, y: 0.962167, z: 0.36960062}
+    - {x: 0.849383, y: 0.5570638, z: -0.01505799}
+    - {x: 0.75715536, y: 0.7068125, z: 0.59042335}
+    - {x: 0.985705, y: 0.962167, z: 0.36960062}
+    - {x: 0.6422771, y: 0.17098369, z: 0.44878545}
+    - {x: 1.4682407, y: 0.73432434, z: 0.4415871}
+    - {x: 1.1760873, y: 0.884811, z: 0.83489454}
+    - {x: 1.6690118, y: 0.16615163, z: 0.54923093}
+    - {x: 1.1760873, y: 0.884811, z: 0.83489454}
+    - {x: 1.177699, y: 0.19535674, z: 0.7993657}
+    - {x: 1.6690118, y: 0.16615163, z: 0.54923093}
+    - {x: 1.6690118, y: 0.16615163, z: 0.54923093}
+    - {x: 1.177699, y: 0.19535674, z: 0.7993657}
+    - {x: 1.2177482, y: 0.014743017, z: 0.66036564}
+    - {x: 1.177699, y: 0.19535674, z: 0.7993657}
+    - {x: 0.75715536, y: 0.7068125, z: 0.59042335}
+    - {x: 0.6422771, y: 0.17098369, z: 0.44878545}
+    - {x: 1.2177482, y: 0.014743017, z: 0.66036564}
+    - {x: 1.177699, y: 0.19535674, z: 0.7993657}
+    - {x: 0.6422771, y: 0.17098369, z: 0.44878545}
+    - {x: 0.89327496, y: 1.036829, z: 0.94833624}
+    - {x: 0.75715536, y: 0.7068125, z: 0.59042335}
+    - {x: 1.177699, y: 0.19535674, z: 0.7993657}
+    - {x: 1.1760873, y: 0.884811, z: 0.83489454}
+    - {x: 0.89327496, y: 1.036829, z: 0.94833624}
+    - {x: 1.177699, y: 0.19535674, z: 0.7993657}
+  - targetBoneName: LowerLeg.L
+    type: 1
+    colliderType: 0
+    previewColour: {r: 1, g: 1, b: 0, a: 0.7}
+    hullMesh: {fileID: -3953967792346187942, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 710200007002000018020000170200000c000000050200000602000002020000fb010000f901000000020000ff010000f8010000fe010000fa010000f701000016020000
+    cachedTriangleVertices:
+    - {x: 1.0610945, y: 1.6749427, z: 0.7614254}
+    - {x: 1.4682407, y: 0.73432434, z: 0.4415871}
+    - {x: 0.985705, y: 0.962167, z: 0.36960062}
+    - {x: 1.0610945, y: 1.6749427, z: 0.7614254}
+    - {x: 0.985705, y: 0.962167, z: 0.36960062}
+    - {x: 0.91185606, y: 1.5921451, z: 0.56489307}
+    - {x: 0.91185606, y: 1.5921451, z: 0.56489307}
+    - {x: 0.985705, y: 0.962167, z: 0.36960062}
+    - {x: 0.7269603, y: 0.7149531, z: 0.5434802}
+    - {x: 0.91185606, y: 1.5921451, z: 0.56489307}
+    - {x: 0.7269603, y: 0.7149531, z: 0.5434802}
+    - {x: 0.66386235, y: 1.1888487, z: 0.7338257}
+    - {x: 0.985705, y: 0.962167, z: 0.36960062}
+    - {x: 0.75715536, y: 0.7068125, z: 0.59042335}
+    - {x: 0.7269603, y: 0.7149531, z: 0.5434802}
+    - {x: 0.89327496, y: 1.036829, z: 0.94833624}
+    - {x: 0.66386235, y: 1.1888487, z: 0.7338257}
+    - {x: 0.75715536, y: 0.7068125, z: 0.59042335}
+    - {x: 0.66386235, y: 1.1888487, z: 0.7338257}
+    - {x: 0.7269603, y: 0.7149531, z: 0.5434802}
+    - {x: 0.75715536, y: 0.7068125, z: 0.59042335}
+    - {x: 1.0610945, y: 1.6749427, z: 0.7614254}
+    - {x: 1.1760873, y: 0.884811, z: 0.83489454}
+    - {x: 1.4682407, y: 0.73432434, z: 0.4415871}
+    - {x: 1.0610945, y: 1.6749427, z: 0.7614254}
+    - {x: 0.8531149, y: 1.7039121, z: 1.2082155}
+    - {x: 1.1760873, y: 0.884811, z: 0.83489454}
+    - {x: 1.0610945, y: 1.6749427, z: 0.7614254}
+    - {x: 0.8382418, y: 1.8996954, z: 1.0252725}
+    - {x: 0.8531149, y: 1.7039121, z: 1.2082155}
+    - {x: 0.89327496, y: 1.036829, z: 0.94833624}
+    - {x: 1.1760873, y: 0.884811, z: 0.83489454}
+    - {x: 0.8531149, y: 1.7039121, z: 1.2082155}
+    - {x: 0.7397781, y: 1.6798632, z: 1.1932737}
+    - {x: 0.89327496, y: 1.036829, z: 0.94833624}
+    - {x: 0.8531149, y: 1.7039121, z: 1.2082155}
+    - {x: 0.8531149, y: 1.7039121, z: 1.2082155}
+    - {x: 0.8382418, y: 1.8996954, z: 1.0252725}
+    - {x: 0.7397781, y: 1.6798632, z: 1.1932737}
+    - {x: 0.7397781, y: 1.6798632, z: 1.1932737}
+    - {x: 0.66386235, y: 1.1888487, z: 0.7338257}
+    - {x: 0.89327496, y: 1.036829, z: 0.94833624}
+    - {x: 0.7397781, y: 1.6798632, z: 1.1932737}
+    - {x: 0.658055, y: 1.7312951, z: 0.63087803}
+    - {x: 0.66386235, y: 1.1888487, z: 0.7338257}
+    - {x: 0.7397781, y: 1.6798632, z: 1.1932737}
+    - {x: 0.8382418, y: 1.8996954, z: 1.0252725}
+    - {x: 0.658055, y: 1.7312951, z: 0.63087803}
+    - {x: 0.658055, y: 1.7312951, z: 0.63087803}
+    - {x: 0.91185606, y: 1.5921451, z: 0.56489307}
+    - {x: 0.66386235, y: 1.1888487, z: 0.7338257}
+  - targetBoneName: UpperLeg.L
+    type: 1
+    colliderType: 0
+    previewColour: {r: 1, g: 0, b: 0, a: 0.7}
+    hullMesh: {fileID: 7676154287243730151, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 1402000015020000f101000004020000fc01000001020000f5010000f6010000f3010000ee010000ed010000f2010000f4010000
+    cachedTriangleVertices:
+    - {x: 1.1544802, y: 2.5517359, z: -0.6539169}
+    - {x: 0.91185606, y: 1.5921451, z: 0.56489307}
+    - {x: 0.627687, y: 2.2971482, z: 0.03068609}
+    - {x: 0.627687, y: 2.2971482, z: 0.03068609}
+    - {x: 0.91185606, y: 1.5921451, z: 0.56489307}
+    - {x: 0.658055, y: 1.7312951, z: 0.63087803}
+    - {x: 0.658055, y: 1.7312951, z: 0.63087803}
+    - {x: 0.58950096, y: 2.349155, z: 0.4716408}
+    - {x: 0.627687, y: 2.2971482, z: 0.03068609}
+    - {x: 1.1544802, y: 2.5517359, z: -0.6539169}
+    - {x: 1.3170893, y: 2.5313694, z: -0.5545524}
+    - {x: 0.91185606, y: 1.5921451, z: 0.56489307}
+    - {x: 1.0610945, y: 1.6749427, z: 0.7614254}
+    - {x: 1.3170893, y: 2.5313694, z: -0.5545524}
+    - {x: 1.4943736, y: 2.7185369, z: -0.1098266}
+    - {x: 0.91185606, y: 1.5921451, z: 0.56489307}
+    - {x: 1.3170893, y: 2.5313694, z: -0.5545524}
+    - {x: 1.0610945, y: 1.6749427, z: 0.7614254}
+    - {x: 1.4943736, y: 2.7185369, z: -0.1098266}
+    - {x: 1.2338341, y: 2.2708657, z: 0.69463253}
+    - {x: 1.0610945, y: 1.6749427, z: 0.7614254}
+    - {x: 1.2338341, y: 2.2708657, z: 0.69463253}
+    - {x: 0.8382418, y: 1.8996954, z: 1.0252725}
+    - {x: 1.0610945, y: 1.6749427, z: 0.7614254}
+    - {x: 0.8382418, y: 1.8996954, z: 1.0252725}
+    - {x: 1.2338341, y: 2.2708657, z: 0.69463253}
+    - {x: 1.2159829, y: 2.8063424, z: 0.5384699}
+    - {x: 0.8382418, y: 1.8996954, z: 1.0252725}
+    - {x: 1.2159829, y: 2.8063424, z: 0.5384699}
+    - {x: 0.8998282, y: 2.760468, z: 0.57073754}
+    - {x: 0.8382418, y: 1.8996954, z: 1.0252725}
+    - {x: 0.8998282, y: 2.760468, z: 0.57073754}
+    - {x: 0.58950096, y: 2.349155, z: 0.4716408}
+    - {x: 0.8382418, y: 1.8996954, z: 1.0252725}
+    - {x: 0.58950096, y: 2.349155, z: 0.4716408}
+    - {x: 0.658055, y: 1.7312951, z: 0.63087803}
+    - {x: 1.2338341, y: 2.2708657, z: 0.69463253}
+    - {x: 1.4943736, y: 2.7185369, z: -0.1098266}
+    - {x: 1.2159829, y: 2.8063424, z: 0.5384699}
+  - targetBoneName: Spine_1
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0, g: 1, b: 0, a: 0.7}
+    hullMesh: {fileID: 1652112616057547468, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 05000000f6000000f7000000f9000000f80000002a000000b2000000b1000000b6000000b5000000af000000b0000000ae000000a7000000a8000000a6000000ab000000a9000000ad00000044010000
+    cachedTriangleVertices:
+    - {x: 0.6074187, y: 5.0756493, z: -0.09490834}
+    - {x: 0.43931997, y: 5.014719, z: 1.2669938}
+    - {x: 0.6241141, y: 5.1200266, z: 0.53956115}
+    - {x: 0.43931997, y: 5.014719, z: 1.2669938}
+    - {x: 0.6074187, y: 5.0756493, z: -0.09490834}
+    - {x: 0.0024333834, y: 5.365794, z: -0.0033081986}
+    - {x: 0.6241141, y: 5.1200266, z: 0.53956115}
+    - {x: 0.91213036, y: 4.7006845, z: -0.2775524}
+    - {x: 0.6074187, y: 5.0756493, z: -0.09490834}
+    - {x: 0.43931997, y: 5.014719, z: 1.2669938}
+    - {x: 0.0024333834, y: 5.365794, z: -0.0033081986}
+    - {x: -0.48222002, y: 4.99197, z: 1.2574828}
+    - {x: -0.48222002, y: 4.99197, z: 1.2574828}
+    - {x: 0.0024333834, y: 5.365794, z: -0.0033081986}
+    - {x: -0.7725183, y: 4.9814024, z: -0.12216988}
+    - {x: -0.48222002, y: 4.99197, z: 1.2574828}
+    - {x: -0.7725183, y: 4.9814024, z: -0.12216988}
+    - {x: -0.6381773, y: 5.1072226, z: 0.60521156}
+    - {x: -0.69048536, y: 2.9365628, z: -0.22766443}
+    - {x: -0.8896496, y: 3.4341524, z: -0.64699596}
+    - {x: -0.5785627, y: 3.0016701, z: -0.90461105}
+    - {x: -0.69048536, y: 2.9365628, z: -0.22766443}
+    - {x: -0.5785627, y: 3.0016701, z: -0.90461105}
+    - {x: -0.0016190023, y: 2.2591066, z: 0.2250716}
+    - {x: -0.5785627, y: 3.0016701, z: -0.90461105}
+    - {x: 0.16626409, y: 2.7552118, z: -0.81989104}
+    - {x: -0.0016190023, y: 2.2591066, z: 0.2250716}
+    - {x: 0.7863099, y: 3.1188762, z: -0.53170705}
+    - {x: -0.0016190023, y: 2.2591066, z: 0.2250716}
+    - {x: 0.16626409, y: 2.7552118, z: -0.81989104}
+    - {x: 0.6558542, y: 2.98535, z: 0.3253592}
+    - {x: -0.0016190023, y: 2.2591066, z: 0.2250716}
+    - {x: 0.68827575, y: 2.92255, z: -0.18128118}
+    - {x: 0.68827575, y: 2.92255, z: -0.18128118}
+    - {x: -0.0016190023, y: 2.2591066, z: 0.2250716}
+    - {x: 0.7863099, y: 3.1188762, z: -0.53170705}
+    - {x: 0.6558542, y: 2.98535, z: 0.3253592}
+    - {x: 0.40290004, y: 3.2890782, z: 1.5806003}
+    - {x: -0.0016190023, y: 2.2591066, z: 0.2250716}
+    - {x: -0.5951084, y: 3.4050293, z: 1.5676562}
+    - {x: -0.6390869, y: 3.0088675, z: 0.36017576}
+    - {x: -0.0016190023, y: 2.2591066, z: 0.2250716}
+    - {x: -0.6390869, y: 3.0088675, z: 0.36017576}
+    - {x: -0.69048536, y: 2.9365628, z: -0.22766443}
+    - {x: -0.0016190023, y: 2.2591066, z: 0.2250716}
+    - {x: -0.0013648793, y: 3.1745186, z: 1.650701}
+    - {x: -0.5951084, y: 3.4050293, z: 1.5676562}
+    - {x: -0.0016190023, y: 2.2591066, z: 0.2250716}
+    - {x: 0.40290004, y: 3.2890782, z: 1.5806003}
+    - {x: -0.0013648793, y: 3.1745186, z: 1.650701}
+    - {x: -0.0016190023, y: 2.2591066, z: 0.2250716}
+    - {x: -0.5951084, y: 3.4050293, z: 1.5676562}
+    - {x: -0.8613595, y: 3.582218, z: 1.3458809}
+    - {x: -0.6390869, y: 3.0088675, z: 0.36017576}
+    - {x: 0.6558542, y: 2.98535, z: 0.3253592}
+    - {x: 0.8190044, y: 3.5856934, z: 1.3334492}
+    - {x: 0.40290004, y: 3.2890782, z: 1.5806003}
+    - {x: -0.91972387, y: 3.8782537, z: 1.5492853}
+    - {x: -0.8613595, y: 3.582218, z: 1.3458809}
+    - {x: -0.5951084, y: 3.4050293, z: 1.5676562}
+  - targetBoneName: Thigh.L
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0, g: 0.18165016, b: 1, a: 0.7}
+    hullMesh: {fileID: 6241808251138557336, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 27010000260100002c010000fd01000025010000240100001102000010020000030200001302000012020000f0010000ef010000ec010000eb010000320100002d010000300100002b010000290100002801000001010000000100002a010000ff000000
+    cachedTriangleVertices:
+    - {x: 1.4631371, y: 3.9045491, z: 0.43989527}
+    - {x: 1.4943736, y: 2.7185369, z: -0.1098266}
+    - {x: 1.3168681, y: 4.3987365, z: 0.14374553}
+    - {x: 1.4943736, y: 2.7185369, z: -0.1098266}
+    - {x: 1.3352985, y: 3.274829, z: -0.60871655}
+    - {x: 1.3168681, y: 4.3987365, z: 0.14374553}
+    - {x: 1.4631371, y: 3.9045491, z: 0.43989527}
+    - {x: 1.2159829, y: 2.8063424, z: 0.5384699}
+    - {x: 1.4943736, y: 2.7185369, z: -0.1098266}
+    - {x: 1.3352985, y: 3.274829, z: -0.60871655}
+    - {x: 1.4943736, y: 2.7185369, z: -0.1098266}
+    - {x: 1.3170893, y: 2.5313694, z: -0.5545524}
+    - {x: 1.3168681, y: 4.3987365, z: 0.14374553}
+    - {x: 1.3352985, y: 3.274829, z: -0.60871655}
+    - {x: 0.91213036, y: 4.7006845, z: -0.2775524}
+    - {x: 1.3352985, y: 3.274829, z: -0.60871655}
+    - {x: 0.992644, y: 4.139215, z: -0.6107327}
+    - {x: 0.91213036, y: 4.7006845, z: -0.2775524}
+    - {x: 1.3352985, y: 3.274829, z: -0.60871655}
+    - {x: 0.7863099, y: 3.1188762, z: -0.53170705}
+    - {x: 0.992644, y: 4.139215, z: -0.6107327}
+    - {x: 1.3352985, y: 3.274829, z: -0.60871655}
+    - {x: 1.1544802, y: 2.5517359, z: -0.6539169}
+    - {x: 0.7863099, y: 3.1188762, z: -0.53170705}
+    - {x: 1.1544802, y: 2.5517359, z: -0.6539169}
+    - {x: 1.3352985, y: 3.274829, z: -0.60871655}
+    - {x: 1.3170893, y: 2.5313694, z: -0.5545524}
+    - {x: 0.68827575, y: 2.92255, z: -0.18128118}
+    - {x: 1.1544802, y: 2.5517359, z: -0.6539169}
+    - {x: 0.627687, y: 2.2971482, z: 0.03068609}
+    - {x: 0.68827575, y: 2.92255, z: -0.18128118}
+    - {x: 0.7863099, y: 3.1188762, z: -0.53170705}
+    - {x: 1.1544802, y: 2.5517359, z: -0.6539169}
+    - {x: 0.6558542, y: 2.98535, z: 0.3253592}
+    - {x: 0.68827575, y: 2.92255, z: -0.18128118}
+    - {x: 0.627687, y: 2.2971482, z: 0.03068609}
+    - {x: 0.58950096, y: 2.349155, z: 0.4716408}
+    - {x: 0.6558542, y: 2.98535, z: 0.3253592}
+    - {x: 0.627687, y: 2.2971482, z: 0.03068609}
+    - {x: 0.8998282, y: 2.760468, z: 0.57073754}
+    - {x: 0.6558542, y: 2.98535, z: 0.3253592}
+    - {x: 0.58950096, y: 2.349155, z: 0.4716408}
+    - {x: 0.8998282, y: 2.760468, z: 0.57073754}
+    - {x: 0.8190044, y: 3.5856934, z: 1.3334492}
+    - {x: 0.6558542, y: 2.98535, z: 0.3253592}
+    - {x: 1.2159829, y: 2.8063424, z: 0.5384699}
+    - {x: 0.8190044, y: 3.5856934, z: 1.3334492}
+    - {x: 0.8998282, y: 2.760468, z: 0.57073754}
+    - {x: 1.4631371, y: 3.9045491, z: 0.43989527}
+    - {x: 0.9349483, y: 3.9637084, z: 1.5439714}
+    - {x: 1.2159829, y: 2.8063424, z: 0.5384699}
+    - {x: 0.9349483, y: 3.9637084, z: 1.5439714}
+    - {x: 0.8190044, y: 3.5856934, z: 1.3334492}
+    - {x: 1.2159829, y: 2.8063424, z: 0.5384699}
+    - {x: 0.9349483, y: 3.9637084, z: 1.5439714}
+    - {x: 1.4631371, y: 3.9045491, z: 0.43989527}
+    - {x: 1.0663078, y: 4.359057, z: 1.2482129}
+    - {x: 1.0663078, y: 4.359057, z: 1.2482129}
+    - {x: 1.4631371, y: 3.9045491, z: 0.43989527}
+    - {x: 0.99309283, y: 4.7160277, z: 0.8109062}
+    - {x: 1.4631371, y: 3.9045491, z: 0.43989527}
+    - {x: 1.3168681, y: 4.3987365, z: 0.14374553}
+    - {x: 0.99309283, y: 4.7160277, z: 0.8109062}
+    - {x: 0.6241141, y: 5.1200266, z: 0.53956115}
+    - {x: 0.99309283, y: 4.7160277, z: 0.8109062}
+    - {x: 1.3168681, y: 4.3987365, z: 0.14374553}
+    - {x: 0.91213036, y: 4.7006845, z: -0.2775524}
+    - {x: 0.6241141, y: 5.1200266, z: 0.53956115}
+    - {x: 1.3168681, y: 4.3987365, z: 0.14374553}
+    - {x: 0.99309283, y: 4.7160277, z: 0.8109062}
+    - {x: 0.43931997, y: 5.014719, z: 1.2669938}
+    - {x: 1.0663078, y: 4.359057, z: 1.2482129}
+    - {x: 0.99309283, y: 4.7160277, z: 0.8109062}
+    - {x: 0.6241141, y: 5.1200266, z: 0.53956115}
+    - {x: 0.43931997, y: 5.014719, z: 1.2669938}
+  - targetBoneName: Thigh.R
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0, g: 1, b: 0, a: 0.7}
+    hullMesh: {fileID: 7872205814071642514, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 5a0100005b010000630100006d0100006201000057010000560100005c0100005901000058010000520100005301000050010000510100004f010000540100005501000099010000980100009a0100006f0100006e0100006c01000067010000
+    cachedTriangleVertices:
+    - {x: -1.4162239, y: 2.5755904, z: -0.50867903}
+    - {x: -1.4157819, y: 2.7920363, z: 0.24172246}
+    - {x: -1.4860766, y: 3.8878298, z: 0.4149275}
+    - {x: -1.4162239, y: 2.5755904, z: -0.50867903}
+    - {x: -1.4860766, y: 3.8878298, z: 0.4149275}
+    - {x: -1.2404481, y: 4.3907695, z: -0.058235887}
+    - {x: -1.4162239, y: 2.5755904, z: -0.50867903}
+    - {x: -1.2404481, y: 4.3907695, z: -0.058235887}
+    - {x: -1.3311807, y: 2.9287245, z: -0.6519679}
+    - {x: -1.3311807, y: 2.9287245, z: -0.6519679}
+    - {x: -1.0649124, y: 2.4688377, z: -0.5703278}
+    - {x: -1.4162239, y: 2.5755904, z: -0.50867903}
+    - {x: -0.9928115, y: 4.12068, z: -0.61453986}
+    - {x: -1.3311807, y: 2.9287245, z: -0.6519679}
+    - {x: -1.2404481, y: 4.3907695, z: -0.058235887}
+    - {x: -1.2404481, y: 4.3907695, z: -0.058235887}
+    - {x: -1.4860766, y: 3.8878298, z: 0.4149275}
+    - {x: -0.9978301, y: 4.7755804, z: 0.44678456}
+    - {x: -0.7725183, y: 4.9814024, z: -0.12216988}
+    - {x: -1.2404481, y: 4.3907695, z: -0.058235887}
+    - {x: -0.9978301, y: 4.7755804, z: 0.44678456}
+    - {x: -0.9928115, y: 4.12068, z: -0.61453986}
+    - {x: -1.2404481, y: 4.3907695, z: -0.058235887}
+    - {x: -0.7725183, y: 4.9814024, z: -0.12216988}
+    - {x: -0.91972387, y: 3.8782537, z: 1.5492853}
+    - {x: -1.4157819, y: 2.7920363, z: 0.24172246}
+    - {x: -1.1579592, y: 2.7836056, z: 0.57230175}
+    - {x: -1.4860766, y: 3.8878298, z: 0.4149275}
+    - {x: -1.4157819, y: 2.7920363, z: 0.24172246}
+    - {x: -0.91972387, y: 3.8782537, z: 1.5492853}
+    - {x: -0.9978301, y: 4.7755804, z: 0.44678456}
+    - {x: -1.4860766, y: 3.8878298, z: 0.4149275}
+    - {x: -1.057456, y: 4.4634476, z: 1.227517}
+    - {x: -1.4860766, y: 3.8878298, z: 0.4149275}
+    - {x: -0.91972387, y: 3.8782537, z: 1.5492853}
+    - {x: -1.057456, y: 4.4634476, z: 1.227517}
+    - {x: -0.9978301, y: 4.7755804, z: 0.44678456}
+    - {x: -1.057456, y: 4.4634476, z: 1.227517}
+    - {x: -0.6381773, y: 5.1072226, z: 0.60521156}
+    - {x: -0.7725183, y: 4.9814024, z: -0.12216988}
+    - {x: -0.9978301, y: 4.7755804, z: 0.44678456}
+    - {x: -0.6381773, y: 5.1072226, z: 0.60521156}
+    - {x: -0.48222002, y: 4.99197, z: 1.2574828}
+    - {x: -0.6381773, y: 5.1072226, z: 0.60521156}
+    - {x: -1.057456, y: 4.4634476, z: 1.227517}
+    - {x: -1.1579592, y: 2.7836056, z: 0.57230175}
+    - {x: -0.8613595, y: 3.582218, z: 1.3458809}
+    - {x: -0.91972387, y: 3.8782537, z: 1.5492853}
+    - {x: -1.1579592, y: 2.7836056, z: 0.57230175}
+    - {x: -0.8599846, y: 2.748207, z: 0.5570096}
+    - {x: -0.8613595, y: 3.582218, z: 1.3458809}
+    - {x: -0.6390869, y: 3.0088675, z: 0.36017576}
+    - {x: -0.8613595, y: 3.582218, z: 1.3458809}
+    - {x: -0.8599846, y: 2.748207, z: 0.5570096}
+    - {x: -0.6390869, y: 3.0088675, z: 0.36017576}
+    - {x: -0.8599846, y: 2.748207, z: 0.5570096}
+    - {x: -0.55178577, y: 2.3521302, z: 0.34962988}
+    - {x: -0.69048536, y: 2.9365628, z: -0.22766443}
+    - {x: -0.6390869, y: 3.0088675, z: 0.36017576}
+    - {x: -0.55178577, y: 2.3521302, z: 0.34962988}
+    - {x: -0.69048536, y: 2.9365628, z: -0.22766443}
+    - {x: -0.55178577, y: 2.3521302, z: 0.34962988}
+    - {x: -1.0649124, y: 2.4688377, z: -0.5703278}
+    - {x: -0.69048536, y: 2.9365628, z: -0.22766443}
+    - {x: -1.0649124, y: 2.4688377, z: -0.5703278}
+    - {x: -0.8896496, y: 3.4341524, z: -0.64699596}
+    - {x: -1.3311807, y: 2.9287245, z: -0.6519679}
+    - {x: -0.8896496, y: 3.4341524, z: -0.64699596}
+    - {x: -1.0649124, y: 2.4688377, z: -0.5703278}
+    - {x: -0.8896496, y: 3.4341524, z: -0.64699596}
+    - {x: -1.3311807, y: 2.9287245, z: -0.6519679}
+    - {x: -0.9928115, y: 4.12068, z: -0.61453986}
+  - targetBoneName: Tail_1
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0, g: 0.5, b: 1, a: 0.7}
+    hullMesh: {fileID: 7481345776672462084, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 2e01000031010000330100002f0100003701000034010000380100004c0100004d010000a5000000430100004b0100004e0100004a0100004701000049010000ac000000a4000000aa000000a300000042010000a2000000460100004001000041010000
+    cachedTriangleVertices:
+    - {x: 0.9349483, y: 3.9637084, z: 1.5439714}
+    - {x: 1.0663078, y: 4.359057, z: 1.2482129}
+    - {x: 0.44649044, y: 4.315569, z: 3.495839}
+    - {x: 0.8190044, y: 3.5856934, z: 1.3334492}
+    - {x: 0.9349483, y: 3.9637084, z: 1.5439714}
+    - {x: 0.44649044, y: 4.315569, z: 3.495839}
+    - {x: 0.1258595, y: 4.175021, z: 5.301634}
+    - {x: 0.8190044, y: 3.5856934, z: 1.3334492}
+    - {x: 0.44649044, y: 4.315569, z: 3.495839}
+    - {x: 1.0663078, y: 4.359057, z: 1.2482129}
+    - {x: 0.43931997, y: 5.014719, z: 1.2669938}
+    - {x: 0.44649044, y: 4.315569, z: 3.495839}
+    - {x: 0.43931997, y: 5.014719, z: 1.2669938}
+    - {x: -0.113097854, y: 5.0522704, z: 2.265152}
+    - {x: 0.23293321, y: 4.86698, z: 2.7764957}
+    - {x: 0.44649044, y: 4.315569, z: 3.495839}
+    - {x: 0.43931997, y: 5.014719, z: 1.2669938}
+    - {x: 0.23293321, y: 4.86698, z: 2.7764957}
+    - {x: -0.48222002, y: 4.99197, z: 1.2574828}
+    - {x: -0.113097854, y: 5.0522704, z: 2.265152}
+    - {x: 0.43931997, y: 5.014719, z: 1.2669938}
+    - {x: -0.48222002, y: 4.99197, z: 1.2574828}
+    - {x: -0.7890795, y: 4.4746933, z: 1.7243487}
+    - {x: -0.113097854, y: 5.0522704, z: 2.265152}
+    - {x: -0.48222002, y: 4.99197, z: 1.2574828}
+    - {x: -1.057456, y: 4.4634476, z: 1.227517}
+    - {x: -0.7890795, y: 4.4746933, z: 1.7243487}
+    - {x: -0.0013648793, y: 3.1745186, z: 1.650701}
+    - {x: -0.101726025, y: 3.5394118, z: 3.316107}
+    - {x: -0.5951084, y: 3.4050293, z: 1.5676562}
+    - {x: -0.91972387, y: 3.8782537, z: 1.5492853}
+    - {x: -0.5951084, y: 3.4050293, z: 1.5676562}
+    - {x: -0.48809645, y: 4.3562737, z: 3.3357143}
+    - {x: -0.7890795, y: 4.4746933, z: 1.7243487}
+    - {x: -0.91972387, y: 3.8782537, z: 1.5492853}
+    - {x: -0.48809645, y: 4.3562737, z: 3.3357143}
+    - {x: -0.91972387, y: 3.8782537, z: 1.5492853}
+    - {x: -0.7890795, y: 4.4746933, z: 1.7243487}
+    - {x: -1.057456, y: 4.4634476, z: 1.227517}
+    - {x: -0.113097854, y: 5.0522704, z: 2.265152}
+    - {x: -0.7890795, y: 4.4746933, z: 1.7243487}
+    - {x: -0.48809645, y: 4.3562737, z: 3.3357143}
+    - {x: -0.113097854, y: 5.0522704, z: 2.265152}
+    - {x: -0.48809645, y: 4.3562737, z: 3.3357143}
+    - {x: -0.054327734, y: 4.9405775, z: 3.6775103}
+    - {x: 0.23293321, y: 4.86698, z: 2.7764957}
+    - {x: -0.113097854, y: 5.0522704, z: 2.265152}
+    - {x: -0.054327734, y: 4.9405775, z: 3.6775103}
+    - {x: 0.40290004, y: 3.2890782, z: 1.5806003}
+    - {x: 0.8190044, y: 3.5856934, z: 1.3334492}
+    - {x: 0.1258595, y: 4.175021, z: 5.301634}
+    - {x: 0.1258595, y: 4.175021, z: 5.301634}
+    - {x: -0.101726025, y: 3.5394118, z: 3.316107}
+    - {x: -0.0013648793, y: 3.1745186, z: 1.650701}
+    - {x: 0.1258595, y: 4.175021, z: 5.301634}
+    - {x: -0.0013648793, y: 3.1745186, z: 1.650701}
+    - {x: 0.40290004, y: 3.2890782, z: 1.5806003}
+    - {x: -0.5951084, y: 3.4050293, z: 1.5676562}
+    - {x: -0.101726025, y: 3.5394118, z: 3.316107}
+    - {x: -0.13775219, y: 4.249274, z: 5.466521}
+    - {x: -0.48809645, y: 4.3562737, z: 3.3357143}
+    - {x: -0.5951084, y: 3.4050293, z: 1.5676562}
+    - {x: -0.13775219, y: 4.249274, z: 5.466521}
+    - {x: -0.101726025, y: 3.5394118, z: 3.316107}
+    - {x: 0.1258595, y: 4.175021, z: 5.301634}
+    - {x: -0.13775219, y: 4.249274, z: 5.466521}
+    - {x: -0.054327734, y: 4.9405775, z: 3.6775103}
+    - {x: -0.48809645, y: 4.3562737, z: 3.3357143}
+    - {x: -0.12699233, y: 4.873781, z: 5.724022}
+    - {x: -0.48809645, y: 4.3562737, z: 3.3357143}
+    - {x: -0.31108195, y: 4.421551, z: 5.002849}
+    - {x: -0.12699233, y: 4.873781, z: 5.724022}
+    - {x: -0.48809645, y: 4.3562737, z: 3.3357143}
+    - {x: -0.13775219, y: 4.249274, z: 5.466521}
+    - {x: -0.31108195, y: 4.421551, z: 5.002849}
+  - targetBoneName: Tail_10
+    type: 1
+    colliderType: 0
+    previewColour: {r: 0, g: 1, b: 1, a: 0.7}
+    hullMesh: {fileID: -5176212032713124937, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 36000000350000003a010000de0100003c0100003b010000
+    cachedTriangleVertices:
+    - {x: 0.1321358, y: 4.984994, z: 8.725342}
+    - {x: 0.046081226, y: 4.9164786, z: 10.049397}
+    - {x: -0.008149828, y: 4.829054, z: 8.668351}
+    - {x: -0.008149828, y: 4.829054, z: 8.668351}
+    - {x: 0.046081226, y: 4.9164786, z: 10.049397}
+    - {x: -0.055499032, y: 4.9206686, z: 10.027195}
+    - {x: 0.1321358, y: 4.984994, z: 8.725342}
+    - {x: 0.0005754569, y: 5.1207457, z: 9.196427}
+    - {x: 0.046081226, y: 4.9164786, z: 10.049397}
+    - {x: -0.099060856, y: 5.0521374, z: 9.241494}
+    - {x: -0.008149828, y: 4.829054, z: 8.668351}
+    - {x: -0.055499032, y: 4.9206686, z: 10.027195}
+    - {x: -0.099060856, y: 5.0521374, z: 9.241494}
+    - {x: -0.055499032, y: 4.9206686, z: 10.027195}
+    - {x: 0.0005754569, y: 5.1207457, z: 9.196427}
+    - {x: 0.0005754569, y: 5.1207457, z: 9.196427}
+    - {x: -0.055499032, y: 4.9206686, z: 10.027195}
+    - {x: 0.046081226, y: 4.9164786, z: 10.049397}
+  - targetBoneName: Tail_6
+    type: 1
+    colliderType: 0
+    previewColour: {r: 1, g: 0, b: 1, a: 0.7}
+    hullMesh: {fileID: 6330094570061316936, guid: 2bd88d97fdcedbd498afdc22428580f0, type: 2}
+    material: {fileID: 0}
+    isTrigger: 0
+    maxPlanes: 255
+    minThreshold: 0
+    maxThreshold: 0
+    selectedFaces: 35010000360100004801000045010000a1000000a00000009f000000df0100003f0100003d010000390100009e0000003e010000
+    cachedTriangleVertices:
+    - {x: 0.12057442, y: 4.887885, z: 5.8061876}
+    - {x: 0.44649044, y: 4.315569, z: 3.495839}
+    - {x: 0.23293321, y: 4.86698, z: 2.7764957}
+    - {x: 0.1321358, y: 4.984994, z: 8.725342}
+    - {x: 0.44649044, y: 4.315569, z: 3.495839}
+    - {x: 0.12057442, y: 4.887885, z: 5.8061876}
+    - {x: 0.12057442, y: 4.887885, z: 5.8061876}
+    - {x: 0.23293321, y: 4.86698, z: 2.7764957}
+    - {x: -0.054327734, y: 4.9405775, z: 3.6775103}
+    - {x: -0.054327734, y: 4.9405775, z: 3.6775103}
+    - {x: -0.12699233, y: 4.873781, z: 5.724022}
+    - {x: 0.12057442, y: 4.887885, z: 5.8061876}
+    - {x: 0.1258595, y: 4.175021, z: 5.301634}
+    - {x: 0.44649044, y: 4.315569, z: 3.495839}
+    - {x: 0.1321358, y: 4.984994, z: 8.725342}
+    - {x: -0.008149828, y: 4.829054, z: 8.668351}
+    - {x: 0.1258595, y: 4.175021, z: 5.301634}
+    - {x: 0.1321358, y: 4.984994, z: 8.725342}
+    - {x: -0.13775219, y: 4.249274, z: 5.466521}
+    - {x: 0.1258595, y: 4.175021, z: 5.301634}
+    - {x: -0.008149828, y: 4.829054, z: 8.668351}
+    - {x: -0.31108195, y: 4.421551, z: 5.002849}
+    - {x: -0.008149828, y: 4.829054, z: 8.668351}
+    - {x: -0.099060856, y: 5.0521374, z: 9.241494}
+    - {x: -0.12699233, y: 4.873781, z: 5.724022}
+    - {x: -0.31108195, y: 4.421551, z: 5.002849}
+    - {x: -0.099060856, y: 5.0521374, z: 9.241494}
+    - {x: -0.12699233, y: 4.873781, z: 5.724022}
+    - {x: -0.099060856, y: 5.0521374, z: 9.241494}
+    - {x: 0.0005754569, y: 5.1207457, z: 9.196427}
+    - {x: 0.1321358, y: 4.984994, z: 8.725342}
+    - {x: 0.12057442, y: 4.887885, z: 5.8061876}
+    - {x: 0.0005754569, y: 5.1207457, z: 9.196427}
+    - {x: -0.31108195, y: 4.421551, z: 5.002849}
+    - {x: -0.13775219, y: 4.249274, z: 5.466521}
+    - {x: -0.008149828, y: 4.829054, z: 8.668351}
+    - {x: 0.12057442, y: 4.887885, z: 5.8061876}
+    - {x: -0.12699233, y: 4.873781, z: 5.724022}
+    - {x: 0.0005754569, y: 5.1207457, z: 9.196427}
+  sourceMesh: {fileID: 7089072275135760530, guid: a0fd3e22eaa8dfa4bb1601fe8b25d953, type: 3}
+  sourceMeshHash:
+    data: 2826952485fd620b1540653f0445aeba040b30ae
+  suppressMeshModificationWarning: 0

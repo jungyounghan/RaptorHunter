@@ -156,10 +156,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 348060187}
-  _offset: {x: 0.5, y: 4, z: -3.5}
-  _smoothingSpeed: 10
-  _point: 1
-  _gizmoColor: {r: 0, g: 0, b: 1, a: 1}
+  _distance: 10
+  height: 2
+  _offset: 1.28
+  _speed: 1
 --- !u!114 &73124880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1010,6 +1010,10 @@ PrefabInstance:
     - target: {fileID: 497438, guid: 8d218001a1e147542bc5a9058259e49f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19908536, guid: 8d218001a1e147542bc5a9058259e49f, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

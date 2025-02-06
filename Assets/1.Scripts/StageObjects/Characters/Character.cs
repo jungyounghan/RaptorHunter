@@ -4,7 +4,7 @@ using UnityEngine;
 /// 조종 가능한 추상 캐릭터 클래스
 /// </summary>
 [RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(Rigidbody))]
+//[RequireComponent(typeof(Rigidbody))]
 [DisallowMultipleComponent]
 public abstract class Character : MonoBehaviour
 {
@@ -132,7 +132,7 @@ public abstract class Character : MonoBehaviour
         switch(_alive)
         {
             case true:
-                if (_currentStamina < _maxStamina && Vector3.Distance(getRigidbody.velocity, Vector3.zero) <= _moveSpeed)
+                if (_currentStamina < _maxStamina /*&& Vector3.Distance(getRigidbody.velocity, Vector3.zero) <= _moveSpeed*/)
                 {
                     _currentStamina += Time.deltaTime * _recoverStamina;
                     if (_currentStamina > _maxStamina)
