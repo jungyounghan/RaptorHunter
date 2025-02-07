@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 /// <summary>
 /// 특정 플레이어 객체를 조종할 수 있는 추상 컨트롤러 클래스 
@@ -21,6 +22,23 @@ public abstract class Controller : MonoBehaviour
                 _character = GetComponent<Character>();
             }
             return _character;
+        }
+    }
+
+    private bool _hasNavMeshAgent = false;
+
+    private NavMeshAgent _navMeshAgent = null;
+
+    protected NavMeshAgent getNavMeshAgent
+    {
+        get
+        {
+            if(_hasNavMeshAgent == false)
+            {
+                _hasNavMeshAgent = true;
+                _navMeshAgent = GetComponent<NavMeshAgent>();
+            }
+            return _navMeshAgent;
         }
     }
 

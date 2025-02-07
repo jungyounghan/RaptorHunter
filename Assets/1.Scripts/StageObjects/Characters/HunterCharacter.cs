@@ -9,6 +9,8 @@ public sealed class HunterCharacter : Character
     private static readonly string TurnFloat = "Turn";
     private static readonly string SpeedFloat = "Speed";
 
+    private readonly int _moveHashIndex = Animator.StringToHash("Move");
+
     public override void Move(float value)
     {
         if (alive == true)
