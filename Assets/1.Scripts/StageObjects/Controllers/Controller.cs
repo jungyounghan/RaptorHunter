@@ -6,9 +6,26 @@ using UnityEngine.AI;
 /// 특정 플레이어 객체를 조종할 수 있는 추상 컨트롤러 클래스 
 /// </summary>
 [RequireComponent(typeof(Character))]
+[RequireComponent(typeof(NavMeshAgent))]
 [DisallowMultipleComponent]
 public abstract class Controller : MonoBehaviour
 {
+    private bool _hasTransform = false;
+
+    private Transform _transform = null;
+
+    protected Transform getTransform {
+        get
+        {
+            if (_hasTransform == false)
+            {
+                _hasTransform = true;
+                _transform = transform;
+            }
+            return _transform;
+        }
+    }
+
     private bool _hasCharacter = false;
 
     private Character _character = null;

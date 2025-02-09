@@ -16,14 +16,19 @@ public sealed class InputController : Controller
     {
         while (true)
         {
-            float move = Input.GetAxis(VerticalKey);
-            float turn = Input.GetAxis(HorizontalKey);
-            bool jump = Input.GetButton(JumpKey);
             bool dash = Input.GetButton(DashKey);
+            bool jump = Input.GetButton(JumpKey);
             bool attack = Input.GetButton(AttackKey);
-            getCharacter.Move(move);
-            getCharacter.Turn(turn);
-            getCharacter.dash = dash;
+            float walk = Input.GetAxis(VerticalKey);
+            float turn = Input.GetAxis(HorizontalKey);
+            float deltaTime = Time.deltaTime;
+            Vector2 direction = getCharacter.GetMoveSpeed(new Vector2(turn * deltaTime, getNavMeshAgent.speed * walk * deltaTime), dash);
+            Vector3 position = getTransform.position;
+            getNavMeshAgent.Move(getTransform.forward * direction.y);
+            if(getTransform.position != position)
+            {
+                getCharacter.PlayMoveAction(direction, dash);
+            }
             yield return null;
         }
     }

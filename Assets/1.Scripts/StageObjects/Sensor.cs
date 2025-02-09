@@ -24,14 +24,19 @@ public class Sensor : MonoBehaviour
 
     [Header("시야의 초점각"), SerializeField]
     private float _focusAngle = 0;
+
     [Header("시야의 범위각"), SerializeField, Range(0, 360)]
     private float _rangeAngle = 60;
+
     [Header("감지 갱신 간격"), SerializeField, Range(0, byte.MaxValue)]
     private float _updateTime = 0.4f;
+
     [Header("감지 영역의 반경"), SerializeField, Range(0, int.MaxValue)]
     private float _radius = 50;
+
     [Header("중점 오프셋"), SerializeField]
     private Vector3 _offset;
+
     [Header("수색 대상 마스크"), SerializeField]
     private LayerMask _layerMask;
 

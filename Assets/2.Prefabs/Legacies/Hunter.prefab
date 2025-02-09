@@ -3345,7 +3345,7 @@ GameObject:
   - component: {fileID: 6042827753689201479}
   - component: {fileID: 4349607556574601645}
   m_Layer: 0
-  m_Name: Hunter(Legacy)
+  m_Name: Hunter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
