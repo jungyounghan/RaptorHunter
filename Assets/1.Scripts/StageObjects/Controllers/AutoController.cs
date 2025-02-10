@@ -5,6 +5,20 @@ using System.Collections;
 /// </summary>
 public sealed class AutoController : Controller
 {
+    private float _defaultSpeed = 0;
+
+    protected override void OnEnable()
+    {
+        _defaultSpeed = getNavMeshAgent.speed;
+        base.OnEnable();
+    }
+
+    protected override void OnDisable()
+    {
+        getNavMeshAgent.speed = _defaultSpeed;
+        base.OnDisable();
+    }
+
     protected override IEnumerator DoProcess()
     {
         while(true)

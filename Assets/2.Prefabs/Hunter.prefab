@@ -3876,8 +3876,8 @@ GameObject:
   - component: {fileID: 7616849305267580160}
   - component: {fileID: 3359298659242740032}
   - component: {fileID: 1013710159178104261}
-  - component: {fileID: 288171310462954364}
-  - component: {fileID: 6016744837299252244}
+  - component: {fileID: 1195019941632203823}
+  - component: {fileID: 9130327722268885880}
   m_Layer: 0
   m_Name: Hunter
   m_TagString: Player
@@ -3947,9 +3947,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handler:
-    _Editor_SelectedChain: 0
-    _Editor_ChainCategory: 0
-    _EditorCategory: 3
+    _Editor_SelectedChain: 3
+    _Editor_ChainCategory: 2
+    _EditorCategory: 1
     _EditorMainCategory: 0
     _EditorMotionCategory: 2
     m_hemi: {fileID: -2508796484986968503, guid: 44d994eaad14fdf49a2dd378b4d62094, type: 3}
@@ -5155,13 +5155,13 @@ MonoBehaviour:
         LocalUp: {x: 0, y: 1, z: 0}
         LocalForward: {x: 0, y: 0, z: 1}
         ToBase: {x: 0, y: 0, z: 0}
-        _EditorCollFoldout: 0
+        _EditorCollFoldout: 1
         _EditorCollPosSliders: 0
         _EditorBoxCollSliders: 0
         _EditorMeshCollSliders: 0
         _EditorRadiusSliders: 1
         _EditorMaxSliderValue: 0.5
-        _EditorMainAxisPreview: 1
+        _EditorMainAxisPreview: 0
         _EditorSecondAxisPreview: 0
         _EditorThirdPreview: 0
         StoredReferencePose:
@@ -5191,13 +5191,13 @@ MonoBehaviour:
         MainAxis: 2
         TargetMainAxis: {x: 1, y: 0, z: 0}
         InverseMainAxis: 1
-        MainAxisLowLimit: -60
-        MainAxisHighLimit: 10
+        MainAxisLowLimit: -11
+        MainAxisHighLimit: 98
         SecondaryAxis: 0
         TargetSecondaryAxis: {x: 0, y: 1, z: 0}
         InverseSecondaryAxis: 0
         SecondaryAxisAngleLimit: 10
-        ThirdAxisAngleLimit: 15
+        ThirdAxisAngleLimit: 3
         OverrideMaterial: {fileID: 0}
         UseIndividualParameters: 0
         OverrideInterpolation: 1
@@ -5226,9 +5226,9 @@ MonoBehaviour:
         _EditorMeshCollSliders: 0
         _EditorRadiusSliders: 1
         _EditorMaxSliderValue: 0.5
-        _EditorMainAxisPreview: 1
+        _EditorMainAxisPreview: 0
         _EditorSecondAxisPreview: 0
-        _EditorThirdPreview: 0
+        _EditorThirdPreview: 1
         StoredReferencePose:
           LocalSpacePosition: {x: 0, y: 0, z: 0}
           LocalSpaceRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -5285,13 +5285,13 @@ MonoBehaviour:
         LocalUp: {x: 0, y: 1, z: 0}
         LocalForward: {x: 0, y: 0, z: 1}
         ToBase: {x: 0, y: 0, z: 0}
-        _EditorCollFoldout: 0
+        _EditorCollFoldout: 1
         _EditorCollPosSliders: 0
         _EditorBoxCollSliders: 0
         _EditorMeshCollSliders: 0
         _EditorRadiusSliders: 1
         _EditorMaxSliderValue: 0.5
-        _EditorMainAxisPreview: 1
+        _EditorMainAxisPreview: 0
         _EditorSecondAxisPreview: 0
         _EditorThirdPreview: 0
         StoredReferencePose:
@@ -5342,7 +5342,7 @@ MonoBehaviour:
         MainAxisHighLimit: 45
         SecondaryAxis: 0
         TargetSecondaryAxis: {x: 0, y: 1, z: 0}
-        InverseSecondaryAxis: 1
+        InverseSecondaryAxis: 0
         SecondaryAxisAngleLimit: 15
         ThirdAxisAngleLimit: 45
         OverrideMaterial: {fileID: 0}
@@ -5403,13 +5403,13 @@ MonoBehaviour:
         MainAxis: 2
         TargetMainAxis: {x: 1, y: 0, z: 0}
         InverseMainAxis: 1
-        MainAxisLowLimit: -60
-        MainAxisHighLimit: 10
+        MainAxisLowLimit: -11
+        MainAxisHighLimit: 98
         SecondaryAxis: 0
         TargetSecondaryAxis: {x: 0, y: 1, z: 0}
-        InverseSecondaryAxis: 1
+        InverseSecondaryAxis: 0
         SecondaryAxisAngleLimit: 10
-        ThirdAxisAngleLimit: 15
+        ThirdAxisAngleLimit: 3
         OverrideMaterial: {fileID: 0}
         UseIndividualParameters: 0
         OverrideInterpolation: 1
@@ -5472,7 +5472,7 @@ MonoBehaviour:
         MainAxisHighLimit: 40
         SecondaryAxis: 1
         TargetSecondaryAxis: {x: 0, y: 1, z: 0}
-        InverseSecondaryAxis: 0
+        InverseSecondaryAxis: 1
         SecondaryAxisAngleLimit: 15
         ThirdAxisAngleLimit: 40
         OverrideMaterial: {fileID: 0}
@@ -5575,7 +5575,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &288171310462954364
+--- !u!114 &1195019941632203823
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5587,12 +5587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7782ff4411a82e94a9e85033bc616378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentStamina: 0
-  _recoverStamina: 10
-  _maxStamina: 100
-  _dashCost: 0.01
-  _dashSpeed: 1
---- !u!114 &6016744837299252244
+--- !u!114 &9130327722268885880
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5604,6 +5599,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a75fd8b89d79584489ba5bff254104f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentStamina: 0
+  _recoverStamina: 10
+  _maxStamina: 100
+  _dashCost: 0.001
+  _dashSpeed: 1
+  _reverseRate: 0.5
+  _jumpCost: 0.1
+  _jumpSpeed: 5
+  _jumpDistance: 1
+  _jumpColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!1 &8193914285252004476
 GameObject:
   m_ObjectHideFlags: 0

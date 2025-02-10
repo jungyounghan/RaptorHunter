@@ -14,7 +14,6 @@ public sealed class InputController : Controller
 
     protected override IEnumerator DoProcess()
     {
-        getCharacter.Initialize();
         while (true)
         {
             bool dash = Input.GetButton(DashKey);
@@ -22,26 +21,31 @@ public sealed class InputController : Controller
             bool attack = Input.GetButton(AttackKey);
             float walk = Input.GetAxis(VerticalKey);
             float turn = Input.GetAxis(HorizontalKey);
-            float deltaTime = Time.deltaTime;
-            Vector2 direction = getCharacter.GetMoveSpeed(new Vector2(turn * deltaTime, getNavMeshAgent.speed * walk * deltaTime), dash);
-            Vector3 position = getTransform.position;
-            getNavMeshAgent.Move(getTransform.forward * direction.y);
-            if (jump == true && getCharacter.TryJump(getTransform.position) == true)
+            if(jump == true && TryJump() == true)
             {
                 getNavMeshAgent.enabled = false;
                 getCharacter.DoJumpAction();
-                Debug.Log("시작");
-                yield return new WaitWhile(() => getCharacter.IsGrounded(getTransform.position));
-                Debug.Log("해제");
+                yield return new WaitWhile(() => IsGrounded());
+                yield return new WaitUntil(() => IsGrounded());
+                getCharacter.DoLandAction();
                 getNavMeshAgent.enabled = true;
-            }
-            else if (getTransform.position != position)
-            {
-                getCharacter.DoMoveAction(direction, dash);
             }
             else
             {
-                getCharacter.DoStopAction(true);
+                float deltaTime = Time.deltaTime;
+                Vector2 direction = new Vector2(turn, walk);
+                float speed = GetMoveSpeed(direction.y, dash);
+                Vector3 position = getTransform.position;
+                getNavMeshAgent.Move(getTransform.forward.normalized * direction.y * deltaTime * speed);
+                //회전(turn)도 필요함 direction.x
+                if(position != getTransform.position)
+                {
+                    getCharacter.DoMoveAction(direction);
+                }
+                else
+                {
+                    getCharacter.DoStopAction();
+                }
             }
             yield return null;
         }
