@@ -14,10 +14,11 @@ public sealed class InputController : Controller
 
     protected override IEnumerator DoProcess()
     {
+        getCharacter.Initialize();
         while (true)
         {
             bool dash = Input.GetButton(DashKey);
-            bool jump = Input.GetButton(JumpKey);
+            bool jump = Input.GetButtonDown(JumpKey);
             bool attack = Input.GetButton(AttackKey);
             float walk = Input.GetAxis(VerticalKey);
             float turn = Input.GetAxis(HorizontalKey);
@@ -25,9 +26,22 @@ public sealed class InputController : Controller
             Vector2 direction = getCharacter.GetMoveSpeed(new Vector2(turn * deltaTime, getNavMeshAgent.speed * walk * deltaTime), dash);
             Vector3 position = getTransform.position;
             getNavMeshAgent.Move(getTransform.forward * direction.y);
-            if(getTransform.position != position)
+            if (jump == true && getCharacter.TryJump(getTransform.position) == true)
             {
-                getCharacter.PlayMoveAction(direction, dash);
+                getNavMeshAgent.enabled = false;
+                getCharacter.DoJumpAction();
+                Debug.Log("시작");
+                yield return new WaitWhile(() => getCharacter.IsGrounded(getTransform.position));
+                Debug.Log("해제");
+                getNavMeshAgent.enabled = true;
+            }
+            else if (getTransform.position != position)
+            {
+                getCharacter.DoMoveAction(direction, dash);
+            }
+            else
+            {
+                getCharacter.DoStopAction(true);
             }
             yield return null;
         }

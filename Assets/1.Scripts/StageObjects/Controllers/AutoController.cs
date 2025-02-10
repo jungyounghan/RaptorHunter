@@ -9,7 +9,10 @@ public sealed class AutoController : Controller
     {
         while(true)
         {
-
+            // if (agent.isOnOffMeshLink) // 점프 구간에 진입하면
+            //{
+            //    StartCoroutine(JumpAcross());
+            //}
             yield return null;
         }
     }

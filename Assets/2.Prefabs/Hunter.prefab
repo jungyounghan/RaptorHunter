@@ -3875,8 +3875,9 @@ GameObject:
   - component: {fileID: 7004532344684656404}
   - component: {fileID: 7616849305267580160}
   - component: {fileID: 3359298659242740032}
+  - component: {fileID: 1013710159178104261}
   - component: {fileID: 288171310462954364}
-  - component: {fileID: 1842097403507833577}
+  - component: {fileID: 6016744837299252244}
   m_Layer: 0
   m_Name: Hunter
   m_TagString: Player
@@ -5547,6 +5548,33 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!54 &1013710159178104261
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966950251376048429}
+  serializedVersion: 4
+  m_Mass: 85
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &288171310462954364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5559,7 +5587,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7782ff4411a82e94a9e85033bc616378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1842097403507833577
+  _currentStamina: 0
+  _recoverStamina: 10
+  _maxStamina: 100
+  _dashCost: 0.01
+  _dashSpeed: 1
+--- !u!114 &6016744837299252244
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

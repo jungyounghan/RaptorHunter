@@ -10,7 +10,7 @@ namespace Legacy
     {
         private static readonly string MoveFloat = "Move";
         private static readonly string TurnFloat = "Turn";
-        private static readonly string SpeedFloat = "Speed";
+        //private static readonly string SpeedFloat = "Speed";
 
         private readonly int _moveHashIndex = Animator.StringToHash("Move");
 
