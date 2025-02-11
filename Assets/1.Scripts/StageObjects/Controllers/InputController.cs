@@ -36,11 +36,12 @@ public sealed class InputController : Controller
                 Vector2 direction = new Vector2(turn, walk);
                 float speed = GetMoveSpeed(direction.y, dash);
                 Vector3 position = getTransform.position;
+                Quaternion rotation = getTransform.rotation;
+                getTransform.rotation = Quaternion.Slerp(rotation, Quaternion.Euler(0, turn, 0) * rotation, deltaTime * getNavMeshAgent.angularSpeed);
                 getNavMeshAgent.Move(getTransform.forward.normalized * direction.y * deltaTime * speed);
-                //회전(turn)도 필요함 direction.x
-                if(position != getTransform.position)
+                if(position != getTransform.position || turn != 0)
                 {
-                    getCharacter.DoMoveAction(direction);
+                    getCharacter.DoMoveAction(direction, speed, speed > getNavMeshAgent.speed || (walk < 0 && dash));
                 }
                 else
                 {

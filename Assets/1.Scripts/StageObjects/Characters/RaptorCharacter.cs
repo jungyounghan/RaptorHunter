@@ -19,7 +19,7 @@ public class RaptorCharacter : Character
     {
     }
 
-    public override void DoMoveAction(Vector2 direction)
+    public override void DoMoveAction(Vector2 direction, float speed, bool dash)
     {
 
     }
