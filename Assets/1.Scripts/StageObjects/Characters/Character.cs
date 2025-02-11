@@ -22,6 +22,11 @@ public abstract class Character : MonoBehaviour
         }
     }
 
+    private void OnAnimatorIK(int layerIndex)
+    {
+        //getAnimator.SetLayerWeight(layerIndex, 0);
+    }
+
     public abstract void DoJumpAction();
 
     public abstract void DoLandAction();

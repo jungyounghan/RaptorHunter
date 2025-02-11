@@ -21,26 +21,25 @@ public sealed class InputController : Controller
             bool attack = Input.GetButton(AttackKey);
             float walk = Input.GetAxis(VerticalKey);
             float turn = Input.GetAxis(HorizontalKey);
-            if(jump == true && TryJump() == true)
+            Vector2 direction = new Vector2(turn, walk);
+            if (jump == true)
             {
-                getNavMeshAgent.enabled = false;
-                getCharacter.DoJumpAction();
-                yield return new WaitWhile(() => IsGrounded());
-                yield return new WaitUntil(() => IsGrounded());
-                getCharacter.DoLandAction();
-                getNavMeshAgent.enabled = true;
+                yield return StartCoroutine(DoJump(direction));
             }
             else
             {
                 float deltaTime = Time.deltaTime;
-                Vector2 direction = new Vector2(turn, walk);
                 float speed = GetMoveSpeed(direction.y, dash);
                 Vector3 position = getTransform.position;
                 Quaternion rotation = getTransform.rotation;
                 getTransform.rotation = Quaternion.Slerp(rotation, Quaternion.Euler(0, turn, 0) * rotation, deltaTime * getNavMeshAgent.angularSpeed);
                 getNavMeshAgent.Move(getTransform.forward.normalized * direction.y * deltaTime * speed);
-                if(position != getTransform.position || turn != 0)
+                //getNavMeshAgent.SetDestination(Vector3.zero); 
+
+                //getRigidbody.velocity = getTransform.forward * direction.y * speed;
+                if (position != getTransform.position || turn != 0)
                 {
+                    //Debug.Log(getRigidbody.velocity);
                     getCharacter.DoMoveAction(direction, speed, speed > getNavMeshAgent.speed || (walk < 0 && dash));
                 }
                 else

@@ -8,11 +8,6 @@ public sealed class HunterCharacter : Character
     private readonly int _moveHashIndex = Animator.StringToHash("Move");
     private readonly int _turnHashIndex = Animator.StringToHash("Turn");
 
-    private void OnAnimatorIK(int layerIndex)
-    {
-        
-    }
-
     public override void DoJumpAction()
     {
 
@@ -25,8 +20,49 @@ public sealed class HunterCharacter : Character
 
     public override void DoStopAction()
     {
-        getAnimator.SetFloat(_turnHashIndex, 0);
-        getAnimator.SetFloat(_moveHashIndex, 0);
+        float deltaTime = Time.deltaTime;
+        float turn = getAnimator.GetFloat(_turnHashIndex);
+        if (turn != 0)
+        {
+            if(turn > 0)
+            {
+                turn -= deltaTime;
+                if(turn < 0)
+                {
+                    turn = 0;
+                }
+            }
+            else
+            {
+                turn += deltaTime;
+                if(turn > 0)
+                {
+                    turn = 0;
+                }
+            }
+            getAnimator.SetFloat(_turnHashIndex, turn);
+        }
+        float move = getAnimator.GetFloat(_moveHashIndex);
+        if(move != 0)
+        {
+            if (move > 0)
+            {
+                move -= deltaTime;
+                if (move < 0)
+                {
+                    move = 0;
+                }
+            }
+            else
+            {
+                move += deltaTime;
+                if (move > 0)
+                {
+                    move = 0;
+                }
+            }
+            getAnimator.SetFloat(_moveHashIndex, move);
+        }
     }
 
     public override void DoMoveAction(Vector2 direction, float speed, bool dash)

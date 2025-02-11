@@ -3911,6 +3911,7 @@ Transform:
   - {fileID: 6638971223569715017}
   - {fileID: 7039689979223735312}
   - {fileID: 6063714721186690921}
+  - {fileID: 7627932128285563253}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7004532344684656404
@@ -4075,7 +4076,7 @@ MonoBehaviour:
       customEventsList: []
       variables: []
     IsHumanoid: 1
-    dummyContainer: {fileID: 0}
+    dummyContainer: {fileID: 7627932128285563253}
     skeletonFillExtraBonesList: []
     MusclesPower: 1
     SpringsValue: 1500
@@ -4095,7 +4096,7 @@ MonoBehaviour:
     LockAnchorRotation: 1
     AnchorJointLimits: 0
     FallOnZeroAnchor: 1
-    BaseTransform: {fileID: 0}
+    BaseTransform: {fileID: 1540084964435024829}
     Mecanim: {fileID: 7004532344684656404}
     RagdollLogic: 0
     RagdollSizeMultiplier: 1
@@ -4144,7 +4145,7 @@ MonoBehaviour:
       ChainType: 2
       BoneSetups:
       - SourceBone: {fileID: 1479666857127108849}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 6045064188739600737}
         BoundedIgnoreScale: 1
         BoneID: 0
         colliders:
@@ -4209,7 +4210,7 @@ MonoBehaviour:
           RootSpacePosition: {x: 0, y: 0, z: 0}
           RootSpaceRotation: {x: 0, y: 0, z: 0, w: 0}
       - SourceBone: {fileID: 2087843250838967194}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 8497299121707165391}
         BoundedIgnoreScale: 1
         BoneID: 7
         colliders:
@@ -4223,7 +4224,7 @@ MonoBehaviour:
           ColliderMesh: {fileID: 0}
           OtherReference: {fileID: 0}
           RotationCorrection: {x: 0, y: 0, z: -5.87}
-          ColliderExtraTransform: {fileID: 0}
+          ColliderExtraTransform: {fileID: 3208998346178166953}
         MassMultiplier: 0.04
         ForceMultiplier: 1
         MusclesBoost: 0
@@ -4274,7 +4275,7 @@ MonoBehaviour:
           RootSpacePosition: {x: 0, y: 0, z: 0}
           RootSpaceRotation: {x: 0, y: 0, z: 0, w: 0}
       - SourceBone: {fileID: 5092149435750064112}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 780950426991121050}
         BoundedIgnoreScale: 1
         BoneID: 8
         colliders:
@@ -4339,7 +4340,7 @@ MonoBehaviour:
           RootSpacePosition: {x: 0, y: 0, z: 0}
           RootSpaceRotation: {x: 0, y: 0, z: 0, w: 0}
       - SourceBone: {fileID: 5467941407901888134}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 9014762533994934387}
         BoundedIgnoreScale: 1
         BoneID: 54
         colliders:
@@ -4404,7 +4405,7 @@ MonoBehaviour:
           RootSpacePosition: {x: 0, y: 0, z: 0}
           RootSpaceRotation: {x: 0, y: 0, z: 0, w: 0}
       - SourceBone: {fileID: 5017658299092809578}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 3711212124921164484}
         BoundedIgnoreScale: 1
         BoneID: 9
         colliders:
@@ -4418,7 +4419,7 @@ MonoBehaviour:
           ColliderMesh: {fileID: 0}
           OtherReference: {fileID: 0}
           RotationCorrection: {x: 0, y: 0, z: 2.58}
-          ColliderExtraTransform: {fileID: 0}
+          ColliderExtraTransform: {fileID: 4388455032553496009}
         MassMultiplier: 0.06
         ForceMultiplier: 1
         MusclesBoost: 0
@@ -4469,7 +4470,7 @@ MonoBehaviour:
           RootSpacePosition: {x: 0, y: 0, z: 0}
           RootSpaceRotation: {x: 0, y: 0, z: 0, w: 0}
       - SourceBone: {fileID: 8429012594676191272}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 6100454960213603027}
         BoundedIgnoreScale: 1
         BoneID: 10
         colliders:
@@ -4483,7 +4484,7 @@ MonoBehaviour:
           ColliderMesh: {fileID: 0}
           OtherReference: {fileID: 0}
           RotationCorrection: {x: 0, y: 0, z: -11.92}
-          ColliderExtraTransform: {fileID: 0}
+          ColliderExtraTransform: {fileID: 3672281736815334663}
         - ColliderType: 2
           ColliderCenter: {x: -0.14583914, y: -0.06874362, z: 0}
           ColliderSizeMultiply: 1
@@ -4494,7 +4495,7 @@ MonoBehaviour:
           ColliderMesh: {fileID: 0}
           OtherReference: {fileID: 0}
           RotationCorrection: {x: 0, y: 0, z: 7.09}
-          ColliderExtraTransform: {fileID: 0}
+          ColliderExtraTransform: {fileID: 6768653358541851931}
         MassMultiplier: 0.12
         ForceMultiplier: 1
         MusclesBoost: 0
@@ -4562,7 +4563,7 @@ MonoBehaviour:
       ChainType: 4
       BoneSetups:
       - SourceBone: {fileID: 844713491161423279}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 2960637747319504948}
         BoundedIgnoreScale: 1
         BoneID: 11
         colliders:
@@ -4576,7 +4577,7 @@ MonoBehaviour:
           ColliderMesh: {fileID: 0}
           OtherReference: {fileID: 0}
           RotationCorrection: {x: 6.3, y: -16.8, z: 21.7}
-          ColliderExtraTransform: {fileID: 0}
+          ColliderExtraTransform: {fileID: 3359997525346974269}
         MassMultiplier: 0.0084
         ForceMultiplier: 1
         MusclesBoost: 0
@@ -4627,7 +4628,7 @@ MonoBehaviour:
           RootSpacePosition: {x: 0, y: 0, z: 0}
           RootSpaceRotation: {x: 0, y: 0, z: 0, w: 0}
       - SourceBone: {fileID: 8327183415330482058}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 1387749450302208340}
         BoundedIgnoreScale: 1
         BoneID: 13
         colliders:
@@ -4641,7 +4642,7 @@ MonoBehaviour:
           ColliderMesh: {fileID: 0}
           OtherReference: {fileID: 0}
           RotationCorrection: {x: -1.19, y: -1.29, z: -3.64}
-          ColliderExtraTransform: {fileID: 0}
+          ColliderExtraTransform: {fileID: 6049224756908699276}
         MassMultiplier: 0.054
         ForceMultiplier: 1
         MusclesBoost: 0
@@ -4692,7 +4693,7 @@ MonoBehaviour:
           RootSpacePosition: {x: 0, y: 0, z: 0}
           RootSpaceRotation: {x: 0, y: 0, z: 0, w: 0}
       - SourceBone: {fileID: 1504765288682506025}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 4579748343916054830}
         BoundedIgnoreScale: 1
         BoneID: 15
         colliders:
@@ -4706,7 +4707,7 @@ MonoBehaviour:
           ColliderMesh: {fileID: 0}
           OtherReference: {fileID: 0}
           RotationCorrection: {x: 0, y: -3.39, z: 1.99}
-          ColliderExtraTransform: {fileID: 0}
+          ColliderExtraTransform: {fileID: 904683224725129925}
         MassMultiplier: 0.0336
         ForceMultiplier: 1
         MusclesBoost: 0
@@ -4757,7 +4758,7 @@ MonoBehaviour:
           RootSpacePosition: {x: 0, y: 0, z: 0}
           RootSpaceRotation: {x: 0, y: 0, z: 0, w: 0}
       - SourceBone: {fileID: 8841059872707019725}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 8225096739260482335}
         BoundedIgnoreScale: 1
         BoneID: 17
         colliders:
@@ -4771,7 +4772,7 @@ MonoBehaviour:
           ColliderMesh: {fileID: 0}
           OtherReference: {fileID: 0}
           RotationCorrection: {x: -4.08, y: 8.9, z: -8.79}
-          ColliderExtraTransform: {fileID: 0}
+          ColliderExtraTransform: {fileID: 1288801744139741913}
         MassMultiplier: 0.0168
         ForceMultiplier: 1
         MusclesBoost: 0
@@ -4839,7 +4840,7 @@ MonoBehaviour:
       ChainType: 8
       BoneSetups:
       - SourceBone: {fileID: 2219911222262297271}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 949190279034788694}
         BoundedIgnoreScale: 1
         BoneID: 12
         colliders:
@@ -4853,7 +4854,7 @@ MonoBehaviour:
           ColliderMesh: {fileID: 0}
           OtherReference: {fileID: 0}
           RotationCorrection: {x: 6.3, y: -16.8, z: 21.7}
-          ColliderExtraTransform: {fileID: 0}
+          ColliderExtraTransform: {fileID: 1473304305107027148}
         MassMultiplier: 0.027
         ForceMultiplier: 1
         MusclesBoost: 0
@@ -4904,7 +4905,7 @@ MonoBehaviour:
           RootSpacePosition: {x: 0, y: 0, z: 0}
           RootSpaceRotation: {x: 0, y: 0, z: 0, w: 0}
       - SourceBone: {fileID: 5739028292117467610}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 118074421862445920}
         BoundedIgnoreScale: 1
         BoneID: 14
         colliders:
@@ -4918,7 +4919,7 @@ MonoBehaviour:
           ColliderMesh: {fileID: 0}
           OtherReference: {fileID: 0}
           RotationCorrection: {x: -1.19, y: -1.29, z: -3.64}
-          ColliderExtraTransform: {fileID: 0}
+          ColliderExtraTransform: {fileID: 2366326965294093597}
         MassMultiplier: 0.054
         ForceMultiplier: 1
         MusclesBoost: 0
@@ -4969,7 +4970,7 @@ MonoBehaviour:
           RootSpacePosition: {x: 0, y: 0, z: 0}
           RootSpaceRotation: {x: 0, y: 0, z: 0, w: 0}
       - SourceBone: {fileID: 126825235285107871}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 7295102177735074589}
         BoundedIgnoreScale: 1
         BoneID: 16
         colliders:
@@ -4983,7 +4984,7 @@ MonoBehaviour:
           ColliderMesh: {fileID: 0}
           OtherReference: {fileID: 0}
           RotationCorrection: {x: 0, y: -3.39, z: 1.99}
-          ColliderExtraTransform: {fileID: 0}
+          ColliderExtraTransform: {fileID: 4487914775013990684}
         MassMultiplier: 0.0336
         ForceMultiplier: 1
         MusclesBoost: 0
@@ -5034,7 +5035,7 @@ MonoBehaviour:
           RootSpacePosition: {x: 0, y: 0, z: 0}
           RootSpaceRotation: {x: 0, y: 0, z: 0, w: 0}
       - SourceBone: {fileID: 1360307149103712126}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 2986270876948143925}
         BoundedIgnoreScale: 1
         BoneID: 18
         colliders:
@@ -5048,7 +5049,7 @@ MonoBehaviour:
           ColliderMesh: {fileID: 0}
           OtherReference: {fileID: 0}
           RotationCorrection: {x: -4.08, y: 8.9, z: -8.79}
-          ColliderExtraTransform: {fileID: 0}
+          ColliderExtraTransform: {fileID: 4208548267728125523}
         MassMultiplier: 0.0168
         ForceMultiplier: 1
         MusclesBoost: 0
@@ -5116,7 +5117,7 @@ MonoBehaviour:
       ChainType: 16
       BoneSetups:
       - SourceBone: {fileID: 4225952421276260346}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 8766842432026938474}
         BoundedIgnoreScale: 1
         BoneID: 1
         colliders:
@@ -5130,7 +5131,7 @@ MonoBehaviour:
           ColliderMesh: {fileID: 0}
           OtherReference: {fileID: 0}
           RotationCorrection: {x: 0, y: -0.64, z: 1.91}
-          ColliderExtraTransform: {fileID: 0}
+          ColliderExtraTransform: {fileID: 8136275505146420701}
         MassMultiplier: 0.16
         ForceMultiplier: 1
         MusclesBoost: 0
@@ -5181,7 +5182,7 @@ MonoBehaviour:
           RootSpacePosition: {x: 0, y: 0, z: 0}
           RootSpaceRotation: {x: 0, y: 0, z: 0, w: 0}
       - SourceBone: {fileID: 6942895847836121505}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 3813928355151423274}
         BoundedIgnoreScale: 1
         BoneID: 3
         colliders:
@@ -5195,7 +5196,7 @@ MonoBehaviour:
           ColliderMesh: {fileID: 0}
           OtherReference: {fileID: 0}
           RotationCorrection: {x: 10.78, y: 0.75, z: 1.35}
-          ColliderExtraTransform: {fileID: 0}
+          ColliderExtraTransform: {fileID: 2886317255418355139}
         MassMultiplier: 0.08
         ForceMultiplier: 1
         MusclesBoost: 0
@@ -5246,7 +5247,7 @@ MonoBehaviour:
           RootSpacePosition: {x: 0, y: 0, z: 0}
           RootSpaceRotation: {x: 0, y: 0, z: 0, w: 0}
       - SourceBone: {fileID: 1444754347468887003}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 4145254597178707310}
         BoundedIgnoreScale: 1
         BoneID: 5
         colliders:
@@ -5260,7 +5261,7 @@ MonoBehaviour:
           ColliderMesh: {fileID: 0}
           OtherReference: {fileID: 0}
           RotationCorrection: {x: 4.22, y: 0, z: -1.83}
-          ColliderExtraTransform: {fileID: 0}
+          ColliderExtraTransform: {fileID: 7602155630393071350}
         MassMultiplier: 0.0448
         ForceMultiplier: 1
         MusclesBoost: 0
@@ -5328,7 +5329,7 @@ MonoBehaviour:
       ChainType: 32
       BoneSetups:
       - SourceBone: {fileID: 7699723706055605644}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 8113686945682282599}
         BoundedIgnoreScale: 1
         BoneID: 2
         colliders:
@@ -5342,7 +5343,7 @@ MonoBehaviour:
           ColliderMesh: {fileID: 0}
           OtherReference: {fileID: 0}
           RotationCorrection: {x: 0, y: -0.64, z: 1.91}
-          ColliderExtraTransform: {fileID: 0}
+          ColliderExtraTransform: {fileID: 2291900057896082484}
         MassMultiplier: 0.16
         ForceMultiplier: 1
         MusclesBoost: 0
@@ -5393,7 +5394,7 @@ MonoBehaviour:
           RootSpacePosition: {x: 0, y: 0, z: 0}
           RootSpaceRotation: {x: 0, y: 0, z: 0, w: 0}
       - SourceBone: {fileID: 4115574801633719905}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 7328982738993263136}
         BoundedIgnoreScale: 1
         BoneID: 4
         colliders:
@@ -5407,7 +5408,7 @@ MonoBehaviour:
           ColliderMesh: {fileID: 0}
           OtherReference: {fileID: 0}
           RotationCorrection: {x: 10.78, y: 0.75, z: 1.35}
-          ColliderExtraTransform: {fileID: 0}
+          ColliderExtraTransform: {fileID: 2985737697980830935}
         MassMultiplier: 0.08
         ForceMultiplier: 1
         MusclesBoost: 0
@@ -5458,7 +5459,7 @@ MonoBehaviour:
           RootSpacePosition: {x: 0, y: 0, z: 0}
           RootSpaceRotation: {x: 0, y: 0, z: 0, w: 0}
       - SourceBone: {fileID: 3663800599625641551}
-        PhysicalDummyBone: {fileID: 0}
+        PhysicalDummyBone: {fileID: 7624230855289768382}
         BoundedIgnoreScale: 1
         BoneID: 6
         colliders:
@@ -5472,7 +5473,7 @@ MonoBehaviour:
           ColliderMesh: {fileID: 0}
           OtherReference: {fileID: 0}
           RotationCorrection: {x: 4.22, y: 0, z: -1.83}
-          ColliderExtraTransform: {fileID: 0}
+          ColliderExtraTransform: {fileID: 5277351481558578786}
         MassMultiplier: 0.0448
         ForceMultiplier: 1
         MusclesBoost: 0
@@ -5974,3 +5975,255 @@ Transform:
   - {fileID: 4730917508711441271}
   m_Father: {fileID: 8841059872707019725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2495149095804266801
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1540084964435024829}
+    m_Modifications:
+    - target: {fileID: 585526257502038253, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+      propertyPath: m_Name
+      value: Hunter1-Ragdoll
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439036885094428740, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439036885094428740, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439036885094428740, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439036885094428740, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439036885094428740, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439036885094428740, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439036885094428740, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439036885094428740, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439036885094428740, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439036885094428740, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+--- !u!4 &118074421862445920 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2523125122746243665, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &780950426991121050 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2915784609703803819, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &904683224725129925 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3327764817966785524, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &949190279034788694 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3426323862991909479, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1288801744139741913 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3693570420391707624, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1387749450302208340 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3594657709696045157, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1473304305107027148 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3950420571455073789, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2291900057896082484 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4426750449011078405, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2366326965294093597 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 177449320763931692, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2886317255418355139 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 769779779951293682, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2960637747319504948 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 844073883808786693, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2985737697980830935 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 851167685150457318, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2986270876948143925 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 851692064635254276, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3208998346178166953 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1020111630677633432, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3359997525346974269 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 865138713396744972, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3672281736815334663 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1177159317355543606, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3711212124921164484 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1234077704282741749, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3813928355151423274 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1607018983227903515, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4145254597178707310 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1956369792535929951, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4208548267728125523 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1785475749483501410, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4388455032553496009 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2181537138509395192, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4487914775013990684 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2083137290990995501, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4579748343916054830 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2102622728866504735, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5277351481558578786 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7754186834764291923, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6045064188739600737 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8161909249531619408, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6049224756908699276 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8166052227526838205, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6100454960213603027 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8505513638428269538, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6768653358541851931 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9173721114842014762, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7295102177735074589 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5160531601727097388, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7328982738993263136 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5122081624848423697, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7602155630393071350 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5413542966824042439, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7624230855289768382 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5435344956066783375, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7627932128285563253 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5439036885094428740, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8113686945682282599 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5924792795189555542, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8136275505146420701 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5929366691333682412, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8225096739260482335 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5802295509269129774, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8497299121707165391 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6290671499235086334, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8766842432026938474 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6560223344225248603, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9014762533994934387 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6897916088748104002, guid: 7d2dd516f54199f458a1fb90ef7115b3, type: 3}
+  m_PrefabInstance: {fileID: 2495149095804266801}
+  m_PrefabAsset: {fileID: 0}
