@@ -11,8 +11,8 @@ Shader "Custom/AngleClippingShader"
 
         _CenterX ("Center X", float) = 0.0
         _CenterY ("Center Y", float) = 0.0
-        _Direction ("Direction", float) = 0.0
-        _ViewAngle ("View Angle", Range(0, 180)) = 180
+        _Degree ("Degree", float) = 0.0
+        _Angle ("Angle", Range(0, 360)) = 360
     }
 
     SubShader
@@ -39,8 +39,8 @@ Shader "Custom/AngleClippingShader"
 
         float _CenterX;
         float _CenterY;
-        float _Direction;
-        float _ViewAngle;
+        float _Degree;
+        float _Angle;
 
        void surf (Input IN, inout SurfaceOutputStandard o)
        {
@@ -49,14 +49,14 @@ Shader "Custom/AngleClippingShader"
             viewVec.y = 0; // Y축 제거하여 수평 방향만 비교
             viewVec = normalize(viewVec); // 다시 정규화
 
-            // _Direction 값을 각도로 변환 (라디안)
-            float rad = radians(_Direction);
+            // _Degree 값을 각도로 변환 (라디안)
+            float rad = radians(_Degree);
     
             // 회전 변환된 방향 벡터 계산
             float3 clipDir = float3(cos(rad), 0, sin(rad));
 
-            float angle = acos(dot(viewVec, clipDir)) * (180.0 / 3.14159265); // 각도 변환
-            if (angle > _ViewAngle) // 시야각 벗어나면 제거
+            float angle = acos(dot(viewVec, clipDir)) * (360.0 / 3.14159265); // 각도 변환
+            if (angle > _Angle) // 시야각 벗어나면 제거
             {
                 discard;
             }

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Test
+  m_Name: test
   m_Shader: {fileID: 4800000, guid: bfe804b5dba880745ac48e9f01c7e223, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -63,13 +63,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Angle: 360
     - _BlurWidth: 5
     - _Brightness: 1
-    - _BumpScale: 1
+    - _BumpScale: -5.05
     - _CenterX: 0
     - _CenterY: 0
     - _ClipAngle: 0
     - _Cutoff: 0.5
+    - _Degree: 0
     - _DetailNormalMapScale: 1
     - _Direction: 180
     - _DirectionX: 50
@@ -87,7 +89,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _ViewAngle: 59
+    - _ViewAngle: 103
     - _ZWrite: 1
     m_Colors:
     - _ClipCenter: {r: 0, g: 0, b: 0, a: 0}
