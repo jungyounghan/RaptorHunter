@@ -51,7 +51,6 @@ public class Test : MonoBehaviour
             Vector3 direction = target - center;
             Debug.DrawRay(center, direction, _targetColor);
             Vector3 cross = Vector3.Cross(direction, Vector3.up);
-            float distance = Mathf.Sqrt(Mathf.Pow(direction.magnitude, 2) * 2);
             Debug.DrawRay(target, (center - cross) - target, _leftColor);
             Debug.DrawRay(target, (center + cross) - target, _rightColor);
         }
@@ -91,13 +90,12 @@ public class Test : MonoBehaviour
             float denominator = ao.magnitude * bo.magnitude;
             float angle = Mathf.Acos(Mathf.Clamp(Vector2.Dot(ao, bo) / denominator, -1f, 1f)) * Mathf.Rad2Deg;
             float degree = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
-            if(angle < 180)
+            if (angle < 180)
             {
-                float sum = (right - target).magnitude + (left - target).magnitude;
-                float rightRatio = (right - target).magnitude / sum;
-                float leftRatio = (left - target).magnitude / sum;
-                float balance = (rightRatio - leftRatio) * angle; // 상대적 차이 반영
-                degree += balance * 0.5f; // 조정량 줄이기
+                Vector3 a = Vector3.Cross(direction, -Vector3.up);
+                Vector3 b = Vector3.Cross(direction, Vector3.up);
+                degree += Vector2.Angle(ao, new Vector2(a.x, a.z)) * 0.5f;
+                degree -= Vector2.Angle(bo, new Vector2(b.x, b.z)) * 0.5f;
             }
             foreach (Material material in _list)
             {
@@ -115,8 +113,6 @@ public class Test : MonoBehaviour
             }
         }
     }
-
-    public float test = 0.1f;
 
     public void Add(IEnumerable<Material> materials)
     {
