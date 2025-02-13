@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
             Caster[] casters = (Caster[])FindObjectsOfType(typeof(Caster));
             foreach(Caster caster in casters)
             {
-                caster.Initialize(test.Show, test.Hide);
+                caster.Initialize(test.Add, test.Remove);
             }
         }
     }

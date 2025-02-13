@@ -47,55 +47,58 @@ public class Test : MonoBehaviour
         {
             Vector3 center = getTransform.position;
             Vector3 target = _target.position;
-            center.y = target.y;
-            Vector3 scope = getTransform.right * (center - target).magnitude;
-            Vector3 direction = (center - target);
-            Debug.DrawRay(center, scope, _targetColor);
-            Debug.DrawRay(center, -scope, _targetColor);
-            Debug.DrawRay(target, direction - scope, _rightColor);
-            Debug.DrawRay(target, direction + scope, _leftColor);
+            target.y = center.y;
+            Vector3 direction = target - center;
+            Debug.DrawRay(center, direction, _targetColor);
+            Vector3 cross = Vector3.Cross(direction, Vector3.up);
+            float distance = Mathf.Sqrt(Mathf.Pow(direction.magnitude, 2) * 2);
+            Debug.DrawRay(target, (center - cross) - target, _leftColor);
+            Debug.DrawRay(target, (center + cross) - target, _rightColor);
         }
     }
 #endif
 
     private void Update()
     {
-        //굳이 _target이 없어도 될거 같다.
         if (_target != null)
         {
             Vector3 center = getTransform.position;
             Vector3 target = _target.position;
-            center.y = target.y;
-            float magnitude = (center - target).magnitude;
-            Vector3 scope = getTransform.right * magnitude;
-            Vector3 direction = (center - target);
-            Vector3 left = target + (direction + scope);
-            Vector3 right = target + (direction - scope);
-            float distance = Mathf.Sqrt((magnitude * magnitude) * 2);
-            if (Physics.Raycast(target, direction - scope, out RaycastHit rightHit, distance, _layerMask))
+            target.y = center.y;
+            Vector3 direction = target - center;
+#if UNITY_EDITOR
+            Debug.DrawRay(center, direction, _targetColor);
+#endif
+            Vector3 cross = Vector3.Cross(direction, Vector3.up);
+            float distance = Mathf.Sqrt(Mathf.Pow(direction.magnitude, 2) * 2);
+            Vector3 left = center - cross;
+            Vector3 right = center + cross;
+            if (Physics.Raycast(target, (center - cross) - target, out RaycastHit leftHit, distance, _layerMask))
+            {
+                left = leftHit.point;
+            }
+            if (Physics.Raycast(target, (center + cross) - target, out RaycastHit rightHit, distance, _layerMask))
             {
                 right = rightHit.point;
             }
 #if UNITY_EDITOR
-            Debug.DrawLine(center, right, _targetColor);
-            Debug.DrawLine(target, right, _rightColor);
-#endif
-            if (Physics.Raycast(target, direction + scope, out RaycastHit leftHit, distance, _layerMask))
-            {
-                left = leftHit.point;
-            }
-#if UNITY_EDITOR
-            Debug.DrawLine(center, left, _targetColor);
             Debug.DrawLine(target, left, _leftColor);
+            Debug.DrawLine(target, right, _rightColor);
 #endif
             Vector2 o = new Vector2(center.x, center.z);
             Vector2 ao = new Vector2(left.x, left.z) - o;
             Vector2 bo = new Vector2(right.x, right.z) - o;
-            Vector3 forward = ((left - center).normalized + (right - center).normalized) * 0.5f;
-            float denom = ao.magnitude * bo.magnitude;
-            float angle = (denom > 0f) ? Mathf.Acos(Mathf.Clamp(Vector2.Dot(ao, bo) / denom, -1f, 1f)) * Mathf.Rad2Deg : 0f;
-            Debug.Log(angle);
-            float degree = Mathf.Atan2(forward.z, forward.x) * Mathf.Rad2Deg;
+            float denominator = ao.magnitude * bo.magnitude;
+            float angle = Mathf.Acos(Mathf.Clamp(Vector2.Dot(ao, bo) / denominator, -1f, 1f)) * Mathf.Rad2Deg;
+            float degree = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
+            if(angle < 180)
+            {
+                float sum = (right - target).magnitude + (left - target).magnitude;
+                float rightRatio = (right - target).magnitude / sum;
+                float leftRatio = (left - target).magnitude / sum;
+                float balance = (rightRatio - leftRatio) * angle; // 상대적 차이 반영
+                degree += balance * 0.5f; // 조정량 줄이기
+            }
             foreach (Material material in _list)
             {
                 material.SetFloat(CenterX, center.x);
@@ -113,13 +116,15 @@ public class Test : MonoBehaviour
         }
     }
 
-    public void Show(IEnumerable<Material> materials)
+    public float test = 0.1f;
+
+    public void Add(IEnumerable<Material> materials)
     {
         if(materials != null)
         {
             foreach(Material material in materials)
             {
-                if(_list.Contains(material) == false)
+                if(_list.Contains(material) == false && material.HasFloat(CenterX) && material.HasFloat(CenterY) && material.HasFloat(Degree) && material.HasFloat(Angle))
                 {
                     _list.Add(material);
                 }
@@ -127,7 +132,7 @@ public class Test : MonoBehaviour
         }
     }
 
-    public void Hide(IEnumerable<Material> materials)
+    public void Remove(IEnumerable<Material> materials)
     {
         if (materials != null)
         {
