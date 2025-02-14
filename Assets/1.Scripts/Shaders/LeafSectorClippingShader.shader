@@ -1,4 +1,4 @@
-Shader "Custom/LeafAngleClippingShader" 
+Shader "Custom/LeafSectorClippingShader" 
 {
     Properties
     {

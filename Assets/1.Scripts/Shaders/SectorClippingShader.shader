@@ -1,4 +1,4 @@
-Shader "Custom/AngleClippingShader"
+Shader "Custom/SectorClippingShader"
 {
     Properties
     {

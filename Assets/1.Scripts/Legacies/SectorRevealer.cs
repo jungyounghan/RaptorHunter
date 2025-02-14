@@ -1,7 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test : MonoBehaviour
+/// <summary>
+/// 목표물과 이 객체의 거리 사이에 있는 다른 오브젝트 이미지들을 부채꼴 형태로 보이지 않게 해주는 클래스
+/// </summary>
+[DisallowMultipleComponent]
+public sealed class SectorRevealer : MonoBehaviour
 {
     private static readonly string CenterX = "_CenterX";
     private static readonly string CenterY = "_CenterY";
@@ -116,11 +120,11 @@ public class Test : MonoBehaviour
 
     public void Add(IEnumerable<Material> materials)
     {
-        if(materials != null)
+        if (materials != null)
         {
-            foreach(Material material in materials)
+            foreach (Material material in materials)
             {
-                if(_list.Contains(material) == false && material.HasFloat(CenterX) && material.HasFloat(CenterY) && material.HasFloat(Degree) && material.HasFloat(Angle))
+                if (_list.Contains(material) == false && material.HasFloat(CenterX) && material.HasFloat(CenterY) && material.HasFloat(Degree) && material.HasFloat(Angle))
                 {
                     _list.Add(material);
                 }

@@ -2038,7 +2038,6 @@ GameObject:
   - component: {fileID: 197465904970998076}
   - component: {fileID: 8364135827285205706}
   - component: {fileID: 4714653216445901904}
-  - component: {fileID: 3093610066816375201}
   m_Layer: 0
   m_Name: foot_l
   m_TagString: Untagged
@@ -2157,18 +2156,6 @@ CharacterJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &3093610066816375201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2938822776548830634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4281ce6801066f04e81e3f4c5daf492a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2993411550077239459
 GameObject:
   m_ObjectHideFlags: 0

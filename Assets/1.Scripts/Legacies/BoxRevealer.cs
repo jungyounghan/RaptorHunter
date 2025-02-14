@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 목표물과 이 객체의 거리 사이에 있는 다른 오브젝트 이미지들이 보이지 않게 해주는 클래스
+/// 목표물과 이 객체의 거리 사이에 있는 다른 오브젝트 이미지들을 박스 형태로 보이지 않게 해주는 클래스
 /// </summary>
 [DisallowMultipleComponent]
-public sealed class Revealer : MonoBehaviour
+public sealed class BoxRevealer : MonoBehaviour
 {
     private static readonly string ClippingMin = "_ClipMin";
     private static readonly string ClippingMax = "_ClipMax";
@@ -18,7 +18,8 @@ public sealed class Revealer : MonoBehaviour
 
     private Transform _transform = null;
 
-    private Transform getTransform {
+    private Transform getTransform
+    {
         get
         {
             if (_hasTransform == false)
@@ -32,15 +33,12 @@ public sealed class Revealer : MonoBehaviour
 
     [Header("바라볼 대상의 트랜스폼"), SerializeField]
     private Transform _target;
-
     [Header("충돌 처리를 할 물체의 레이어마스크"), SerializeField]
     private LayerMask _layerMask;
-
-    [Header("오프셋 간격"), SerializeField]
+    [Header("바라볼 대상과의 간격"), SerializeField]
     private Vector3 _offset;
-
-    [Header("투과 넓이 영역"), SerializeField, Range(float.Epsilon, 10)]
-    private float _width = 2;
+    [Header("대상을 투과할 박스의 크기"), SerializeField]
+    private Vector3 _size;
 
     private List<Material> _list = new List<Material>();
 
@@ -52,18 +50,26 @@ public sealed class Revealer : MonoBehaviour
     {
         if (_target != null)
         {
-            float half = 0.5f;
-            Vector3 start = getTransform.position + _offset;
-            Vector3 end = _target.position + _offset;
-            Vector3 center = (start + end) * half;
-            Vector3 direction = end - start;
-            Vector3 forward = new Vector3(direction.x, 0, direction.z).normalized;
-            float depth = new Vector3(direction.x, 0, direction.z).magnitude;
-            Vector3 size = new Vector3(_width, Mathf.Abs(direction.y), depth);
-            Quaternion rotation = Quaternion.LookRotation(forward);
+            Vector3 start = getTransform.position;
             Gizmos.color = _gizmoColor;
-            Gizmos.matrix = Matrix4x4.TRS(center, rotation, Vector3.one);
-            Gizmos.DrawWireCube(Vector3.zero, size);
+            Gizmos.matrix = Matrix4x4.TRS(start, Quaternion.LookRotation((_target.position + _offset) - start), Vector3.one);
+            Gizmos.DrawWireCube(new Vector3(0, 0, _size.z * 0.5f), _size);
+        }
+    }
+
+    private void OnValidate()
+    {
+        if (_size.x < 0)
+        {
+            _size.x = 0;
+        }
+        if (_size.y < 0)
+        {
+            _size.y = 0;
+        }
+        if (_size.z < 0)
+        {
+            _size.z = 0;
         }
     }
 #endif
@@ -72,18 +78,14 @@ public sealed class Revealer : MonoBehaviour
     {
         if (_target != null)
         {
-            float half = 0.5f;
-            Vector3 start = getTransform.position + _offset;
-            Vector3 end = _target.position + _offset;
-            Vector3 center = (start + end) * half;
-            Vector3 direction = end - start;
-            Vector3 forward = new Vector3(direction.x, 0, direction.z).normalized;
-            float depth = new Vector3(direction.x, 0, direction.z).magnitude;
-            Vector3 halfExtents = new Vector3(_width, Mathf.Abs(direction.y), depth) * half;
-            Quaternion rotation = Quaternion.LookRotation(forward);
+            Vector3 start = getTransform.position;
+            Vector3 direction = (_target.position + _offset) - start;
+            Vector3 halfSize = _size * 0.5f;
+            Vector3 center = start + direction.normalized * halfSize.z;
+            Quaternion rotation = Quaternion.LookRotation(direction);
             Matrix4x4 rotMatrix = Matrix4x4.TRS(center, rotation, Vector3.one);
             List<Material> list = new List<Material>();
-            Collider[] colliders = Physics.OverlapBox(center, halfExtents, rotation, _layerMask);
+            Collider[] colliders = Physics.OverlapBox(center, halfSize, rotation, _layerMask);
             foreach (Collider collider in colliders)
             {
                 MeshRenderer[] meshRenderers = collider.GetComponentsInChildren<MeshRenderer>();
@@ -94,8 +96,8 @@ public sealed class Revealer : MonoBehaviour
                         if (material.HasVector(ClippingMin) == true && material.HasVector(ClippingMax) == true && material.HasVector(ClippingCenter) == true &&
                             material.HasVector(RotationRow0) == true && material.HasVector(RotationRow1) == true && material.HasVector(RotationRow2) == true)
                         {
-                            material.SetVector(ClippingMin, -halfExtents);
-                            material.SetVector(ClippingMax, halfExtents);
+                            material.SetVector(ClippingMin, -halfSize);
+                            material.SetVector(ClippingMax, halfSize);
                             material.SetVector(ClippingCenter, center);
                             material.SetVector(RotationRow0, rotMatrix.GetRow(0));
                             material.SetVector(RotationRow1, rotMatrix.GetRow(1));

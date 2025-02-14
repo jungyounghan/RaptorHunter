@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 [RequireComponent(typeof(Renderer))]
 [DisallowMultipleComponent]
-public class Caster : MonoBehaviour
+public class MaterialSender : MonoBehaviour
 {
     private bool _hasRenderer = false;
 

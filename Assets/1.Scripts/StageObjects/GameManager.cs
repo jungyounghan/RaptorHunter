@@ -1,28 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private Test test;
+    private GameObject _obstacleObjects;
 
+    [SerializeField]
+    private HunterCharacter _hunterCharacter;
 
-    void Start()
+    private void Awake()
     {
-        if(test != null)
+        if (_obstacleObjects != null)
         {
-            Caster[] casters = (Caster[])FindObjectsOfType(typeof(Caster));
-            foreach(Caster caster in casters)
-            {
-                caster.Initialize(test.Add, test.Remove);
-            }
+            _obstacleObjects.SetActive(true);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(_hunterCharacter != null)
+        {
+            _hunterCharacter.gameObject.SetActive(true);
+        }
     }
 }

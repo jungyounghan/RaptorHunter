@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 7609671397007062411}
   - component: {fileID: 7285027848453668506}
   m_Layer: 0
-  m_Name: escalator_a
+  m_Name: Escalator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
