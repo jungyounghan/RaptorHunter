@@ -30,7 +30,7 @@ public sealed class SectorPenetrator : MonoBehaviour
     }
 
     [SerializeField]
-    private float _radius = 0;
+    private float _radius = 100;
     public float radius
     {
         get
@@ -44,7 +44,7 @@ public sealed class SectorPenetrator : MonoBehaviour
     }
 
     [Header("위치 오프셋"), SerializeField]
-    private float _offset;
+    private Vector3 _offset;
 
     [Header("레이어 마스크"), SerializeField]
     private LayerMask _layerMask;
@@ -60,36 +60,36 @@ public sealed class SectorPenetrator : MonoBehaviour
 #if UNITY_EDITOR
     [Header("사각형 표시 색깔"), SerializeField]
     private Color _boxColor = Color.green;
-
-    [Header("각도 표시 색깔"), SerializeField]
-    private Color _angleColor = Color.red;
+    [Header("중앙 표시 색깔"), SerializeField]
+    private Color _centerColor = Color.black;
+    [Header("중앙 표시 색깔"), SerializeField]
+    private Color _leftColor = Color.red;
+    [Header("중앙 표시 색깔"), SerializeField]
+    private Color _rightColor = Color.blue;
 
     private void OnDrawGizmos()
     {
+        Vector3 target = getTransform.position;
         Gizmos.color = _boxColor;
-        Vector3 position = getTransform.position;
-        Gizmos.DrawWireSphere(position, _radius);
-        Gizmos.color = _angleColor;
-        Vector3 top = position + new Vector3(0, _radius, 0);
-        Vector3 bottom = position - new Vector3(0, _radius, 0);
-        Gizmos.DrawLine(top, bottom);
-        for (float i = _testDegree; i < _testDegree + _testAngle; i += 2)
+        Gizmos.DrawWireSphere(target, _radius);
+        if (Application.isPlaying == false)
         {
-            DrawSquareBracketShape(top, bottom, (_testDegree + i) * 0.5f * Mathf.Deg2Rad);
-            DrawSquareBracketShape(top, bottom, (_testDegree + i - _testAngle) * 0.5f * Mathf.Deg2Rad);
+            target.y += _offset.y;
+            Vector3 pivot = target - getTransform.forward * _offset.z;
+            Vector3 direction = pivot - target;
+            Vector3 cross = Vector3.Cross(direction, Vector3.up).normalized;
+            Vector3 left = pivot - cross * _offset.x * 0.5f;
+            Vector3 right = pivot + cross * _offset.x * 0.5f;
+            Gizmos.color = _centerColor;
+            Gizmos.DrawLine(target, pivot);
+            Gizmos.color = _leftColor;
+            Gizmos.DrawLine(pivot, left);
+            Gizmos.DrawRay(target, (left - target));
+            Gizmos.color = _rightColor;
+            Gizmos.DrawLine(pivot, right);
+            Gizmos.DrawRay(target, (right - target));
         }
     }
-
-    private void DrawSquareBracketShape(Vector3 top, Vector3 bottom, float radian)
-    {
-        Vector3 direction = new Vector3(Mathf.Cos(radian), 0, Mathf.Sin(radian));
-        //float size = Mathf.Min((direction.x != 0) ? (direction.x > 0 ? _radius : -_radius) / direction.x : _radius, (direction.z != 0) ? (direction.z > 0 ? _radius : -_radius) / direction.z : _radius);
-        Vector3 line = direction.normalized * _radius/* size*/; //원래는 _radius 대신 size를 썼었다.
-        Gizmos.DrawRay(top, line);
-        Gizmos.DrawRay(bottom, line);
-        Gizmos.DrawLine(top + line, bottom + line);
-    }
-
 #endif
 
     private void OnDisable()
@@ -104,10 +104,10 @@ public sealed class SectorPenetrator : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 pivot = getTransform.position;
+        Vector3 target = getTransform.position;
         List<Transform> transforms = new List<Transform>();
         List<Material> materials = new List<Material>();
-        Collider[] colliders = Physics.OverlapSphere(pivot, _radius, _layerMask);
+        Collider[] colliders = Physics.OverlapSphere(target, _radius, _layerMask);
         foreach (Collider collider in colliders)
         {
             Transform transform = collider.transform;
@@ -116,12 +116,43 @@ public sealed class SectorPenetrator : MonoBehaviour
                 transforms.Add(transform);
             }
         }
-        Vector3 center = pivot - (getTransform.forward.normalized * _offset);
-
+        target.y += _offset.y;
+        Vector3 pivot = target - getTransform.forward * _offset.z;
+        Vector3 direction = pivot - target;
+        Vector3 cross = Vector3.Cross(direction, Vector3.up).normalized;
+        float distance = Mathf.Sqrt(Mathf.Pow(direction.magnitude, 2) + Mathf.Pow(cross.magnitude * _offset.x * 0.5f, 2));
+        Vector3 left = pivot - cross * _offset.x * 0.5f;
+        Vector3 right = pivot + cross * _offset.x * 0.5f;
+        if (Physics.Raycast(target, (left - target), out RaycastHit leftHit, distance, _layerMask))
+        {
+            left = leftHit.point;
+        }
+        if (Physics.Raycast(target, (right - target), out RaycastHit rightHit, distance, _layerMask))
+        {
+            right = rightHit.point;
+        }   
 #if UNITY_EDITOR
-        Debug.DrawLine(pivot, center);
+        Debug.DrawLine(target, pivot, _centerColor);
+        Debug.DrawLine(pivot, left, _leftColor);
+        Debug.DrawRay(target, (left - target).normalized * distance, _leftColor);
+        Debug.DrawLine(pivot, right, _rightColor);
+        Debug.DrawRay(target, (right - target).normalized * distance, _rightColor);
 #endif
-
+        Vector2 o = new Vector2(pivot.x, pivot.z);
+        Vector2 ao = new Vector2(left.x, left.z) - o;
+        Vector2 bo = new Vector2(right.x, right.z) - o;
+        float denominator = ao.magnitude * bo.magnitude;
+        float angle = Mathf.Acos(Mathf.Clamp(Vector2.Dot(ao, bo) / denominator, -1f, 1f)) * Mathf.Rad2Deg;
+        float degree = Mathf.Atan2(-direction.z, -direction.x) * Mathf.Rad2Deg;
+        if (angle < 180)
+        {
+            Vector3 a = Vector3.Cross(direction, -Vector3.up);
+            Vector3 b = Vector3.Cross(direction, Vector3.up);
+            degree -= Vector2.Angle(ao, new Vector2(a.x, a.z)) * 0.5f;
+            degree += Vector2.Angle(bo, new Vector2(b.x, b.z)) * 0.5f;
+        }
+        _testAngle = angle;
+        _testDegree = degree;
         foreach (Transform transform in transforms)
         {
             MeshRenderer[] meshRenderers = transform.GetComponentsInChildren<MeshRenderer>();
@@ -157,4 +188,5 @@ public sealed class SectorPenetrator : MonoBehaviour
             }
         }
     }
+
 }

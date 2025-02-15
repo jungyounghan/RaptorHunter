@@ -32,20 +32,6 @@ public sealed class BoxPenetrator : MonoBehaviour
     }
 
     [SerializeField]
-    private Vector3 _size = Vector3.one;
-    public Vector3 size
-    {
-        get
-        {
-            return _size;
-        }
-        set
-        {
-            _size = value;
-        }
-    }
-
-    [SerializeField]
     private LayerMask _layerMask;
 
     private List<Material> _list = new List<Material>();
@@ -59,7 +45,7 @@ public sealed class BoxPenetrator : MonoBehaviour
     {
         Gizmos.color = _gizmoColor;
         Gizmos.matrix = Matrix4x4.TRS(getTransform.position, getTransform.rotation, Vector3.one);
-        Gizmos.DrawWireCube(Vector3.zero, _size);
+        Gizmos.DrawWireCube(Vector3.zero, getTransform.lossyScale);
     }
 #endif
 
@@ -77,7 +63,7 @@ public sealed class BoxPenetrator : MonoBehaviour
     private void LateUpdate()
     {
         Vector3 center = getTransform.position;
-        Vector3 halfSize = _size * 0.5f;
+        Vector3 halfSize = getTransform.lossyScale * 0.5f;
         Quaternion rotation = getTransform.rotation;
         Matrix4x4 rotMatrix = Matrix4x4.TRS(center, rotation, Vector3.one);
         List<Transform> transforms = new List<Transform>();

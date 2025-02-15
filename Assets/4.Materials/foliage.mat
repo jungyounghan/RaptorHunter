@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: foliage
-  m_Shader: {fileID: 4800000, guid: b1654491df83cff4fa2d5a8731066b53, type: 3}
+  m_Shader: {fileID: 4800000, guid: aed96d53304047942859e8e3d907ce25, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []

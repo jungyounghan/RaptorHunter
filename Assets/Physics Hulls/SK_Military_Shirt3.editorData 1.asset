@@ -1064,9 +1064,9 @@ MonoBehaviour:
   boneHullData:
   - targetBoneName: pelvis
     type: 1
-    colliderType: 0
+    colliderType: 2
     previewColour: {r: 1, g: 0, b: 0, a: 0.7}
-    hullMesh: {fileID: 5167209427384021334, guid: 04287f2c836a03947a5d436637be6096, type: 2}
+    hullMesh: {fileID: -8593752902541247537, guid: 04287f2c836a03947a5d436637be6096, type: 2}
     material: {fileID: 0}
     isTrigger: 0
     maxPlanes: 255
@@ -1496,9 +1496,9 @@ MonoBehaviour:
     - {x: -0.0010725915, y: 0.9806935, z: 0.14038777}
   - targetBoneName: spine_01
     type: 1
-    colliderType: 0
+    colliderType: 2
     previewColour: {r: 0.119199276, g: 0, b: 1, a: 0.7}
-    hullMesh: {fileID: -2645631882800687287, guid: 04287f2c836a03947a5d436637be6096, type: 2}
+    hullMesh: {fileID: -7950592679490022614, guid: 04287f2c836a03947a5d436637be6096, type: 2}
     material: {fileID: 0}
     isTrigger: 0
     maxPlanes: 255
@@ -1868,9 +1868,9 @@ MonoBehaviour:
     - {x: 0.08772357, y: 1.0842015, z: 0.1229836}
   - targetBoneName: spine_02
     type: 1
-    colliderType: 0
+    colliderType: 2
     previewColour: {r: 1, g: 1, b: 0, a: 0.7}
-    hullMesh: {fileID: 5549072274385594566, guid: 04287f2c836a03947a5d436637be6096, type: 2}
+    hullMesh: {fileID: -5565461825477864379, guid: 04287f2c836a03947a5d436637be6096, type: 2}
     material: {fileID: 0}
     isTrigger: 0
     maxPlanes: 255
@@ -2363,9 +2363,9 @@ MonoBehaviour:
     - {x: 0.1792983, y: 1.2809219, z: 0.018380268}
   - targetBoneName: spine_03
     type: 1
-    colliderType: 0
+    colliderType: 2
     previewColour: {r: 0, g: 1, b: 0.35307336, a: 0.7}
-    hullMesh: {fileID: 7349055857944713039, guid: 04287f2c836a03947a5d436637be6096, type: 2}
+    hullMesh: {fileID: -7544172948827854406, guid: 04287f2c836a03947a5d436637be6096, type: 2}
     material: {fileID: 0}
     isTrigger: 0
     maxPlanes: 255
@@ -4102,7 +4102,7 @@ MonoBehaviour:
     type: 1
     colliderType: 0
     previewColour: {r: 0.01234436, g: 0, b: 1, a: 0.7}
-    hullMesh: {fileID: 772923482201213235, guid: 04287f2c836a03947a5d436637be6096, type: 2}
+    hullMesh: {fileID: 6755248775615499940, guid: 04287f2c836a03947a5d436637be6096, type: 2}
     material: {fileID: 0}
     isTrigger: 0
     maxPlanes: 255
@@ -5116,7 +5116,7 @@ MonoBehaviour:
     type: 1
     colliderType: 0
     previewColour: {r: 1, g: 0.5, b: 0, a: 0.7}
-    hullMesh: {fileID: -7321934929163097435, guid: 04287f2c836a03947a5d436637be6096, type: 2}
+    hullMesh: {fileID: 7903780075071281443, guid: 04287f2c836a03947a5d436637be6096, type: 2}
     material: {fileID: 0}
     isTrigger: 0
     maxPlanes: 255
@@ -5560,7 +5560,7 @@ MonoBehaviour:
     type: 1
     colliderType: 0
     previewColour: {r: 0, g: 0.17089081, b: 1, a: 0.7}
-    hullMesh: {fileID: -4371913490687884526, guid: 04287f2c836a03947a5d436637be6096, type: 2}
+    hullMesh: {fileID: 4470347590944839827, guid: 04287f2c836a03947a5d436637be6096, type: 2}
     material: {fileID: 0}
     isTrigger: 0
     maxPlanes: 255
@@ -6469,7 +6469,7 @@ MonoBehaviour:
     type: 1
     colliderType: 0
     previewColour: {r: 0, g: 1, b: 0.5, a: 0.7}
-    hullMesh: {fileID: 6700700362368125523, guid: 04287f2c836a03947a5d436637be6096, type: 2}
+    hullMesh: {fileID: 1155786249726642329, guid: 04287f2c836a03947a5d436637be6096, type: 2}
     material: {fileID: 0}
     isTrigger: 0
     maxPlanes: 255

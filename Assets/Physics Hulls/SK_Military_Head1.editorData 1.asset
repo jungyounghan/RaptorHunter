@@ -148,7 +148,7 @@ MonoBehaviour:
     type: 1
     colliderType: 0
     previewColour: {r: 0, g: 1, b: 1, a: 0.7}
-    hullMesh: {fileID: -1709664088184972739, guid: ad1a69f40e8b52c4385be931e3bf5294, type: 2}
+    hullMesh: {fileID: 6204306219982634400, guid: ad1a69f40e8b52c4385be931e3bf5294, type: 2}
     material: {fileID: 0}
     isTrigger: 0
     maxPlanes: 255
@@ -9527,9 +9527,9 @@ MonoBehaviour:
     - {x: -0.053793788, y: 1.7551975, z: 0.062818386}
   - targetBoneName: neck_01
     type: 1
-    colliderType: 0
+    colliderType: 2
     previewColour: {r: 1, g: 0, b: 1, a: 0.7}
-    hullMesh: {fileID: 1709467511031303817, guid: ad1a69f40e8b52c4385be931e3bf5294, type: 2}
+    hullMesh: {fileID: -5417625482659258641, guid: ad1a69f40e8b52c4385be931e3bf5294, type: 2}
     material: {fileID: 0}
     isTrigger: 0
     maxPlanes: 255
