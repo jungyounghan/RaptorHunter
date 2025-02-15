@@ -43,7 +43,10 @@ public sealed class SectorPenetrator : MonoBehaviour
         }
     }
 
-    [SerializeField]
+    [Header("위치 오프셋"), SerializeField]
+    private float _offset;
+
+    [Header("레이어 마스크"), SerializeField]
     private LayerMask _layerMask;
 
     private List<Material> _list = new List<Material>();
@@ -55,36 +58,38 @@ public sealed class SectorPenetrator : MonoBehaviour
     private float _testDegree = 0;
 
 #if UNITY_EDITOR
-    [Header("충돌선 표시 색깔"), SerializeField]
-    private Color _gizmoColor = Color.green;
+    [Header("사각형 표시 색깔"), SerializeField]
+    private Color _boxColor = Color.green;
+
+    [Header("각도 표시 색깔"), SerializeField]
+    private Color _angleColor = Color.red;
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = _gizmoColor;
-        Gizmos.DrawWireSphere(getTransform.position, _radius);
-        Vector3 baseDir = transform.right; // 기본 방향 벡터
-        float rad = (_testDegree + _testAngle * 0.5f) * Mathf.Deg2Rad; // 각도를 라디안으로 변환
-
-        // Y축 기준으로 회전 적용
-        Vector3 rotatedDir = new Vector3(
-            baseDir.x * Mathf.Cos(rad) - baseDir.z * Mathf.Sin(rad),
-            baseDir.y,
-            baseDir.x * Mathf.Sin(rad) + baseDir.z * Mathf.Cos(rad)
-        );
-
-        // 결과 출력 (디버깅용)
-        Gizmos.DrawRay(getTransform.position, rotatedDir.normalized * _radius);
-        rad = (_testDegree - _testAngle * 0.5f) * Mathf.Deg2Rad; // 각도를 라디안으로 변환
-
-        // Y축 기준으로 회전 적용
-        rotatedDir = new Vector3(
-            baseDir.x * Mathf.Cos(rad) - baseDir.z * Mathf.Sin(rad),
-            baseDir.y,
-            baseDir.x * Mathf.Sin(rad) + baseDir.z * Mathf.Cos(rad)
-        );
-        // 결과 출력 (디버깅용)
-        Gizmos.DrawRay(getTransform.position, rotatedDir.normalized * _radius);
+        Gizmos.color = _boxColor;
+        Vector3 position = getTransform.position;
+        Gizmos.DrawWireSphere(position, _radius);
+        Gizmos.color = _angleColor;
+        Vector3 top = position + new Vector3(0, _radius, 0);
+        Vector3 bottom = position - new Vector3(0, _radius, 0);
+        Gizmos.DrawLine(top, bottom);
+        for (float i = _testDegree; i < _testDegree + _testAngle; i += 2)
+        {
+            DrawSquareBracketShape(top, bottom, (_testDegree + i) * 0.5f * Mathf.Deg2Rad);
+            DrawSquareBracketShape(top, bottom, (_testDegree + i - _testAngle) * 0.5f * Mathf.Deg2Rad);
+        }
     }
+
+    private void DrawSquareBracketShape(Vector3 top, Vector3 bottom, float radian)
+    {
+        Vector3 direction = new Vector3(Mathf.Cos(radian), 0, Mathf.Sin(radian));
+        //float size = Mathf.Min((direction.x != 0) ? (direction.x > 0 ? _radius : -_radius) / direction.x : _radius, (direction.z != 0) ? (direction.z > 0 ? _radius : -_radius) / direction.z : _radius);
+        Vector3 line = direction.normalized * _radius/* size*/; //원래는 _radius 대신 size를 썼었다.
+        Gizmos.DrawRay(top, line);
+        Gizmos.DrawRay(bottom, line);
+        Gizmos.DrawLine(top + line, bottom + line);
+    }
+
 #endif
 
     private void OnDisable()
@@ -99,12 +104,10 @@ public sealed class SectorPenetrator : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 center = getTransform.position;
-        Quaternion rotation = getTransform.rotation;
-        Matrix4x4 rotMatrix = Matrix4x4.TRS(center, rotation, Vector3.one);
+        Vector3 pivot = getTransform.position;
         List<Transform> transforms = new List<Transform>();
         List<Material> materials = new List<Material>();
-        Collider[] colliders = Physics.OverlapSphere(center, _radius, _layerMask);
+        Collider[] colliders = Physics.OverlapSphere(pivot, _radius, _layerMask);
         foreach (Collider collider in colliders)
         {
             Transform transform = collider.transform;
@@ -113,6 +116,12 @@ public sealed class SectorPenetrator : MonoBehaviour
                 transforms.Add(transform);
             }
         }
+        Vector3 center = pivot - (getTransform.forward.normalized * _offset);
+
+#if UNITY_EDITOR
+        Debug.DrawLine(pivot, center);
+#endif
+
         foreach (Transform transform in transforms)
         {
             MeshRenderer[] meshRenderers = transform.GetComponentsInChildren<MeshRenderer>();
@@ -122,8 +131,8 @@ public sealed class SectorPenetrator : MonoBehaviour
                 {
                     if (material.HasFloat(CenterX) && material.HasFloat(CenterY) && material.HasFloat(Degree) && material.HasFloat(Angle))
                     {
-                        material.SetFloat(CenterX, center.x);
-                        material.SetFloat(CenterY, center.z);
+                        material.SetFloat(CenterX, pivot.x);
+                        material.SetFloat(CenterY, pivot.z);
                         material.SetFloat(Degree, _testDegree);
                         material.SetFloat(Angle, _testAngle);
                         materials.Add(material);
