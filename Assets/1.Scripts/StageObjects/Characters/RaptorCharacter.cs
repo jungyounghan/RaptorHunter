@@ -23,4 +23,9 @@ public class RaptorCharacter : Character
     {
 
     }
+
+    public override float GetForwardSize()
+    {
+        return 1.5f;
+    }
 }

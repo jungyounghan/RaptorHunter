@@ -2703,7 +2703,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3946656320830581571}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0012919005, y: 0.7071055, z: 0.0012919303, w: 0.7071056}
+  m_LocalRotation: {x: 0.0025576649, y: 0.7071022, z: 0.0025576947, w: 0.70710224}
   m_LocalPosition: {x: 0, y: 0.01056087, z: 0.9675063}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3502,7 +3502,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6049558576485602398}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000002211891, y: -0, z: 0.062388655, w: 0.998052}
+  m_LocalRotation: {x: 0.000000014901154, y: 0.000000029802308, z: 0.0546973, w: 0.99850297}
   m_LocalPosition: {x: -0.10808872, y: -0.008514317, z: 0.000000022351742}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3947,11 +3947,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handler:
-    _Editor_SelectedChain: 0
+    _Editor_SelectedChain: 2
     _Editor_ChainCategory: 2
-    _EditorCategory: 2
+    _EditorCategory: 3
     _EditorMainCategory: 0
-    _EditorMotionCategory: 2
+    _EditorMotionCategory: 0
     m_hemi: {fileID: -2508796484986968503, guid: 44d994eaad14fdf49a2dd378b4d62094, type: 3}
     m_cyli: {fileID: 2534964839176971238, guid: 2ea99bbc50a9266448416f21d645a771, type: 3}
     m_sphere: {fileID: 4711208715938537054, guid: b43618aedd7473a4eb1aaa5e80012a1d, type: 3}
@@ -4069,11 +4069,85 @@ MonoBehaviour:
     ExtraFeatures:
     - CustomName: 
       enabled: 1
-      FeatureReference: {fileID: 11400000, guid: fec516eb5421cbb4aa744a2e99ff15ef, type: 2}
+      FeatureReference: {fileID: 11400000, guid: 8496c6fdb1e1a9448b5ebaabdb44db71, type: 2}
       customStringList: []
       customObjectList: []
       customEventsList: []
-      variables: []
+      variables:
+      - VariableName: 'Blending Speed:'
+        Tooltip: How quickly physical pose should blend in when collision happens.
+        _value: {x: 1, y: 0, z: 0, w: 0}
+        _string: 
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _uObject: {fileID: 0}
+        VariableType: 0
+        _rangeHelper: {x: 0, y: 1, z: 0, w: 0}
+      - VariableName: 'Turn Off Legs:'
+        Tooltip: "Making legs blend zero on standing mode to make keyframe animation
+          intact. You probably will need to disable collision events send on feet
+          bones if you want to keep legs enabled (under Construct -> Physics -> \u2261
+          -> Extra Settings)"
+        _value: {x: 1, y: 0, z: 0, w: 0}
+        _string: 
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _uObject: {fileID: 0}
+        VariableType: 1
+        _rangeHelper: {x: 0, y: 0, z: 0, w: 0}
+      - VariableName: 'Sensitive Blend:'
+        Tooltip: When collision happens, applying blending also on the first parent
+          bones of the chain (like arm collision -> blend upper chest too)
+        _value: {x: 1, y: 0, z: 0, w: 0}
+        _string: 
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _uObject: {fileID: 0}
+        VariableType: 1
+        _rangeHelper: {x: 0, y: 0, z: 0, w: 0}
+      - VariableName: 'Skip Feet:'
+        Tooltip: 'Skipping checking last leg bones collision state to avoid blending
+          legs every time feet are touching ground.
+
+
+          With legs turned
+          off, this option will disable blending in feet bones on leg blend request.'
+        _value: {x: 1, y: 0, z: 0, w: 0}
+        _string: 
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _uObject: {fileID: 0}
+        VariableType: 1
+        _rangeHelper: {x: 0, y: 0, z: 0, w: 0}
+      - VariableName: 'Ignore Self Collision Blend:'
+        Tooltip: Ignoring self dummy colliders for collision detectors.
+        _value: {x: 1, y: 0, z: 0, w: 0}
+        _string: 
+        _curve:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _uObject: {fileID: 0}
+        VariableType: 1
+        _rangeHelper: {x: 0, y: 0, z: 0, w: 0}
     IsHumanoid: 1
     dummyContainer: {fileID: 0}
     skeletonFillExtraBonesList: []
@@ -4082,7 +4156,7 @@ MonoBehaviour:
     SpringsOnFall: 0
     DampingValue: 40
     DampingValueOnFall: 0
-    HardMatching: 0
+    HardMatching: 1
     HardMatchPositions: 0
     HardMatchPositionsOnFall: 0
     PositionHardMatchingMultiplier: 1
@@ -4091,7 +4165,7 @@ MonoBehaviour:
     AnchorBoneSpring: 1
     MakeAnchorKinematicOnMaxSpring: 0
     UnaffectedMovement: 0
-    AutoUnstuck: 0
+    AutoUnstuck: 1
     LockAnchorRotation: 1
     AnchorJointLimits: 0
     FallOnZeroAnchor: 1
@@ -4194,7 +4268,7 @@ MonoBehaviour:
         LocalUp: {x: 0, y: 1, z: 0}
         LocalForward: {x: 0, y: 0, z: 1}
         ToBase: {x: 0, y: 0, z: 0}
-        _EditorCollFoldout: 0
+        _EditorCollFoldout: 1
         _EditorCollPosSliders: 0
         _EditorBoxCollSliders: 0
         _EditorMeshCollSliders: 0
@@ -4230,13 +4304,13 @@ MonoBehaviour:
         MainAxis: 0
         TargetMainAxis: {x: 1, y: 0, z: 0}
         InverseMainAxis: 0
-        MainAxisLowLimit: -60
-        MainAxisHighLimit: 60
+        MainAxisLowLimit: -20
+        MainAxisHighLimit: 20
         SecondaryAxis: 1
         TargetSecondaryAxis: {x: 0, y: 1, z: 0}
         InverseSecondaryAxis: 0
-        SecondaryAxisAngleLimit: 30
-        ThirdAxisAngleLimit: 40
+        SecondaryAxisAngleLimit: 3
+        ThirdAxisAngleLimit: 3
         OverrideMaterial: {fileID: 0}
         UseIndividualParameters: 0
         OverrideInterpolation: 1
@@ -4259,15 +4333,15 @@ MonoBehaviour:
         LocalUp: {x: 0, y: 1, z: 0}
         LocalForward: {x: 0, y: 0, z: 1}
         ToBase: {x: 0, y: 0, z: 0}
-        _EditorCollFoldout: 0
+        _EditorCollFoldout: 1
         _EditorCollPosSliders: 0
         _EditorBoxCollSliders: 0
         _EditorMeshCollSliders: 0
         _EditorRadiusSliders: 1
         _EditorMaxSliderValue: 0.5
-        _EditorMainAxisPreview: 1
+        _EditorMainAxisPreview: 0
         _EditorSecondAxisPreview: 0
-        _EditorThirdPreview: 0
+        _EditorThirdPreview: 1
         StoredReferencePose:
           LocalSpacePosition: {x: 0, y: 0, z: 0}
           LocalSpaceRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -4295,13 +4369,13 @@ MonoBehaviour:
         MainAxis: 0
         TargetMainAxis: {x: 1, y: 0, z: 0}
         InverseMainAxis: 0
-        MainAxisLowLimit: -60
-        MainAxisHighLimit: 60
+        MainAxisLowLimit: -20
+        MainAxisHighLimit: 20
         SecondaryAxis: 1
         TargetSecondaryAxis: {x: 0, y: 1, z: 0}
         InverseSecondaryAxis: 0
-        SecondaryAxisAngleLimit: 30
-        ThirdAxisAngleLimit: 40
+        SecondaryAxisAngleLimit: 3
+        ThirdAxisAngleLimit: 3
         OverrideMaterial: {fileID: 0}
         UseIndividualParameters: 0
         OverrideInterpolation: 1
@@ -4360,13 +4434,13 @@ MonoBehaviour:
         MainAxis: 0
         TargetMainAxis: {x: 1, y: 0, z: 0}
         InverseMainAxis: 0
-        MainAxisLowLimit: -60
-        MainAxisHighLimit: 60
+        MainAxisLowLimit: -20
+        MainAxisHighLimit: 20
         SecondaryAxis: 1
         TargetSecondaryAxis: {x: 0, y: 1, z: 0}
         InverseSecondaryAxis: 0
-        SecondaryAxisAngleLimit: 30
-        ThirdAxisAngleLimit: 40
+        SecondaryAxisAngleLimit: 3
+        ThirdAxisAngleLimit: 3
         OverrideMaterial: {fileID: 0}
         UseIndividualParameters: 0
         OverrideInterpolation: 1
@@ -4389,7 +4463,7 @@ MonoBehaviour:
         LocalUp: {x: 0, y: 1, z: 0}
         LocalForward: {x: 0, y: 0, z: 1}
         ToBase: {x: 0, y: 0, z: 0}
-        _EditorCollFoldout: 0
+        _EditorCollFoldout: 1
         _EditorCollPosSliders: 0
         _EditorBoxCollSliders: 0
         _EditorMeshCollSliders: 0
@@ -4425,13 +4499,13 @@ MonoBehaviour:
         MainAxis: 0
         TargetMainAxis: {x: 1, y: 0, z: 0}
         InverseMainAxis: 0
-        MainAxisLowLimit: -60
-        MainAxisHighLimit: 60
+        MainAxisLowLimit: -40
+        MainAxisHighLimit: 40
         SecondaryAxis: 1
         TargetSecondaryAxis: {x: 0, y: 1, z: 0}
         InverseSecondaryAxis: 0
-        SecondaryAxisAngleLimit: 30
-        ThirdAxisAngleLimit: 40
+        SecondaryAxisAngleLimit: 10
+        ThirdAxisAngleLimit: 20
         OverrideMaterial: {fileID: 0}
         UseIndividualParameters: 0
         OverrideInterpolation: 1
@@ -4454,15 +4528,15 @@ MonoBehaviour:
         LocalUp: {x: 0, y: 1, z: 0}
         LocalForward: {x: 0, y: 0, z: 1}
         ToBase: {x: 0, y: 0, z: 0}
-        _EditorCollFoldout: 0
+        _EditorCollFoldout: 1
         _EditorCollPosSliders: 0
         _EditorBoxCollSliders: 0
         _EditorMeshCollSliders: 0
         _EditorRadiusSliders: 1
         _EditorMaxSliderValue: 0.5
-        _EditorMainAxisPreview: 1
+        _EditorMainAxisPreview: 0
         _EditorSecondAxisPreview: 0
-        _EditorThirdPreview: 0
+        _EditorThirdPreview: 1
         StoredReferencePose:
           LocalSpacePosition: {x: 0, y: 0, z: 0}
           LocalSpaceRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -4530,7 +4604,7 @@ MonoBehaviour:
         LocalUp: {x: 0, y: 1, z: 0}
         LocalForward: {x: 0, y: 0, z: 1}
         ToBase: {x: 0, y: 0, z: 0}
-        _EditorCollFoldout: 1
+        _EditorCollFoldout: 0
         _EditorCollPosSliders: 0
         _EditorBoxCollSliders: 0
         _EditorMeshCollSliders: 0
@@ -5207,7 +5281,7 @@ MonoBehaviour:
         SecondaryAxis: 0
         TargetSecondaryAxis: {x: 0, y: 1, z: 0}
         InverseSecondaryAxis: 0
-        SecondaryAxisAngleLimit: 10
+        SecondaryAxisAngleLimit: 3
         ThirdAxisAngleLimit: 3
         OverrideMaterial: {fileID: 0}
         UseIndividualParameters: 0
@@ -5237,8 +5311,8 @@ MonoBehaviour:
         _EditorMeshCollSliders: 0
         _EditorRadiusSliders: 1
         _EditorMaxSliderValue: 0.5
-        _EditorMainAxisPreview: 1
-        _EditorSecondAxisPreview: 0
+        _EditorMainAxisPreview: 0
+        _EditorSecondAxisPreview: 1
         _EditorThirdPreview: 0
         StoredReferencePose:
           LocalSpacePosition: {x: 0, y: 0, z: 0}
@@ -5419,7 +5493,7 @@ MonoBehaviour:
         SecondaryAxis: 0
         TargetSecondaryAxis: {x: 0, y: 1, z: 0}
         InverseSecondaryAxis: 0
-        SecondaryAxisAngleLimit: 10
+        SecondaryAxisAngleLimit: 3
         ThirdAxisAngleLimit: 3
         OverrideMaterial: {fileID: 0}
         UseIndividualParameters: 0
@@ -5582,7 +5656,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

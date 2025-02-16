@@ -24,7 +24,7 @@ public sealed class InputController : Controller
             Vector2 direction = new Vector2(turn, walk);
             if (jump == true)
             {
-                yield return StartCoroutine(DoJump(direction));
+                yield return StartCoroutine(DoJump(walk, dash));
             }
             else
             {
@@ -39,12 +39,12 @@ public sealed class InputController : Controller
                 //getRigidbody.velocity = getTransform.forward * direction.y * speed;
                 if (position != getTransform.position || turn != 0)
                 {
-                    //Debug.Log(getRigidbody.velocity);
                     getCharacter.DoMoveAction(direction, speed, speed > getNavMeshAgent.speed || (walk < 0 && dash));
                 }
                 else
                 {
                     getCharacter.DoStopAction();
+                    getRigidbody.Sleep();
                 }
             }
             yield return null;

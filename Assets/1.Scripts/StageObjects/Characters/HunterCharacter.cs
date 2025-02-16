@@ -74,4 +74,9 @@ public sealed class HunterCharacter : Character
         getAnimator.SetFloat(_turnHashIndex, direction.x);
         getAnimator.SetFloat(_moveHashIndex, direction.y);
     }
+
+    public override float GetForwardSize()
+    {
+        return 0.5f;
+    }
 }

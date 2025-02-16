@@ -29,4 +29,6 @@ public abstract class Character : MonoBehaviour
     public abstract void DoStopAction();
 
     public abstract void DoMoveAction(Vector2 direction, float speed, bool dash);
+
+    public abstract float GetForwardSize();
 }

@@ -6,6 +6,7 @@ using UnityEngine.AI;
 /// 특정 플레이어 객체를 조종할 수 있는 추상 컨트롤러 클래스 
 /// </summary>
 [RequireComponent(typeof(Character))]
+[RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(NavMeshAgent))]
 [DisallowMultipleComponent]
 public abstract class Controller : MonoBehaviour
@@ -38,6 +39,21 @@ public abstract class Controller : MonoBehaviour
                 _hasCharacter = TryGetComponent(out _character);
             }
             return _character;
+        }
+    }
+
+    private bool _hasRigidbody = false;
+
+    private Rigidbody _rigidbody = null;
+
+    protected Rigidbody getRigidbody {
+        get
+        {
+            if(_hasRigidbody == false)
+            {
+                _hasRigidbody = TryGetComponent(out _rigidbody);
+            }
+            return _rigidbody;
         }
     }
 
@@ -128,36 +144,40 @@ public abstract class Controller : MonoBehaviour
         return speed;
     }
 
-    protected IEnumerator DoJump(Vector2 direction)
+    protected IEnumerator DoJump(float walk, bool dash)
     {
         if (IsGrounded() == true)
         {
             float value = _jumpSpeed * staminaRate;
             _currentStamina -= _currentStamina * _jumpCost;
-            if (value >= _jumpDistance)
+            if (value >= _jumpDistance /*&& getRigidbody.SweepTest(getRigidbody.velocity.normalized, out RaycastHit hit, getTransform.forward.magnitude * 0.5f) == false*/)
             {
+                float speed = getNavMeshAgent.speed;
+                if (dash == true)
+                {
+                    speed += speed * _dashSpeed * staminaRate;
+                }
+                if (walk < 0)
+                {
+                    speed *= _reverseRate;
+                }
                 getNavMeshAgent.isStopped = true;
                 getNavMeshAgent.enabled = false;
+                Vector3 forward = getTransform.forward;
+                getRigidbody.velocity = new Vector3(forward.x * walk * speed, value, forward.z * walk * speed);
                 getCharacter.DoJumpAction();
-                Vector3 startPos = getTransform.position;
-                Vector3 targetPos = startPos + getTransform.forward.normalized * direction.y; // 전방으로 점프
-                float elapsedTime = 0;
-                bool jump = true;
-                while ((jump == true && IsGrounded() == true) || (jump == false && IsGrounded() == false))
+                yield return new WaitForSeconds(AddJumpDistance);
+                while (IsGrounded() == false)
                 {
-                    elapsedTime += Time.deltaTime;
-                    float t = elapsedTime / _jumpDistance;
-                    float height = Mathf.Sin(t * Mathf.PI) * value; // 포물선 운동
-                    getTransform.position = Vector3.Lerp(startPos, targetPos, t) + Vector3.up * height;
-                    if(jump == true && IsGrounded() == false)
+                    if (getRigidbody.SweepTest(getRigidbody.velocity.normalized, out RaycastHit hit, getCharacter.GetForwardSize()))
                     {
-                        jump = false;
+                        getRigidbody.velocity = new Vector3(0, getRigidbody.velocity.y, 0);
                     }
                     yield return null;
                 }
                 getCharacter.DoLandAction();
-                getNavMeshAgent.enabled = true;   // NavMeshAgent 다시 활성화
-                getNavMeshAgent.isStopped = false;
+                getRigidbody.velocity = Vector3.zero;
+                getNavMeshAgent.enabled = true;
             }
         }
     }
