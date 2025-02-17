@@ -22,6 +22,17 @@ public abstract class Character : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private Transform _target = null;
+
+    public void LookAt(Vector3 position)
+    {
+        if(_target != null)
+        {
+            _target.position = position;
+        }
+    }
+
     public abstract void DoJumpAction();
 
     public abstract void DoLandAction();

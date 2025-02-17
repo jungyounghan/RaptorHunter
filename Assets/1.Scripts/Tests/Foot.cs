@@ -84,46 +84,12 @@ public sealed class Foot : MonoBehaviour
         List<Vector3> points = new List<Vector3>();
         foreach(Collider collider in _colliders)
         {
-            if (collider is MeshCollider meshCollider)
+            if (collider is MeshCollider meshCollider && meshCollider.convex == false)
             {
-                List<Vector3> contactPoints = new List<Vector3>();
-                if (meshCollider.convex == true)
-                {
-                    // Convex가 true인 경우 ComputePenetration 활용
-                    if (Physics.ComputePenetration(
-                            getBoxCollider, getTransform.position, getTransform.rotation,
-                            meshCollider, meshCollider.transform.position, meshCollider.transform.rotation,
-                            out Vector3 direction, out float distance))
-                    {
-                        Vector3 contactPoint = meshCollider.ClosestPoint(getTransform.position - direction * distance);
-                        contactPoints.Add(contactPoint);
-                    }
-                }
-                else
-                {
-                    // Convex가 false인 경우 Raycast로 충돌 검사
-                    Vector3 origin = getTransform.position;
-                    Vector3 closestPoint = meshCollider.ClosestPoint(origin);
-
-                    if (closestPoint != origin) // 내부에 완전히 포함되지 않았을 경우만 추가
-                    {
-                        contactPoints.Add(closestPoint);
-                    }
-                    else
-                    {
-                        // 내부에 포함된 경우 -> Raycast로 충돌 지점 찾기
-                        RaycastHit hit;
-                        Vector3 rayDirection = (meshCollider.bounds.center - origin).normalized;
-                        if (meshCollider.Raycast(new Ray(origin, rayDirection), out hit, meshCollider.bounds.extents.magnitude * 2))
-                        {
-                            contactPoints.Add(hit.point);
-                        }
-                    }
-                }
-                foreach (Vector3 point in contactPoints)
-                {
-                    DrawPoint(point, _contactColor);
-                }
+#if UNITY_EDITOR
+                Debug.Log("메쉬 콜라이더의 컨벡스가 해제 되어 있으면 충돌 검사를 할 수 없습니다.");
+#endif
+                continue;
             }
             else
             {

@@ -10995,7 +10995,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1195019941632203823, guid: 645653e86cf9e3f4ca353c241cb2bfbc, type: 3}
   m_PrefabInstance: {fileID: 1357126239}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1636976559}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7782ff4411a82e94a9e85033bc616378, type: 3}
@@ -15942,7 +15942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8017954814683394997, guid: fdd5a054734eab948a31173dcce76101, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16155,10 +16155,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7966950251376048429, guid: 645653e86cf9e3f4ca353c241cb2bfbc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1636976565}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 645653e86cf9e3f4ca353c241cb2bfbc, type: 3}
 --- !u!1 &1387324096
 GameObject:
@@ -21405,34 +21402,6 @@ Transform:
   - {fileID: 606455723526814024}
   m_Father: {fileID: 48621563}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1636976559 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7966950251376048429, guid: 645653e86cf9e3f4ca353c241cb2bfbc, type: 3}
-  m_PrefabInstance: {fileID: 1357126239}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &1636976565
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1636976559}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.45
-  m_Height: 1.88
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.95, z: 0}
 --- !u!1 &1651779711
 GameObject:
   m_ObjectHideFlags: 0
@@ -53780,7 +53749,7 @@ GameObject:
   - component: {fileID: 2725120331167006684}
   - component: {fileID: 1332582898509312121}
   - component: {fileID: 3862608933063001267}
-  - component: {fileID: 4992546257987975797}
+  - component: {fileID: 3862608933063001268}
   m_Layer: 0
   m_Name: gate
   m_TagString: Untagged
@@ -56381,6 +56350,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3862608933063001268
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3358069229572531558}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2783131832183395012, guid: 5d1965552c4ffd14b9977126f3d7625b, type: 3}
 --- !u!23 &3867315857143263826
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63411,27 +63402,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 834539522}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4992546257987975797
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3358069229572531558}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.09209643, y: 0.055439383, z: 0.00017329026}
-  m_Center: {x: 0, y: 0, z: -0.0000000026848286}
 --- !u!4 &4993382275523174408
 Transform:
   m_ObjectHideFlags: 0

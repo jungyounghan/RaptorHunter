@@ -76,25 +76,6 @@ public abstract class Controller : MonoBehaviour
     private float _dashSpeed = 1;
     [Header("후진 속도 비율"), SerializeField, Range(0, 1)]
     private float _reverseRate = 0.5f;
-    [Header("도약 기본 비용"), SerializeField, Range(0, 1)]
-    private float _jumpCost = 0.1f;
-    [Header("도약 기본 속도"), SerializeField, Range(0, byte.MaxValue)]
-    private float _jumpSpeed = 5;
-    [Header("도약 가능 거리"), SerializeField, Range(0, 1)]
-    private float _jumpDistance = 0.1f;
-
-    private static readonly float AddJumpDistance = 0.2f;
-
-#if UNITY_EDITOR
-    [Header("도약 거리 색깔"), SerializeField]
-    private Color _jumpColor = Color.blue;
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = _jumpColor;
-        Gizmos.DrawRay(getTransform.position + new Vector3(0, _jumpDistance, 0), Vector3.down * (_jumpDistance + AddJumpDistance));
-    }
-#endif
 
     private void Update()
     {
@@ -106,11 +87,6 @@ public abstract class Controller : MonoBehaviour
                 _currentStamina = _maxStamina;
             }
         }
-    }
-
-    protected bool IsGrounded()
-    {
-        return Physics.Raycast(getTransform.position + new Vector3(0, _jumpDistance, 0), Vector3.down, _jumpDistance + AddJumpDistance);
     }
 
     protected float GetMoveSpeed(float direction, bool dash)
