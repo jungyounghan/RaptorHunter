@@ -8,7 +8,6 @@ public sealed class InputController : Controller
 {
     private static readonly string VerticalKey = "Vertical";
     private static readonly string HorizontalKey = "Horizontal";
-    private static readonly string JumpKey = "Jump";
     private static readonly string DashKey = "Dash";
     private static readonly string AttackKey = "Fire1";
 
@@ -17,35 +16,24 @@ public sealed class InputController : Controller
         while (true)
         {
             bool dash = Input.GetButton(DashKey);
-            bool jump = Input.GetButtonDown(JumpKey);
             bool attack = Input.GetButton(AttackKey);
             float walk = Input.GetAxis(VerticalKey);
             float turn = Input.GetAxis(HorizontalKey);
+            float deltaTime = Time.deltaTime;
             Vector2 direction = new Vector2(turn, walk);
-            if (jump == true)
+            float speed = GetMoveSpeed(direction.y, dash);
+            Vector3 position = getTransform.position;
+            Quaternion rotation = getTransform.rotation;
+            getTransform.rotation = Quaternion.Slerp(rotation, Quaternion.Euler(0, turn, 0) * rotation, deltaTime * getNavMeshAgent.angularSpeed);
+            getNavMeshAgent.Move(getTransform.forward.normalized * direction.y * deltaTime * speed);
+   
+            if (position != getTransform.position || turn != 0)
             {
-                yield return StartCoroutine(DoJump(walk, dash));
+                getCharacter.DoMoveAction(direction, speed, speed > getNavMeshAgent.speed || (walk < 0 && dash));
             }
             else
             {
-                float deltaTime = Time.deltaTime;
-                float speed = GetMoveSpeed(direction.y, dash);
-                Vector3 position = getTransform.position;
-                Quaternion rotation = getTransform.rotation;
-                getTransform.rotation = Quaternion.Slerp(rotation, Quaternion.Euler(0, turn, 0) * rotation, deltaTime * getNavMeshAgent.angularSpeed);
-                getNavMeshAgent.Move(getTransform.forward.normalized * direction.y * deltaTime * speed);
-                //getNavMeshAgent.SetDestination(Vector3.zero); 
-
-                //getRigidbody.velocity = getTransform.forward * direction.y * speed;
-                if (position != getTransform.position || turn != 0)
-                {
-                    getCharacter.DoMoveAction(direction, speed, speed > getNavMeshAgent.speed || (walk < 0 && dash));
-                }
-                else
-                {
-                    getCharacter.DoStopAction();
-                    getRigidbody.Sleep();
-                }
+                getCharacter.DoStopAction();
             }
             yield return null;
         }

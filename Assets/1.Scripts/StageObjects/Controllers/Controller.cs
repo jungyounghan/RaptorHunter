@@ -6,7 +6,6 @@ using UnityEngine.AI;
 /// 특정 플레이어 객체를 조종할 수 있는 추상 컨트롤러 클래스 
 /// </summary>
 [RequireComponent(typeof(Character))]
-[RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(NavMeshAgent))]
 [DisallowMultipleComponent]
 public abstract class Controller : MonoBehaviour
@@ -39,21 +38,6 @@ public abstract class Controller : MonoBehaviour
                 _hasCharacter = TryGetComponent(out _character);
             }
             return _character;
-        }
-    }
-
-    private bool _hasRigidbody = false;
-
-    private Rigidbody _rigidbody = null;
-
-    protected Rigidbody getRigidbody {
-        get
-        {
-            if(_hasRigidbody == false)
-            {
-                _hasRigidbody = TryGetComponent(out _rigidbody);
-            }
-            return _rigidbody;
         }
     }
 
@@ -142,44 +126,6 @@ public abstract class Controller : MonoBehaviour
             speed *= _reverseRate;
         }
         return speed;
-    }
-
-    protected IEnumerator DoJump(float walk, bool dash)
-    {
-        if (IsGrounded() == true)
-        {
-            float value = _jumpSpeed * staminaRate;
-            _currentStamina -= _currentStamina * _jumpCost;
-            if (value >= _jumpDistance /*&& getRigidbody.SweepTest(getRigidbody.velocity.normalized, out RaycastHit hit, getTransform.forward.magnitude * 0.5f) == false*/)
-            {
-                float speed = getNavMeshAgent.speed;
-                if (dash == true)
-                {
-                    speed += speed * _dashSpeed * staminaRate;
-                }
-                if (walk < 0)
-                {
-                    speed *= _reverseRate;
-                }
-                getNavMeshAgent.isStopped = true;
-                getNavMeshAgent.enabled = false;
-                Vector3 forward = getTransform.forward;
-                getRigidbody.velocity = new Vector3(forward.x * walk * speed, value, forward.z * walk * speed);
-                getCharacter.DoJumpAction();
-                yield return new WaitForSeconds(AddJumpDistance);
-                while (IsGrounded() == false)
-                {
-                    if (getRigidbody.SweepTest(getRigidbody.velocity.normalized, out RaycastHit hit, getCharacter.GetForwardSize()))
-                    {
-                        getRigidbody.velocity = new Vector3(0, getRigidbody.velocity.y, 0);
-                    }
-                    yield return null;
-                }
-                getCharacter.DoLandAction();
-                getRigidbody.velocity = Vector3.zero;
-                getNavMeshAgent.enabled = true;
-            }
-        }
     }
 
     protected virtual void OnEnable()
