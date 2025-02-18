@@ -5575,7 +5575,6 @@ GameObject:
   - component: {fileID: 5249025723469623889}
   - component: {fileID: 1434402854035353111}
   - component: {fileID: 480739232489852636}
-  - component: {fileID: 6792291368697099066}
   m_Layer: 0
   m_Name: Raptor
   m_TagString: Untagged
@@ -5791,7 +5790,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1434402854035353111
 MonoBehaviour:
@@ -5846,28 +5845,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 0
---- !u!114 &6792291368697099066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8017954814683394997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd7fb7a119c20f94abb0dfa04cfceeab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _focusAngle: 0
-  _rangeAngle: 160
-  _updateTime: 0.1
-  _radius: 50
-  _offset: {x: 0, y: 3, z: -2}
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  _rangeColor: {r: 1, g: 1, b: 1, a: 1}
-  _targetColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &8062584708447199832
 GameObject:
   m_ObjectHideFlags: 0

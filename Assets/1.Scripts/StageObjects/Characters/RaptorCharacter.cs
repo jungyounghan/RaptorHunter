@@ -24,8 +24,8 @@ public class RaptorCharacter : Character
 
     }
 
-    public override float GetForwardSize()
+    public override void DoHitAction(bool dead)
     {
-        return 1.5f;
+        throw new System.NotImplementedException();
     }
 }

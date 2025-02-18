@@ -25,9 +25,13 @@ public abstract class Character : MonoBehaviour
     [SerializeField]
     private Transform _target = null;
 
-    public void LookAt(Vector3 position)
+    protected const string AllyLayer = "Ally";
+    protected const string EnemyLayer = "Enemy";
+    protected const string DefaultLayer = "Default";
+
+    public virtual void LookAt(Vector3 position)
     {
-        if(_target != null)
+        if (_target != null)
         {
             _target.position = position;
         }
@@ -39,7 +43,7 @@ public abstract class Character : MonoBehaviour
 
     public abstract void DoStopAction();
 
-    public abstract void DoMoveAction(Vector2 direction, float speed, bool dash);
+    public abstract void DoHitAction(bool dead);
 
-    public abstract float GetForwardSize();
+    public abstract void DoMoveAction(Vector2 direction, float speed, bool dash);
 }

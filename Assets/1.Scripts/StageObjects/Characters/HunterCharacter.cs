@@ -8,6 +8,41 @@ public sealed class HunterCharacter : Character
     private readonly int _moveHashIndex = Animator.StringToHash("Move");
     private readonly int _turnHashIndex = Animator.StringToHash("Turn");
 
+    [SerializeField]
+    private Transform _gunPivot = null;
+    [SerializeField]
+    private Transform _laserPoint = null;
+    [SerializeField]
+    private LineRenderer _lineRenderer = null;
+
+    private void OnAnimatorIK(int layerIndex)
+    {
+        if(_gunPivot != null)
+        {
+            _gunPivot.position = getAnimator.GetIKHintPosition(AvatarIKHint.RightElbow);
+            getAnimator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1.0f);
+            getAnimator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1.0f);
+        }
+    }
+
+    public override void LookAt(Vector3 position)
+    {
+        base.LookAt(position);
+        if (_laserPoint != null && _lineRenderer != null)
+        {
+            if (Physics.Raycast(_laserPoint.position - _laserPoint.forward, _laserPoint.forward, out RaycastHit hit, Mathf.Infinity))
+            {
+                _lineRenderer.positionCount = 2;
+                _lineRenderer.SetPosition(0, _laserPoint.position);
+                _lineRenderer.SetPosition(1, hit.point);
+            }
+            else
+            {
+                _lineRenderer.positionCount = 0;
+            }
+        }
+    }
+
     public override void DoJumpAction()
     {
 
@@ -75,8 +110,8 @@ public sealed class HunterCharacter : Character
         getAnimator.SetFloat(_moveHashIndex, direction.y);
     }
 
-    public override float GetForwardSize()
+    public override void DoHitAction(bool dead)
     {
-        return 0.5f;
+        throw new System.NotImplementedException();
     }
 }

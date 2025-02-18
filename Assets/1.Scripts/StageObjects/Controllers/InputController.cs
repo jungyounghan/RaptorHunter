@@ -6,68 +6,81 @@ using UnityEngine;
 /// </summary>
 public sealed class InputController : Controller
 {
-    private const string DefaultLayer = "Default";
-    private const string AllyLayer = "Ally";
-    private const string EnemyLayer = "Enemy";
-
     private static readonly string VerticalKey = "Vertical";
     private static readonly string HorizontalKey = "Horizontal";
     private static readonly string DashKey = "Dash";
     private static readonly string AttackKey = "Fire1";
 
+    private static readonly float AimDistance = 5;
+
     protected override IEnumerator DoProcess()
     {
         while (true)
         {
-            bool dash = Input.GetButton(DashKey);
-            bool attack = Input.GetButton(AttackKey);
-            float walk = Input.GetAxis(VerticalKey);
-            float turn = Input.GetAxis(HorizontalKey);
-            float deltaTime = Time.deltaTime;;
-            Vector2 direction = new Vector2(turn, walk);
-            float speed = GetMoveSpeed(direction.y, dash);
-            Vector3 position = getTransform.position;
-            Vector3 forward = getTransform.forward;
-            Quaternion rotation = getTransform.rotation;
-            getTransform.rotation = Quaternion.Slerp(rotation, Quaternion.Euler(0, turn, 0) * rotation, deltaTime * getNavMeshAgent.angularSpeed);
-            getNavMeshAgent.Move(forward.normalized * direction.y * deltaTime * speed);  
-            if (position != getTransform.position || turn != 0)
+            if (getNavMeshAgent.enabled == true)
             {
-                getCharacter.DoMoveAction(direction, speed, speed > getNavMeshAgent.speed || (walk < 0 && dash));
-            }
-            else
-            {
-                getCharacter.DoStopAction();
-            }
-            int layer = LayerMask.GetMask(DefaultLayer);
-            switch(LayerMask.LayerToName(gameObject.layer))
-            {
-                case AllyLayer:
-                    layer |= LayerMask.GetMask(EnemyLayer);
-                    break;
-                case EnemyLayer:
-                    layer |= LayerMask.GetMask(AllyLayer);
-                    break;
-            }
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layer))
-            {
-                //Vector3.Distance(position, point)> 3이상인경우
-
-                Vector3 point = hit.point;
-                if (Vector3.Dot(forward, point - position) >= 1)
+                //키보드 구간
+                bool dash = Input.GetButton(DashKey);
+                bool attack = Input.GetButton(AttackKey);
+                float walk = Input.GetAxis(VerticalKey);
+                float turn = Input.GetAxis(HorizontalKey);
+                float deltaTime = Time.deltaTime; ;
+                Vector2 direction = new Vector2(turn, walk);
+                float speed = GetMoveSpeed(direction.y, dash);
+                Vector3 position = getTransform.position;
+                Vector3 forward = getTransform.forward; 
+                Quaternion rotation = getTransform.rotation;
+                getTransform.rotation = Quaternion.Slerp(rotation, Quaternion.Euler(0, turn, 0) * rotation, deltaTime * getNavMeshAgent.angularSpeed);
+                getNavMeshAgent.Move(forward.normalized * direction.y * deltaTime * speed);
+                if (position != getTransform.position || turn != 0)
                 {
-                    getCharacter.LookAt(point);
+                    getCharacter.DoMoveAction(direction, speed, speed > getNavMeshAgent.speed || (walk < 0 && dash));
                 }
                 else
                 {
-                    Vector3 adjustedPoint = position + forward * 1f; // forward 방향으로 1만큼 앞
-                    adjustedPoint.x = point.x; // 마우스의 X축 유지
-                    adjustedPoint.z = point.z;
-
-                    // 2. 보정된 좌표를 바라보도록 설정
-                    getCharacter.LookAt(adjustedPoint);
+                    getCharacter.DoStopAction();
                 }
+                //마우스 구간
+                Camera camera = Camera.main;
+                if (camera != null)
+                {
+                    Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+                    getCharacter.LookAt(ray.origin + ray.direction * AimDistance);
+                    //if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layer))
+                    //{
+                    //    Vector3 point = hit.point;
+                    //    //플레이어와 조준점의 방향 벡터가 서로 어긋난다면(플레이어 뒷방향에 조준점이 잡힌다면 음수를 반환함)
+                    //    if (Vector3.Dot(forward, point - position) <= 0)
+                    //    {
+                    //        ray.direction.Normalize(); // 방향 벡터 정규화                    
+                    //        float dot = -Vector3.Dot(forward, position); // 평면 방정식의 dot 값 계산                        
+                    //        float denominator = Vector3.Dot(forward, ray.direction); // 평면과 광선의 방향 벡터가 이루는 내적 값
+                    //        // 내적이 0이면 평면과 광선이 평행 => 교차점 없음
+                    //        if (Mathf.Abs(denominator) >= Mathf.Epsilon)
+                    //        {
+                    //            float t = -(Vector3.Dot(forward, ray.origin) + dot) / denominator; // 평면과 광선이 교차하는 비율 t 계산
+                    //            // t < 0 이면 평면 뒤쪽에서 교차 (광선이 평면 반대방향)
+                    //            if (t >= 0)
+                    //            {
+                    //                point = ray.origin + ray.direction * t;
+                    //                if(Physics.Raycast(point + forward, ray.direction, out hit, Mathf.Infinity, layer))
+                    //                {
+                    //                    point = hit.point;
+                    //                }
+                    //            }
+                    //        }
+                    //    }
+                    //    getCharacter.LookAt(point);
+                    //}
+                }
+                if (attack == true)
+                {
+
+                }
+            }
+            else
+            {
+                //땅에 떨어질 때 까지
             }
             yield return null;
         }
