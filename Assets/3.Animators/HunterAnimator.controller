@@ -31,7 +31,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: aa53ff59c8ab55942bf5bca7c43dd49f, type: 3}
+    m_Motion: {fileID: 7400000, guid: 7b6a567cc9d7f1f44854d21d8b75a776, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -39,7 +39,7 @@ BlendTree:
     m_DirectBlendParameter: Move
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: b8c2a303314a1df47b19cef5af9a82fa, type: 3}
+    m_Motion: {fileID: 7400000, guid: 3516679811d9f984b808d78d4a74510e, type: 2}
     m_Threshold: 0.07363636
     m_Position: {x: 1, y: 0}
     m_TimeScale: 1
@@ -87,7 +87,7 @@ BlendTree:
     m_DirectBlendParameter: Move
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: fa91b3651dd7304498500ee9ec369614, type: 3}
+    m_Motion: {fileID: 7400000, guid: 48ddc6e024c5be04c9efc7f5759c2e14, type: 2}
     m_Threshold: 0.51545453
     m_Position: {x: 2, y: 0}
     m_TimeScale: 1
@@ -190,19 +190,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Turn
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Speed
     m_Type: 1
     m_DefaultFloat: 1
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Movement
@@ -213,19 +213,19 @@ AnimatorController:
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
     m_DefaultWeight: 0
-    m_IKPass: 1
+    m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
     m_Name: Upper Body
     m_StateMachine: {fileID: -619514540804434241}
-    m_Mask: {fileID: 0}
+    m_Mask: {fileID: 31900000, guid: da5be15af22d04841a59162cecd82a7c, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
-    m_DefaultWeight: 0
-    m_IKPass: 0
+    m_DefaultWeight: 1
+    m_IKPass: 1
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
 --- !u!1102 &338481790674712108
@@ -274,7 +274,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: aa53ff59c8ab55942bf5bca7c43dd49f, type: 3}
+  m_Motion: {fileID: 7400000, guid: cdd2708a80d5b2246af10822546f7f06, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

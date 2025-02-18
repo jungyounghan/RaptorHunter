@@ -9,19 +9,32 @@ public sealed class HunterCharacter : Character
     private readonly int _turnHashIndex = Animator.StringToHash("Turn");
 
     [SerializeField]
-    private Transform _gunPivot = null;
+    private Transform _gunGrip = null;      //√— º’¿‚¿Ã
+    [SerializeField]
+    private Transform _gunMagazine = null;  //√— ≈∫√¢  
     [SerializeField]
     private Transform _laserPoint = null;
     [SerializeField]
     private LineRenderer _lineRenderer = null;
 
+    [SerializeField]
+    private Vector3 test;
+
     private void OnAnimatorIK(int layerIndex)
     {
-        if(_gunPivot != null)
+        getAnimator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1.0f);
+        getAnimator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1.0f);
+        if(_gunMagazine != null)
         {
-            _gunPivot.position = getAnimator.GetIKHintPosition(AvatarIKHint.RightElbow);
-            getAnimator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1.0f);
-            getAnimator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1.0f);
+            getAnimator.SetIKPosition(AvatarIKGoal.LeftHand, _gunMagazine.position);
+            getAnimator.SetIKRotation(AvatarIKGoal.LeftHand, _gunMagazine.rotation);
+        }
+        getAnimator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1.0f);
+        getAnimator.SetIKRotationWeight(AvatarIKGoal.RightHand, 1.0f);
+        if (_gunGrip != null)
+        {
+            getAnimator.SetIKPosition(AvatarIKGoal.RightHand, _gunGrip.position);
+            getAnimator.SetIKRotation(AvatarIKGoal.RightHand, Quaternion.Euler(_gunGrip.rotation.eulerAngles + test));
         }
     }
 
