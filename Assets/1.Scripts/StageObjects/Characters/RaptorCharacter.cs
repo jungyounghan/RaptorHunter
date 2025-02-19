@@ -19,13 +19,12 @@ public class RaptorCharacter : Character
     {
     }
 
+    public override void DoHitAction(bool dead)
+    {
+    }
+
     public override void DoMoveAction(Vector2 direction, float speed, bool dash)
     {
 
-    }
-
-    public override void DoHitAction(bool dead)
-    {
-        throw new System.NotImplementedException();
     }
 }

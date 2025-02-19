@@ -7,6 +7,7 @@ using UnityEngine.AI;
 /// 특정 플레이어 객체를 조종할 수 있는 추상 컨트롤러 클래스 
 /// </summary>
 [RequireComponent(typeof(Character))]
+[RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(NavMeshAgent))]
 [DisallowMultipleComponent]
 public abstract class Controller : MonoBehaviour
@@ -39,6 +40,22 @@ public abstract class Controller : MonoBehaviour
                 _hasCharacter = TryGetComponent(out _character);
             }
             return _character;
+        }
+    }
+
+    private bool _hasRigidbody = false;
+
+    private Rigidbody _rigidbody = null;
+
+    private Rigidbody getRigidbody
+    {
+        get
+        {
+            if(_hasRigidbody == false)
+            {
+                _hasRigidbody = TryGetComponent(out _rigidbody);
+            }
+            return _rigidbody;
         }
     }
 
@@ -85,11 +102,19 @@ public abstract class Controller : MonoBehaviour
     [Header("현재 체력"), SerializeField]
     private uint _currentLife = 0;
 
+    public bool alive
+    {
+        get
+        {
+            return _currentLife > 0 || _currentLife == _maxLife;
+        }
+    }
+
     private Action<float, float> _staminaAction = null;
     private Action<uint, uint> _lifeAction = null;
 
     private static readonly float CenterDistance = 0.5f;
-    private static readonly float LandDistance = 0.2f;
+    private static readonly float LandDistance = 0.5f;
 
 #if UNITY_EDITOR
     private void OnValidate()
@@ -105,22 +130,14 @@ public abstract class Controller : MonoBehaviour
     }
 #endif
 
-    private void Update()
-    {
-        if (_currentStamina < _maxStamina)
-        {
-            _currentStamina += Time.deltaTime * _recoverStamina;
-            if (_currentStamina > _maxStamina)
-            {
-                _currentStamina = _maxStamina;
-            }
-            _staminaAction?.Invoke(_currentStamina, _maxStamina);
-        }
-    }
-
     protected bool IsGrounded()
     {
-        return Physics.Raycast(getTransform.position + new Vector3(0, CenterDistance, 0), Vector3.down, CenterDistance + LandDistance);
+        return Physics.Raycast(getTransform.position + new Vector3(0, CenterDistance, 0), Vector3.down, CenterDistance + LandDistance) || getRigidbody.velocity == Vector3.zero;
+    }
+
+    protected uint GetDamage()
+    {
+        return _damage;
     }
 
     protected float GetMoveSpeed(float direction, bool dash)
@@ -147,17 +164,20 @@ public abstract class Controller : MonoBehaviour
 
     public void Hit(uint damage)
     {
-        if (_currentLife > damage)
+        if (alive == true)
         {
-            _currentLife -= damage;
-            getCharacter.DoHitAction(false);
+            if (_currentLife > damage)
+            {
+                _currentLife -= damage;
+                getCharacter.DoHitAction(false);
+            }
+            else
+            {
+                _currentLife = 0;
+                getCharacter.DoHitAction(_maxLife > 0);
+            }
+            _lifeAction?.Invoke(_currentLife, _maxLife);
         }
-        else
-        {
-            _currentLife = 0;
-            getCharacter.DoHitAction(_maxLife > 0);
-        }
-        _lifeAction?.Invoke(_currentLife, _maxLife);
     }
 
     public void Revive()
@@ -166,6 +186,7 @@ public abstract class Controller : MonoBehaviour
         _staminaAction?.Invoke(_currentStamina, _maxStamina);
         _currentLife = _maxLife;
         _lifeAction?.Invoke(_currentLife, _maxLife);
+        getCharacter.DoReviveAction();
     }
 
     protected virtual void OnEnable()
@@ -176,6 +197,19 @@ public abstract class Controller : MonoBehaviour
     protected virtual void OnDisable()
     {
         StopAllCoroutines();
+    }
+
+    protected virtual void Update()
+    {
+        if (_currentStamina < _maxStamina)
+        {
+            _currentStamina += Time.deltaTime * _recoverStamina;
+            if (_currentStamina > _maxStamina)
+            {
+                _currentStamina = _maxStamina;
+            }
+            _staminaAction?.Invoke(_currentStamina, _maxStamina);
+        }
     }
 
     protected abstract IEnumerator DoProcess();

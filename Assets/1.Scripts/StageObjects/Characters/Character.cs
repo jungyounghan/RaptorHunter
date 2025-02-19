@@ -23,18 +23,25 @@ public abstract class Character : MonoBehaviour
     }
 
     [SerializeField]
-    private Transform _target = null;
+    protected Transform _target = null;
 
-    protected const string AllyLayer = "Ally";
-    protected const string EnemyLayer = "Enemy";
-    protected const string DefaultLayer = "Default";
+    private static readonly int ExitHashIndex = Animator.StringToHash("Exit");
+    private static readonly float LinearInterpolation = 10;
+    //protected const string AllyLayer = "Ally";
+    //protected const string EnemyLayer = "Enemy";
+    //protected const string DefaultLayer = "Default";
+
 
     public virtual void LookAt(Vector3 position)
     {
         if (_target != null)
         {
-            _target.position = position;
+            _target.position = Vector3.Lerp(_target.position, position, Time.deltaTime * LinearInterpolation);
         }
+    }
+    public virtual void DoReviveAction()
+    {
+        getAnimator.SetTrigger(ExitHashIndex);
     }
 
     public abstract void DoJumpAction();
