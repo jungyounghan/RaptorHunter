@@ -10,13 +10,13 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(NavMeshAgent))]
 [DisallowMultipleComponent]
-public abstract class Controller : MonoBehaviour
+public abstract class Controller : MonoBehaviour, IHittable
 {
     private bool _hasTransform = false;
 
     private Transform _transform = null;
 
-    protected Transform getTransform {
+    public Transform getTransform {
         get
         {
             if (_hasTransform == false)
@@ -47,7 +47,7 @@ public abstract class Controller : MonoBehaviour
 
     private Rigidbody _rigidbody = null;
 
-    private Rigidbody getRigidbody
+    protected Rigidbody getRigidbody
     {
         get
         {
@@ -111,7 +111,7 @@ public abstract class Controller : MonoBehaviour
     }
 
     private Action<float, float> _staminaAction = null;
-    private Action<uint, uint> _lifeAction = null;
+    private Action<uint, uint, Controller> _lifeAction = null;
 
     private static readonly float CenterDistance = 0.5f;
     private static readonly float LandDistance = 0.5f;
@@ -156,13 +156,13 @@ public abstract class Controller : MonoBehaviour
         return speed;
     }
 
-    public void Initialize(Action<float, float> staminaAction, Action<uint, uint> lifeAction)
+    public void Initialize(Action<float, float> staminaAction, Action<uint, uint, Controller> lifeAction)
     {
         _staminaAction = staminaAction;
         _lifeAction = lifeAction;
     }
 
-    public void Hit(uint damage)
+    public void Hit(Vector3 origin, Vector3 direction, uint damage)
     {
         if (alive == true)
         {
@@ -176,7 +176,7 @@ public abstract class Controller : MonoBehaviour
                 _currentLife = 0;
                 getCharacter.DoHitAction(_maxLife > 0);
             }
-            _lifeAction?.Invoke(_currentLife, _maxLife);
+            _lifeAction?.Invoke(_currentLife, _maxLife, this);
         }
     }
 
@@ -185,7 +185,7 @@ public abstract class Controller : MonoBehaviour
         _currentStamina = _maxStamina;
         _staminaAction?.Invoke(_currentStamina, _maxStamina);
         _currentLife = _maxLife;
-        _lifeAction?.Invoke(_currentLife, _maxLife);
+        _lifeAction?.Invoke(_currentLife, _maxLife, this);
         getCharacter.DoReviveAction();
     }
 

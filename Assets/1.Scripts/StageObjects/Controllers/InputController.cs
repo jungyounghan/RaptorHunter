@@ -31,6 +31,12 @@ public sealed class InputController : Controller
                 }
                 getCharacter.LookAt(point);
             }
+            bool attack = Input.GetButton(AttackKey);
+            if(attack == true)
+            {
+                getCharacter.DoAttackAction(GetDamage());
+            }
+            getCharacter.Recharge();
         }
     }
 
@@ -43,9 +49,7 @@ public sealed class InputController : Controller
                 getNavMeshAgent.enabled = IsGrounded();
                 if (getNavMeshAgent.enabled == true)
                 {
-                    //키보드 구간
                     bool dash = Input.GetButton(DashKey);
-                    bool attack = Input.GetButton(AttackKey);
                     float walk = Input.GetAxis(VerticalKey);
                     float turn = Input.GetAxis(HorizontalKey);
                     float deltaTime = Time.deltaTime; ;
@@ -58,14 +62,12 @@ public sealed class InputController : Controller
                     getNavMeshAgent.Move(forward.normalized * direction.y * deltaTime * speed);
                     if (position != getTransform.position || turn != 0)
                     {
-                        getCharacter.DoMoveAction(direction, speed, speed > getNavMeshAgent.speed || (walk < 0 && dash));
+                        getCharacter.DoMoveAction(direction, speed > getNavMeshAgent.speed || (walk < 0 && dash));
                     }
                     else
                     {
                         getCharacter.DoStopAction();
                     }
-                    
-                    yield return null;
                 }
                 else
                 {
@@ -74,6 +76,7 @@ public sealed class InputController : Controller
                     getCharacter.DoLandAction();
                 }
             }
+            yield return null;
         }
     }
 }

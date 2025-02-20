@@ -1,60 +1,88 @@
-using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+/// <summary>
+/// 게임 진행을 총괄하는 클래스
+/// </summary>
+public sealed class GameManager : MonoBehaviour
 {
+    [Header("프리팹")]
+    [SerializeField]
+    private InputController _hunterInputController;
+    [SerializeField]
+    private InputController _raptorInputController;
+    [SerializeField]
+    private AutoController _hunterAutoController;
+    [SerializeField]
+    private AutoController _raptorAutoController;
+
+    [Header("프로퍼티")]
+    [SerializeField]
+    private CinemachineVirtualCamera _cinemachineVirtualCamera;
     [SerializeField]
     private State _state;
     [SerializeField]
-    private Controller _playerController;
+    private List<GameObject> _props = new List<GameObject>();
     [SerializeField]
-    private GameObject[] _props;
+    private Spawner<InputController> _allySpawner = new Spawner<InputController>();
+    [SerializeField]
+    private Spawner<AutoController> _enemySpawner = new Spawner<AutoController>();
+
+    [SerializeField]
+    private InputController _allyController;
+    [SerializeField]
+    private List<AutoController> _enemyController = new List<AutoController>();
 
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        for(int i = 0; i < _props.Length; i++)
-        {
-            if(_props[i] != null)
-            {
-                _props[i].SetActive(false);
-            }
-        }
+        SetProps(false);
     }
 #endif
 
-    IEnumerator Start()
+    private void Awake()
     {
-        for (int i = 0; i < _props.Length; i++)
+        _allyController = _allySpawner.Get();
+        if (_allyController != null)
         {
-            Debug.Log("실행중");
-            Debug.Log(_props[i] != null);
-            bool isTrue = (_props[i] != null);
-            Debug.Log("실행중22");
-            if (isTrue)
+            _allyController.Initialize(SetStamina, SetLife);
+            _allyController.Revive();
+            if(_cinemachineVirtualCamera != null)
             {
-                _props[i].SetActive(true);
+                _cinemachineVirtualCamera.Follow = _allyController.getTransform;
+                _cinemachineVirtualCamera.LookAt = _allyController.getTransform;
             }
-          
-            //{
-            //    Debug.Log("2");
-            //    _props[i].SetActive(true);
-            //    Debug.Log("3");
-            //}
         }
-        Debug.Log(_props.Length);
-        if (_playerController != null)
-        {
-            _playerController.Initialize(SetStamina, SetLife);
-            _playerController.Revive();
-        }
-        yield return null;
+        SetProps(true);
     }
 
-    public void SetLife(uint current, uint max)
+    private void Update()
     {
-        _state.SetLife(current, max);
+        _enemySpawner.Update();
+    }
+
+    private void SetProps(bool active)
+    {
+        for (int i = 0; i < _props.Count; i++)
+        {
+            if (_props[i] != null)
+            {
+                _props[i].SetActive(active);
+            }
+        }
+    }
+
+    public void SetLife(uint current, uint max, Controller controller)
+    {
+        if (controller == _allyController)
+        {
+            _state.SetLife(current, max);
+        }
+        else
+        {
+
+        }
     }
 
     public void SetStamina(float current, float max)

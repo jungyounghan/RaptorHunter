@@ -12,25 +12,8 @@ public sealed class HunterCharacter : Character
     private readonly int HitHashIndex = Animator.StringToHash("Hit");
     private readonly int DieHashIndex = Animator.StringToHash("Die");
 
-    [Header("손잡이 트랜스폼")]
-    [SerializeField]
-    private Transform _gunMagazine = null;  //탄창
-
-    [Header("레이저")]
-    [SerializeField]
-    private Transform _laserPoint = null;   //레이저 나오는 곳
-    [SerializeField]
-    private LineRenderer _laserLine = null; //레이저 선
-
-    [Header("총구")]
-    [SerializeField]
-    private Transform _muzzlePoint = null;  //총알 나오는 곳
-    [SerializeField]
-    private LineRenderer _muzzleLine = null;//총알 궤적 렌더러
-
-    [Header("효과음")]
-    [SerializeField]
-    private AudioSource _shotAudio = null;  //총 소리
+    //[Header("효과음"), SerializeField]
+    //private AudioClip _footAudioClip = null;    //사람이 내는 소리
 
     [Header("조준 제약")]
     [SerializeField]
@@ -38,33 +21,28 @@ public sealed class HunterCharacter : Character
     [SerializeField]
     private MultiAimConstraint _headConstraint = null;
 
+    [Header("총"), SerializeField]
+    private Gun _gun = null;
+
     private void OnAnimatorIK(int layerIndex)
     {
         getAnimator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1.0f);
         getAnimator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1.0f);
-        if (_gunMagazine != null)
+        if (_gun != null)
         {
-            getAnimator.SetIKPosition(AvatarIKGoal.LeftHand, _gunMagazine.position);
-            getAnimator.SetIKRotation(AvatarIKGoal.LeftHand, _gunMagazine.rotation);
+            Gun.Handle handle = _gun.GetMagazineHandle();
+            if (handle != null)
+            {
+                getAnimator.SetIKPosition(AvatarIKGoal.LeftHand, handle.position);
+                getAnimator.SetIKRotation(AvatarIKGoal.LeftHand, handle.rotation);
+            }
         }
     }
 
     public override void LookAt(Vector3 position)
     {
         base.LookAt(position);
-        if (_laserPoint != null && _laserLine != null)
-        {
-            if (Physics.Raycast(_laserPoint.position - _laserPoint.forward, _laserPoint.forward, out RaycastHit hit, Mathf.Infinity))
-            {
-                _laserLine.positionCount = 2;
-                _laserLine.SetPosition(0, _laserPoint.position);
-                _laserLine.SetPosition(1, hit.point);
-            }
-            else
-            {
-                _laserLine.positionCount = 0;
-            }
-        }
+        _gun?.ShowLaserAim();
     }
 
     public override void DoReviveAction()
@@ -157,14 +135,25 @@ public sealed class HunterCharacter : Character
         }
     }
 
-    public override void DoMoveAction(Vector2 direction, float speed, bool dash)
+    public override void DoAttackAction(uint damage)
     {
-        //Debug.Log(speed);
+        if(_gun != null && _gun.TryShot(damage) == true)
+        {
+        }
+    }
+
+    public override void DoMoveAction(Vector2 direction, bool dash)
+    {
         if(dash == true)
         {
             direction *= 2;
         }
         getAnimator.SetFloat(TurnHashIndex, direction.x);
         getAnimator.SetFloat(MoveHashIndex, direction.y);
+    }
+
+    public override void Recharge()
+    {
+        _gun?.Recharge();
     }
 }

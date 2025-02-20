@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine;
 
 /// <summary>
 /// 특정 플레이어 객체를 조종할 수 있는 자동 컨트롤러 클래스 
@@ -6,6 +7,13 @@ using System.Collections;
 public sealed class AutoController : Controller
 {
     private float _defaultSpeed = 0;
+
+    private enum State
+    {
+
+    }
+
+    public Transform target;
 
     protected override void OnEnable()
     {
@@ -23,10 +31,15 @@ public sealed class AutoController : Controller
     {
         while(true)
         {
-            // if (agent.isOnOffMeshLink) // 점프 구간에 진입하면
-            //{
-            //    StartCoroutine(JumpAcross());
-            //}
+            if(alive == true)
+            {
+                getNavMeshAgent.enabled = IsGrounded();
+                if (target != null && Vector3.Distance(target.position, getTransform.position) <= getNavMeshAgent.stoppingDistance)
+                {
+                    //getCharacter.LookAt();
+                }
+
+            }
             yield return null;
         }
     }
