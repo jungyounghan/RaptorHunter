@@ -16,7 +16,7 @@ public abstract class Controller : MonoBehaviour, IHittable
 
     private Transform _transform = null;
 
-    public Transform getTransform {
+    protected Transform getTransform {
         get
         {
             if (_hasTransform == false)

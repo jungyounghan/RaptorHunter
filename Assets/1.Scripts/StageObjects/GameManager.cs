@@ -7,15 +7,15 @@ using UnityEngine;
 /// </summary>
 public sealed class GameManager : MonoBehaviour
 {
-    [Header("ÇÁ¸®ÆÕ")]
-    [SerializeField]
-    private InputController _hunterInputController;
-    [SerializeField]
-    private InputController _raptorInputController;
-    [SerializeField]
-    private AutoController _hunterAutoController;
-    [SerializeField]
-    private AutoController _raptorAutoController;
+    //[Header("ÇÁ¸®ÆÕ")]
+    //[SerializeField]
+    //private InputController _hunterInputController;
+    //[SerializeField]
+    //private InputController _raptorInputController;
+    //[SerializeField]
+    //private AutoController _hunterAutoController;
+    //[SerializeField]
+    //private AutoController _raptorAutoController;
 
     [Header("ÇÁ·ÎÆÛÆ¼")]
     [SerializeField]
@@ -50,8 +50,8 @@ public sealed class GameManager : MonoBehaviour
             _allyController.Revive();
             if(_cinemachineVirtualCamera != null)
             {
-                _cinemachineVirtualCamera.Follow = _allyController.getTransform;
-                _cinemachineVirtualCamera.LookAt = _allyController.getTransform;
+                _cinemachineVirtualCamera.Follow = _allyController.transform;
+                _cinemachineVirtualCamera.LookAt = _allyController.transform;
             }
         }
         SetProps(true);

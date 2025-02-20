@@ -41,13 +41,36 @@ public abstract class Character : MonoBehaviour
     }
 
     [SerializeField]
-    protected Transform _target = null;
+    private Transform _target = null;
 
     [SerializeField]
-    protected List<AudioClip> audioClips = new List<AudioClip>();
+    private List<AudioClip> _walkAudioClips = new List<AudioClip>();
+
+    [SerializeField]
+    private List<AudioClip> _runAudioClips = new List<AudioClip>();
 
     private static readonly int ExitHashIndex = Animator.StringToHash("Exit");
     private static readonly float LinearInterpolation = 10;
+
+    private void PlaySoundWalk()
+    {
+        int count = _walkAudioClips.Count;
+        if (count > 0)
+        {
+            int index = Random.Range(0, count);
+            PlaySound(_walkAudioClips[index]);
+        }
+    }
+
+    private void PlaySoundRun()
+    {
+        int count = _runAudioClips.Count;
+        if (count > 0)
+        {
+            int index = Random.Range(0, count);
+            PlaySound(_runAudioClips[index]);
+        }
+    }
 
     protected void PlaySound(AudioClip audioClip)
     {
