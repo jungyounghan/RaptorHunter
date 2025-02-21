@@ -39,9 +39,13 @@ public class Obstacle : MonoBehaviour, IHittable
     [SerializeField]
     private List<AudioClip> _audioClips = new List<AudioClip>();
 
+    private void Awake()
+    {
+        //코루틴 써서 처음 충돌로 인하여 소리가 나는 것 차단
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(getRigidbody.velocity.magnitude);
         //PlaySound();
     }
 
@@ -58,7 +62,6 @@ public class Obstacle : MonoBehaviour, IHittable
 
     public void Hit(Vector3 origin, Vector3 direction, uint force)
     {
-        //공격력 100정도 되야 소리가 찰짐
         getRigidbody.AddForce(direction.normalized * force, ForceMode.Impulse);
         PlaySound();
     }

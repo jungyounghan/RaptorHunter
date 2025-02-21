@@ -1066,7 +1066,7 @@ MonoBehaviour:
     type: 1
     colliderType: 0
     previewColour: {r: 0, g: 1, b: 1, a: 0.7}
-    hullMesh: {fileID: 3091178849091180874, guid: 3a884032c327f5044960fcf1c46a8957, type: 2}
+    hullMesh: {fileID: 325936688397621895, guid: 3a884032c327f5044960fcf1c46a8957, type: 2}
     material: {fileID: 0}
     isTrigger: 0
     maxPlanes: 255
@@ -2221,7 +2221,7 @@ MonoBehaviour:
     type: 1
     colliderType: 0
     previewColour: {r: 1, g: 0, b: 1, a: 0.7}
-    hullMesh: {fileID: -5004918600564940363, guid: 3a884032c327f5044960fcf1c46a8957, type: 2}
+    hullMesh: {fileID: -978435763930127089, guid: 3a884032c327f5044960fcf1c46a8957, type: 2}
     material: {fileID: 0}
     isTrigger: 0
     maxPlanes: 255

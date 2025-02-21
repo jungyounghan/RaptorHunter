@@ -7,15 +7,11 @@ using UnityEngine;
 /// </summary>
 public sealed class GameManager : MonoBehaviour
 {
-    //[Header("ÇÁ¸®ÆÕ")]
-    //[SerializeField]
-    //private InputController _hunterInputController;
-    //[SerializeField]
-    //private InputController _raptorInputController;
-    //[SerializeField]
-    //private AutoController _hunterAutoController;
-    //[SerializeField]
-    //private AutoController _raptorAutoController;
+    [Header("ÇÁ¸®ÆÕ")]
+    [SerializeField]
+    private HunterCharacter _hunterCharacter;
+    [SerializeField]
+    private RaptorCharacter _raptorCharacter;
 
     [Header("ÇÁ·ÎÆÛÆ¼")]
     [SerializeField]
@@ -23,16 +19,14 @@ public sealed class GameManager : MonoBehaviour
     [SerializeField]
     private State _state;
     [SerializeField]
+    private Spawner _allySpawner;
+    [SerializeField]
     private List<GameObject> _props = new List<GameObject>();
-    [SerializeField]
-    private Spawner<InputController> _allySpawner = new Spawner<InputController>();
-    [SerializeField]
-    private Spawner<AutoController> _enemySpawner = new Spawner<AutoController>();
 
     [SerializeField]
-    private InputController _allyController;
+    private ManualController _allyController;
     [SerializeField]
-    private List<AutoController> _enemyController = new List<AutoController>();
+    private List<AutomaticController> _enemyController = new List<AutomaticController>();
 
 #if UNITY_EDITOR
     private void OnValidate()
@@ -43,23 +37,28 @@ public sealed class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        _allyController = _allySpawner.Get();
-        if (_allyController != null)
-        {
-            _allyController.Initialize(SetStamina, SetLife);
-            _allyController.Revive();
-            if(_cinemachineVirtualCamera != null)
-            {
-                _cinemachineVirtualCamera.Follow = _allyController.transform;
-                _cinemachineVirtualCamera.LookAt = _allyController.transform;
-            }
-        }
+        SpawnAlly(Character.Raptor);
         SetProps(true);
     }
 
-    private void Update()
+    private void SpawnAlly(bool human)
     {
-        _enemySpawner.Update();
+        Character character = human == true ? _allySpawner?.Get(_hunterCharacter): _allySpawner?.Get(_raptorCharacter);
+        if(character != null)
+        {
+            _allyController = character.gameObject.AddComponent<ManualController>();
+            if(_allyController != null)
+            {
+                _allyController.Initialize(SetStamina, SetLife);
+                _allyController.Revive();
+            }
+            if(_cinemachineVirtualCamera != null)
+            {
+                Transform transform = character.transform;
+                _cinemachineVirtualCamera.Follow = transform;
+                _cinemachineVirtualCamera.LookAt = transform;
+            }
+        }
     }
 
     private void SetProps(bool active)
@@ -72,8 +71,12 @@ public sealed class GameManager : MonoBehaviour
             }
         }
     }
+    private void SetStamina(float current, float max)
+    {
+        _state.SetStamina(current, max);
+    }
 
-    public void SetLife(uint current, uint max, Controller controller)
+    private void SetLife(uint current, uint max, Controller controller)
     {
         if (controller == _allyController)
         {
@@ -83,10 +86,5 @@ public sealed class GameManager : MonoBehaviour
         {
 
         }
-    }
-
-    public void SetStamina(float current, float max)
-    {
-        _state.SetStamina(current, max);
     }
 }

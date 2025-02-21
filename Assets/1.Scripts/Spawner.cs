@@ -1,135 +1,73 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
-/// 모노비헤이비어를 상속 받는 특정 클래스 오브젝트들을 소환해주는 클래스
+/// 캐릭터들을 소환해주는 클래스
 /// </summary>
-/// <typeparam name="T"></typeparam>
-[Serializable]
-public class Spawner<T> where T: MonoBehaviour
+public sealed class Spawner: MonoBehaviour
 {
-    [Serializable]
-    public struct Handle
+    private bool _hasTransform = false;
+
+    private Transform _transform = null;
+
+    private Transform getTransform
     {
-        public T unit;
-        public float duration;
-        public Vector3 position;
-        public Vector3 rotation;
-        public Transform parent;
-    }
-
-    [Header("생성 목록"), SerializeField]
-    private List<Handle> handles = new List<Handle>();
-
-    private int index = 0;
-    private float timer = 0;
-
-    private Dictionary<T, T> dictionary = new Dictionary<T, T>();
-    private Action<T> action = null;
-
-    [Header("일시 정지 여부"), SerializeField]
-    private bool pause = false;
-    [Header("반복 여부"), SerializeField]
-    private bool loop = false;
-
-    public void Set(Action<T> action)
-    {
-        this.action = action;
-    }
-
-    public void Update()
-    {
-        if (pause == false)
+        get
         {
-            int count = handles.Count;
-            if (index >= count)
+            if (_hasTransform == false)
             {
-                if(loop == true)
-                {
-                    return;
-                }
-                index = 0;
+                _hasTransform = true;
+                _transform = transform;
             }
-            if (count > 0)
+            return _transform;
+        }
+    }
+
+    [Header("랜덤 회전"), SerializeField]
+    private Vector3 _randomAngle;
+
+#if UNITY_EDITOR
+    [Header("기즈모 색상"), SerializeField]
+    private Color _gizmoColor = Color.green;
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = _gizmoColor;
+        Gizmos.matrix = Matrix4x4.TRS(getTransform.position, getTransform.rotation, Vector3.one);
+        Gizmos.DrawWireCube(Vector3.zero, getTransform.lossyScale);
+    }
+
+#endif
+
+    public Character Get(Character character)
+    {
+        if(character != null)
+        {
+            Vector3 pointSize = getTransform.lossyScale * 0.5f;
+            pointSize.x = Mathf.Abs(pointSize.x);
+            pointSize.y = Mathf.Abs(pointSize.y);
+            pointSize.z = Mathf.Abs(pointSize.z);
+            Vector3 random = new Vector3(Random.Range(-pointSize.x, pointSize.x), Random.Range(-pointSize.y, pointSize.y), Random.Range(-pointSize.z, pointSize.z));
+            // 로컬 -> 월드 변환 (회전 및 위치 적용)
+            Vector3 position = getTransform.TransformPoint(random);
+            Vector3 angleSize = _randomAngle;
+            angleSize.x = Mathf.Abs(angleSize.x);
+            angleSize.y = Mathf.Abs(angleSize.y);
+            angleSize.z = Mathf.Abs(angleSize.z);
+            random = new Vector3(Random.Range(-angleSize.x, angleSize.x), Random.Range(-angleSize.y, angleSize.y), Random.Range(-angleSize.z, angleSize.z));
+            Quaternion rotation = Quaternion.Euler(getTransform.rotation.eulerAngles + random);
+            if (character.gameObject.scene == SceneManager.GetActiveScene())
             {
-                if (timer < handles[index].duration)
-                {
-                    timer += Time.deltaTime;
-                }
-                if (timer >= handles[index].duration)
-                {
-                    T t = Get(handles[index].unit, handles[index].position, Quaternion.Euler(handles[index].rotation), handles[index].parent);
-                    timer = 0;
-                    index++;
-                    action?.Invoke(t);
-                }
+                character.transform.position = position;
+                character.transform.rotation = rotation;
+                character.gameObject.SetActive(true);
             }
-        }
-    }
-
-    public void Pause()
-    {
-        pause = true;
-    }
-
-    public void Stop()
-    {
-        pause = true;
-        timer = 0;
-        index = 0;
-    }
-
-    public void Play()
-    {
-        pause = false;
-    }
-
-    public void Add(Handle handle)
-    {
-        handles.Add(handle);
-    }
-
-    public T Get()
-    {
-        int count = handles.Count;
-        if (index >= count)
-        {
-            index = 0;
-        }
-        if (count > 0)
-        {
-            T t = Get(handles[index].unit, handles[index].position, Quaternion.Euler(handles[index].rotation), handles[index].parent);
-            timer = 0;
-            index++;
-            return t;
-        }
-        return null;
-    }
-
-    public T Get(T prefab, Vector3 position, Quaternion rotation, Transform parent)
-    {
-        if (prefab != null)
-        {
-            //재활용
-            foreach(KeyValuePair<T, T>kvp in dictionary)
+            else
             {
-                GameObject gameObject = kvp.Key.gameObject;
-                if (prefab == kvp.Value && gameObject.activeInHierarchy == false)
-                {
-                    Transform transform = gameObject.transform;
-                    transform.position = position;
-                    transform.rotation = rotation;
-                    transform.parent = parent;
-                    gameObject.SetActive(true);
-                    return kvp.Key;
-                }
+                character = Instantiate(character, position, rotation);
             }
-            //추가 생성
-            T t = GameObject.Instantiate(prefab, position, rotation, parent);
-            dictionary.Add(t, prefab);
-            return t;
         }
-        return null;
+        return character;
     }
 }

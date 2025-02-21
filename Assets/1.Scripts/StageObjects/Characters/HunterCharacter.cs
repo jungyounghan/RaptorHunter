@@ -5,15 +5,10 @@ using UnityEngine.Animations.Rigging;
 /// 조종 가능한 사냥꾼 캐릭터 클래스
 /// </summary>
 public sealed class HunterCharacter : Character
-{
-    private readonly int MoveHashIndex = Animator.StringToHash("Move");
-    private readonly int TurnHashIndex = Animator.StringToHash("Turn");
+{ 
     private readonly int JumpHashIndex = Animator.StringToHash("Jump");
     private readonly int HitHashIndex = Animator.StringToHash("Hit");
     private readonly int DieHashIndex = Animator.StringToHash("Die");
-
-    //[Header("효과음"), SerializeField]
-    //private AudioClip _footAudioClip = null;    //사람이 내는 소리
 
     [Header("조준 제약")]
     [SerializeField]
@@ -68,53 +63,6 @@ public sealed class HunterCharacter : Character
         getAnimator.SetBool(JumpHashIndex, false);
     }
 
-    public override void DoStopAction()
-    {
-        float deltaTime = Time.deltaTime;
-        float turn = getAnimator.GetFloat(TurnHashIndex);
-        if (turn != 0)
-        {
-            if(turn > 0)
-            {
-                turn -= deltaTime;
-                if(turn < 0)
-                {
-                    turn = 0;
-                }
-            }
-            else
-            {
-                turn += deltaTime;
-                if(turn > 0)
-                {
-                    turn = 0;
-                }
-            }
-            getAnimator.SetFloat(TurnHashIndex, turn);
-        }
-        float move = getAnimator.GetFloat(MoveHashIndex);
-        if(move != 0)
-        {
-            if (move > 0)
-            {
-                move -= deltaTime;
-                if (move < 0)
-                {
-                    move = 0;
-                }
-            }
-            else
-            {
-                move += deltaTime;
-                if (move > 0)
-                {
-                    move = 0;
-                }
-            }
-            getAnimator.SetFloat(MoveHashIndex, move);
-        }
-    }
-
     public override void DoHitAction(bool dead)
     {
         if (dead == false)
@@ -142,14 +90,9 @@ public sealed class HunterCharacter : Character
         }
     }
 
-    public override void DoMoveAction(Vector2 direction, bool dash)
+    public override void Set(float attackSpeed)
     {
-        if(dash == true)
-        {
-            direction *= 2;
-        }
-        getAnimator.SetFloat(TurnHashIndex, direction.x);
-        getAnimator.SetFloat(MoveHashIndex, direction.y);
+        _gun?.Set(attackSpeed);
     }
 
     public override void Recharge()

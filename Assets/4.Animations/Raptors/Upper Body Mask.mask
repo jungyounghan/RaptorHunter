@@ -1,0 +1,253 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Upper Body Mask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Cornea
+    m_Weight: 1
+  - m_Path: RaptorArmature
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/FootIK.L
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/FootIK.L/FootIK.L_end
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/FootIK.R
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/FootIK.R/FootIK.R_end
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.L
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.L/Hip.L
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.L/Hip.L/UpperLeg.L
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.L/Hip.L/UpperLeg.L/LowerLeg.L
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.L/Hip.L/UpperLeg.L/LowerLeg.L/Ankle.L
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.L/Hip.L/UpperLeg.L/LowerLeg.L/Ankle.L/Foot.L
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.L/Hip.L/UpperLeg.L/LowerLeg.L/Ankle.L/Foot.L/BigToe1.L
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.L/Hip.L/UpperLeg.L/LowerLeg.L/Ankle.L/Foot.L/BigToe1.L/BigToe2.L
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.L/Hip.L/UpperLeg.L/LowerLeg.L/Ankle.L/Foot.L/BigToe1.L/BigToe2.L/BigToe3.L
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.L/Hip.L/UpperLeg.L/LowerLeg.L/Ankle.L/Foot.L/BigToe1.L/BigToe2.L/BigToe3.L/BigToe3.L_end
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.L/Hip.L/UpperLeg.L/LowerLeg.L/Ankle.L/Foot.L/MiddleToe1.L
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.L/Hip.L/UpperLeg.L/LowerLeg.L/Ankle.L/Foot.L/MiddleToe1.L/MiddleToe2.L
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.L/Hip.L/UpperLeg.L/LowerLeg.L/Ankle.L/Foot.L/MiddleToe1.L/MiddleToe2.L/MiddleToe2.L_end
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.L/Hip.L/UpperLeg.L/LowerLeg.L/Ankle.L/Foot.L/PinkyToe1.L
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.L/Hip.L/UpperLeg.L/LowerLeg.L/Ankle.L/Foot.L/PinkyToe1.L/PinkyToe2.L
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.L/Hip.L/UpperLeg.L/LowerLeg.L/Ankle.L/Foot.L/PinkyToe1.L/PinkyToe2.L/PinkyToe2.L_end
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.R
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.R/Hip.R
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.R/Hip.R/UpperLeg.R
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.R/Hip.R/UpperLeg.R/LowerLeg.R
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.R/Hip.R/UpperLeg.R/LowerLeg.R/Ankle.R
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.R/Hip.R/UpperLeg.R/LowerLeg.R/Ankle.R/Foot.R
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.R/Hip.R/UpperLeg.R/LowerLeg.R/Ankle.R/Foot.R/BigToe1.R
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.R/Hip.R/UpperLeg.R/LowerLeg.R/Ankle.R/Foot.R/BigToe1.R/BigToe2.R
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.R/Hip.R/UpperLeg.R/LowerLeg.R/Ankle.R/Foot.R/BigToe1.R/BigToe2.R/BigToe3.R
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.R/Hip.R/UpperLeg.R/LowerLeg.R/Ankle.R/Foot.R/BigToe1.R/BigToe2.R/BigToe3.R/BigToe3.R_end
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.R/Hip.R/UpperLeg.R/LowerLeg.R/Ankle.R/Foot.R/MiddleToe1.R
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.R/Hip.R/UpperLeg.R/LowerLeg.R/Ankle.R/Foot.R/MiddleToe1.R/MiddleToe2.R
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.R/Hip.R/UpperLeg.R/LowerLeg.R/Ankle.R/Foot.R/MiddleToe1.R/MiddleToe2.R/MiddleToe2.R_end
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.R/Hip.R/UpperLeg.R/LowerLeg.R/Ankle.R/Foot.R/PinkyToe1.R
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.R/Hip.R/UpperLeg.R/LowerLeg.R/Ankle.R/Foot.R/PinkyToe1.R/PinkyToe2.R
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Pelvis.R/Hip.R/UpperLeg.R/LowerLeg.R/Ankle.R/Foot.R/PinkyToe1.R/PinkyToe2.R/PinkyToe2.R_end
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Breast.L
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Breast.L/Breast.L_end
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Breast.R
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Breast.R/Breast.R_end
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Neck_1
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Neck_1/Neck_2
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Neck_1/Neck_2/Neck_3
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Neck_1/Neck_2/Neck_3/Head
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Neck_1/Neck_2/Neck_3/Head/Eye.L
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Neck_1/Neck_2/Neck_3/Head/Eye.L/Eye.L_end
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Neck_1/Neck_2/Neck_3/Head/Eye.R
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Neck_1/Neck_2/Neck_3/Head/Eye.R/Eye.R_end
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Neck_1/Neck_2/Neck_3/Head/Jaw_1
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Neck_1/Neck_2/Neck_3/Head/Jaw_1/Jaw_2
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Neck_1/Neck_2/Neck_3/Head/Jaw_1/Jaw_2/Jaw_2_end
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Neck_1/Neck_2/Neck_3/Head/Jaw_1/Tongue_1
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Neck_1/Neck_2/Neck_3/Head/Jaw_1/Tongue_1/Tongue_2
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Neck_1/Neck_2/Neck_3/Head/Jaw_1/Tongue_1/Tongue_2/Tongue_3
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Neck_1/Neck_2/Neck_3/Head/Jaw_1/Tongue_1/Tongue_2/Tongue_3/Tongue_4
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Neck_1/Neck_2/Neck_3/Head/Jaw_1/Tongue_1/Tongue_2/Tongue_3/Tongue_4/Tongue_4_end
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.L
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.L/UpperArm.L
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.L/UpperArm.L/LowerArm.L
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.L/UpperArm.L/LowerArm.L/Hand.L
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.L/UpperArm.L/LowerArm.L/Hand.L/ForeFinger1.L
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.L/UpperArm.L/LowerArm.L/Hand.L/ForeFinger1.L/ForeFinger2.L
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.L/UpperArm.L/LowerArm.L/Hand.L/ForeFinger1.L/ForeFinger2.L/ForeFinger3.L
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.L/UpperArm.L/LowerArm.L/Hand.L/ForeFinger1.L/ForeFinger2.L/ForeFinger3.L/ForeFinger3.L_end
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.L/UpperArm.L/LowerArm.L/Hand.L/MiddleFinger1.L
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.L/UpperArm.L/LowerArm.L/Hand.L/MiddleFinger1.L/MiddleFinger2.L
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.L/UpperArm.L/LowerArm.L/Hand.L/MiddleFinger1.L/MiddleFinger2.L/MiddleFinger3.L
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.L/UpperArm.L/LowerArm.L/Hand.L/MiddleFinger1.L/MiddleFinger2.L/MiddleFinger3.L/MiddleFinger3.L_end
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.L/UpperArm.L/LowerArm.L/Hand.L/PinkyFinger1.L
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.L/UpperArm.L/LowerArm.L/Hand.L/PinkyFinger1.L/PinkyFinger2.L
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.L/UpperArm.L/LowerArm.L/Hand.L/PinkyFinger1.L/PinkyFinger2.L/PinkyFinger3.L
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.L/UpperArm.L/LowerArm.L/Hand.L/PinkyFinger1.L/PinkyFinger2.L/PinkyFinger3.L/PinkyFinger3.L_end
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.R
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.R/UpperArm.R
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.R/UpperArm.R/LowerArm.R
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.R/UpperArm.R/LowerArm.R/Hand.R
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.R/UpperArm.R/LowerArm.R/Hand.R/ForeFinger1.R
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.R/UpperArm.R/LowerArm.R/Hand.R/ForeFinger1.R/ForeFinger2.R
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.R/UpperArm.R/LowerArm.R/Hand.R/ForeFinger1.R/ForeFinger2.R/ForeFinger3.R
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.R/UpperArm.R/LowerArm.R/Hand.R/ForeFinger1.R/ForeFinger2.R/ForeFinger3.R/ForeFinger3.R_end
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.R/UpperArm.R/LowerArm.R/Hand.R/MiddleFinger1.R
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.R/UpperArm.R/LowerArm.R/Hand.R/MiddleFinger1.R/MiddleFinger2.R
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.R/UpperArm.R/LowerArm.R/Hand.R/MiddleFinger1.R/MiddleFinger2.R/MiddleFinger3.R
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.R/UpperArm.R/LowerArm.R/Hand.R/MiddleFinger1.R/MiddleFinger2.R/MiddleFinger3.R/MiddleFinger3.R_end
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.R/UpperArm.R/LowerArm.R/Hand.R/PinkyFinger1.R
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.R/UpperArm.R/LowerArm.R/Hand.R/PinkyFinger1.R/PinkyFinger2.R
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.R/UpperArm.R/LowerArm.R/Hand.R/PinkyFinger1.R/PinkyFinger2.R/PinkyFinger3.R
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Shoulder.R/UpperArm.R/LowerArm.R/Hand.R/PinkyFinger1.R/PinkyFinger2.R/PinkyFinger3.R/PinkyFinger3.R_end
+    m_Weight: 1
+  - m_Path: RaptorArmature/Root/Spine_1/Tail_1
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Tail_1/Tail_2
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Tail_1/Tail_2/Tail_3
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Tail_1/Tail_2/Tail_3/Tail_4
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5/Tail_6
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5/Tail_6/Tail_7
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5/Tail_6/Tail_7/Tail_8
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5/Tail_6/Tail_7/Tail_8/Tail_9
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5/Tail_6/Tail_7/Tail_8/Tail_9/Tail_10
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Tail_1/Tail_2/Tail_3/Tail_4/Tail_5/Tail_6/Tail_7/Tail_8/Tail_9/Tail_10/Tail_10_end
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Thigh.L
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Thigh.L/Thigh.L_end
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Thigh.R
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Spine_1/Thigh.R/Thigh.R_end
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Tail_IK
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Tail_IK/Tail_IK_end
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Tongue_IK
+    m_Weight: 0
+  - m_Path: RaptorArmature/Root/Tongue_IK/Tongue_IK_end
+    m_Weight: 0
+  - m_Path: Spikes
+    m_Weight: 0
+  - m_Path: Velociraptor_LOD0
+    m_Weight: 0
+  - m_Path: Velociraptor_LOD1
+    m_Weight: 0
+  - m_Path: Velociraptor_LOD2
+    m_Weight: 0
+  - m_Path: Velociraptor_LOD3
+    m_Weight: 0
+  - m_Path: Velociraptor_LOD4
+    m_Weight: 0
+  - m_Path: Velociraptor_LOD5
+    m_Weight: 0

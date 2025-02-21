@@ -43,7 +43,7 @@ public sealed class Gun : MonoBehaviour
     [Header("레이어 마스크"), SerializeField]
     private LayerMask _layerMask;
 
-    [Header("공격 속도(초당 n발)"), SerializeField, Range(float.Epsilon, 100)]
+    [Header("공격 속도(초당 n발)"), SerializeField, Range(Stat.MinAttackSpeed, Stat.MaxAttackSpeed)]
     private float _shotSpeed = 10;
     private float _shotCoolTime = 0;
 
@@ -90,6 +90,11 @@ public sealed class Gun : MonoBehaviour
                 _laserLine.positionCount = 0;
             }
         }
+    }
+
+    public void Set(float attackSpeed)
+    {
+        _shotSpeed = Mathf.Clamp(attackSpeed, Stat.MinAttackSpeed, Stat.MaxAttackSpeed);
     }
 
     public void Recharge()

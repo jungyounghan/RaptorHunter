@@ -78,40 +78,37 @@ public abstract class Controller : MonoBehaviour, IHittable
     private float staminaRate {
         get
         {
-            return _currentStamina / _maxStamina;
+            return _currentStamina / _fullStamina;
         }
     }
 
-    [Header("현재 스태미나"), SerializeField]
-    private float _currentStamina = 0;
-    [Header("스태미나 회복력"), SerializeField, Range(float.Epsilon, byte.MaxValue)]
-    private float _recoverStamina = 10;
-    [Header("스태미나 최대치"), SerializeField, Range(float.Epsilon, byte.MaxValue)]
-    private float _maxStamina = 100;
-    [Header("돌진 기본 비용"), SerializeField, Range(0, 1)]
-    private float _dashCost = 0.001f;
-    [Header("돌진 기본 속도"), SerializeField, Range(float.Epsilon, byte.MaxValue)]
-    private float _dashSpeed = 1;
-    [Header("후진 속도 비율"), SerializeField, Range(0, 1)]
-    private float _reverseRate = 0.5f;
-
+    [Header("스태미나 한도"), Range(Stat.MinFullStamina, Stat.MaxFullStamina)]
+    protected float _fullStamina = 100;
+    protected float _currentStamina = 0;  //현재 스태미나
+    [Header("스태미나 회복 속도"), Range(Stat.MinRecoverStamina, Stat.MaxRecoverStamina)]
+    protected float _recoverStamina = 10;
+    [Header("돌진 속도"), Range(Stat.MinDashSpeed, Stat.MaxDashSpeed)]
+    protected float _dashSpeed = 1;
+    [Header("돌진 소모 비용"), Range(Stat.MinDashCost, Stat.MaxDashCost)]
+    protected float _dashCost = 0.001f;
+    [Header("후진 속도 비율"), Range(Stat.MinReverseRate, Stat.MaxReverseRate)]
+    protected float _reverseRate = 0.5f;
     [Header("공격력"), SerializeField]
-    private uint _damage = 1;
+    protected uint _attackDamage = 1;
     [Header("최대 체력"), SerializeField]
-    private uint _maxLife = 10;
-    [Header("현재 체력"), SerializeField]
-    private uint _currentLife = 0;
+    protected uint _fullLife = 10;
+    protected uint _currentLife = 0;      //현재 체력
 
     public bool alive
     {
         get
         {
-            return _currentLife > 0 || _currentLife == _maxLife;
+            return _currentLife > 0 || _currentLife == _fullLife;
         }
     }
 
-    private Action<float, float> _staminaAction = null;
-    private Action<uint, uint, Controller> _lifeAction = null;
+    protected Action<float, float> _staminaAction = null;
+    protected Action<uint, uint, Controller> _lifeAction = null;
 
     private static readonly float CenterDistance = 0.5f;
     private static readonly float LandDistance = 0.5f;
@@ -119,13 +116,13 @@ public abstract class Controller : MonoBehaviour, IHittable
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        if (_currentStamina > _maxStamina)
+        if (_currentStamina > _fullStamina)
         {
-            _currentStamina = _maxStamina;
+            _currentStamina = _fullStamina;
         }
-        if (_currentLife > _maxLife)
+        if (_currentLife > _fullLife)
         {
-            _currentLife = _maxLife;
+            _currentLife = _fullLife;
         }
     }
 #endif
@@ -135,11 +132,6 @@ public abstract class Controller : MonoBehaviour, IHittable
         return Physics.Raycast(getTransform.position + new Vector3(0, CenterDistance, 0), Vector3.down, CenterDistance + LandDistance) || getRigidbody.velocity == Vector3.zero;
     }
 
-    protected uint GetDamage()
-    {
-        return _damage;
-    }
-
     protected float GetMoveSpeed(float direction, bool dash)
     {
         float speed = getNavMeshAgent.speed;
@@ -147,7 +139,7 @@ public abstract class Controller : MonoBehaviour, IHittable
         {
             speed += speed * _dashSpeed * staminaRate;
             _currentStamina -= _currentStamina * _dashCost;
-            _staminaAction?.Invoke(_currentStamina, _maxStamina);
+            _staminaAction?.Invoke(_currentStamina, _fullStamina);
         }
         if(direction < 0)
         {
@@ -174,18 +166,18 @@ public abstract class Controller : MonoBehaviour, IHittable
             else
             {
                 _currentLife = 0;
-                getCharacter.DoHitAction(_maxLife > 0);
+                getCharacter.DoHitAction(_fullLife > 0);
             }
-            _lifeAction?.Invoke(_currentLife, _maxLife, this);
+            _lifeAction?.Invoke(_currentLife, _fullLife, this);
         }
     }
 
     public void Revive()
     {
-        _currentStamina = _maxStamina;
-        _staminaAction?.Invoke(_currentStamina, _maxStamina);
-        _currentLife = _maxLife;
-        _lifeAction?.Invoke(_currentLife, _maxLife, this);
+        _currentStamina = _fullStamina;
+        _staminaAction?.Invoke(_currentStamina, _fullStamina);
+        _currentLife = _fullLife;
+        _lifeAction?.Invoke(_currentLife, _fullLife, this);
         getCharacter.DoReviveAction();
     }
 
@@ -201,16 +193,18 @@ public abstract class Controller : MonoBehaviour, IHittable
 
     protected virtual void Update()
     {
-        if (_currentStamina < _maxStamina)
+        if (_currentStamina < _fullStamina)
         {
             _currentStamina += Time.deltaTime * _recoverStamina;
-            if (_currentStamina > _maxStamina)
+            if (_currentStamina > _fullStamina)
             {
-                _currentStamina = _maxStamina;
+                _currentStamina = _fullStamina;
             }
-            _staminaAction?.Invoke(_currentStamina, _maxStamina);
+            _staminaAction?.Invoke(_currentStamina, _fullStamina);
         }
     }
 
     protected abstract IEnumerator DoProcess();
+
+    public abstract void Set(Stat stat);
 }
