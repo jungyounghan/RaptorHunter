@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullStamina: 100
   recoverStamina: 10
-  defaultSpeed: 3.5
+  walkSpeed: 3.5
   dashSpeed: 1
   dashCost: 0.001
   reverseRate: 0.5
-  damage: 1
-  fullLife: 10
+  attackSpeed: 1
+  attackDamage: 25
+  fullLife: 100

@@ -21,12 +21,13 @@ public sealed class GameManager : MonoBehaviour
     [SerializeField]
     private Spawner _allySpawner;
     [SerializeField]
+    private Spawner _enemySpawner;
+    [SerializeField]
     private List<GameObject> _props = new List<GameObject>();
 
-    [SerializeField]
+    private uint _killCount = 0;
     private ManualController _allyController;
-    [SerializeField]
-    private List<AutomaticController> _enemyController = new List<AutomaticController>();
+    private List<AutomaticController> _enemyControllers = new List<AutomaticController>();
 
 #if UNITY_EDITOR
     private void OnValidate()
@@ -37,26 +38,61 @@ public sealed class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        SpawnAlly(Character.Raptor);
+        SpawnAlly(Character.Hunter);
+        SpawnEnemy(Character.Raptor);
         SetProps(true);
     }
 
     private void SpawnAlly(bool human)
     {
-        Character character = human == true ? _allySpawner?.Get(_hunterCharacter): _allySpawner?.Get(_raptorCharacter);
-        if(character != null)
+        if (_allySpawner != null)
         {
-            _allyController = character.gameObject.AddComponent<ManualController>();
-            if(_allyController != null)
+            Character character = human == true ? _allySpawner.Get(_hunterCharacter) : _allySpawner.Get(_raptorCharacter);
+            if (character != null)
             {
+                bool success = character.gameObject.TryGetComponent(out _allyController);
+                if (success == false)
+                {
+                    _allyController = character.gameObject.AddComponent<ManualController>();
+                }
                 _allyController.Initialize(SetStamina, SetLife);
+                //_allyController.Set();
                 _allyController.Revive();
+                if (_cinemachineVirtualCamera != null)
+                {
+                    Transform transform = character.transform;
+                    _cinemachineVirtualCamera.Follow = transform;
+                    _cinemachineVirtualCamera.LookAt = transform;
+                }
             }
-            if(_cinemachineVirtualCamera != null)
+        }
+    }
+
+    private void SpawnEnemy(bool human)
+    {
+        if(_enemySpawner != null)
+        {
+            foreach(AutomaticController enemyController in _enemyControllers)
             {
-                Transform transform = character.transform;
-                _cinemachineVirtualCamera.Follow = transform;
-                _cinemachineVirtualCamera.LookAt = transform;
+                if(enemyController.gameObject.activeSelf == false && enemyController.IsHuman() == human)
+                {
+                    _enemySpawner.Get(enemyController.character);
+                    enemyController.Revive();
+                    return;
+                }
+            }
+            Character character = human == true ? _enemySpawner.Get(_hunterCharacter) : _enemySpawner.Get(_raptorCharacter);
+            if (character != null)
+            {
+                AutomaticController automaticController = character.gameObject.GetComponent<AutomaticController>();
+                if(automaticController == null)
+                {
+                    automaticController = character.gameObject.AddComponent<AutomaticController>();
+                }
+                automaticController.Initialize(SetLife);
+                //automaticController.Set();
+                automaticController.Revive();
+                _enemyControllers.Add(automaticController);
             }
         }
     }
@@ -73,18 +109,21 @@ public sealed class GameManager : MonoBehaviour
     }
     private void SetStamina(float current, float max)
     {
-        _state.SetStamina(current, max);
+        _state?.SetStamina(current, max);
     }
 
     private void SetLife(uint current, uint max, Controller controller)
     {
         if (controller == _allyController)
         {
-            _state.SetLife(current, max);
+            _state?.SetLife(current, max);
         }
         else
         {
-
+            if(controller.alive == false)
+            {
+                _state?.SetKill(++_killCount);
+            }
         }
     }
 }

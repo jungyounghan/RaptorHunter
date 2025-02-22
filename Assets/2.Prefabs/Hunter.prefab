@@ -5391,7 +5391,7 @@ GameObject:
   - component: {fileID: 4957274268594971335}
   - component: {fileID: 7167264722211762597}
   - component: {fileID: 2769456016316992355}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Hunter
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5458,7 +5458,7 @@ Rigidbody:
   m_GameObject: {fileID: 672905108992064825}
   serializedVersion: 4
   m_Mass: 85
-  m_Drag: 50
+  m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -5665,6 +5665,7 @@ MonoBehaviour:
   _spineConstraint: {fileID: 3899637340174425978}
   _headConstraint: {fileID: 3000586919229720740}
   _gun: {fileID: 5649450613909170267}
+  _leftGrasp: 1
 --- !u!1 &687115099686805776
 GameObject:
   m_ObjectHideFlags: 0
@@ -7099,7 +7100,7 @@ MonoBehaviour:
       m_Item7:
         transform: {fileID: 0}
         weight: 0
-    m_Offset: {x: -36, y: 0, z: 23}
+    m_Offset: {x: -10, y: 0, z: 23}
     m_MinLimit: -180
     m_MaxLimit: 100
     m_AimAxis: 3
@@ -8104,7 +8105,7 @@ Transform:
   m_GameObject: {fileID: 4464545598632691718}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 2}
+  m_LocalPosition: {x: 0, y: 1.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -34,8 +34,30 @@ public sealed class Spawner: MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = _gizmoColor;
-        Gizmos.matrix = Matrix4x4.TRS(getTransform.position, getTransform.rotation, Vector3.one);
-        Gizmos.DrawWireCube(Vector3.zero, getTransform.lossyScale);
+        Vector3 pointSize = getTransform.lossyScale * 0.5f;
+        pointSize.x = Mathf.Abs(pointSize.x);
+        pointSize.y = Mathf.Abs(pointSize.y);
+        pointSize.z = Mathf.Abs(pointSize.z);
+        Vector3 point1 = getTransform.TransformPoint(-pointSize);
+        Vector3 point2 = getTransform.TransformPoint(new Vector3(pointSize.x, -pointSize.y, -pointSize.z));
+        Vector3 point3 = getTransform.TransformPoint(new Vector3(pointSize.x, -pointSize.y, pointSize.z));
+        Vector3 point4 = getTransform.TransformPoint(new Vector3(-pointSize.x, -pointSize.y, pointSize.z));
+        Vector3 point5 = getTransform.TransformPoint(new Vector3(-pointSize.x, pointSize.y, -pointSize.z));
+        Vector3 point6 = getTransform.TransformPoint(new Vector3(pointSize.x, pointSize.y, -pointSize.z));
+        Vector3 point7 = getTransform.TransformPoint(pointSize);
+        Vector3 point8 = getTransform.TransformPoint(new Vector3(-pointSize.x, pointSize.y, pointSize.z));
+        Gizmos.DrawLine(point1, point2);
+        Gizmos.DrawLine(point2, point3);
+        Gizmos.DrawLine(point3, point4);
+        Gizmos.DrawLine(point4, point1);
+        Gizmos.DrawLine(point5, point6);
+        Gizmos.DrawLine(point6, point7);
+        Gizmos.DrawLine(point7, point8);
+        Gizmos.DrawLine(point8, point5);
+        Gizmos.DrawLine(point1, point5);
+        Gizmos.DrawLine(point2, point6);
+        Gizmos.DrawLine(point3, point7);
+        Gizmos.DrawLine(point4, point8);
     }
 
 #endif

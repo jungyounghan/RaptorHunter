@@ -7,7 +7,6 @@ using UnityEngine.Animations.Rigging;
 public sealed class HunterCharacter : Character
 { 
     private readonly int JumpHashIndex = Animator.StringToHash("Jump");
-    private readonly int HitHashIndex = Animator.StringToHash("Hit");
     private readonly int DieHashIndex = Animator.StringToHash("Die");
 
     [Header("Á¶ÁØ Á¦¾à")]
@@ -19,17 +18,23 @@ public sealed class HunterCharacter : Character
     [Header("ÃÑ"), SerializeField]
     private Gun _gun = null;
 
+    [Header("¿Þ¼Õ ¾Ç·Â") ,SerializeField]
+    private float _leftGrasp = 1.0f;
+
     private void OnAnimatorIK(int layerIndex)
     {
-        getAnimator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1.0f);
-        getAnimator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1.0f);
-        if (_gun != null)
+        if (_leftGrasp == 1)
         {
-            Gun.Handle handle = _gun.GetMagazineHandle();
-            if (handle != null)
+            getAnimator.SetIKPositionWeight(AvatarIKGoal.LeftHand, _leftGrasp);
+            getAnimator.SetIKRotationWeight(AvatarIKGoal.LeftHand, _leftGrasp);
+            if (_gun != null)
             {
-                getAnimator.SetIKPosition(AvatarIKGoal.LeftHand, handle.position);
-                getAnimator.SetIKRotation(AvatarIKGoal.LeftHand, handle.rotation);
+                Gun.Handle handle = _gun.GetMagazineHandle();
+                if (handle != null)
+                {
+                    getAnimator.SetIKPosition(AvatarIKGoal.LeftHand, handle.position);
+                    getAnimator.SetIKRotation(AvatarIKGoal.LeftHand, handle.rotation);
+                }
             }
         }
     }
@@ -43,6 +48,7 @@ public sealed class HunterCharacter : Character
     public override void DoReviveAction()
     {
         base.DoReviveAction();
+        _leftGrasp = 1;
         if (_spineConstraint != null)
         {
             _spineConstraint.weight = 1;
@@ -67,11 +73,13 @@ public sealed class HunterCharacter : Character
     {
         if (dead == false)
         {
-            getAnimator.SetTrigger(HitHashIndex);
+            //À¹ È¿°úÀ½
         }
         else
         {
-            getAnimator.SetTrigger(DieHashIndex);
+            _leftGrasp = 0;
+            getAnimator.SetIKPositionWeight(AvatarIKGoal.LeftHand, _leftGrasp);
+            getAnimator.SetIKRotationWeight(AvatarIKGoal.LeftHand, _leftGrasp);
             if(_spineConstraint != null)
             {
                 _spineConstraint.weight = 0;
@@ -80,6 +88,7 @@ public sealed class HunterCharacter : Character
             {
                 _headConstraint.weight = 0;
             }
+            getAnimator.SetTrigger(DieHashIndex);
         }
     }
 
@@ -98,5 +107,10 @@ public sealed class HunterCharacter : Character
     public override void Recharge()
     {
         _gun?.Recharge();
+    }
+
+    public override bool IsHuman()
+    {
+        return Hunter;
     }
 }

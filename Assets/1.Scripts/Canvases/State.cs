@@ -58,7 +58,11 @@ public class State : MonoBehaviour
     [SerializeField]
     private Gage _staminaGage;
     [SerializeField]
+    private Text _waveText;
+    [SerializeField]
     private Text _timerText;
+    [SerializeField]
+    private Text _killText;
 
     public void SetLife(uint current, uint max)
     {
@@ -69,7 +73,12 @@ public class State : MonoBehaviour
     {
         _staminaGage.Set(current, max);
     }
-    
+
+    public void SetWave(uint number)
+    {
+
+    }
+
     public void SetTimer(float time)
     {
         if(_timerText != null)
@@ -79,8 +88,9 @@ public class State : MonoBehaviour
         }
     }
 
-    public void SetRound(int round)
+    public void SetKill(uint count)
     {
 
     }
+
 }

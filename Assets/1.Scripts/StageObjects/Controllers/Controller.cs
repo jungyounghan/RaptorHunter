@@ -32,7 +32,7 @@ public abstract class Controller : MonoBehaviour, IHittable
 
     private Character _character = null;
 
-    protected Character getCharacter {
+    public Character character {
         get
         {
             if (_hasCharacter == false)
@@ -75,7 +75,7 @@ public abstract class Controller : MonoBehaviour, IHittable
         }
     }
 
-    private float staminaRate {
+    protected float staminaRate {
         get
         {
             return _currentStamina / _fullStamina;
@@ -84,7 +84,8 @@ public abstract class Controller : MonoBehaviour, IHittable
 
     [Header("스태미나 한도"), Range(Stat.MinFullStamina, Stat.MaxFullStamina)]
     protected float _fullStamina = 100;
-    protected float _currentStamina = 0;  //현재 스태미나
+    [Header("현재 스태미나")]
+    protected float _currentStamina = 0;
     [Header("스태미나 회복 속도"), Range(Stat.MinRecoverStamina, Stat.MaxRecoverStamina)]
     protected float _recoverStamina = 10;
     [Header("돌진 속도"), Range(Stat.MinDashSpeed, Stat.MaxDashSpeed)]
@@ -97,7 +98,8 @@ public abstract class Controller : MonoBehaviour, IHittable
     protected uint _attackDamage = 1;
     [Header("최대 체력"), SerializeField]
     protected uint _fullLife = 10;
-    protected uint _currentLife = 0;      //현재 체력
+    [Header("현재 체력"), SerializeField]
+    protected uint _currentLife = 0;
 
     public bool alive
     {
@@ -106,9 +108,6 @@ public abstract class Controller : MonoBehaviour, IHittable
             return _currentLife > 0 || _currentLife == _fullLife;
         }
     }
-
-    protected Action<float, float> _staminaAction = null;
-    protected Action<uint, uint, Controller> _lifeAction = null;
 
     private static readonly float CenterDistance = 0.5f;
     private static readonly float LandDistance = 0.5f;
@@ -132,57 +131,14 @@ public abstract class Controller : MonoBehaviour, IHittable
         return Physics.Raycast(getTransform.position + new Vector3(0, CenterDistance, 0), Vector3.down, CenterDistance + LandDistance) || getRigidbody.velocity == Vector3.zero;
     }
 
-    protected float GetMoveSpeed(float direction, bool dash)
+    public bool IsHuman()
     {
-        float speed = getNavMeshAgent.speed;
-        if(dash == true)
-        {
-            speed += speed * _dashSpeed * staminaRate;
-            _currentStamina -= _currentStamina * _dashCost;
-            _staminaAction?.Invoke(_currentStamina, _fullStamina);
-        }
-        if(direction < 0)
-        {
-            speed *= _reverseRate;
-        }
-        return speed;
-    }
-
-    public void Initialize(Action<float, float> staminaAction, Action<uint, uint, Controller> lifeAction)
-    {
-        _staminaAction = staminaAction;
-        _lifeAction = lifeAction;
-    }
-
-    public void Hit(Vector3 origin, Vector3 direction, uint damage)
-    {
-        if (alive == true)
-        {
-            if (_currentLife > damage)
-            {
-                _currentLife -= damage;
-                getCharacter.DoHitAction(false);
-            }
-            else
-            {
-                _currentLife = 0;
-                getCharacter.DoHitAction(_fullLife > 0);
-            }
-            _lifeAction?.Invoke(_currentLife, _fullLife, this);
-        }
-    }
-
-    public void Revive()
-    {
-        _currentStamina = _fullStamina;
-        _staminaAction?.Invoke(_currentStamina, _fullStamina);
-        _currentLife = _fullLife;
-        _lifeAction?.Invoke(_currentLife, _fullLife, this);
-        getCharacter.DoReviveAction();
+        return character.IsHuman();
     }
 
     protected virtual void OnEnable()
     {
+        getNavMeshAgent.enabled = false;
         StartCoroutine(DoProcess());
     }
 
@@ -191,20 +147,11 @@ public abstract class Controller : MonoBehaviour, IHittable
         StopAllCoroutines();
     }
 
-    protected virtual void Update()
-    {
-        if (_currentStamina < _fullStamina)
-        {
-            _currentStamina += Time.deltaTime * _recoverStamina;
-            if (_currentStamina > _fullStamina)
-            {
-                _currentStamina = _fullStamina;
-            }
-            _staminaAction?.Invoke(_currentStamina, _fullStamina);
-        }
-    }
-
     protected abstract IEnumerator DoProcess();
 
     public abstract void Set(Stat stat);
+
+    public abstract void Hit(Vector3 origin, Vector3 direction, uint damage);
+
+    public abstract void Revive();
 }

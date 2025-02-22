@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -13,9 +14,20 @@ public sealed class ManualController : Controller
 
     private static readonly float AimDistance = 5;
 
-    protected override void Update()
+    private Action<float, float> _staminaAction = null;
+    private Action<uint, uint, Controller> _lifeAction = null;
+
+    private void Update()
     {
-        base.Update();
+        if (_currentStamina < _fullStamina)
+        {
+            _currentStamina += Time.deltaTime * _recoverStamina;
+            if (_currentStamina > _fullStamina)
+            {
+                _currentStamina = _fullStamina;
+            }
+            _staminaAction?.Invoke(_currentStamina, _fullStamina);
+        }
         if (alive == true)
         {
             Camera camera = Camera.main;
@@ -29,14 +41,14 @@ public sealed class ManualController : Controller
                 {
                     point = hit.point;
                 }
-                getCharacter.LookAt(point);
+                character.LookAt(point);
             }
             bool attack = Input.GetButton(AttackKey);
             if(attack == true)
             {
-                getCharacter.DoAttackAction(_attackDamage);
+                character.DoAttackAction(_attackDamage);
             }
-            getCharacter.Recharge();
+            character.Recharge();
         }
     }
 
@@ -47,14 +59,24 @@ public sealed class ManualController : Controller
             if (alive == true)
             {
                 getNavMeshAgent.enabled = IsGrounded();
-                if (getNavMeshAgent.enabled == true)
+                if (getNavMeshAgent.enabled == true && getNavMeshAgent.isOnNavMesh == true)
                 {
                     bool dash = Input.GetButton(DashKey);
                     float walk = Input.GetAxis(VerticalKey);
                     float turn = Input.GetAxis(HorizontalKey);
                     float deltaTime = Time.deltaTime; ;
                     Vector2 direction = new Vector2(turn, walk);
-                    float speed = GetMoveSpeed(direction.y, dash);
+                    float speed = getNavMeshAgent.speed;
+                    if (dash == true)
+                    {
+                        speed += speed * _dashSpeed * staminaRate;
+                        _currentStamina -= _currentStamina * _dashCost;
+                        _staminaAction?.Invoke(_currentStamina, _fullStamina);
+                    }
+                    if (direction.y < 0)
+                    {
+                        speed *= _reverseRate;
+                    }
                     Vector3 position = getTransform.position;
                     Vector3 forward = getTransform.forward;
                     Quaternion rotation = getTransform.rotation;
@@ -62,18 +84,18 @@ public sealed class ManualController : Controller
                     getNavMeshAgent.Move(forward.normalized * direction.y * deltaTime * speed);
                     if (position != getTransform.position || turn != 0)
                     {
-                        getCharacter.DoMoveAction(direction, speed > getNavMeshAgent.speed || (walk < 0 && dash));
+                        character.DoMoveAction(direction, speed > getNavMeshAgent.speed || (walk < 0 && dash));
                     }
                     else
                     {
-                        getCharacter.DoStopAction();
+                        character.DoStopAction();
                     }
                 }
                 else
                 {
-                    getCharacter.DoJumpAction();
+                    character.DoJumpAction();
                     yield return new WaitUntil(() => IsGrounded());
-                    getCharacter.DoLandAction();
+                    character.DoLandAction();
                 }
             }
             yield return null;
@@ -90,11 +112,45 @@ public sealed class ManualController : Controller
             _dashSpeed = Mathf.Clamp(stat.dashSpeed, Stat.MinDashSpeed, Stat.MaxDashSpeed);
             _dashCost = Mathf.Clamp(stat.dashCost, Stat.MinDashCost, Stat.MaxDashCost);
             _reverseRate = Mathf.Clamp(stat.reverseRate, Stat.MinReverseRate, Stat.MaxReverseRate);
-            getCharacter.Set(stat.attackSpeed);
+            getNavMeshAgent.stoppingDistance = Mathf.Clamp(stat.stoppingDistance, Stat.MinStoppingDistance, Stat.MaxStoppingDistance);
+            character.Set(stat.attackSpeed);
             _attackDamage = stat.attackDamage;
             _fullLife = stat.fullLife;
             _staminaAction?.Invoke(_currentStamina, _fullStamina);
             _lifeAction?.Invoke(_currentLife, _fullLife, this);
         }
+    }
+
+    public override void Hit(Vector3 origin, Vector3 direction, uint damage)
+    {
+        if (alive == true)
+        {
+            if (_currentLife > damage)
+            {
+                _currentLife -= damage;
+                character.DoHitAction(false);
+            }
+            else
+            {
+                _currentLife = 0;
+                character.DoHitAction(_fullLife > 0);
+            }
+            _lifeAction?.Invoke(_currentLife, _fullLife, this);
+        }
+    }
+
+    public override void Revive()
+    {
+        _currentStamina = _fullStamina;
+        _staminaAction?.Invoke(_currentStamina, _fullStamina);
+        _currentLife = _fullLife;
+        _lifeAction?.Invoke(_currentLife, _fullLife, this);
+        character.DoReviveAction();
+    }
+
+    public void Initialize(Action<float, float> staminaAction, Action<uint, uint, Controller> lifeAction)
+    {
+        _staminaAction = staminaAction;
+        _lifeAction = lifeAction;
     }
 }

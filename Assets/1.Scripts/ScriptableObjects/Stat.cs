@@ -36,6 +36,11 @@ public sealed class Stat : ScriptableObject
     //최대 후진 속도 비율
     public const float MaxReverseRate = 1;
 
+    //최소 멈추는 거리
+    public const float MinStoppingDistance = 0;
+    //최대 멈추는 거리
+    public const float MaxStoppingDistance = 10;
+
     //최소 공격 속도
     public const float MinAttackSpeed = 0.1f;
     //최대 공격 속도
@@ -58,6 +63,9 @@ public sealed class Stat : ScriptableObject
 
     [Header("후진 속도 비율"), Range(MinReverseRate, MaxReverseRate)]
     public float reverseRate = 0.5f;
+
+    [Header("멈추는 거리"), Range(MinStoppingDistance, MaxStoppingDistance)]
+    public float stoppingDistance = 1;
 
     [Header("공격 속도"), Range(MinAttackSpeed, MaxAttackSpeed)]
     public float attackSpeed = 1;

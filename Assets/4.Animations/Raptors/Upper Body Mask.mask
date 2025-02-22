@@ -92,7 +92,7 @@ AvatarMask:
   - m_Path: RaptorArmature/Root/Spine_1/Pelvis.R/Hip.R/UpperLeg.R/LowerLeg.R/Ankle.R/Foot.R/PinkyToe1.R/PinkyToe2.R/PinkyToe2.R_end
     m_Weight: 0
   - m_Path: RaptorArmature/Root/Spine_1/Spine_2
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3
     m_Weight: 1
   - m_Path: RaptorArmature/Root/Spine_1/Spine_2/Spine_3/Breast.L

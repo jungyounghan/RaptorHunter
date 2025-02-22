@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -9,12 +10,25 @@ public sealed class AutomaticController : Controller
     [Header("걸음 속도"), Range(Stat.MinWalkSpeed, Stat.MaxWalkSpeed)]
     private float _walkSpeed = 3.5f;
 
-    private enum State
-    {
-
-    }
-
     public Transform target;
+
+    private Action<uint, uint, Controller> _lifeAction = null;
+
+    private void Update()
+    {
+        if (_currentStamina < _fullStamina)
+        {
+            _currentStamina += Time.deltaTime * _recoverStamina;
+            if (_currentStamina > _fullStamina)
+            {
+                _currentStamina = _fullStamina;
+            }
+        }
+        if(alive == true)
+        {
+            character.Recharge();
+        }
+    }
 
     protected override void OnEnable()
     {
@@ -35,11 +49,29 @@ public sealed class AutomaticController : Controller
             if(alive == true)
             {
                 getNavMeshAgent.enabled = IsGrounded();
-                if (target != null && Vector3.Distance(target.position, getTransform.position) <= getNavMeshAgent.stoppingDistance)
+                if (getNavMeshAgent.enabled == true)
                 {
-                    //getCharacter.LookAt();
-                }
+                    if (target != null)
+                    {
+                        Vector3 position = getTransform.position;
+                        Vector3 forward = getTransform.forward;
+                        Quaternion rotation = getTransform.rotation;
+                        getNavMeshAgent.SetDestination(target.position);
+                        yield return null;
+                        if (position != getTransform.position || rotation != getTransform.rotation)
+                        {
+                            character.DoMoveAction(new Vector2(forward.x, forward.z), false);
+                        }
+                        else
+                        {
+                            character.DoStopAction();
+                        }
+                    }
+                    else
+                    {
 
+                    }
+                }
             }
             yield return null;
         }
@@ -56,11 +88,42 @@ public sealed class AutomaticController : Controller
             _dashSpeed = Mathf.Clamp(stat.dashSpeed, Stat.MinDashSpeed, Stat.MaxDashSpeed);
             _dashCost = Mathf.Clamp(stat.dashCost, Stat.MinDashCost, Stat.MaxDashCost);
             _reverseRate = Mathf.Clamp(stat.reverseRate, Stat.MinReverseRate, Stat.MaxReverseRate);
-            getCharacter.Set(stat.attackSpeed);
+            getNavMeshAgent.stoppingDistance = Mathf.Clamp(stat.stoppingDistance, Stat.MinStoppingDistance, Stat.MaxStoppingDistance);
+            character.Set(stat.attackSpeed);
             _attackDamage = stat.attackDamage;
             _fullLife = stat.fullLife;
-            _staminaAction?.Invoke(_currentStamina, _fullStamina);
             _lifeAction?.Invoke(_currentLife, _fullLife, this);
         }
+    }
+
+    public override void Hit(Vector3 origin, Vector3 direction, uint damage)
+    {
+        if (alive == true)
+        {
+            if (_currentLife > damage)
+            {
+                _currentLife -= damage;
+                character.DoHitAction(false);
+            }
+            else
+            {
+                _currentLife = 0;
+                character.DoHitAction(_fullLife > 0);
+            }
+            _lifeAction?.Invoke(_currentLife, _fullLife, this);
+        }
+    }
+
+    public override void Revive()
+    {
+        _currentStamina = _fullStamina;
+        _currentLife = _fullLife;
+        _lifeAction?.Invoke(_currentLife, _fullLife, this);
+        character.DoReviveAction();
+    }
+
+    public void Initialize(Action<uint, uint, Controller> lifeAction)
+    {
+        _lifeAction = lifeAction;
     }
 }

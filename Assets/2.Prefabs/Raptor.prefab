@@ -558,7 +558,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 26
@@ -609,7 +609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Weight: 1
   m_Data:
-    m_ConstrainedObject: {fileID: 2892578858003741049}
+    m_ConstrainedObject: {fileID: 1216167354431734813}
     m_SourceObjects:
       m_Length: 1
       m_Item0:
@@ -636,10 +636,10 @@ MonoBehaviour:
       m_Item7:
         transform: {fileID: 0}
         weight: 0
-    m_Offset: {x: -30, y: 0, z: 0}
-    m_MinLimit: -50
-    m_MaxLimit: 50
-    m_AimAxis: 5
+    m_Offset: {x: 20, y: 0, z: 0}
+    m_MinLimit: -180
+    m_MaxLimit: 30
+    m_AimAxis: 2
     m_UpAxis: 0
     m_WorldUpType: 0
     m_WorldUpObject: {fileID: 0}
@@ -647,7 +647,7 @@ MonoBehaviour:
     m_MaintainOffset: 0
     m_ConstrainedAxes:
       x: 1
-      y: 0
+      y: 1
       z: 1
 --- !u!1 &1362906613184283270
 GameObject:
@@ -1432,7 +1432,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 26
@@ -1487,7 +1487,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 26
@@ -3161,7 +3161,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 26
@@ -3586,7 +3586,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 26
@@ -3986,7 +3986,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 26
@@ -4612,7 +4612,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 26
@@ -5747,12 +5747,12 @@ GameObject:
   - component: {fileID: 2528866175449305646}
   - component: {fileID: 6269943490882235493}
   - component: {fileID: 5249025723469623889}
-  - component: {fileID: 4346857614719254889}
   - component: {fileID: 5045190132343627325}
   - component: {fileID: 5903543326308347804}
   - component: {fileID: 9056601803571800933}
   - component: {fileID: 5913675308402328960}
-  m_Layer: 6
+  - component: {fileID: 1066338902589794530}
+  m_Layer: 0
   m_Name: Raptor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5847,7 +5847,7 @@ Rigidbody:
   m_GameObject: {fileID: 8017954814683394997}
   serializedVersion: 4
   m_Mass: 150
-  m_Drag: 50
+  m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -5865,27 +5865,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &4346857614719254889
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8017954814683394997}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 0.87, y: 1.67, z: 2}
-  m_Center: {x: -0.02, y: 0.84, z: 0.17}
 --- !u!82 &5045190132343627325
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5989,7 +5968,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8017954814683394997}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -6019,7 +5998,6 @@ MonoBehaviour:
   _target: {fileID: 6765038942238633877}
   _walkAudioClips: []
   _runAudioClips: []
-  _attackSpeed: 10
 --- !u!114 &5913675308402328960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6036,6 +6014,29 @@ MonoBehaviour:
   - m_Rig: {fileID: 1581048514742657838}
     m_Active: 1
   m_Effectors: []
+--- !u!136 &1066338902589794530
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8017954814683394997}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.8
+  m_Height: 2.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.4, z: 0}
 --- !u!1 &8062584708447199832
 GameObject:
   m_ObjectHideFlags: 0

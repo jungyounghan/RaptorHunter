@@ -51,7 +51,6 @@ public abstract class Character : MonoBehaviour
 
     private static readonly int MoveHashIndex = Animator.StringToHash("Move");
     private static readonly int TurnHashIndex = Animator.StringToHash("Turn");
-    private static readonly int ExitHashIndex = Animator.StringToHash("Exit");
     private static readonly float LinearInterpolation = 10;
 
     public const bool Hunter = true;
@@ -93,7 +92,7 @@ public abstract class Character : MonoBehaviour
 
     public virtual void DoReviveAction()
     {
-        getAnimator.SetTrigger(ExitHashIndex);
+        getAnimator.Play(0, 0, 0);
     }
 
     public abstract void DoJumpAction();
@@ -165,4 +164,6 @@ public abstract class Character : MonoBehaviour
     public abstract void Set(float attackSpeed);
 
     public abstract void Recharge();
+
+    public abstract bool IsHuman();
 }
