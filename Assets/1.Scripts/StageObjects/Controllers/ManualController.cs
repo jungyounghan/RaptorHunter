@@ -15,7 +15,6 @@ public sealed class ManualController : Controller
     private static readonly float AimDistance = 5;
 
     private Action<float, float> _staminaAction = null;
-    private Action<uint, uint, Controller> _lifeAction = null;
 
     private void Update()
     {
@@ -121,26 +120,13 @@ public sealed class ManualController : Controller
         }
     }
 
-    public override void Hit(Vector3 origin, Vector3 direction, uint damage)
-    {
-        if (alive == true)
-        {
-            if (_currentLife > damage)
-            {
-                _currentLife -= damage;
-                character.DoHitAction(false);
-            }
-            else
-            {
-                _currentLife = 0;
-                character.DoHitAction(_fullLife > 0);
-            }
-            _lifeAction?.Invoke(_currentLife, _fullLife, this);
-        }
-    }
+  
 
     public override void Revive()
     {
+        getCollider.enabled = true;
+        getNavMeshAgent.enabled = false;
+        getRigidbody.isKinematic = false;
         _currentStamina = _fullStamina;
         _staminaAction?.Invoke(_currentStamina, _fullStamina);
         _currentLife = _fullLife;

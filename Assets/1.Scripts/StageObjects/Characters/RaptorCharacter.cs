@@ -1,15 +1,45 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
 /// 조종 가능한 랩터 캐릭터 클래스
 /// </summary>
-public class RaptorCharacter : Character
+public sealed class RaptorCharacter : Character
 {
     private static readonly int AttackActionHashIndex = Animator.StringToHash("AttackAction");
     private static readonly int AttackSpeedHashIndex = Animator.StringToHash("AttackSpeed");
-    private readonly int DieHashIndex = Animator.StringToHash("Die");
 
+    [SerializeField]
+    private List<AudioClip> _attackAudioClips = new List<AudioClip>();
+
+    [Header("이빨과 발톱"), SerializeField]
+    private List<Stinger> stingers = new List<Stinger>();
+
+    [Header("공격 쿨타임"), SerializeField]
     private float _attackCoolTime = 0;
+
+    private void SetStingerDamage(uint damage)
+    {
+        foreach (Stinger stinger in stingers)
+        {
+            if (stinger != null)
+            {
+                stinger.damage = damage;
+            }
+        }
+    }
+
+    public override void DoReviveAction()
+    {
+        base.DoReviveAction();
+        foreach (Stinger stinger in stingers)
+        {
+            if (stinger != null)
+            {
+                //스팅어 리셋
+            }
+        }
+    }
 
     public override void DoJumpAction()
     {
@@ -23,11 +53,12 @@ public class RaptorCharacter : Character
     {
         if (dead == false)
         {
-            //윽 효과음
+            DoHitAction();
         }
         else
         {
-            getAnimator.SetTrigger(DieHashIndex);
+            SetStingerDamage(0);
+            DoDeadAction();
         }
     }
 
@@ -35,8 +66,15 @@ public class RaptorCharacter : Character
     {
         if (_attackCoolTime == 0)
         {
+            int count = _attackAudioClips.Count;
+            if (count > 0)
+            {
+                int index = Random.Range(0, count);
+                PlaySound(_attackAudioClips[index]);
+            }
             getAnimator.SetTrigger(AttackActionHashIndex);
             _attackCoolTime = 1 / getAnimator.GetFloat(AttackSpeedHashIndex);
+            SetStingerDamage(damage);
         }
     }
 
@@ -52,9 +90,10 @@ public class RaptorCharacter : Character
         if (_attackCoolTime > 0)
         {
             _attackCoolTime -= deltaTime;
-            if (_attackCoolTime < 0)
+            if (_attackCoolTime <= 0)
             {
                 _attackCoolTime = 0;
+                SetStingerDamage(0);
             }
         }
     }

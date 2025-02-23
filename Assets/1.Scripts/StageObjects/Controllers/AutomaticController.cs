@@ -12,8 +12,6 @@ public sealed class AutomaticController : Controller
 
     public Transform target;
 
-    private Action<uint, uint, Controller> _lifeAction = null;
-
     private void Update()
     {
         if (_currentStamina < _fullStamina)
@@ -96,26 +94,11 @@ public sealed class AutomaticController : Controller
         }
     }
 
-    public override void Hit(Vector3 origin, Vector3 direction, uint damage)
-    {
-        if (alive == true)
-        {
-            if (_currentLife > damage)
-            {
-                _currentLife -= damage;
-                character.DoHitAction(false);
-            }
-            else
-            {
-                _currentLife = 0;
-                character.DoHitAction(_fullLife > 0);
-            }
-            _lifeAction?.Invoke(_currentLife, _fullLife, this);
-        }
-    }
-
     public override void Revive()
     {
+        getCollider.enabled = true;
+        getNavMeshAgent.enabled = false;
+        getRigidbody.isKinematic = false;
         _currentStamina = _fullStamina;
         _currentLife = _fullLife;
         _lifeAction?.Invoke(_currentLife, _fullLife, this);

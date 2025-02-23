@@ -49,8 +49,17 @@ public abstract class Character : MonoBehaviour
     [SerializeField]
     private List<AudioClip> _runAudioClips = new List<AudioClip>();
 
+    [SerializeField]
+    private List<AudioClip> _hitAudioClips = new List<AudioClip>();
+
+    [SerializeField]
+    private List<AudioClip> _deadAudioClips = new List<AudioClip>();
+
     private static readonly int MoveHashIndex = Animator.StringToHash("Move");
     private static readonly int TurnHashIndex = Animator.StringToHash("Turn");
+    private static readonly int HitHashIndex = Animator.StringToHash("Hit");
+    private static readonly int DieHashIndex = Animator.StringToHash("Die");
+
     private static readonly float LinearInterpolation = 10;
 
     public const bool Hunter = true;
@@ -82,6 +91,28 @@ public abstract class Character : MonoBehaviour
         getAudioSource.Play();
     }
 
+    protected void DoHitAction()
+    {
+        int count = _hitAudioClips.Count;
+        if(count > 0)
+        {
+            int index = Random.Range(0, count);
+            PlaySound(_hitAudioClips[index]);
+        }
+        getAnimator.SetTrigger(HitHashIndex);
+    }
+
+    protected void DoDeadAction()
+    {
+        int count = _deadAudioClips.Count;
+        if (count > 0)
+        {
+            int index = Random.Range(0, count);
+            PlaySound(_deadAudioClips[index]);
+        }
+        getAnimator.SetBool(DieHashIndex, true);
+    }
+
     public virtual void LookAt(Vector3 position)
     {
         if (_target != null)
@@ -92,7 +123,7 @@ public abstract class Character : MonoBehaviour
 
     public virtual void DoReviveAction()
     {
-        getAnimator.Play(0, 0, 0);
+        getAnimator.SetBool(DieHashIndex, false);
     }
 
     public abstract void DoJumpAction();

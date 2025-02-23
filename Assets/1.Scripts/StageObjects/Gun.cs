@@ -145,10 +145,19 @@ public sealed class Gun : MonoBehaviour
             if (Physics.Raycast(position - forward, forward, out RaycastHit hit, Mathf.Infinity, _layerMask))
             {
                 ShowShotEffect(hit.point);
-                IHittable hittable = hit.collider.GetComponent<IHittable>();
-                if(hittable != null)
+                Transform transform = hit.collider.transform;
+                while(transform != null)
                 {
-                    hittable.Hit(hit.point, forward, damage);
+                    IHittable hittable = transform.GetComponent<IHittable>();
+                    if (hittable != null)
+                    {
+                        hittable.Hit(hit.point, forward, damage);
+                        break;
+                    }
+                    else
+                    {
+                        transform = transform.parent;
+                    }
                 }
             }
             else

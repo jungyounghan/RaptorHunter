@@ -7,7 +7,6 @@ using UnityEngine.Animations.Rigging;
 public sealed class HunterCharacter : Character
 { 
     private readonly int JumpHashIndex = Animator.StringToHash("Jump");
-    private readonly int DieHashIndex = Animator.StringToHash("Die");
 
     [Header("조준 제약")]
     [SerializeField]
@@ -39,6 +38,20 @@ public sealed class HunterCharacter : Character
         }
     }
 
+    private void SetConstraint(bool active)
+    {
+        float value = active == true ? 1 : 0;
+        _leftGrasp = value;
+        if (_spineConstraint != null)
+        {
+            _spineConstraint.weight = value;
+        }
+        if (_headConstraint != null)
+        {
+            _headConstraint.weight = value;
+        }
+    }
+
     public override void LookAt(Vector3 position)
     {
         base.LookAt(position);
@@ -48,15 +61,7 @@ public sealed class HunterCharacter : Character
     public override void DoReviveAction()
     {
         base.DoReviveAction();
-        _leftGrasp = 1;
-        if (_spineConstraint != null)
-        {
-            _spineConstraint.weight = 1;
-        }
-        if (_headConstraint != null)
-        {
-            _headConstraint.weight = 1;
-        }
+        SetConstraint(true);
     }
 
     public override void DoJumpAction()
@@ -73,22 +78,12 @@ public sealed class HunterCharacter : Character
     {
         if (dead == false)
         {
-            //윽 효과음
+            DoHitAction();
         }
         else
         {
-            _leftGrasp = 0;
-            getAnimator.SetIKPositionWeight(AvatarIKGoal.LeftHand, _leftGrasp);
-            getAnimator.SetIKRotationWeight(AvatarIKGoal.LeftHand, _leftGrasp);
-            if(_spineConstraint != null)
-            {
-                _spineConstraint.weight = 0;
-            }
-            if (_headConstraint != null)
-            {
-                _headConstraint.weight = 0;
-            }
-            getAnimator.SetTrigger(DieHashIndex);
+            DoDeadAction();
+            SetConstraint(false);
         }
     }
 

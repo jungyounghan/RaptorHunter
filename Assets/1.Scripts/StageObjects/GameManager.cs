@@ -38,7 +38,7 @@ public sealed class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        SpawnAlly(Character.Hunter);
+        SpawnAlly(Character.Raptor);
         SpawnEnemy(Character.Raptor);
         SetProps(true);
     }

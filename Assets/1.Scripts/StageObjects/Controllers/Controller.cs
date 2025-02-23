@@ -7,6 +7,7 @@ using UnityEngine.AI;
 /// 특정 플레이어 객체를 조종할 수 있는 추상 컨트롤러 클래스 
 /// </summary>
 [RequireComponent(typeof(Character))]
+[RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(NavMeshAgent))]
 [DisallowMultipleComponent]
@@ -40,6 +41,22 @@ public abstract class Controller : MonoBehaviour, IHittable
                 _hasCharacter = TryGetComponent(out _character);
             }
             return _character;
+        }
+    }
+
+    private bool _hasCollider = false;
+
+    private Collider _collider = null;
+
+    protected Collider getCollider {
+
+        get
+        {
+            if (_hasCollider == false)
+            {
+                _hasCollider = TryGetComponent(out _collider);
+            }
+            return _collider;
         }
     }
 
@@ -109,6 +126,8 @@ public abstract class Controller : MonoBehaviour, IHittable
         }
     }
 
+    protected Action<uint, uint, Controller> _lifeAction = null;
+
     private static readonly float CenterDistance = 0.5f;
     private static readonly float LandDistance = 0.5f;
 
@@ -125,6 +144,27 @@ public abstract class Controller : MonoBehaviour, IHittable
         }
     }
 #endif
+
+    public void Hit(Vector3 origin, Vector3 direction, uint damage)
+    {
+        if (alive == true)
+        {
+            if (_currentLife > damage)
+            {
+                _currentLife -= damage;
+                character.DoHitAction(false);
+            }
+            else
+            {
+                getCollider.enabled = false;
+                getNavMeshAgent.enabled = false;
+                getRigidbody.isKinematic = true;
+                _currentLife = 0;
+                character.DoHitAction(_fullLife > 0);
+            }
+            _lifeAction?.Invoke(_currentLife, _fullLife, this);
+        }
+    }
 
     protected bool IsGrounded()
     {
@@ -150,8 +190,6 @@ public abstract class Controller : MonoBehaviour, IHittable
     protected abstract IEnumerator DoProcess();
 
     public abstract void Set(Stat stat);
-
-    public abstract void Hit(Vector3 origin, Vector3 direction, uint damage);
 
     public abstract void Revive();
 }

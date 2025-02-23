@@ -5,6 +5,10 @@ using UnityEngine;
 /// </summary>
 public interface IHittable
 {
+    public Transform transform {
+        get;
+    }
+
     /// <summary>
     /// 타격을 받는 함수(매개변수:위치, 방향, 세기)
     /// </summary>

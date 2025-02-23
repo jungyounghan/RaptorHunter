@@ -90,7 +90,10 @@ public class State : MonoBehaviour
 
     public void SetKill(uint count)
     {
-
+        if(_killText != null)
+        {
+            _killText.text = count + " Kill";
+        }
     }
 
 }
