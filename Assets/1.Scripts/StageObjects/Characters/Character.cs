@@ -41,19 +41,16 @@ public abstract class Character : MonoBehaviour
     }
 
     [SerializeField]
-    private Transform _target = null;
-
-    [SerializeField]
     private List<AudioClip> _walkAudioClips = new List<AudioClip>();
-
     [SerializeField]
     private List<AudioClip> _runAudioClips = new List<AudioClip>();
-
     [SerializeField]
     private List<AudioClip> _hitAudioClips = new List<AudioClip>();
-
     [SerializeField]
     private List<AudioClip> _deadAudioClips = new List<AudioClip>();
+
+    [SerializeField]
+    private Transform _target = null;
 
     private static readonly int MoveHashIndex = Animator.StringToHash("Move");
     private static readonly int TurnHashIndex = Animator.StringToHash("Turn");
@@ -111,6 +108,15 @@ public abstract class Character : MonoBehaviour
             PlaySound(_deadAudioClips[index]);
         }
         getAnimator.SetBool(DieHashIndex, true);
+    }
+    public void DoMoveAction(Vector2 direction, bool dash)
+    {
+        if (dash == true)
+        {
+            direction *= 2;
+        }
+        getAnimator.SetFloat(TurnHashIndex, direction.x);
+        getAnimator.SetFloat(MoveHashIndex, direction.y);
     }
 
     public virtual void LookAt(Vector3 position)
@@ -181,16 +187,6 @@ public abstract class Character : MonoBehaviour
     public abstract void DoHitAction(bool dead);
 
     public abstract void DoAttackAction(uint damage);
-
-    public void DoMoveAction(Vector2 direction, bool dash)
-    {
-        if (dash == true)
-        {
-            direction *= 2;
-        }
-        getAnimator.SetFloat(TurnHashIndex, direction.x);
-        getAnimator.SetFloat(MoveHashIndex, direction.y);
-    }
 
     public abstract void Set(float attackSpeed);
 

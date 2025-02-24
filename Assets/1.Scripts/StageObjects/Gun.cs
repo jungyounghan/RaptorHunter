@@ -7,6 +7,23 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public sealed class Gun : MonoBehaviour
 {
+    private bool _hasTransform = false;
+
+    private Transform _transform = null;
+
+    private Transform getTransform
+    {
+        get
+        {
+            if (_hasTransform == false)
+            {
+                _hasTransform = true;
+                _transform = transform;
+            }
+            return _transform;
+        }
+    }
+
     private bool _hasAudioSource = false;
 
     private AudioSource _audioSource = null;
@@ -43,14 +60,16 @@ public sealed class Gun : MonoBehaviour
     [Header("레이어 마스크"), SerializeField]
     private LayerMask _layerMask;
 
+    private bool _active = false;
+
     [Header("공격 속도(초당 n발)"), SerializeField, Range(Stat.MinAttackSpeed, Stat.MaxAttackSpeed)]
     private float _shotSpeed = 10;
     private float _shotCoolTime = 0;
 
     private float _bulletCoolTime = 0f;
 
-    private static readonly float BulletDuration = 0.1f;
     private static readonly float FireDistance = 50f;
+    private static readonly float BulletDuration = 0.1f;
 
     public class Handle
     {
@@ -75,21 +94,9 @@ public sealed class Gun : MonoBehaviour
         }
     }
 
-    public void ShowLaserAim()
+    public void LookAt(Vector3 position)
     {
-        if (_laserPoint != null && _laserLine != null)
-        {
-            if (Physics.Raycast(_laserPoint.position - _laserPoint.forward, _laserPoint.forward, out RaycastHit hit, Mathf.Infinity, _layerMask))
-            {
-                _laserLine.positionCount = 2;
-                _laserLine.SetPosition(0, _laserPoint.position);
-                _laserLine.SetPosition(1, hit.point);
-            }
-            else
-            {
-                _laserLine.positionCount = 0;
-            }
-        }
+        getTransform.LookAt(position);
     }
 
     public void Set(float attackSpeed)
@@ -124,9 +131,26 @@ public sealed class Gun : MonoBehaviour
                 _muzzleLine.SetPosition(0, _muzzleLine.transform.position);
             }
         }
+        if (_laserPoint != null && _laserLine != null && Physics.Raycast(_laserPoint.position - _laserPoint.forward, _laserPoint.forward, out RaycastHit hit, Mathf.Infinity, _layerMask))
+        {
+            if (_laserLine.positionCount != 2)
+            {
+                _laserLine.positionCount = 2;
+            }
+            _laserLine.SetPosition(0, _laserPoint.position);
+            _laserLine.SetPosition(1, hit.point);
+        }
     }
 
-    public bool TryShot(uint damage)
+    public void HideLaser()
+    {
+        if (_laserLine != null)
+        {
+            _laserLine.positionCount = 2;
+        }
+    }
+
+    public void Shot(uint damage)
     {
         if (_muzzlePoint != null && _shotCoolTime == 0)
         {
@@ -151,6 +175,15 @@ public sealed class Gun : MonoBehaviour
                     IHittable hittable = transform.GetComponent<IHittable>();
                     if (hittable != null)
                     {
+                        transform = getTransform;
+                        while (transform != null)
+                        {
+                            transform = transform.parent;
+                            if (hittable.transform == transform)
+                            {
+                                return;
+                            }
+                        }
                         hittable.Hit(hit.point, forward, damage);
                         break;
                     }
@@ -166,9 +199,7 @@ public sealed class Gun : MonoBehaviour
             }
             _shotCoolTime = 1 / _shotSpeed;
             _bulletCoolTime = BulletDuration;
-            return true;
         }
-        return false;
     }
 
     public Handle GetMagazineHandle()

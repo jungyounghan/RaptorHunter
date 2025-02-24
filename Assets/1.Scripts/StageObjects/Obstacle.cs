@@ -39,11 +39,6 @@ public class Obstacle : MonoBehaviour, IHittable
     [SerializeField]
     private List<AudioClip> _audioClips = new List<AudioClip>();
 
-    private void Awake()
-    {
-        //코루틴 써서 처음 충돌로 인하여 소리가 나는 것 차단
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         //PlaySound();

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
@@ -38,7 +39,7 @@ public sealed class HunterCharacter : Character
         }
     }
 
-    private void SetConstraint(bool active)
+    private void SetGun(bool active)
     {
         float value = active == true ? 1 : 0;
         _leftGrasp = value;
@@ -50,18 +51,22 @@ public sealed class HunterCharacter : Character
         {
             _headConstraint.weight = value;
         }
+        if(active == false)
+        {
+            _gun?.HideLaser();
+        }
     }
 
     public override void LookAt(Vector3 position)
     {
         base.LookAt(position);
-        _gun?.ShowLaserAim();
+        _gun?.LookAt(position);
     }
 
     public override void DoReviveAction()
     {
         base.DoReviveAction();
-        SetConstraint(true);
+        SetGun(true);
     }
 
     public override void DoJumpAction()
@@ -83,15 +88,13 @@ public sealed class HunterCharacter : Character
         else
         {
             DoDeadAction();
-            SetConstraint(false);
+            SetGun(false);
         }
     }
 
     public override void DoAttackAction(uint damage)
     {
-        if(_gun != null && _gun.TryShot(damage) == true)
-        {
-        }
+        _gun?.Shot(damage);
     }
 
     public override void Set(float attackSpeed)

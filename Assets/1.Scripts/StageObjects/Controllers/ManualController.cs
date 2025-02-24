@@ -12,7 +12,7 @@ public sealed class ManualController : Controller
     private static readonly string DashKey = "Dash";
     private static readonly string AttackKey = "Fire1";
 
-    private static readonly float AimDistance = 5;
+    private static readonly float AimDistance = 2;
 
     private Action<float, float> _staminaAction = null;
 
@@ -35,12 +35,22 @@ public sealed class ManualController : Controller
                 Vector3 position = getTransform.position;
                 Vector3 forward = getTransform.forward;
                 Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-                Vector3 point = ray.origin + ray.direction * AimDistance;
-                if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity) && Vector3.Dot(forward, hit.point - position) > 0)
+                RaycastHit[] raycastHits = Physics.RaycastAll(ray);
+                bool done = false;
+                foreach(RaycastHit raycastHit in raycastHits)
                 {
-                    point = hit.point;
+                    if (Vector3.Dot(forward, raycastHit.point - position) > AimDistance)
+                    {
+                        character.LookAt(raycastHit.point);
+                        done = true;
+                        break;
+                    }
                 }
-                character.LookAt(point);
+                if(done == false)
+                {
+                    //카메라 트랜스폼 - 현재 트랜스폼
+                    //character.LookAt(ray.origin);
+                }
             }
             bool attack = Input.GetButton(AttackKey);
             if(attack == true)
@@ -79,7 +89,7 @@ public sealed class ManualController : Controller
                     Vector3 position = getTransform.position;
                     Vector3 forward = getTransform.forward;
                     Quaternion rotation = getTransform.rotation;
-                    getTransform.rotation = Quaternion.Slerp(rotation, Quaternion.Euler(0, turn, 0) * rotation, deltaTime * getNavMeshAgent.angularSpeed);
+                    getTransform.rotation = Quaternion.Slerp(rotation, Quaternion.Euler(0, turn * speed, 0) * rotation, deltaTime * RotationSpeed);
                     getNavMeshAgent.Move(forward.normalized * direction.y * deltaTime * speed);
                     if (position != getTransform.position || turn != 0)
                     {
@@ -115,8 +125,6 @@ public sealed class ManualController : Controller
             character.Set(stat.attackSpeed);
             _attackDamage = stat.attackDamage;
             _fullLife = stat.fullLife;
-            _staminaAction?.Invoke(_currentStamina, _fullStamina);
-            _lifeAction?.Invoke(_currentLife, _fullLife, this);
         }
     }
 

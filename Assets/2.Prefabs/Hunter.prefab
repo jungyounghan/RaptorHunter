@@ -5624,7 +5624,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 200
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -5645,7 +5645,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7782ff4411a82e94a9e85033bc616378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 8093822702308658129}
   _walkAudioClips:
   - {fileID: 8300000, guid: b993df4a93c1d304ab19d8b2eb88c9a5, type: 3}
   - {fileID: 8300000, guid: 5c9bdbce37b06a24fa6ea793bcfd1907, type: 3}
@@ -5692,6 +5691,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 91d90d87d4a340d4d9f4b28798993a96, type: 3}
   - {fileID: 8300000, guid: b1def8c35ba07fb49bccee81e6bbfb92, type: 3}
   - {fileID: 8300000, guid: b0ffcf6cc5c93b942a7482cd6470415a, type: 3}
+  _target: {fileID: 8093822702308658129}
   _spineConstraint: {fileID: 3899637340174425978}
   _headConstraint: {fileID: 3000586919229720740}
   _gun: {fileID: 5649450613909170267}
@@ -8152,7 +8152,7 @@ GameObject:
   - component: {fileID: 1902997060221405254}
   - component: {fileID: 3000586919229720740}
   m_Layer: 0
-  m_Name: aimHead
+  m_Name: aimGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8187,7 +8187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Weight: 1
   m_Data:
-    m_ConstrainedObject: {fileID: 4113379364431249510}
+    m_ConstrainedObject: {fileID: 0}
     m_SourceObjects:
       m_Length: 1
       m_Item0:
@@ -9751,7 +9751,9 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Positions: []
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1

@@ -2,6 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 게임 UI를 총괄하는 클래스
+/// </summary>
 public class State : MonoBehaviour
 {
     [Serializable]
@@ -63,6 +66,10 @@ public class State : MonoBehaviour
     private Text _timerText;
     [SerializeField]
     private Text _killText;
+    [SerializeField]
+    private Text _noticeText;
+    [SerializeField]
+    private GameObject _popupObject = null;
 
     public void SetLife(uint current, uint max)
     {
@@ -76,15 +83,24 @@ public class State : MonoBehaviour
 
     public void SetWave(uint number)
     {
-
+        if(_waveText != null)
+        {
+            _waveText.text = number + " Wave";
+        }
     }
 
     public void SetTimer(float time)
     {
         if(_timerText != null)
         {
-            //소수점 2번째 자리까지 하기
-            _timerText.text = Mathf.Floor(time).ToString();
+            if (time > 0)
+            {
+                _timerText.text = time.ToString("n2");
+            }
+            else
+            {
+                _timerText.text = "";
+            }
         }
     }
 
@@ -96,4 +112,19 @@ public class State : MonoBehaviour
         }
     }
 
+    public void SetNotice(string text = "")
+    {
+        if(_noticeText != null)
+        {
+            _noticeText.text = text;
+        }
+    }
+
+    public void SetPopup(bool active)
+    {
+        if(_popupObject != null)
+        {
+            _popupObject.SetActive(active);
+        }
+    }
 }

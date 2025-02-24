@@ -1,13 +1,18 @@
+using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 /// <summary>
 /// 조종 가능한 랩터 캐릭터 클래스
 /// </summary>
+[RequireComponent(typeof(LODGroup))]
 public sealed class RaptorCharacter : Character
 {
     private static readonly int AttackActionHashIndex = Animator.StringToHash("AttackAction");
     private static readonly int AttackSpeedHashIndex = Animator.StringToHash("AttackSpeed");
+
+    private bool _hasLODGroup = false;
 
     [SerializeField]
     private List<AudioClip> _attackAudioClips = new List<AudioClip>();
@@ -32,17 +37,16 @@ public sealed class RaptorCharacter : Character
     public override void DoReviveAction()
     {
         base.DoReviveAction();
+        Action action = () => SetStingerDamage(0);
         foreach (Stinger stinger in stingers)
         {
-            if (stinger != null)
-            {
-                //스팅어 리셋
-            }
+            stinger?.Initialize(action);
         }
     }
 
     public override void DoJumpAction()
     {
+
     }
 
     public override void DoLandAction()
@@ -69,7 +73,7 @@ public sealed class RaptorCharacter : Character
             int count = _attackAudioClips.Count;
             if (count > 0)
             {
-                int index = Random.Range(0, count);
+                int index = UnityEngine.Random.Range(0, count);
                 PlaySound(_attackAudioClips[index]);
             }
             getAnimator.SetTrigger(AttackActionHashIndex);

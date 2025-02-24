@@ -1,5 +1,9 @@
+using System;
 using UnityEngine;
 
+/// <summary>
+/// ¿Ãª°, πﬂ≈È ≈¨∑°Ω∫
+/// </summary>
 [RequireComponent(typeof(Collider))]
 public sealed class Stinger : MonoBehaviour
 {
@@ -19,11 +23,12 @@ public sealed class Stinger : MonoBehaviour
         }
     }
 
+    private Action _action;
+
     public uint damage {
         set;
         private get;
     }
-    
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -45,6 +50,7 @@ public sealed class Stinger : MonoBehaviour
                         }
                     }
                     hittable.Hit(getTransform.position, getTransform.forward, damage);
+                    _action?.Invoke();
                     break;
                 }
                 else
@@ -53,5 +59,10 @@ public sealed class Stinger : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void Initialize(Action action)
+    {
+        _action = action;
     }
 }

@@ -130,6 +130,7 @@ public abstract class Controller : MonoBehaviour, IHittable
 
     private static readonly float CenterDistance = 0.5f;
     private static readonly float LandDistance = 0.5f;
+    protected static readonly float RotationSpeed = 40;
 
 #if UNITY_EDITOR
     private void OnValidate()
@@ -145,7 +146,28 @@ public abstract class Controller : MonoBehaviour, IHittable
     }
 #endif
 
-    public void Hit(Vector3 origin, Vector3 direction, uint damage)
+    protected bool IsGrounded()
+    {
+        return Physics.Raycast(getTransform.position + new Vector3(0, CenterDistance, 0), Vector3.down, CenterDistance + LandDistance);
+    }
+
+    public bool IsHuman()
+    {
+        return character.IsHuman();
+    }
+
+    protected virtual void OnEnable()
+    {
+        getNavMeshAgent.enabled = false;
+        StartCoroutine(DoProcess());
+    }
+
+    protected virtual void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
+    public virtual void Hit(Vector3 origin, Vector3 direction, uint damage)
     {
         if (alive == true)
         {
@@ -164,27 +186,6 @@ public abstract class Controller : MonoBehaviour, IHittable
             }
             _lifeAction?.Invoke(_currentLife, _fullLife, this);
         }
-    }
-
-    protected bool IsGrounded()
-    {
-        return Physics.Raycast(getTransform.position + new Vector3(0, CenterDistance, 0), Vector3.down, CenterDistance + LandDistance) || getRigidbody.velocity == Vector3.zero;
-    }
-
-    public bool IsHuman()
-    {
-        return character.IsHuman();
-    }
-
-    protected virtual void OnEnable()
-    {
-        getNavMeshAgent.enabled = false;
-        StartCoroutine(DoProcess());
-    }
-
-    protected virtual void OnDisable()
-    {
-        StopAllCoroutines();
     }
 
     protected abstract IEnumerator DoProcess();
