@@ -5793,7 +5793,7 @@ GameObject:
   - component: {fileID: 9056601803571800933}
   - component: {fileID: 5913675308402328960}
   - component: {fileID: 1066338902589794530}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Raptor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6012,7 +6012,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 7
+  m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -6045,6 +6045,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 399d4fa3cddfd664cb117049933b2554, type: 3}
   - {fileID: 8300000, guid: 655ae2339de0ea14c8adefdcb28e2ffa, type: 3}
   _target: {fileID: 6765038942238633877}
+  _jumpAudioClips:
+  - {fileID: 8300000, guid: 45ee50b23bd6b1a479571694c2b8b723, type: 3}
+  - {fileID: 8300000, guid: 067e3145c4179a4489f66f2ed8ae7d6b, type: 3}
+  - {fileID: 8300000, guid: fb2e0fa0929fab741adcadca5df7c047, type: 3}
+  - {fileID: 8300000, guid: 85e806ed8d23b7849ba2529a911fb786, type: 3}
   _attackAudioClips:
   - {fileID: 8300000, guid: 7fca970127c77274aa160d3f84ca67da, type: 3}
   - {fileID: 8300000, guid: e03663686b3e5c143810c11b3cf11d8d, type: 3}

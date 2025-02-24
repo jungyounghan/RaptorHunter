@@ -100,7 +100,13 @@ public sealed class AutomaticController : Controller
                         }
                         Vector3 position = _target.transform.position;
                         getNavMeshAgent.SetDestination(position);
-                        character.LookAt(position);
+                        character.LookAt(_target.GetAttackPoint());
+                        Debug.DrawRay(GetAttackPoint(), forward * 100);
+                        if (Physics.Raycast(GetAttackPoint(), forward, out RaycastHit raycastHit, Mathf.Infinity, gameObject.layer) == true)
+                        {
+                            Debug.Log(raycastHit.collider.transform.name);
+                            dash = true;
+                        }
                         if (Vector3.Distance(getTransform.position, position) < getNavMeshAgent.stoppingDistance)
                         {
                             Vector3 direction = (position - getTransform.position).normalized;
@@ -112,10 +118,6 @@ public sealed class AutomaticController : Controller
                             if (_target.alive == true)
                             {
                                 character.DoAttackAction(_attackDamage);
-                            }
-                            else
-                            {
-                                //Á¶·ÕÇÏ±â
                             }
                             character.DoStopAction();
                         }

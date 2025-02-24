@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 
 /// <summary>
@@ -12,7 +11,8 @@ public sealed class RaptorCharacter : Character
     private static readonly int AttackActionHashIndex = Animator.StringToHash("AttackAction");
     private static readonly int AttackSpeedHashIndex = Animator.StringToHash("AttackSpeed");
 
-    private bool _hasLODGroup = false;
+    [SerializeField]
+    private List<AudioClip> _jumpAudioClips = new List<AudioClip>();
 
     [SerializeField]
     private List<AudioClip> _attackAudioClips = new List<AudioClip>();
@@ -34,6 +34,17 @@ public sealed class RaptorCharacter : Character
         }
     }
 
+    public override void DoJumpAction()
+    {
+        int count = _jumpAudioClips.Count;
+        if (count > 0)
+        {
+            int index = UnityEngine.Random.Range(0, count);
+            PlaySound(_jumpAudioClips[index]);
+        }
+        base.DoJumpAction();
+    }
+
     public override void DoReviveAction()
     {
         base.DoReviveAction();
@@ -42,15 +53,6 @@ public sealed class RaptorCharacter : Character
         {
             stinger?.Initialize(action);
         }
-    }
-
-    public override void DoJumpAction()
-    {
-
-    }
-
-    public override void DoLandAction()
-    {
     }
 
     public override void DoHitAction(bool dead)

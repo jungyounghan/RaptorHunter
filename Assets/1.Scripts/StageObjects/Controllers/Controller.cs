@@ -156,6 +156,11 @@ public abstract class Controller : MonoBehaviour, IHittable
         return character.IsHuman();
     }
 
+    public Vector3 GetAttackPoint()
+    {
+        return getCollider.bounds.center;
+    }
+
     protected virtual void OnEnable()
     {
         getNavMeshAgent.enabled = false;

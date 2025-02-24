@@ -54,6 +54,7 @@ public abstract class Character : MonoBehaviour
 
     private static readonly int MoveHashIndex = Animator.StringToHash("Move");
     private static readonly int TurnHashIndex = Animator.StringToHash("Turn");
+    private static readonly int JumpHashIndex = Animator.StringToHash("Jump");
     private static readonly int HitHashIndex = Animator.StringToHash("Hit");
     private static readonly int DieHashIndex = Animator.StringToHash("Die");
 
@@ -109,6 +110,7 @@ public abstract class Character : MonoBehaviour
         }
         getAnimator.SetBool(DieHashIndex, true);
     }
+
     public void DoMoveAction(Vector2 direction, bool dash)
     {
         if (dash == true)
@@ -127,15 +129,20 @@ public abstract class Character : MonoBehaviour
         }
     }
 
+    public virtual void DoJumpAction()
+    {
+        getAnimator.SetBool(JumpHashIndex, true);
+    }
+
+    public virtual void DoLandAction()
+    {
+        getAnimator.SetBool(JumpHashIndex, false);
+    }
+
     public virtual void DoReviveAction()
     {
         getAnimator.SetBool(DieHashIndex, false);
     }
-
-    public abstract void DoJumpAction();
-
-    public abstract void DoLandAction();
-
 
     public void DoStopAction()
     {

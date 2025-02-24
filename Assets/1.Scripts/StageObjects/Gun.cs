@@ -60,8 +60,6 @@ public sealed class Gun : MonoBehaviour
     [Header("레이어 마스크"), SerializeField]
     private LayerMask _layerMask;
 
-    private bool _active = false;
-
     [Header("공격 속도(초당 n발)"), SerializeField, Range(Stat.MinAttackSpeed, Stat.MaxAttackSpeed)]
     private float _shotSpeed = 10;
     private float _shotCoolTime = 0;
@@ -146,7 +144,7 @@ public sealed class Gun : MonoBehaviour
     {
         if (_laserLine != null)
         {
-            _laserLine.positionCount = 2;
+            _laserLine.positionCount = 0;
         }
     }
 

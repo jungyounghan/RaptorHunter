@@ -15,10 +15,10 @@ MonoBehaviour:
   fullStamina: 100
   recoverStamina: 10
   walkSpeed: 5
-  dashSpeed: 2
+  dashSpeed: 1.5
   dashCost: 0.001
-  reverseRate: 0.1
+  reverseRate: 0.8
   stoppingDistance: 4
   attackSpeed: 1
   attackDamage: 20
-  fullLife: 200
+  fullLife: 1000

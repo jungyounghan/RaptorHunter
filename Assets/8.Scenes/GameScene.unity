@@ -703,7 +703,7 @@ MonoBehaviour:
   _enemyHunterStat:
   - {fileID: 11400000, guid: 820b67907d851da4c88c68c5f3f9a68c, type: 2}
   _enemyRaptorStat:
-  - {fileID: 11400000, guid: 0261445963d34c049aa6a5d66fe5aeb0, type: 2}
+  - {fileID: 11400000, guid: f4d4111fbf96f284fa2960fe76760d85, type: 2}
   - {fileID: 11400000, guid: 0261445963d34c049aa6a5d66fe5aeb0, type: 2}
   - {fileID: 11400000, guid: 0261445963d34c049aa6a5d66fe5aeb0, type: 2}
   - {fileID: 11400000, guid: 0261445963d34c049aa6a5d66fe5aeb0, type: 2}
@@ -10611,7 +10611,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -314.25}
+  m_SizeDelta: {x: 0, y: -810}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!1 &367824069
 GameObject:
@@ -11838,7 +11838,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -398.05}
+  m_SizeDelta: {x: 0, y: -1026}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1001447956
 GameObject:
@@ -28166,7 +28166,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -335.2}
+  m_SizeDelta: {x: 0, y: -864}
   m_Pivot: {x: 1, y: 0}
 --- !u!1001 &2011757511
 PrefabInstance:

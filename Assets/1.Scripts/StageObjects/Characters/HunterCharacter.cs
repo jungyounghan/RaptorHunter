@@ -7,13 +7,14 @@ using UnityEngine.Animations.Rigging;
 /// </summary>
 public sealed class HunterCharacter : Character
 { 
-    private readonly int JumpHashIndex = Animator.StringToHash("Jump");
-
     [Header("¡∂¡ÿ ¡¶æ‡")]
     [SerializeField]
-    private MultiAimConstraint _spineConstraint = null;
-    [SerializeField]
     private MultiAimConstraint _headConstraint = null;
+    [SerializeField]
+    private MultiAimConstraint _spineConstraint = null;
+
+    [SerializeField]
+    private List<AudioClip> _landAudioClips = new List<AudioClip>();
 
     [Header("√—"), SerializeField]
     private Gun _gun = null;
@@ -43,13 +44,13 @@ public sealed class HunterCharacter : Character
     {
         float value = active == true ? 1 : 0;
         _leftGrasp = value;
+        if(_headConstraint != null)
+        {
+            _headConstraint.weight = value;
+        }
         if (_spineConstraint != null)
         {
             _spineConstraint.weight = value;
-        }
-        if (_headConstraint != null)
-        {
-            _headConstraint.weight = value;
         }
         if(active == false)
         {
@@ -63,20 +64,21 @@ public sealed class HunterCharacter : Character
         _gun?.LookAt(position);
     }
 
+    public override void DoLandAction()
+    {
+        base.DoLandAction();
+        int count = _landAudioClips.Count;
+        if (count > 0)
+        {
+            int index = Random.Range(0, count);
+            PlaySound(_landAudioClips[index]);
+        }
+    }
+
     public override void DoReviveAction()
     {
         base.DoReviveAction();
         SetGun(true);
-    }
-
-    public override void DoJumpAction()
-    {
-        getAnimator.SetBool(JumpHashIndex, true);
-    }
-
-    public override void DoLandAction()
-    {
-        getAnimator.SetBool(JumpHashIndex, false);
     }
 
     public override void DoHitAction(bool dead)

@@ -70,8 +70,9 @@ public sealed class GameManager : MonoBehaviour
     {
         SetProps(true);
         SpawnAlly(GameData.ally);
-        _spawnTimer = StartSpawnTime;
-        _state?.SetNotice("<color=white>전투를 준비하세요.\n 중앙에서 적들이 내려옵니다.</color>");
+        SpawnEnemy(GameData.ally);
+        //_spawnTimer = StartSpawnTime;
+        //_state?.SetNotice("<color=white>전투를 준비하세요.\n 중앙에서 적들이 내려옵니다.</color>");
     }
 
     private void OnEnable()

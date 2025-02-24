@@ -12,7 +12,7 @@ public sealed class ManualController : Controller
     private static readonly string DashKey = "Dash";
     private static readonly string AttackKey = "Fire1";
 
-    private static readonly float AimDistance = 2;
+    private static readonly float AimDistance = 3;
 
     private Action<float, float> _staminaAction = null;
 
@@ -41,15 +41,16 @@ public sealed class ManualController : Controller
                 {
                     if (Vector3.Dot(forward, raycastHit.point - position) > AimDistance)
                     {
-                        character.LookAt(raycastHit.point);
                         done = true;
+                        character.LookAt(raycastHit.point);
                         break;
                     }
                 }
-                if(done == false)
+                if (done == false)
                 {
-                    //카메라 트랜스폼 - 현재 트랜스폼
-                    //character.LookAt(ray.origin);
+                    Plane plane = new Plane(forward, position + (forward * AimDistance));
+                    plane.Raycast(ray, out float distance);
+                    character.LookAt(ray.GetPoint(distance));
                 }
             }
             bool attack = Input.GetButton(AttackKey);
@@ -127,8 +128,6 @@ public sealed class ManualController : Controller
             _fullLife = stat.fullLife;
         }
     }
-
-  
 
     public override void Revive()
     {
