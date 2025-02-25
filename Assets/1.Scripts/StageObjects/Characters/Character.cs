@@ -24,21 +24,10 @@ public abstract class Character : MonoBehaviour
         }
     }
 
-    private bool _hasAudioSource = false;
-
-    private AudioSource _audioSource = null;
-
-    private AudioSource getAudioSource
-    {
-        get
-        {
-            if(_hasAudioSource == false)
-            {
-                _hasAudioSource = TryGetComponent(out _audioSource);
-            }
-            return _audioSource;
-        }
-    }
+    [SerializeField]
+    private AudioSource _voiceAudioSource = null;
+    [SerializeField]
+    private AudioSource _stepAudioSource = null;
 
     [SerializeField]
     private List<AudioClip> _walkAudioClips = new List<AudioClip>();
@@ -68,7 +57,7 @@ public abstract class Character : MonoBehaviour
         if (count > 0)
         {
             int index = Random.Range(0, count);
-            PlaySound(_walkAudioClips[index]);
+            PlayStepSound(_walkAudioClips[index]);
         }
     }
 
@@ -78,7 +67,25 @@ public abstract class Character : MonoBehaviour
         if (count > 0)
         {
             int index = Random.Range(0, count);
-            PlaySound(_runAudioClips[index]);
+            PlayStepSound(_runAudioClips[index]);
+        }
+    }
+
+    protected void PlayStepSound(AudioClip audioClip)
+    {
+        if(_stepAudioSource != null)
+        {
+            _stepAudioSource.clip = audioClip;
+            _stepAudioSource.Play();
+        }
+    }
+
+    protected void PlayVoiceSound(AudioClip audioClip)
+    {
+        if (_voiceAudioSource != null)
+        {
+            _voiceAudioSource.clip = audioClip;
+            _voiceAudioSource.Play();
         }
     }
 
@@ -88,14 +95,8 @@ public abstract class Character : MonoBehaviour
         if (count > 0)
         {
             int index = Random.Range(0, count);
-            PlaySound(_hitAudioClips[index]);
+            PlayVoiceSound(_hitAudioClips[index]);
         }
-    }
-
-    protected void PlaySound(AudioClip audioClip)
-    {
-        getAudioSource.clip = audioClip;
-        getAudioSource.Play();
     }
 
     protected void DoDeadAction()
@@ -104,7 +105,7 @@ public abstract class Character : MonoBehaviour
         if (count > 0)
         {
             int index = Random.Range(0, count);
-            PlaySound(_deadAudioClips[index]);
+            PlayVoiceSound(_deadAudioClips[index]);
         }
         getAnimator.SetBool(DieHashIndex, true);
     }

@@ -7,7 +7,9 @@ using UnityEngine.Animations.Rigging;
 /// </summary>
 public sealed class HunterCharacter : Character
 {
-    private static readonly int HitHashIndex = Animator.StringToHash("Hit");
+    private static readonly int Hit1HashIndex = Animator.StringToHash("Hit1");
+    private static readonly int Hit2HashIndex = Animator.StringToHash("Hit2");
+    private static readonly int HitIndexCount = 2;
 
     [Header("조준 제약")]
     [SerializeField]
@@ -73,8 +75,9 @@ public sealed class HunterCharacter : Character
         if (count > 0)
         {
             int index = Random.Range(0, count);
-            PlaySound(_landAudioClips[index]);
+            PlayStepSound(_landAudioClips[index]);
         }
+        PlaySoundHit();
     }
 
     public override void DoReviveAction()
@@ -88,7 +91,16 @@ public sealed class HunterCharacter : Character
         if (dead == false)
         {
             PlaySoundHit();
-            getAnimator.SetTrigger(HitHashIndex);
+            int index = Random.Range(0, HitIndexCount);
+            switch(index)
+            {
+                case 0:
+                    getAnimator.SetTrigger(Hit1HashIndex);
+                    break;
+                case 1:
+                    getAnimator.SetTrigger(Hit2HashIndex);
+                    break;
+            }
         }
         else
         {

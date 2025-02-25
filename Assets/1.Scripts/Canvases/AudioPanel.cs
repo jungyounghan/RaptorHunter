@@ -23,8 +23,6 @@ public class AudioPanel : MonoBehaviour
     private static readonly string EffectMixer = "Effect";
     private static readonly string BackgroundMixer = "Background";
 
-    private static readonly float Decibel = 20;
-
     private void Awake()
     {
         if (_masterSlider != null)
@@ -43,17 +41,17 @@ public class AudioPanel : MonoBehaviour
 
     private void SetMasterVolume(float volume)
     {
-        _audioMixer.SetFloat(MasterMixer, Mathf.Log10(volume) * Decibel);
+        _audioMixer.SetFloat(MasterMixer, volume);
     }
 
     private void SetEffectVolume(float volume)
     {
-        _audioMixer.SetFloat(EffectMixer, Mathf.Log10(volume) * Decibel);
+        _audioMixer.SetFloat(EffectMixer, volume);
     }
 
     private void SetBackgroundVolume(float volume)
     {
-        _audioMixer.SetFloat(BackgroundMixer, Mathf.Log10(volume) * Decibel);
+        _audioMixer.SetFloat(BackgroundMixer, volume);
     }
 
     public void SetActive(bool value)
@@ -62,15 +60,15 @@ public class AudioPanel : MonoBehaviour
         {
             if(_audioMixer.GetFloat(MasterMixer, out float masterVolume) == true && _masterSlider != null)
             {
-                _masterSlider.value = masterVolume / Decibel;
+                _masterSlider.value = masterVolume;
             }
             if (_audioMixer.GetFloat(EffectMixer, out float effectVolume) == true && _effectSlider != null)
             {
-                _effectSlider.value = effectVolume / Decibel;
+                _effectSlider.value = effectVolume;
             }
             if (_audioMixer.GetFloat(BackgroundMixer, out float backgroundVolume) == true && _backgroundSlider != null)
             {
-                _backgroundSlider.value = backgroundVolume / Decibel;
+                _backgroundSlider.value = backgroundVolume;
             }
         }
         gameObject.SetActive(value);

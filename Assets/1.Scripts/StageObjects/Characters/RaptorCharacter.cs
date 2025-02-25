@@ -47,7 +47,7 @@ public sealed class RaptorCharacter : Character
         if (count > 0)
         {
             int index = UnityEngine.Random.Range(0, count);
-            PlaySound(_jumpAudioClips[index]);
+            PlayVoiceSound(_jumpAudioClips[index]);
         }
         base.DoJumpAction();
     }
@@ -96,7 +96,7 @@ public sealed class RaptorCharacter : Character
             if (count > 0)
             {
                 int index = UnityEngine.Random.Range(0, count);
-                PlaySound(_attackAudioClips[index]);
+                PlayVoiceSound(_attackAudioClips[index]);
             }
             getAnimator.SetTrigger(AttackActionHashIndex);
             _attackCoolTime = 1 / getAnimator.GetFloat(AttackSpeedHashIndex);
