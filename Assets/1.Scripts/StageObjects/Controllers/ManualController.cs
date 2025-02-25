@@ -53,12 +53,18 @@ public sealed class ManualController : Controller
                     character.LookAt(ray.GetPoint(distance));
                 }
             }
-            bool attack = Input.GetButton(AttackKey);
-            if(attack == true)
+            if (Time.timeScale > 0)
             {
-                character.DoAttackAction(_attackDamage);
+                bool attack = Input.GetButton(AttackKey);
+                if (attack == true)
+                {
+                    character.DoAttackAction(_attackDamage);
+                }
             }
-            character.Recharge();
+            if (landing == true)
+            {
+                character.Recharge();
+            }
         }
     }
 
@@ -68,7 +74,7 @@ public sealed class ManualController : Controller
         {
             if (alive == true)
             {
-                getNavMeshAgent.enabled = IsGrounded();
+                getNavMeshAgent.enabled = landing;
                 if (getNavMeshAgent.enabled == true && getNavMeshAgent.isOnNavMesh == true)
                 {
                     bool dash = Input.GetButton(DashKey);
@@ -104,7 +110,7 @@ public sealed class ManualController : Controller
                 else
                 {
                     character.DoJumpAction();
-                    yield return new WaitUntil(() => IsGrounded());
+                    yield return new WaitUntil(() => landing);
                     character.DoLandAction();
                 }
             }
@@ -133,7 +139,6 @@ public sealed class ManualController : Controller
     {
         getCollider.enabled = true;
         getNavMeshAgent.enabled = false;
-        getRigidbody.isKinematic = false;
         _currentStamina = _fullStamina;
         _staminaAction?.Invoke(_currentStamina, _fullStamina);
         _currentLife = _fullLife;

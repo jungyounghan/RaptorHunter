@@ -88,7 +88,6 @@ public sealed class Gun : MonoBehaviour
             _muzzleLine.positionCount = 2;
             _muzzleLine.SetPosition(0, _muzzleLine.transform.position);
             _muzzleLine.SetPosition(1, position);
-            _muzzleLine.enabled = true;
         }
     }
 
@@ -121,12 +120,8 @@ public sealed class Gun : MonoBehaviour
                 _bulletCoolTime = 0;
                 if(_muzzleLine != null)
                 {
-                    _muzzleLine.enabled = false;
+                    _muzzleLine.positionCount = 0;
                 }
-            }
-            else if(_muzzleLine != null)
-            {
-                _muzzleLine.SetPosition(0, _muzzleLine.transform.position);
             }
         }
         if (_laserPoint != null && _laserLine != null && Physics.Raycast(_laserPoint.position - _laserPoint.forward, _laserPoint.forward, out RaycastHit hit, Mathf.Infinity, _layerMask))
@@ -140,11 +135,15 @@ public sealed class Gun : MonoBehaviour
         }
     }
 
-    public void HideLaser()
+    public void HideLine()
     {
         if (_laserLine != null)
         {
             _laserLine.positionCount = 0;
+        }
+        if(_muzzleLine != null)
+        {
+            _muzzleLine.positionCount = 0;
         }
     }
 
@@ -164,7 +163,7 @@ public sealed class Gun : MonoBehaviour
             }
             Vector3 position = _muzzlePoint.position;
             Vector3 forward = _muzzlePoint.forward;
-            if (Physics.Raycast(position - forward, forward, out RaycastHit hit, Mathf.Infinity, _layerMask))
+            if (Physics.Raycast(position - forward, forward, out RaycastHit hit, Mathf.Infinity))
             {
                 ShowShotEffect(hit.point);
                 Transform transform = hit.collider.transform;
@@ -207,5 +206,10 @@ public sealed class Gun : MonoBehaviour
             return new Handle(_gunMagazine.position, _gunMagazine.rotation);
         }
         return null;
+    }
+
+    public Transform GetMuzzleTransform()
+    {
+        return _muzzlePoint;
     }
 }

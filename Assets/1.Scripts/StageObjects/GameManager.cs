@@ -54,7 +54,7 @@ public sealed class GameManager : MonoBehaviour
     private static readonly int EnemyMaxCount = 50;
     private static readonly float StartSpawnTime = 11;
     private static readonly float PrepareSpawnTime = 6f;
-    private static readonly float SpawnWaitingTime = 1.5f;
+    private static readonly float SpawnWaitingTime = 2f;
     private static readonly float SpawnRestingTime = 31;
     private static readonly float PlayEndTime = 2;
     private static readonly float ShowPopupTime = 0.5f;
@@ -70,9 +70,8 @@ public sealed class GameManager : MonoBehaviour
     {
         SetProps(true);
         SpawnAlly(GameData.ally);
-        SpawnEnemy(GameData.ally);
-        //_spawnTimer = StartSpawnTime;
-        //_state?.SetNotice("<color=white>전투를 준비하세요.\n 중앙에서 적들이 내려옵니다.</color>");
+        _spawnTimer = StartSpawnTime;
+        _state?.SetNotice("<color=white>전투를 준비하세요.\n 중앙에서 적들이 내려옵니다.</color>");
     }
 
     private void OnEnable()
@@ -84,7 +83,18 @@ public sealed class GameManager : MonoBehaviour
             {
                 if (_spawnCount > 0)
                 {
-                    SpawnEnemy(!GameData.ally);
+                    switch(GameData.enemy)
+                    {
+                        case GameData.Enemy.Hunter:
+                            SpawnEnemy(Character.Hunter);
+                            break;
+                        case GameData.Enemy.Raptor:
+                            SpawnEnemy(Character.Raptor);
+                            break;
+                        case GameData.Enemy.Mix:
+                            SpawnEnemy(Random.Range(0, 2) == 0 ? Character.Hunter: Character.Raptor);
+                            break;
+                    }
                     _spawnCount--;
                     yield return new WaitForSeconds(SpawnWaitingTime);
                 }
@@ -103,6 +113,11 @@ public sealed class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if(_allyController != null && _allyController.alive == true && Input.GetKeyDown(KeyCode.Escape))
+        {
+            _state?.ShowPopup(true);
+            return;
+        }
         if(_spawnTimer > 0)
         {
             _spawnTimer -= Time.deltaTime;
@@ -144,10 +159,9 @@ public sealed class GameManager : MonoBehaviour
                 IEnumerator DoStopGame()
                 {
                     yield return new WaitForSeconds(PlayEndTime);
-                    Time.timeScale = 0;
                     _state?.SetNotice("<color=red>패배</color>");
                     yield return new WaitForSeconds(ShowPopupTime);
-                    _state?.SetPopup(true);
+                    _state?.ShowPopup(false);
                 }
             }
         }
@@ -193,6 +207,7 @@ public sealed class GameManager : MonoBehaviour
                 if (enemyController.gameObject.activeSelf == false && enemyController.IsHuman() == human)
                 {
                     _enemySpawner.Get(enemyController.character);
+                    enemyController.Set(getStatBundle.GetEnemyStat(human, _waveCount));
                     enemyController.Revive();
                     return;
                 }

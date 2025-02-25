@@ -10,6 +10,10 @@ public sealed class RaptorCharacter : Character
 {
     private static readonly int AttackActionHashIndex = Animator.StringToHash("AttackAction");
     private static readonly int AttackSpeedHashIndex = Animator.StringToHash("AttackSpeed");
+    private static readonly int Hit1HashIndex = Animator.StringToHash("Hit1");
+    private static readonly int Hit2HashIndex = Animator.StringToHash("Hit2");
+    private static readonly int Hit3HashIndex = Animator.StringToHash("Hit3");
+    private static readonly int HitIndexCount = 3;
 
     [SerializeField]
     private List<AudioClip> _jumpAudioClips = new List<AudioClip>();
@@ -18,14 +22,17 @@ public sealed class RaptorCharacter : Character
     private List<AudioClip> _attackAudioClips = new List<AudioClip>();
 
     [Header("ÀÌ»¡°ú ¹ßÅé"), SerializeField]
-    private List<Stinger> stingers = new List<Stinger>();
+    private List<Stinger> _stingers = new List<Stinger>();
+
+    [Header("¸Ó¸® Æ®·£½ºÆû"), SerializeField]
+    private Transform _headTransform = null;
 
     [Header("°ø°Ý ÄðÅ¸ÀÓ"), SerializeField]
     private float _attackCoolTime = 0;
 
     private void SetStingerDamage(uint damage)
     {
-        foreach (Stinger stinger in stingers)
+        foreach (Stinger stinger in _stingers)
         {
             if (stinger != null)
             {
@@ -49,7 +56,7 @@ public sealed class RaptorCharacter : Character
     {
         base.DoReviveAction();
         Action action = () => SetStingerDamage(0);
-        foreach (Stinger stinger in stingers)
+        foreach (Stinger stinger in _stingers)
         {
             stinger?.Initialize(action);
         }
@@ -57,14 +64,27 @@ public sealed class RaptorCharacter : Character
 
     public override void DoHitAction(bool dead)
     {
-        if (dead == false)
-        {
-            DoHitAction();
-        }
-        else
+        if (dead == true)
         {
             SetStingerDamage(0);
             DoDeadAction();
+        }
+        else if (_attackCoolTime == 0)
+        {
+            PlaySoundHit();
+            int index = UnityEngine.Random.Range(0, HitIndexCount);
+            switch(index)
+            {
+                case 0:
+                    getAnimator.SetTrigger(Hit1HashIndex);
+                    break;
+                case 1:
+                    getAnimator.SetTrigger(Hit2HashIndex);
+                    break;
+                case 2:
+                    getAnimator.SetTrigger(Hit3HashIndex);
+                    break;
+            }
         }
     }
 
@@ -107,5 +127,10 @@ public sealed class RaptorCharacter : Character
     public override bool IsHuman()
     {
         return Raptor;
+    }
+
+    public override Transform GetWeaponTransform()
+    {
+        return _headTransform;
     }
 }

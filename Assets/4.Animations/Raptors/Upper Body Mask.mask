@@ -12,11 +12,11 @@ AvatarMask:
   - m_Path: 
     m_Weight: 1
   - m_Path: Cornea
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: RaptorArmature
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: RaptorArmature/Root
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: RaptorArmature/Root/FootIK.L
     m_Weight: 0
   - m_Path: RaptorArmature/Root/FootIK.L/FootIK.L_end

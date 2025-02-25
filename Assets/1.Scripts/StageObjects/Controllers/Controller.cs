@@ -60,22 +60,6 @@ public abstract class Controller : MonoBehaviour, IHittable
         }
     }
 
-    private bool _hasRigidbody = false;
-
-    private Rigidbody _rigidbody = null;
-
-    protected Rigidbody getRigidbody
-    {
-        get
-        {
-            if(_hasRigidbody == false)
-            {
-                _hasRigidbody = TryGetComponent(out _rigidbody);
-            }
-            return _rigidbody;
-        }
-    }
-
     private bool _hasNavMeshAgent = false;
 
     private NavMeshAgent _navMeshAgent = null;
@@ -128,8 +112,9 @@ public abstract class Controller : MonoBehaviour, IHittable
 
     protected Action<uint, uint, Controller> _lifeAction = null;
 
-    private static readonly float CenterDistance = 0.5f;
-    private static readonly float LandDistance = 0.5f;
+    private static readonly string FloorTag = "Floor";
+    protected static readonly string StairTag = "Stair";
+
     protected static readonly float RotationSpeed = 40;
 
 #if UNITY_EDITOR
@@ -146,9 +131,26 @@ public abstract class Controller : MonoBehaviour, IHittable
     }
 #endif
 
-    protected bool IsGrounded()
+    protected bool landing
     {
-        return Physics.Raycast(getTransform.position + new Vector3(0, CenterDistance, 0), Vector3.down, CenterDistance + LandDistance);
+        private set;
+        get;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (alive == true && (other.tag == FloorTag || other.tag == StairTag))
+        {
+            landing = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == FloorTag || other.tag == StairTag)
+        {
+            landing = false;
+        }
     }
 
     public bool IsHuman()
@@ -156,7 +158,7 @@ public abstract class Controller : MonoBehaviour, IHittable
         return character.IsHuman();
     }
 
-    public Vector3 GetAttackPoint()
+    public Vector3 GetHitPoint()
     {
         return getCollider.bounds.center;
     }
@@ -183,9 +185,9 @@ public abstract class Controller : MonoBehaviour, IHittable
             }
             else
             {
+                landing = false;
                 getCollider.enabled = false;
                 getNavMeshAgent.enabled = false;
-                getRigidbody.isKinematic = true;
                 _currentLife = 0;
                 character.DoHitAction(_fullLife > 0);
             }

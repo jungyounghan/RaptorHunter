@@ -39,7 +39,7 @@ public sealed class Stat : ScriptableObject
     //최소 멈추는 거리
     public const float MinStoppingDistance = 0;
     //최대 멈추는 거리
-    public const float MaxStoppingDistance = 10;
+    public const float MaxStoppingDistance = 20;
 
     //최소 공격 속도
     public const float MinAttackSpeed = 0.1f;

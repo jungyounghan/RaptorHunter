@@ -6,7 +6,9 @@ using UnityEngine.Animations.Rigging;
 /// 조종 가능한 사냥꾼 캐릭터 클래스
 /// </summary>
 public sealed class HunterCharacter : Character
-{ 
+{
+    private static readonly int HitHashIndex = Animator.StringToHash("Hit");
+
     [Header("조준 제약")]
     [SerializeField]
     private MultiAimConstraint _headConstraint = null;
@@ -54,7 +56,7 @@ public sealed class HunterCharacter : Character
         }
         if(active == false)
         {
-            _gun?.HideLaser();
+            _gun?.HideLine();
         }
     }
 
@@ -85,7 +87,8 @@ public sealed class HunterCharacter : Character
     {
         if (dead == false)
         {
-            DoHitAction();
+            PlaySoundHit();
+            getAnimator.SetTrigger(HitHashIndex);
         }
         else
         {
@@ -112,5 +115,14 @@ public sealed class HunterCharacter : Character
     public override bool IsHuman()
     {
         return Hunter;
+    }
+
+    public override Transform GetWeaponTransform()
+    {
+        if(_gun != null)
+        {
+            return _gun.GetMuzzleTransform();
+        }
+        return null;
     }
 }

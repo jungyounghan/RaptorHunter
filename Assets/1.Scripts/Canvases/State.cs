@@ -70,6 +70,12 @@ public class State : MonoBehaviour
     private Text _noticeText;
     [SerializeField]
     private GameObject _popupObject = null;
+    [SerializeField]
+    private GameObject _playingObject = null;
+    [SerializeField]
+    private GameObject _gameOverObject = null;
+    [SerializeField]
+    private AudioPanel _audioPanel = null;
 
     public void SetLife(uint current, uint max)
     {
@@ -120,11 +126,62 @@ public class State : MonoBehaviour
         }
     }
 
-    public void SetPopup(bool active)
+    public void ShowPopup(bool playing)
     {
-        if(_popupObject != null)
+        if (_popupObject != null)
         {
-            _popupObject.SetActive(active);
+            if(playing == true)
+            {
+                if(_popupObject.activeInHierarchy == true)
+                {
+                    Time.timeScale = 1;
+                    _popupObject.SetActive(false);
+                }
+                else if(_playingObject != null)
+                {
+                    Time.timeScale = 0;
+                    _popupObject.SetActive(true);
+                    _playingObject.SetActive(true);
+                    if(_audioPanel != null)
+                    {
+                        _audioPanel.SetActive(false);
+                    }
+                }
+            }
+            else
+            {
+                Time.timeScale = 0;
+                _popupObject.SetActive(true);
+            }
+        }
+    }
+
+    public void ShowAudioPanel()
+    {
+        if(_playingObject != null && _playingObject.activeInHierarchy == true && _audioPanel != null)
+        {
+            _playingObject.SetActive(false);
+            _audioPanel.SetActive(true);
+        }
+    }
+
+    public void ReturnPrevious()
+    {
+        if (_popupObject != null && _popupObject.activeInHierarchy == true)
+        {
+            if (_audioPanel != null && _audioPanel.isActiveAndEnabled)
+            {
+                _audioPanel.SetActive(false);
+                if (_playingObject != null)
+                {
+                    _playingObject.SetActive(true);
+                }
+            }
+            else if (_playingObject != null && _playingObject.activeInHierarchy == true)
+            {
+                Time.timeScale = 1;
+                _popupObject.SetActive(false);
+            }
         }
     }
 }

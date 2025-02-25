@@ -4,8 +4,7 @@ using UnityEngine;
 
 public static class GameData
 {
-
-    public static bool ally = Character.Hunter;
+    public static bool ally = Character.Raptor;
 
     public enum Enemy: byte
     {
@@ -14,10 +13,9 @@ public static class GameData
         Mix
     }
 
-    public static Enemy enemy = Enemy.Raptor;
+    public static Enemy enemy = Enemy.Hunter;
 
 
-    //배경음악 설정
-    //효과음 볼륨 설정
+    //효과음 볼륨 Mute 설정할까?
     //랭킹 저장
 }

@@ -55,7 +55,6 @@ public abstract class Character : MonoBehaviour
     private static readonly int MoveHashIndex = Animator.StringToHash("Move");
     private static readonly int TurnHashIndex = Animator.StringToHash("Turn");
     private static readonly int JumpHashIndex = Animator.StringToHash("Jump");
-    private static readonly int HitHashIndex = Animator.StringToHash("Hit");
     private static readonly int DieHashIndex = Animator.StringToHash("Die");
 
     private static readonly float LinearInterpolation = 10;
@@ -83,21 +82,20 @@ public abstract class Character : MonoBehaviour
         }
     }
 
-    protected void PlaySound(AudioClip audioClip)
-    {
-        getAudioSource.clip = audioClip;
-        getAudioSource.Play();
-    }
-
-    protected void DoHitAction()
+    protected void PlaySoundHit()
     {
         int count = _hitAudioClips.Count;
-        if(count > 0)
+        if (count > 0)
         {
             int index = Random.Range(0, count);
             PlaySound(_hitAudioClips[index]);
         }
-        getAnimator.SetTrigger(HitHashIndex);
+    }
+
+    protected void PlaySound(AudioClip audioClip)
+    {
+        getAudioSource.clip = audioClip;
+        getAudioSource.Play();
     }
 
     protected void DoDeadAction()
@@ -200,4 +198,6 @@ public abstract class Character : MonoBehaviour
     public abstract void Recharge();
 
     public abstract bool IsHuman();
+
+    public abstract Transform GetWeaponTransform();
 }

@@ -11,13 +11,12 @@ public sealed class AutomaticController : Controller
     private bool _onStair = false;
     [Header("걸음 속도"), SerializeField, Range(Stat.MinWalkSpeed, Stat.MaxWalkSpeed)]
     private float _walkSpeed = 3.5f;
+    [Header("멈추는 거리"), SerializeField, Range(Stat.MinStoppingDistance, Stat.MaxStoppingDistance)]
+    private float _stoppingDistance = 5;
     [Header("사라지는 시간"), SerializeField, Range(0, 10)]
     private float _fadeTime = 2.0f;
 
     private Controller _target = null;
-
-    private static readonly string Stair = "Stair";
-
 
     private void Update()
     {
@@ -29,7 +28,7 @@ public sealed class AutomaticController : Controller
                 _currentStamina = _fullStamina;
             }
         }
-        if(alive == true)
+        if(alive == true && landing == true)
         {
             character.Recharge();
         }
@@ -37,7 +36,7 @@ public sealed class AutomaticController : Controller
 
     private void OnCollisionStay(Collision collision)
     {
-        if(collision.transform.tag == Stair)
+        if(collision.transform.tag == StairTag)
         {
             _onStair = true;
         }
@@ -45,7 +44,7 @@ public sealed class AutomaticController : Controller
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.transform.tag == Stair)
+        if (collision.transform.tag == StairTag)
         {
             _onStair = false;
         }
@@ -54,12 +53,14 @@ public sealed class AutomaticController : Controller
     protected override void OnEnable()
     {
         _walkSpeed = getNavMeshAgent.speed;
+        _stoppingDistance = getNavMeshAgent.stoppingDistance;
         base.OnEnable();
     }
 
     protected override void OnDisable()
     {
         getNavMeshAgent.speed = _walkSpeed;
+        getNavMeshAgent.stoppingDistance = _stoppingDistance;
         base.OnDisable();
     }
 
@@ -85,31 +86,41 @@ public sealed class AutomaticController : Controller
         {
             if(alive == true)
             {
-                getNavMeshAgent.enabled = _onStair || IsGrounded();
+                getNavMeshAgent.enabled = _onStair || landing;
                 if (getNavMeshAgent.enabled == true && getNavMeshAgent.isOnNavMesh == true)
                 {
                     if (_target != null)
                     {
                         Vector3 forward = getTransform.forward;
-                        bool dash = _onStair;
-                        float speed = _walkSpeed;
-                        if (dash == true)
+                        Vector3 myPosition = getTransform.position;
+                        Vector3 targetPosition = _target.transform.position;
+                        getNavMeshAgent.SetDestination(targetPosition);
+                        bool findAlly = false;
+                        Transform transform = character.GetWeaponTransform();
+                        if (transform != null && Physics.Raycast(transform.position, transform.forward, out RaycastHit raycastHit))
                         {
-                            getNavMeshAgent.speed = _walkSpeed + (speed * _dashSpeed * staminaRate);
-                            _currentStamina -= _currentStamina * _dashCost;
+                            transform = raycastHit.collider.transform;
+                            while (transform != null)
+                            {
+                                IHittable hittable = transform.GetComponent<IHittable>();
+                                if (hittable != null && hittable as AutomaticController)
+                                {
+                                    findAlly = true;
+                                    getNavMeshAgent.stoppingDistance = 0;
+                                    break;
+                                }
+                                transform = transform.parent;
+                            }
                         }
-                        Vector3 position = _target.transform.position;
-                        getNavMeshAgent.SetDestination(position);
-                        character.LookAt(_target.GetAttackPoint());
-                        Debug.DrawRay(GetAttackPoint(), forward * 100);
-                        if (Physics.Raycast(GetAttackPoint(), forward, out RaycastHit raycastHit, Mathf.Infinity, gameObject.layer) == true)
+                        if(findAlly == false)
                         {
-                            Debug.Log(raycastHit.collider.transform.name);
-                            dash = true;
+                            getNavMeshAgent.stoppingDistance = _stoppingDistance;
                         }
-                        if (Vector3.Distance(getTransform.position, position) < getNavMeshAgent.stoppingDistance)
+                        if (Vector3.Distance(myPosition, targetPosition) < getNavMeshAgent.stoppingDistance)
                         {
-                            Vector3 direction = (position - getTransform.position).normalized;
+                            Vector3 point = _target.GetHitPoint();
+                            character.LookAt(point);
+                            Vector3 direction = (targetPosition - getTransform.position).normalized;
                             direction.y = 0; // 수직 회전 방지 (바닥에서만 회전)
                             if (direction != Vector3.zero)
                             {
@@ -123,6 +134,12 @@ public sealed class AutomaticController : Controller
                         }
                         else
                         {
+                            bool dash = _onStair || Vector3.Distance(myPosition, targetPosition) < getNavMeshAgent.stoppingDistance * 2;
+                            if (dash == true)
+                            {
+                                getNavMeshAgent.speed = _walkSpeed + (_walkSpeed * _dashSpeed * staminaRate);
+                                _currentStamina -= _currentStamina * _dashCost;
+                            }
                             character.DoMoveAction(new Vector2(forward.x, forward.z), dash);
                         }
                     }
@@ -134,7 +151,7 @@ public sealed class AutomaticController : Controller
                 else
                 {
                     character.DoJumpAction();
-                    yield return new WaitUntil(() => IsGrounded());
+                    yield return new WaitUntil(() => landing);
                     character.DoLandAction();
                 }
             }
@@ -153,7 +170,8 @@ public sealed class AutomaticController : Controller
             _dashSpeed = Mathf.Clamp(stat.dashSpeed, Stat.MinDashSpeed, Stat.MaxDashSpeed);
             _dashCost = Mathf.Clamp(stat.dashCost, Stat.MinDashCost, Stat.MaxDashCost);
             _reverseRate = Mathf.Clamp(stat.reverseRate, Stat.MinReverseRate, Stat.MaxReverseRate);
-            getNavMeshAgent.stoppingDistance = Mathf.Clamp(stat.stoppingDistance, Stat.MinStoppingDistance, Stat.MaxStoppingDistance);
+            _stoppingDistance = Mathf.Clamp(stat.stoppingDistance, Stat.MinStoppingDistance, Stat.MaxStoppingDistance);
+            getNavMeshAgent.stoppingDistance = _stoppingDistance;
             character.Set(stat.attackSpeed);
             _attackDamage = stat.attackDamage;
             _fullLife = stat.fullLife;
@@ -164,7 +182,6 @@ public sealed class AutomaticController : Controller
     {
         getCollider.enabled = true;
         getNavMeshAgent.enabled = false;
-        getRigidbody.isKinematic = false;
         _currentStamina = _fullStamina;
         _currentLife = _fullLife;
         _lifeAction?.Invoke(_currentLife, _fullLife, this);
