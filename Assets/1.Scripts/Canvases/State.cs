@@ -6,8 +6,25 @@ using TMPro;
 /// <summary>
 /// °ÔÀÓ UI¸¦ ÃÑ°ýÇÏ´Â Å¬·¡½º
 /// </summary>
-public class State : MonoBehaviour
+public sealed class State : MonoBehaviour
 {
+    private bool _hasTransform = false;
+
+    private Transform _transform = null;
+
+    private Transform getTransform {
+        get
+        {
+            if (_hasTransform == false)
+            {
+                _hasTransform = true;
+                _transform = transform;
+            }
+            return _transform;
+        }
+    }
+
+
     [Serializable]
     public struct Gage
     {
@@ -145,10 +162,9 @@ public class State : MonoBehaviour
                     Time.timeScale = 0;
                     _popupObject.SetActive(true);
                     _playingObject.SetActive(true);
-                    if(_audioPanel != null)
-                    {
-                        _audioPanel.SetActive(false);
-                    }
+
+
+                    _audioPanel?.Close();
                 }
             }
             else
@@ -164,7 +180,7 @@ public class State : MonoBehaviour
         if(_playingObject != null && _playingObject.activeInHierarchy == true && _audioPanel != null)
         {
             _playingObject.SetActive(false);
-            _audioPanel.SetActive(true);
+            _audioPanel.Open();
         }
     }
 
@@ -174,7 +190,7 @@ public class State : MonoBehaviour
         {
             if (_audioPanel != null && _audioPanel.isActiveAndEnabled)
             {
-                _audioPanel.SetActive(false);
+                _audioPanel.Close();
                 if (_playingObject != null)
                 {
                     _playingObject.SetActive(true);
@@ -192,7 +208,7 @@ public class State : MonoBehaviour
     {
         if(_sceneLoader != null)
         {
-            SceneLoader sceneLoader = Instantiate(_sceneLoader, transform);
+            SceneLoader sceneLoader = Instantiate(_sceneLoader, getTransform);
             sceneLoader.Load(name);
         }
     }

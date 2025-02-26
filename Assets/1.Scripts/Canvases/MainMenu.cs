@@ -13,13 +13,11 @@ public sealed class MainMenu : MonoBehaviour
     [Header("게임 시작"), SerializeField]
     private GameObject _playObject = null;
 
-    [Header("랭킹")]
     [SerializeField]
-    private GameObject _rankingObject = null;
-    [SerializeField]
-    private Transform _rankingContent = null;
-    [SerializeField]
-    private Ranking _rankingPrefab = null;
+    private SceneLoader _sceneLoader = null;
+
+    [Header("랭킹"), SerializeField]
+    private Ranking _ranking = null;
 
     [Header("음향 효과"), SerializeField]
     private AudioPanel _audioPanel = null;
@@ -33,15 +31,7 @@ public sealed class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        Ranking.Info[] infos = GameData.Load();
-        if(infos != null && _rankingContent != null && _rankingPrefab != null)
-        {
-            foreach(Ranking.Info info in infos)
-            {
-                Ranking ranking = Instantiate(_rankingPrefab, _rankingContent);
-                ranking.Set(info.character, info.enemy, info.killCount, info.survivalTime);
-            }
-        }
+        //_ranking?.SetScore(GameData.Load());
     }
 
     private void Show(Select select)
@@ -54,11 +44,19 @@ public sealed class MainMenu : MonoBehaviour
         {
             _playObject.SetActive(select == Select.Play);
         }
-        if (_rankingObject != null)
+        if(select == Select.Play)
         {
-            _rankingObject.SetActive(select == Select.Ranking);
+
         }
-        _audioPanel?.SetActive(select == Select.Audio);
+        _ranking?.SetActive(select == Select.Ranking);
+        if(select == Select.Audio)
+        {
+            _audioPanel?.Open();
+        }
+        else
+        {
+            _audioPanel?.Close();
+        }
     }
 
     public void SelectPlayer(bool human)
@@ -69,6 +67,15 @@ public sealed class MainMenu : MonoBehaviour
     public void SelectEnemy(int index)
     {
 
+    }
+
+    public void LoadScene(string name)
+    {
+        if (_sceneLoader != null)
+        {
+            SceneLoader sceneLoader = Instantiate(_sceneLoader, transform);
+            sceneLoader.Load(name);
+        }
     }
 
     public void ReturnPrevious()

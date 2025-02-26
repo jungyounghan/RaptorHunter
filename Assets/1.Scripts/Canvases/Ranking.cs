@@ -1,5 +1,6 @@
 using System;
 using System.Text;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -36,7 +37,7 @@ public class Ranking : MonoBehaviour
     }
 
     [Header("플레이어"), SerializeField]
-    private TMP_Text _text = null;
+    private List<TMP_Text> _text = new List<TMP_Text>();
 
     private static string Player = "플레이어";
 
@@ -52,35 +53,51 @@ public class Ranking : MonoBehaviour
 
     private static string Survival = "초 생존";
 
-    public void Set(bool character, GameData.Enemy enemy, uint killCount, float survivalTime)
+    public void SetActive(bool active)
     {
-        StringBuilder stringBuilder = new StringBuilder();
-        switch (character)
+        gameObject.SetActive(active);
+    }
+
+    public void SetScore(Info[] infos)
+    {
+        int length = infos != null ? infos.Length : 0;
+        for(int i = 0; i < _text.Count; i++)
         {
-            case Character.Hunter:
-                stringBuilder.Append(Player + ": " + Hunter);
-                break;
-            case Character.Raptor:
-                stringBuilder.Append(Player + ": " + Raptor);
-                break;
-        }
-        switch (enemy)
-        {
-            case GameData.Enemy.Hunter:
-                stringBuilder.Append(" " + Enemy + ": " + Hunter);
-                break;
-            case GameData.Enemy.Raptor:
-                stringBuilder.Append(" " + Enemy + ": " + Raptor);
-                break;
-            case GameData.Enemy.Mix:
-                stringBuilder.Append(" " + Enemy + ": " + Mix);
-                break;
-        }
-        stringBuilder.Append(" " + killCount + " " + Kill);
-        stringBuilder.Append(" " + survivalTime + Survival);
-        if(_text != null)
-        {
-            _text.text = stringBuilder.ToString();
+            if (_text[i] != null)
+            {
+                if (i < length)
+                {
+                    StringBuilder stringBuilder = new StringBuilder();
+                    switch (infos[i].character)
+                    {
+                        case Character.Hunter:
+                            stringBuilder.Append(Player + ": " + Hunter);
+                            break;
+                        case Character.Raptor:
+                            stringBuilder.Append(Player + ": " + Raptor);
+                            break;
+                    }
+                    switch (infos[i].enemy)
+                    {
+                        case GameData.Enemy.Hunter:
+                            stringBuilder.Append(" " + Enemy + ": " + Hunter);
+                            break;
+                        case GameData.Enemy.Raptor:
+                            stringBuilder.Append(" " + Enemy + ": " + Raptor);
+                            break;
+                        case GameData.Enemy.Mix:
+                            stringBuilder.Append(" " + Enemy + ": " + Mix);
+                            break;
+                    }
+                    stringBuilder.Append(" " + infos[i].killCount + " " + Kill);
+                    stringBuilder.Append(" " + infos[i].survivalTime + Survival);
+                    _text[i].text = stringBuilder.ToString();
+                }
+                else
+                {
+                    _text[i].text = null;
+                }
+            }
         }
     }
 }

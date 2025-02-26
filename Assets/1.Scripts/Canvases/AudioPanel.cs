@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 /// <summary>
 /// 음향 효과를 수정할 수 있는 클래스
 /// </summary>
-public class AudioPanel : MonoBehaviour
+public sealed class AudioPanel : Panel
 {
     [Header("오디오 믹서"), SerializeField] 
     private AudioMixer _audioMixer;
@@ -54,11 +54,12 @@ public class AudioPanel : MonoBehaviour
         _audioMixer.SetFloat(BackgroundMixer, volume);
     }
 
-    public void SetActive(bool value)
+    public override void Open()
     {
-        if(value == true && _audioMixer != null)
+        base.Open();
+        if(_audioMixer != null)
         {
-            if(_audioMixer.GetFloat(MasterMixer, out float masterVolume) == true && _masterSlider != null)
+            if (_audioMixer.GetFloat(MasterMixer, out float masterVolume) == true && _masterSlider != null)
             {
                 _masterSlider.value = masterVolume;
             }
@@ -71,6 +72,5 @@ public class AudioPanel : MonoBehaviour
                 _backgroundSlider.value = backgroundVolume;
             }
         }
-        gameObject.SetActive(value);
     }
 }
