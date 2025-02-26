@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// °ÔÀÓ UI¸¦ ÃÑ°ýÇÏ´Â Å¬·¡½º
@@ -13,7 +14,7 @@ public class State : MonoBehaviour
         [SerializeField]
         private Slider slider;
         [SerializeField]
-        private Text text;
+        private TMP_Text text;
 
         private static readonly string DivisionText = " / ";
 
@@ -61,13 +62,13 @@ public class State : MonoBehaviour
     [SerializeField]
     private Gage _staminaGage;
     [SerializeField]
-    private Text _waveText;
+    private TMP_Text _waveText;
     [SerializeField]
-    private Text _timerText;
+    private TMP_Text _timerText;
     [SerializeField]
-    private Text _killText;
+    private TMP_Text _killText;
     [SerializeField]
-    private Text _noticeText;
+    private TMP_Text _noticeText;
     [SerializeField]
     private GameObject _popupObject = null;
     [SerializeField]
@@ -76,6 +77,8 @@ public class State : MonoBehaviour
     private GameObject _gameOverObject = null;
     [SerializeField]
     private AudioPanel _audioPanel = null;
+    [SerializeField]
+    private SceneLoader _sceneLoader = null;
 
     public void SetLife(uint current, uint max)
     {
@@ -182,6 +185,15 @@ public class State : MonoBehaviour
                 Time.timeScale = 1;
                 _popupObject.SetActive(false);
             }
+        }
+    }
+
+    public void LoadScene(string name)
+    {
+        if(_sceneLoader != null)
+        {
+            SceneLoader sceneLoader = Instantiate(_sceneLoader, transform);
+            sceneLoader.Load(name);
         }
     }
 }

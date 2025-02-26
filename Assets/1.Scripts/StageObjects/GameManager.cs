@@ -158,6 +158,8 @@ public sealed class GameManager : MonoBehaviour
                 StartCoroutine(DoStopGame());
                 IEnumerator DoStopGame()
                 {
+                    float survivalTime = _waveCount > 0 ? StartSpawnTime + ((_waveCount - 1) * SpawnRestingTime) + (SpawnRestingTime - _spawnTimer): StartSpawnTime - _spawnTimer;
+                    GameData.Save(GameData.ally, GameData.enemy, _killCount, survivalTime);
                     yield return new WaitForSeconds(PlayEndTime);
                     _state?.SetNotice("<color=red>ÆÐ¹è</color>");
                     yield return new WaitForSeconds(ShowPopupTime);

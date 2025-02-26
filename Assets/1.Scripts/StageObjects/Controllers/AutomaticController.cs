@@ -20,17 +20,20 @@ public sealed class AutomaticController : Controller
 
     private void Update()
     {
-        if (_currentStamina < _fullStamina)
+        if (Time.timeScale > 0)
         {
-            _currentStamina += Time.deltaTime * _recoverStamina;
-            if (_currentStamina > _fullStamina)
+            if (_currentStamina < _fullStamina)
             {
-                _currentStamina = _fullStamina;
+                _currentStamina += Time.deltaTime * _recoverStamina;
+                if (_currentStamina > _fullStamina)
+                {
+                    _currentStamina = _fullStamina;
+                }
             }
-        }
-        if(alive == true && landing == true)
-        {
-            character.Recharge();
+            if (alive == true && landing == true)
+            {
+                character.Recharge();
+            }
         }
     }
 

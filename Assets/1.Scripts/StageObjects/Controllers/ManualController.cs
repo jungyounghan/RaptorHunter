@@ -18,52 +18,52 @@ public sealed class ManualController : Controller
 
     private void Update()
     {
-        if (_currentStamina < _fullStamina)
+        if (Time.timeScale > 0)
         {
-            _currentStamina += Time.deltaTime * _recoverStamina;
-            if (_currentStamina > _fullStamina)
+            if (_currentStamina < _fullStamina)
             {
-                _currentStamina = _fullStamina;
-            }
-            _staminaAction?.Invoke(_currentStamina, _fullStamina);
-        }
-        if (alive == true)
-        {
-            Camera camera = Camera.main;
-            if (camera != null)
-            {
-                Vector3 position = getTransform.position;
-                Vector3 forward = getTransform.forward;
-                Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-                RaycastHit[] raycastHits = Physics.RaycastAll(ray);
-                bool done = false;
-                foreach(RaycastHit raycastHit in raycastHits)
+                _currentStamina += Time.deltaTime * _recoverStamina;
+                if (_currentStamina > _fullStamina)
                 {
-                    if (Vector3.Dot(forward, raycastHit.point - position) > AimDistance)
+                    _currentStamina = _fullStamina;
+                }
+                _staminaAction?.Invoke(_currentStamina, _fullStamina);
+            }
+            if (alive == true)
+            {
+                Camera camera = Camera.main;
+                if (camera != null)
+                {
+                    Vector3 position = getTransform.position;
+                    Vector3 forward = getTransform.forward;
+                    Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit[] raycastHits = Physics.RaycastAll(ray);
+                    bool done = false;
+                    foreach (RaycastHit raycastHit in raycastHits)
                     {
-                        done = true;
-                        character.LookAt(raycastHit.point);
-                        break;
+                        if (Vector3.Dot(forward, raycastHit.point - position) > AimDistance)
+                        {
+                            done = true;
+                            character.LookAt(raycastHit.point);
+                            break;
+                        }
+                    }
+                    if (done == false)
+                    {
+                        Plane plane = new Plane(forward, position + (forward * AimDistance));
+                        plane.Raycast(ray, out float distance);
+                        character.LookAt(ray.GetPoint(distance));
                     }
                 }
-                if (done == false)
-                {
-                    Plane plane = new Plane(forward, position + (forward * AimDistance));
-                    plane.Raycast(ray, out float distance);
-                    character.LookAt(ray.GetPoint(distance));
-                }
-            }
-            if (Time.timeScale > 0)
-            {
                 bool attack = Input.GetButton(AttackKey);
                 if (attack == true)
                 {
                     character.DoAttackAction(_attackDamage);
                 }
-            }
-            if (landing == true)
-            {
-                character.Recharge();
+                if (landing == true)
+                {
+                    character.Recharge();
+                }
             }
         }
     }
