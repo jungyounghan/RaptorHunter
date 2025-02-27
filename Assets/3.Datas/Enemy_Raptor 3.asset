@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f4a45f4ffadb34d8425658c5c32e59, type: 3}
   m_Name: Enemy_Raptor 3
   m_EditorClassIdentifier: 
-  fullStamina: 100
-  recoverStamina: 10
-  walkSpeed: 5
+  fullStamina: 255
+  recoverStamina: 15
+  walkSpeed: 4
   dashSpeed: 1.5
   dashCost: 0.001
   reverseRate: 0.8
-  stoppingDistance: 5
+  stoppingDistance: 6
   attackSpeed: 1
   attackDamage: 30
   fullLife: 1500

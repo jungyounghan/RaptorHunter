@@ -194,11 +194,13 @@ public abstract class Character : MonoBehaviour
 
     public abstract void DoAttackAction(uint damage);
 
-    public abstract void Set(float attackSpeed);
+    public abstract void SetAttackSpeed(float value);
 
     public abstract void Recharge();
 
     public abstract bool IsHuman();
+
+    public abstract float GetAttackSpeed();
 
     public abstract Transform GetWeaponTransform();
 }

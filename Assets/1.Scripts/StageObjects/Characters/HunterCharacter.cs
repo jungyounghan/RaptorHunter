@@ -114,9 +114,9 @@ public sealed class HunterCharacter : Character
         _gun?.Shot(damage);
     }
 
-    public override void Set(float attackSpeed)
+    public override void SetAttackSpeed(float value)
     {
-        _gun?.Set(attackSpeed);
+        _gun?.SetAttackSpeed(value);
     }
 
     public override void Recharge()
@@ -127,6 +127,15 @@ public sealed class HunterCharacter : Character
     public override bool IsHuman()
     {
         return Hunter;
+    }
+
+    public override float GetAttackSpeed()
+    {
+        if(_gun != null)
+        {
+            return _gun.GetAttackSpeed();
+        }
+        return 0;
     }
 
     public override Transform GetWeaponTransform()

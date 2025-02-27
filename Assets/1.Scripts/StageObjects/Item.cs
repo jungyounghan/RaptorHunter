@@ -1,7 +1,11 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 아이템 클래스
+/// </summary>
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Collider))]
 public sealed class Item : MonoBehaviour
@@ -10,8 +14,7 @@ public sealed class Item : MonoBehaviour
 
     private Transform _transform = null;
 
-    private Transform getTransform
-    {
+    private Transform getTransform {
         get
         {
             if (_hasTransform == false)
@@ -23,14 +26,17 @@ public sealed class Item : MonoBehaviour
         }
     }
 
-    [SerializeField]
-    private Vector3 _speed;
+    public const float MinAttackDamage = 0;
+    public const float MaxAttackDamage = 20;
 
-    [SerializeField]
-    private MeshRenderer _meshRenderer = null;
+    [Header("공격력 증가 시간"), SerializeField, Range(MinAttackDamage, MaxAttackDamage)]
+    private float _attackDamage = 0;
 
-    [SerializeField]
-    private ManualController.Damage _damage;
+    public const float MinAttackSpeed = 0;
+    public const float MaxAttackSpeed = 20;
+
+    [Header("공격 속도 증가 시간"), SerializeField, Range(MinAttackSpeed, MaxAttackSpeed)]
+    private float _attackSpeed = 0;
 
     public const float MinInvincibleValue = 0;
     public const float MaxInvincibleValue = 10;
@@ -42,19 +48,39 @@ public sealed class Item : MonoBehaviour
     public const int MaxHealValue = 100;
 
     [SerializeField, Range(MinHealValue, MaxHealValue)]
-    private byte _healPercent = 10;
+    private byte _lifePercent = 10;
+
+    [SerializeField, Range(MinHealValue, MaxHealValue)]
+    private byte _staminaPercent = 10;
+
+    [SerializeField]
+    private List<GameObject> _effectObjects = new List<GameObject>();
 
     [SerializeField]
     private ParticleSystem _particleSystem;
 
     private bool _acquisition = false;
 
+    public Vector3 position {
+        get
+        {
+            return getTransform.position;
+        }
+        set
+        {
+            getTransform.position = value;
+        }
+    }
+
     private void OnEnable()
     {
         _acquisition = false;
-        if(_meshRenderer != null)
+        foreach(GameObject effectObject in _effectObjects)
         {
-            _meshRenderer.enabled = true;
+            if (effectObject != null)
+            {
+                effectObject.SetActive(true);
+            }
         }
         if(_particleSystem != null)
         {
@@ -67,15 +93,6 @@ public sealed class Item : MonoBehaviour
         StopAllCoroutines();
     }
 
-    private void Update()
-    {
-        if (Time.timeScale > 0)
-        {
-            float deltaTime = Time.deltaTime;
-            getTransform.Rotate(_speed.x * deltaTime, _speed.y * deltaTime, _speed.z * deltaTime);
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (_acquisition == false)
@@ -86,15 +103,18 @@ public sealed class Item : MonoBehaviour
                 ManualController manualController = transform.GetComponent<ManualController>();
                 if (manualController != null)
                 {
-                    manualController.Take(_damage, _invincible, _healPercent);
-                    if (_meshRenderer != null)
+                    manualController.Heal(_attackDamage, _attackSpeed, _invincible, _lifePercent, _staminaPercent);
+                    _acquisition = true;
+                    foreach (GameObject effectObject in _effectObjects)
                     {
-                        _meshRenderer.enabled = false;
+                        if (effectObject != null)
+                        {
+                            effectObject.SetActive(false);
+                        }
                     }
-                    StartCoroutine(DoHideAction());
-                    IEnumerator DoHideAction()
+                    StartCoroutine(ShowParticleAndHide());
+                    IEnumerator ShowParticleAndHide()
                     {
-                        _acquisition = true;
                         if (_particleSystem != null)
                         {
                             _particleSystem.gameObject.SetActive(true);

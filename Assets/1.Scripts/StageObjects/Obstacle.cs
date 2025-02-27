@@ -10,6 +10,22 @@ using UnityEngine;
 /// </summary>
 public sealed class Obstacle : MonoBehaviour, IHittable
 {
+    private bool _hasTransform = false;
+
+    private Transform _transform = null;
+
+    private Transform getTransform {
+        get
+        {
+            if (_hasTransform == false)
+            {
+                _hasTransform = true;
+                _transform = transform;
+            }
+            return _transform;
+        }
+    }
+
     private bool _hasRigidbody = false;
 
     private Rigidbody _rigidbody = null;
@@ -70,11 +86,6 @@ public sealed class Obstacle : MonoBehaviour, IHittable
         _currentLife = _fullLife;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        PlaySound();
-    }
-
     private void PlaySound()
     {
         int count = _audioClips.Count;
@@ -102,8 +113,11 @@ public sealed class Obstacle : MonoBehaviour, IHittable
                 if (force >= _currentLife)
                 {
                     _currentLife = 0;
-                    int index = UnityEngine.Random.Range(0, _items.Count);
-                    _action?.Invoke(_items[index], transform.position);
+                    if (_items.Count > 0)
+                    {
+                        int index = UnityEngine.Random.Range(0, _items.Count);
+                        _action?.Invoke(_items[index], getTransform.position);
+                    }
                     Destroy(gameObject);
                 }
                 else

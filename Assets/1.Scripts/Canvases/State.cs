@@ -62,7 +62,9 @@ public sealed class State : MonoBehaviour
     [SerializeField]
     private Gage _staminaGage;
     [SerializeField]
-    private TMP_Text _damageText;
+    private TMP_Text _attackDamageText;
+    [SerializeField]
+    private TMP_Text _attackSpeedText;
     [SerializeField]
     private TMP_Text _waveText;
     [SerializeField]
@@ -84,11 +86,19 @@ public sealed class State : MonoBehaviour
         _staminaGage.Set(current, max);
     }
 
-    public void SetDamage(uint value)
+    public void SetAttackDamage(uint value)
     {
-        if(_damageText != null)
+        if(_attackDamageText != null)
         {
-            _damageText.text = "Damage: " + value;
+            _attackDamageText.text = "Damage: " + value;
+        }
+    }
+
+    public void SetAttackSpeed(float value)
+    {
+        if (_attackSpeedText != null)
+        {
+            _attackSpeedText.text = "1초당 " + value + "번 공격";
         }
     }
 

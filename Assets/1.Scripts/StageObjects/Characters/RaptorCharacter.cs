@@ -104,10 +104,9 @@ public sealed class RaptorCharacter : Character
         }
     }
 
-    public override void Set(float attackSpeed)
+    public override void SetAttackSpeed(float value)
     {
-        float value = Mathf.Clamp(attackSpeed, Stat.MinAttackSpeed, Stat.MaxAttackSpeed);
-        getAnimator.SetFloat(AttackSpeedHashIndex, value);
+        getAnimator.SetFloat(AttackSpeedHashIndex, Mathf.Clamp(value, Stat.MinAttackSpeed, Stat.MaxAttackSpeed));
     }
 
     public override void Recharge()
@@ -127,6 +126,11 @@ public sealed class RaptorCharacter : Character
     public override bool IsHuman()
     {
         return Raptor;
+    }
+
+    public override float GetAttackSpeed()
+    {
+        return getAnimator.GetFloat(AttackSpeedHashIndex);
     }
 
     public override Transform GetWeaponTransform()

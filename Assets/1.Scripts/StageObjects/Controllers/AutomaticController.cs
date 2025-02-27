@@ -189,7 +189,7 @@ public sealed class AutomaticController : Controller
             _reverseRate = Mathf.Clamp(stat.reverseRate, Stat.MinReverseRate, Stat.MaxReverseRate);
             _stoppingDistance = Mathf.Clamp(stat.stoppingDistance, Stat.MinStoppingDistance, Stat.MaxStoppingDistance);
             getNavMeshAgent.stoppingDistance = _stoppingDistance;
-            character.Set(stat.attackSpeed);
+            character.SetAttackSpeed(stat.attackSpeed);
             _attackDamage = stat.attackDamage;
             _fullLife = stat.fullLife;
         }

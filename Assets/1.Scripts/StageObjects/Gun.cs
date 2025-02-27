@@ -96,9 +96,9 @@ public sealed class Gun : MonoBehaviour
         getTransform.LookAt(position);
     }
 
-    public void Set(float attackSpeed)
+    public void SetAttackSpeed(float value)
     {
-        _shotSpeed = Mathf.Clamp(attackSpeed, Stat.MinAttackSpeed, Stat.MaxAttackSpeed);
+        _shotSpeed = Mathf.Clamp(value, Stat.MinAttackSpeed, Stat.MaxAttackSpeed);
     }
 
     public void Recharge()
@@ -197,6 +197,11 @@ public sealed class Gun : MonoBehaviour
             _shotCoolTime = 1 / _shotSpeed;
             _bulletCoolTime = BulletDuration;
         }
+    }
+    
+    public float GetAttackSpeed()
+    {
+        return _shotSpeed;
     }
 
     public Handle GetMagazineHandle()

@@ -7,26 +7,24 @@ using UnityEngine;
 /// </summary>
 public sealed class ManualController : Controller
 {
-    [Serializable]
-    public struct Damage
-    {
-        public uint power;
-        public float duration;
-    }
+    [Header("공격력 증가 시간"), SerializeField]
+    private float _attackDamageTime = 0;
+    [Header("공격 속도 증가 시간"), SerializeField]
+    private float _attackSpeedTime = 0;
+    [Header("무적 지속시간"), SerializeField]
+    private float _invincibleTime = 0;
 
-    private Damage _damage;
-
-    private float _invincible = 0;
+    private Action<uint> _attackDamageAction = null;
+    private Action<float> _attackSpeedAction = null;
+    private Action<float, float> _staminaAction = null;
 
     private static readonly string VerticalKey = "Vertical";
     private static readonly string HorizontalKey = "Horizontal";
     private static readonly string DashKey = "Dash";
     private static readonly string AttackKey = "Fire1";
-
+    private static readonly uint DoublePoint = 2;
     private static readonly float AimDistance = 3;
-
-    private Action<float, float> _staminaAction = null;
-    private Action<uint> _damageAction = null;
+    private static readonly float BasisPoint = 0.01f;
 
     private void Update()
     {
@@ -71,40 +69,56 @@ public sealed class ManualController : Controller
                 bool attack = Input.GetButton(AttackKey);
                 if (attack == true)
                 {
-                    character.DoAttackAction(_attackDamage + _damage.power);
+                    character.DoAttackAction(_attackDamageTime > 0 ? _attackDamage * DoublePoint : _attackDamage);
                 }
                 if (landing == true)
                 {
                     character.Recharge();
                 }
-                if (_damage.duration > 0)
+                if (_attackDamageTime > 0)
                 {
-                    _damage.duration -= deltaTime;
-                    if(_damage.duration <= 0)
+                    _attackDamageTime -= deltaTime;
+                    if (_attackDamageTime <= 0)
                     {
-                        _damage.duration = 0;
-                        _damage.power = 0;
+                        _attackDamageTime = 0;
+                        _attackDamageAction?.Invoke(_attackDamage);
                     }
                 }
-                if (_invincible > 0)
+                if (_attackSpeedTime > 0)
                 {
-                    _invincible -= deltaTime;
-                    if(_invincible <= 0)
+                    _attackSpeedTime -= deltaTime;
+                    if (_attackSpeedTime <= 0)
                     {
-                        _invincible = 0;
-                        //이펙트 효과 사라지게
+                        _attackSpeedTime = 0;
+                        character.SetAttackSpeed(character.GetAttackSpeed() / DoublePoint);
+                        _attackSpeedAction?.Invoke(character.GetAttackSpeed());
+                    }
+                }
+                if (_invincibleTime > 0)
+                {
+                    _invincibleTime -= deltaTime;
+                    if(_invincibleTime <= 0)
+                    {
+                        _invincibleTime = 0;
                     }
                 }
             }
             else
             {
-                if(_damage.duration > 0)
+                if (_attackDamageTime > 0)
                 {
-                    _damage.duration = 0;
+                    _attackDamageTime = 0;
+                    _attackDamageAction?.Invoke(_attackDamage);
                 }
-                if (_invincible > 0)
+                if (_attackSpeedTime > 0)
                 {
-                    _invincible = 0;
+                    _attackSpeedTime = 0;
+                    character.SetAttackSpeed(character.GetAttackSpeed() / DoublePoint);
+                    _attackSpeedAction?.Invoke(character.GetAttackSpeed());
+                }
+                if (_invincibleTime > 0)
+                {
+                    _invincibleTime = 0;
                 }
             }
         }
@@ -112,7 +126,7 @@ public sealed class ManualController : Controller
 
     public override void Hit(Vector3 origin, Vector3 direction, uint damage)
     {
-        if (_invincible == 0)
+        if (_invincibleTime == 0)
         {
             base.Hit(origin, direction, damage);
         }
@@ -179,7 +193,7 @@ public sealed class ManualController : Controller
             _dashCost = Mathf.Clamp(stat.dashCost, Stat.MinDashCost, Stat.MaxDashCost);
             _reverseRate = Mathf.Clamp(stat.reverseRate, Stat.MinReverseRate, Stat.MaxReverseRate);
             getNavMeshAgent.stoppingDistance = Mathf.Clamp(stat.stoppingDistance, Stat.MinStoppingDistance, Stat.MaxStoppingDistance);
-            character.Set(stat.attackSpeed);
+            character.SetAttackSpeed(stat.attackSpeed);
             _attackDamage = stat.attackDamage;
             _fullLife = stat.fullLife;
         }
@@ -193,26 +207,37 @@ public sealed class ManualController : Controller
         _staminaAction?.Invoke(_currentStamina, _fullStamina);
         _currentLife = _fullLife;
         _lifeAction?.Invoke(_currentLife, _fullLife, this);
-        _damageAction?.Invoke(_attackDamage + _damage.power);
+        _attackDamageAction?.Invoke(_attackDamage);
+        _attackSpeedAction?.Invoke(character.GetAttackSpeed());
         character.DoReviveAction();
     }
 
-    public void Initialize(Action<float, float> staminaAction, Action<uint, uint, Controller> lifeAction, Action<uint> damageAction)
+    public void Initialize(Action<float, float> staminaAction, Action<uint, uint, Controller> lifeAction, Action<uint> attackDamageAction, Action<float> attackSpeedAction)
     {
         _staminaAction = staminaAction;
         _lifeAction = lifeAction;
-        _damageAction = damageAction;
+        _attackDamageAction = attackDamageAction;
+        _attackSpeedAction = attackSpeedAction;
     }
 
-    public void Take(Damage damage, float invincible, byte heal)
+    public void Heal(float attackDamage, float attackSpeed, float invincible, byte life, byte stamina)
     {
-        _damage = damage;
-        if(_damage.power > 0 && _damage.duration > 0)
+        if(attackDamage > 0)
         {
-            _damageAction?.Invoke(_attackDamage + _damage.power);
+            _attackDamageTime += attackDamage;
+            _attackDamageAction?.Invoke(_attackDamage * DoublePoint);
         }
-        _invincible = Mathf.Clamp(invincible, Item.MinInvincibleValue, Item.MaxInvincibleValue);
-        float value = Mathf.Clamp(heal, Item.MinHealValue, Item.MaxHealValue) * 0.01f;
+        if(attackSpeed > 0)
+        {
+            if(_attackSpeedTime == 0)
+            {
+                character.SetAttackSpeed(character.GetAttackSpeed() * DoublePoint);
+            }
+            _attackSpeedTime += attackSpeed;
+            _attackSpeedAction?.Invoke(character.GetAttackSpeed());
+        }
+        _invincibleTime += invincible;
+        float value = Mathf.Clamp(life, Item.MinHealValue, Item.MaxHealValue) * BasisPoint;
         uint amount = (uint)(_fullLife * value);
         if (amount > 0)
         {
@@ -225,6 +250,19 @@ public sealed class ManualController : Controller
                 _currentLife += amount;
             }
             _lifeAction?.Invoke(_currentLife, _fullLife, this);
+        }
+        value = Mathf.Clamp(stamina, Item.MinHealValue, Item.MaxHealValue) * BasisPoint * _fullStamina;
+        if(value > 0)
+        {
+            if(_currentStamina + value >= _fullStamina)
+            {
+                _currentStamina = _fullStamina;
+            }
+            else
+            {
+                _currentStamina += value;
+            }
+            _staminaAction?.Invoke(_currentStamina, _fullStamina);
         }
     }
 }

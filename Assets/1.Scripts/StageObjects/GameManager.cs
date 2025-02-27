@@ -31,6 +31,8 @@ public sealed class GameManager : MonoBehaviour
     private HunterCharacter _hunterCharacter;
     [SerializeField]
     private RaptorCharacter _raptorCharacter;
+    [SerializeField]
+    private List<Item> _itemPrefabs = new List<Item>();
 
     [Header("프로퍼티")]
     [SerializeField]
@@ -42,9 +44,7 @@ public sealed class GameManager : MonoBehaviour
     [SerializeField]
     private Spawner _enemySpawner;
     [SerializeField]
-    private List<Item> _itemDropContents = new List<Item>();
-    [SerializeField]
-    private List<Transform> _itemDropPoints = new List<Transform>();
+    private List<Transform> _itemSpawner = new List<Transform>();
     [SerializeField]
     private List<GameObject> _props = new List<GameObject>();
 
@@ -138,15 +138,15 @@ public sealed class GameManager : MonoBehaviour
                 _waveCount++;
                 _state?.SetWave(_waveCount);
                 _spawnTimer = SpawnRestingTime;
-                int count = _itemDropContents.Count;
+                int count = _itemPrefabs.Count;
                 if (count > 0)
                 {
-                    foreach (Transform transform in _itemDropPoints)
+                    foreach (Transform transform in _itemSpawner)
                     {
                         if (transform != null)
                         {
                             int index = Random.Range(0, count);
-                            SpawnItem(_itemDropContents[index], transform.position);
+                            SpawnItem(_itemPrefabs[index], transform.position);
                         }
                     }
                 }
@@ -214,7 +214,7 @@ public sealed class GameManager : MonoBehaviour
                 {
                     _allyController = character.gameObject.AddComponent<ManualController>();
                 }
-                _allyController.Initialize((current, max) => { _state?.SetStamina(current, max); }, SetLife, (damage) => { _state?.SetDamage(damage); });
+                _allyController.Initialize((current, max) => { _state?.SetStamina(current, max); }, SetLife, (value) => { _state?.SetAttackDamage(value); }, (value) => { _state?.SetAttackSpeed(value); });
                 _allyController.Set(getStatBundle.GetAllyStat(human));
                 _allyController.Revive();
                 if (_cinemachineVirtualCamera != null)
@@ -266,9 +266,16 @@ public sealed class GameManager : MonoBehaviour
     {
         if(item != null)
         {
-            foreach(KeyValuePair<Item, Item> kvp in _itemDictionary)
+            foreach (KeyValuePair<Item, Item> kvp in _itemDictionary)
             {
-                if(kvp.Value == item && kvp.Key.gameObject.activeInHierarchy == false)
+                if (position == kvp.Key.position && kvp.Key.gameObject.activeInHierarchy == true)
+                {
+                    return;
+                }
+            }
+            foreach (KeyValuePair<Item, Item> kvp in _itemDictionary)
+            {
+                if (kvp.Value == item && kvp.Key.gameObject.activeInHierarchy == false)
                 {
                     kvp.Key.transform.position = position;
                     kvp.Key.gameObject.SetActive(true);
