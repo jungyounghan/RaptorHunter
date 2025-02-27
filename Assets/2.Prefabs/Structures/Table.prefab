@@ -350,3 +350,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4047aaaa19814be44ae0f40e9b70e1fd, type: 3}
   - {fileID: 8300000, guid: 80213e79ca9796143b5ee8247490a268, type: 3}
   - {fileID: 8300000, guid: cd2b5a4eab0b39b48baeecbb5743ec2c, type: 3}
+  _sensitivity: 3
+  _fullLife: 10
+  _currentLife: 0

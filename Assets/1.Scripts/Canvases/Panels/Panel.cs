@@ -39,16 +39,13 @@ public class Panel : MonoBehaviour
         }
     }
 
-    protected readonly static Color NormalColor = new Color(1, 1, 1, 1);
-    protected readonly static Color PressedColor = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1);
+    public virtual void Close()
+    {
+        gameObject.SetActive(false);
+    }
 
     public virtual void Open()
     {
         gameObject.SetActive(true);
-    }
-
-    public void Close()
-    {
-        gameObject.SetActive(false);
     }
 }

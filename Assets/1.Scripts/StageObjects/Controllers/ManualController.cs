@@ -7,6 +7,17 @@ using UnityEngine;
 /// </summary>
 public sealed class ManualController : Controller
 {
+    [Serializable]
+    public struct Damage
+    {
+        public uint power;
+        public float duration;
+    }
+
+    private Damage _damage;
+
+    private float _invincible = 0;
+
     private static readonly string VerticalKey = "Vertical";
     private static readonly string HorizontalKey = "Horizontal";
     private static readonly string DashKey = "Dash";
@@ -15,14 +26,16 @@ public sealed class ManualController : Controller
     private static readonly float AimDistance = 3;
 
     private Action<float, float> _staminaAction = null;
+    private Action<uint> _damageAction = null;
 
     private void Update()
     {
         if (Time.timeScale > 0)
         {
+            float deltaTime = Time.deltaTime;
             if (_currentStamina < _fullStamina)
             {
-                _currentStamina += Time.deltaTime * _recoverStamina;
+                _currentStamina += deltaTime * _recoverStamina;
                 if (_currentStamina > _fullStamina)
                 {
                     _currentStamina = _fullStamina;
@@ -58,13 +71,50 @@ public sealed class ManualController : Controller
                 bool attack = Input.GetButton(AttackKey);
                 if (attack == true)
                 {
-                    character.DoAttackAction(_attackDamage);
+                    character.DoAttackAction(_attackDamage + _damage.power);
                 }
                 if (landing == true)
                 {
                     character.Recharge();
                 }
+                if (_damage.duration > 0)
+                {
+                    _damage.duration -= deltaTime;
+                    if(_damage.duration <= 0)
+                    {
+                        _damage.duration = 0;
+                        _damage.power = 0;
+                    }
+                }
+                if (_invincible > 0)
+                {
+                    _invincible -= deltaTime;
+                    if(_invincible <= 0)
+                    {
+                        _invincible = 0;
+                        //이펙트 효과 사라지게
+                    }
+                }
             }
+            else
+            {
+                if(_damage.duration > 0)
+                {
+                    _damage.duration = 0;
+                }
+                if (_invincible > 0)
+                {
+                    _invincible = 0;
+                }
+            }
+        }
+    }
+
+    public override void Hit(Vector3 origin, Vector3 direction, uint damage)
+    {
+        if (_invincible == 0)
+        {
+            base.Hit(origin, direction, damage);
         }
     }
 
@@ -143,12 +193,38 @@ public sealed class ManualController : Controller
         _staminaAction?.Invoke(_currentStamina, _fullStamina);
         _currentLife = _fullLife;
         _lifeAction?.Invoke(_currentLife, _fullLife, this);
+        _damageAction?.Invoke(_attackDamage + _damage.power);
         character.DoReviveAction();
     }
 
-    public void Initialize(Action<float, float> staminaAction, Action<uint, uint, Controller> lifeAction)
+    public void Initialize(Action<float, float> staminaAction, Action<uint, uint, Controller> lifeAction, Action<uint> damageAction)
     {
         _staminaAction = staminaAction;
         _lifeAction = lifeAction;
+        _damageAction = damageAction;
+    }
+
+    public void Take(Damage damage, float invincible, byte heal)
+    {
+        _damage = damage;
+        if(_damage.power > 0 && _damage.duration > 0)
+        {
+            _damageAction?.Invoke(_attackDamage + _damage.power);
+        }
+        _invincible = Mathf.Clamp(invincible, Item.MinInvincibleValue, Item.MaxInvincibleValue);
+        float value = Mathf.Clamp(heal, Item.MinHealValue, Item.MaxHealValue) * 0.01f;
+        uint amount = (uint)(_fullLife * value);
+        if (amount > 0)
+        {
+            if (_currentLife + amount >= _fullLife)
+            {
+                _currentLife = _fullLife;
+            }
+            else
+            {
+                _currentLife += amount;
+            }
+            _lifeAction?.Invoke(_currentLife, _fullLife, this);
+        }
     }
 }

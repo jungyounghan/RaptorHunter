@@ -8,23 +8,6 @@ using TMPro;
 /// </summary>
 public sealed class State : MonoBehaviour
 {
-    private bool _hasTransform = false;
-
-    private Transform _transform = null;
-
-    private Transform getTransform {
-        get
-        {
-            if (_hasTransform == false)
-            {
-                _hasTransform = true;
-                _transform = transform;
-            }
-            return _transform;
-        }
-    }
-
-
     [Serializable]
     public struct Gage
     {
@@ -79,6 +62,8 @@ public sealed class State : MonoBehaviour
     [SerializeField]
     private Gage _staminaGage;
     [SerializeField]
+    private TMP_Text _damageText;
+    [SerializeField]
     private TMP_Text _waveText;
     [SerializeField]
     private TMP_Text _timerText;
@@ -87,15 +72,7 @@ public sealed class State : MonoBehaviour
     [SerializeField]
     private TMP_Text _noticeText;
     [SerializeField]
-    private GameObject _popupObject = null;
-    [SerializeField]
-    private GameObject _playingObject = null;
-    [SerializeField]
-    private GameObject _gameOverObject = null;
-    [SerializeField]
-    private AudioPanel _audioPanel = null;
-    [SerializeField]
-    private SceneLoader _sceneLoader = null;
+    private PausePanel _pausePanel;
 
     public void SetLife(uint current, uint max)
     {
@@ -105,6 +82,14 @@ public sealed class State : MonoBehaviour
     public void SetStamina(float current, float max)
     {
         _staminaGage.Set(current, max);
+    }
+
+    public void SetDamage(uint value)
+    {
+        if(_damageText != null)
+        {
+            _damageText.text = "Damage: " + value;
+        }
     }
 
     public void SetWave(uint number)
@@ -146,70 +131,25 @@ public sealed class State : MonoBehaviour
         }
     }
 
-    public void ShowPopup(bool playing)
+    public void ShowPause(bool playing)
     {
-        if (_popupObject != null)
+        if(_pausePanel != null)
         {
             if(playing == true)
             {
-                if(_popupObject.activeInHierarchy == true)
+                if(_pausePanel.gameObject.activeInHierarchy == true)
                 {
-                    Time.timeScale = 1;
-                    _popupObject.SetActive(false);
+                    _pausePanel.Close();
                 }
-                else if(_playingObject != null)
+                else
                 {
-                    Time.timeScale = 0;
-                    _popupObject.SetActive(true);
-                    _playingObject.SetActive(true);
-
-
-                    _audioPanel?.Close();
+                    _pausePanel.Open(true);
                 }
             }
             else
             {
-                Time.timeScale = 0;
-                _popupObject.SetActive(true);
+                _pausePanel.Open(false);
             }
-        }
-    }
-
-    public void ShowAudioPanel()
-    {
-        if(_playingObject != null && _playingObject.activeInHierarchy == true && _audioPanel != null)
-        {
-            _playingObject.SetActive(false);
-            _audioPanel.Open();
-        }
-    }
-
-    public void ReturnPrevious()
-    {
-        if (_popupObject != null && _popupObject.activeInHierarchy == true)
-        {
-            if (_audioPanel != null && _audioPanel.isActiveAndEnabled)
-            {
-                _audioPanel.Close();
-                if (_playingObject != null)
-                {
-                    _playingObject.SetActive(true);
-                }
-            }
-            else if (_playingObject != null && _playingObject.activeInHierarchy == true)
-            {
-                Time.timeScale = 1;
-                _popupObject.SetActive(false);
-            }
-        }
-    }
-
-    public void LoadScene(string name)
-    {
-        if(_sceneLoader != null)
-        {
-            SceneLoader sceneLoader = Instantiate(_sceneLoader, getTransform);
-            sceneLoader.Load(name);
         }
     }
 }

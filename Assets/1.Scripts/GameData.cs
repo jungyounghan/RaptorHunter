@@ -34,6 +34,26 @@ public class GameData
             this.killCount = killCount;
             this.survivalTime = survivalTime;
         }
+
+        public static bool operator >(Ranking a, Ranking b)
+        {
+            return a.killCount * a.survivalTime > b.killCount * b.survivalTime;
+        }
+
+        public static bool operator <(Ranking a, Ranking b)
+        {
+            return a.killCount * a.survivalTime < b.killCount * b.survivalTime;
+        }
+
+        public static bool operator>=(Ranking a, Ranking b)
+        {
+            return a.killCount * a.survivalTime >= b.killCount * b.survivalTime;
+        }
+
+        public static bool operator <=(Ranking a, Ranking b)
+        {
+            return a.killCount * a.survivalTime <= b.killCount * b.survivalTime;
+        }
     }
 
     [Serializable]
@@ -50,28 +70,29 @@ public class GameData
     private readonly static string FilePath = Path.Combine(Application.persistentDataPath, "ranking.json");
 
     //랭킹 저장
-    public static void Save(bool character, Enemy enemy, uint killCount, float survivalTime)
+    public static bool Save(bool character, Enemy enemy, uint killCount, float survivalTime)
     {
-        //Ranking.Info[] rankings = Load();
-        //List<Ranking.Info> list = new List<Ranking.Info>();
-        //Ranking.Info ranking = new Ranking.Info(character, enemy, killCount, survivalTime);
-        //int length = rankings != null ? rankings.Length : 0;
-        //bool done = false;
-        //for (int i = 0; i < length; i++)
-        //{
-        //    if (rankings[i].killCount < ranking.killCount)
-        //    {
-        //        list.Add(ranking);
-        //        done = true;
-        //    }
-        //    list.Add(rankings[i]);
-        //}
-        //if(done == false)
-        //{
-        //    list.Add(ranking);
-        //}
-        //string json = JsonUtility.ToJson(new Ranking.InfoList(list.ToArray()), true); // true = 보기 좋게 포맷
-        //File.WriteAllText(FilePath, json); // 파일에 저장
+        Ranking[] rankings = Load();
+        List<Ranking> list = new List<Ranking>();
+        Ranking ranking = new Ranking(character, enemy, killCount, survivalTime);
+        int length = rankings != null ? rankings.Length : 0;
+        bool done = false;
+        for (int i = 0; i < length; i++)
+        {
+            if (rankings[i] < ranking)
+            {
+                list.Add(ranking);
+                done = true;
+            }
+            list.Add(rankings[i]);
+        }
+        if (done == false)
+        {
+            list.Add(ranking);
+        }
+        string json = JsonUtility.ToJson(new RankingArray(list.ToArray()), true); // true = 보기 좋게 포맷
+        File.WriteAllText(FilePath, json); // 파일에 저장
+        return done;
     }
 
     public static Ranking[] Load()
@@ -92,6 +113,4 @@ public class GameData
         }
         return null;
     }
-
-
 }

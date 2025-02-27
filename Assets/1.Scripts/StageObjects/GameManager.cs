@@ -42,6 +42,10 @@ public sealed class GameManager : MonoBehaviour
     [SerializeField]
     private Spawner _enemySpawner;
     [SerializeField]
+    private List<Item> _itemDropContents = new List<Item>();
+    [SerializeField]
+    private List<Transform> _itemDropPoints = new List<Transform>();
+    [SerializeField]
     private List<GameObject> _props = new List<GameObject>();
 
     private uint _waveCount = 0;
@@ -50,6 +54,7 @@ public sealed class GameManager : MonoBehaviour
     private float _spawnTimer = 0;
     private ManualController _allyController;
     private List<AutomaticController> _enemyControllers = new List<AutomaticController>();
+    private Dictionary<Item, Item> _itemDictionary = new Dictionary<Item, Item>();
 
     private static readonly int EnemyMaxCount = 50;
     private static readonly float StartSpawnTime = 11;
@@ -69,6 +74,11 @@ public sealed class GameManager : MonoBehaviour
     private void Awake()
     {
         SetProps(true);
+        Obstacle[] obstacles = GetComponentsInChildren<Obstacle>();
+        foreach(Obstacle obstacle in obstacles)
+        {
+            obstacle.Initialize(SpawnItem);
+        }
         SpawnAlly(GameData.ally);
         _spawnTimer = StartSpawnTime;
         _state?.SetNotice("<color=white>전투를 준비하세요.\n 중앙에서 적들이 내려옵니다.</color>");
@@ -115,7 +125,7 @@ public sealed class GameManager : MonoBehaviour
     {
         if(_allyController != null && _allyController.alive == true && Input.GetKeyDown(KeyCode.Escape))
         {
-            _state?.ShowPopup(true);
+            _state?.ShowPause(true);
             return;
         }
         if(_spawnTimer > 0)
@@ -128,6 +138,18 @@ public sealed class GameManager : MonoBehaviour
                 _waveCount++;
                 _state?.SetWave(_waveCount);
                 _spawnTimer = SpawnRestingTime;
+                int count = _itemDropContents.Count;
+                if (count > 0)
+                {
+                    foreach (Transform transform in _itemDropPoints)
+                    {
+                        if (transform != null)
+                        {
+                            int index = Random.Range(0, count);
+                            SpawnItem(_itemDropContents[index], transform.position);
+                        }
+                    }
+                }
             }
             else if(_spawnTimer < PrepareSpawnTime)
             {
@@ -159,11 +181,18 @@ public sealed class GameManager : MonoBehaviour
                 IEnumerator DoStopGame()
                 {
                     float survivalTime = _waveCount > 0 ? StartSpawnTime + ((_waveCount - 1) * SpawnRestingTime) + (SpawnRestingTime - _spawnTimer): StartSpawnTime - _spawnTimer;
-                    GameData.Save(GameData.ally, GameData.enemy, _killCount, survivalTime);
+                    bool record = GameData.Save(GameData.ally, GameData.enemy, _killCount, survivalTime);
                     yield return new WaitForSeconds(PlayEndTime);
-                    _state?.SetNotice("<color=red>패배</color>");
+                    if (record == false)
+                    {
+                        _state?.SetNotice("<color=red>패배</color>");
+                    }
+                    else
+                    {
+                        _state?.SetNotice("<color=red>기록 달성!</color>");
+                    }
                     yield return new WaitForSeconds(ShowPopupTime);
-                    _state?.ShowPopup(false);
+                    _state?.ShowPause(false);
                 }
             }
         }
@@ -185,7 +214,7 @@ public sealed class GameManager : MonoBehaviour
                 {
                     _allyController = character.gameObject.AddComponent<ManualController>();
                 }
-                _allyController.Initialize((current, max) => { _state?.SetStamina(current, max); }, SetLife);
+                _allyController.Initialize((current, max) => { _state?.SetStamina(current, max); }, SetLife, (damage) => { _state?.SetDamage(damage); });
                 _allyController.Set(getStatBundle.GetAllyStat(human));
                 _allyController.Revive();
                 if (_cinemachineVirtualCamera != null)
@@ -230,6 +259,23 @@ public sealed class GameManager : MonoBehaviour
                     _enemyControllers.Add(automaticController);
                 }
             }
+        }
+    }
+
+    private void SpawnItem(Item item, Vector3 position)
+    {
+        if(item != null)
+        {
+            foreach(KeyValuePair<Item, Item> kvp in _itemDictionary)
+            {
+                if(kvp.Value == item && kvp.Key.gameObject.activeInHierarchy == false)
+                {
+                    kvp.Key.transform.position = position;
+                    kvp.Key.gameObject.SetActive(true);
+                    return;
+                }
+            }
+            _itemDictionary.Add(Instantiate(item, position, Quaternion.identity), item);
         }
     }
 }

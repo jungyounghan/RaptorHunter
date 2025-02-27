@@ -18,6 +18,8 @@ public sealed class AutomaticController : Controller
 
     private Controller _target = null;
 
+    private static readonly float MaxAngle = 180;
+
     private void Update()
     {
         if (Time.timeScale > 0)
@@ -119,16 +121,28 @@ public sealed class AutomaticController : Controller
                         {
                             getNavMeshAgent.stoppingDistance = _stoppingDistance;
                         }
+                        float angle = 0;
+                        Vector3 direction = (targetPosition - getTransform.position).normalized;
+                        direction.y = 0; // 수직 회전 방지 (바닥에서만 회전)
+                        if (direction != Vector3.zero)
+                        {
+                            Quaternion quaternion = getTransform.rotation;
+                            getTransform.rotation = Quaternion.Slerp(getTransform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * RotationSpeed);
+                            angle = Quaternion.Angle(quaternion, getTransform.rotation);
+                            float directionSign = Mathf.Sign(Vector3.Dot(Vector3.Cross(forward, direction), getTransform.up));
+                            if (directionSign > 0)
+                            {
+                                angle /= MaxAngle;
+                            }
+                            else if (directionSign < 0)
+                            {
+                                angle /= -MaxAngle;
+                            }
+                        }
                         if (Vector3.Distance(myPosition, targetPosition) < getNavMeshAgent.stoppingDistance)
                         {
                             Vector3 point = _target.GetHitPoint();
-                            character.LookAt(point);
-                            Vector3 direction = (targetPosition - getTransform.position).normalized;
-                            direction.y = 0; // 수직 회전 방지 (바닥에서만 회전)
-                            if (direction != Vector3.zero)
-                            {
-                                getTransform.rotation = Quaternion.Slerp(getTransform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * RotationSpeed);
-                            }
+                            character.LookAt(point);                           
                             if (_target.alive == true)
                             {
                                 character.DoAttackAction(_attackDamage);
@@ -143,7 +157,7 @@ public sealed class AutomaticController : Controller
                                 getNavMeshAgent.speed = _walkSpeed + (_walkSpeed * _dashSpeed * staminaRate);
                                 _currentStamina -= _currentStamina * _dashCost;
                             }
-                            character.DoMoveAction(new Vector2(forward.x, forward.z), dash);
+                            character.DoMoveAction(new Vector2(angle, Mathf.Clamp(Vector3.Dot(myPosition, targetPosition), -1, 1)), dash);
                         }
                     }
                     else

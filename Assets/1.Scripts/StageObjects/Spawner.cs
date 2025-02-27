@@ -92,4 +92,6 @@ public sealed class Spawner: MonoBehaviour
         }
         return character;
     }
+
+
 }

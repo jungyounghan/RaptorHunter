@@ -3,8 +3,12 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class MainPanel : Panel
+/// <summary>
+/// 메인 화면을 담당하는 패널 클래스
+/// </summary>
+public sealed class MainPanel : Panel
 {
     [Serializable]
     private struct PlayBundle
@@ -32,82 +36,36 @@ public class MainPanel : Panel
         public void Select(bool ally)
         {
             GameData.ally = ally;
-            switch(ally)
+            EventSystem.current.SetSelectedGameObject(null);
+            if(allyHunterButton != null && allyHunterButton.image != null)
             {
-                case Character.Hunter:
-                    if (allyHunterButton != null && allyHunterButton.image != null)
-                    {
-                        allyHunterButton.image.color = PressedColor;
-                    }
-                    if (allyRaptorButton != null && allyRaptorButton.image != null)
-                    {
-                        allyRaptorButton.image.color = NormalColor;
-                    }
-                    break;
-                case Character.Raptor:
-                    if (allyHunterButton != null && allyHunterButton.image != null)
-                    {
-                        allyHunterButton.image.color = NormalColor;
-                    }
-                    if (allyRaptorButton != null && allyRaptorButton.image != null)
-                    {
-                        allyRaptorButton.image.color = PressedColor;
-                    }
-                    break;
+                allyHunterButton.image.color = ally == Character.Hunter ? allyHunterButton.colors.selectedColor : allyHunterButton.colors.normalColor;
+            }
+            if (allyRaptorButton != null && allyRaptorButton.image != null)
+            {
+                allyRaptorButton.image.color = ally == Character.Raptor ? allyRaptorButton.colors.selectedColor : allyRaptorButton.colors.normalColor;
             }
         }
 
         public void Select(GameData.Enemy enemy)
         {
             GameData.enemy = enemy;
-            switch (enemy)
+            EventSystem.current.SetSelectedGameObject(null);
+            if (enemyHunterButton != null && enemyHunterButton.image != null)
             {
-                case GameData.Enemy.Hunter:
-                    if (enemyHunterButton != null && enemyHunterButton.image != null)
-                    {
-                        enemyHunterButton.image.color = PressedColor;
-                    }
-                    if (enemyRaptorButton != null && enemyRaptorButton.image != null)
-                    {
-                        enemyRaptorButton.image.color = NormalColor;
-                    }
-                    if (enemyMixButton != null && enemyMixButton.image != null)
-                    {
-                        enemyMixButton.image.color = NormalColor;
-                    }
-                    break;
-                case GameData.Enemy.Raptor:
-                    if (enemyHunterButton != null && enemyHunterButton.image != null)
-                    {
-                        enemyHunterButton.image.color = NormalColor;
-                    }
-                    if (enemyRaptorButton != null && enemyRaptorButton.image != null)
-                    {
-                        enemyRaptorButton.image.color = PressedColor;
-                    }
-                    if (enemyMixButton != null && enemyMixButton.image != null)
-                    {
-                        enemyMixButton.image.color = NormalColor;
-                    }
-                    break;
-                case GameData.Enemy.Mix:
-                    if (enemyHunterButton != null && enemyHunterButton.image != null)
-                    {
-                        enemyHunterButton.image.color = NormalColor;
-                    }
-                    if (enemyRaptorButton != null && enemyRaptorButton.image != null)
-                    {
-                        enemyRaptorButton.image.color = NormalColor;
-                    }
-                    if (enemyMixButton != null && enemyMixButton.image != null)
-                    {
-                        enemyMixButton.image.color = PressedColor;
-                    }
-                    break;
+                enemyHunterButton.image.color = enemy == GameData.Enemy.Hunter ? enemyHunterButton.colors.selectedColor : enemyHunterButton.colors.normalColor;
+            }
+            if (enemyRaptorButton != null && enemyRaptorButton.image != null)
+            {
+                enemyRaptorButton.image.color = enemy == GameData.Enemy.Raptor ? enemyRaptorButton.colors.selectedColor : enemyRaptorButton.colors.normalColor;
+            }
+            if (enemyMixButton != null && enemyMixButton.image != null)
+            {
+                enemyMixButton.image.color = enemy == GameData.Enemy.Mix ? enemyMixButton.colors.selectedColor : enemyMixButton.colors.normalColor;
             }
         }
 
-        public void Open(bool value)
+        public void Set(bool value)
         {
             if (allyText != null)
             {
@@ -119,43 +77,48 @@ public class MainPanel : Panel
             }
             if (allyHunterButton != null)
             {
-                allyHunterButton.gameObject.SetActive(value);
-                if(allyHunterButton.image != null)
+                if (value == true && allyHunterButton.image != null)
                 {
-                    allyHunterButton.image.color = GameData.ally == true ? PressedColor : NormalColor;
+                    ColorBlock colorBlock = allyHunterButton.colors;
+                    allyHunterButton.image.color = GameData.ally == Character.Hunter ? colorBlock.selectedColor : colorBlock.normalColor;
                 }
+                allyHunterButton.gameObject.SetActive(value);
             }
             if (allyRaptorButton != null)
             {
-                allyRaptorButton.gameObject.SetActive(value);
-                if (allyRaptorButton.image != null)
+                if (value == true && allyRaptorButton.image != null)
                 {
-                    allyRaptorButton.image.color = GameData.ally == false ? PressedColor : NormalColor;
+                    ColorBlock colorBlock = allyRaptorButton.colors;
+                    allyRaptorButton.image.color = GameData.ally == Character.Raptor ? colorBlock.selectedColor : colorBlock.normalColor;
                 }
+                allyRaptorButton.gameObject.SetActive(value);
             }
             if (enemyHunterButton != null)
             {
-                enemyHunterButton.gameObject.SetActive(value);
-                if (enemyHunterButton.image != null)
+                if (value == true && enemyHunterButton.image != null)
                 {
-                    enemyHunterButton.image.color = GameData.enemy == GameData.Enemy.Hunter ? PressedColor : NormalColor;
+                    ColorBlock colorBlock = enemyHunterButton.colors;
+                    enemyHunterButton.image.color = GameData.enemy == GameData.Enemy.Hunter ? colorBlock.selectedColor : colorBlock.normalColor;
                 }
+                enemyHunterButton.gameObject.SetActive(value);
             }
             if (enemyRaptorButton != null)
             {
-                enemyRaptorButton.gameObject.SetActive(value);
-                if (enemyRaptorButton.image != null)
+                if (value == true && enemyRaptorButton.image != null)
                 {
-                    enemyRaptorButton.image.color = GameData.enemy == GameData.Enemy.Raptor ? PressedColor : NormalColor;
+                    ColorBlock colorBlock = enemyRaptorButton.colors;
+                    enemyRaptorButton.image.color = GameData.enemy == GameData.Enemy.Raptor ? colorBlock.selectedColor : colorBlock.normalColor;
                 }
+                enemyRaptorButton.gameObject.SetActive(value);
             }
             if (enemyMixButton != null)
             {
-                enemyMixButton.gameObject.SetActive(value);
-                if (enemyMixButton.image != null)
+                if (value && enemyMixButton.image != null)
                 {
-                    enemyMixButton.image.color = GameData.enemy == GameData.Enemy.Mix ? PressedColor : NormalColor;
+                    ColorBlock colorBlock = enemyMixButton.colors;
+                    enemyMixButton.image.color = GameData.enemy == GameData.Enemy.Mix ? colorBlock.selectedColor : colorBlock.normalColor;
                 }
+                enemyMixButton.gameObject.SetActive(value);
             }
             if (startButton != null)
             {
@@ -169,88 +132,209 @@ public class MainPanel : Panel
     {
         [Header("제목 텍스트"), SerializeField]
         private TMP_Text titleText;
-        [Header("설명 텍스트"), SerializeField]
-        private TMP_Text descriptionText;
-        [Header("기록 텍스트"), SerializeField]
-        private TMP_Text[] recordTexts;
 
-        private static string Player = "플레이어";
+        [Serializable]
+        private struct Tag
+        {
+            private static string Hunter = "사냥꾼";
+            private static string Raptor = "랩터";
+            private static string Mix = "사냥꾼과 랩터";
+            private static string Hour = "시간";
+            private static string Minute = "분";
+            private static string Second = "초";
+            private static readonly int HourSecond = 3600;
+            private static readonly int MinuteSecond = 60;
 
-        private static string Enemy = "적";
+            [SerializeField]
+            private TMP_Text allyText;
+            [SerializeField]
+            private TMP_Text enemyText;
+            [SerializeField]
+            private TMP_Text killText;
+            [SerializeField]
+            private TMP_Text survivalText;
 
-        private static string Hunter = "사냥꾼";
+            public void Set()
+            {
+                if(allyText != null)
+                {
+                    allyText.text = null;
+                }
+                if (enemyText != null)
+                {
+                    enemyText.text = null;
+                }
+                if (killText != null)
+                {
+                    killText.text = null;
+                }
+                if (survivalText != null)
+                {
+                    survivalText.text = null;
+                }
+            }
 
-        private static string Raptor = "랩터";
+            public void Set(bool value)
+            {
+                if (allyText != null)
+                {
+                    allyText.gameObject.SetActive(value);
+                }
+                if (enemyText != null)
+                {
+                    enemyText.gameObject.SetActive(value);
+                }
+                if (killText != null)
+                {
+                    killText.gameObject.SetActive(value);
+                }
+                if (survivalText != null)
+                {
+                    survivalText.gameObject.SetActive(value);
+                }
+            }
 
-        private static string Mix = "사냥꾼과 랩터";
+            public void Set(GameData.Ranking ranking)
+            {
+                if (allyText != null)
+                {
+                    switch (ranking.character)
+                    {
+                        case Character.Hunter:
+                            allyText.text = Hunter;
+                            break;
+                        case Character.Raptor:
+                            allyText.text = Raptor;
+                            break;
+                    }
+                }
+                if (enemyText != null)
+                {
+                    switch (ranking.enemy)
+                    {
+                        case GameData.Enemy.Hunter:
+                            enemyText.text = Hunter;
+                            break;
+                        case GameData.Enemy.Raptor:
+                            enemyText.text = Raptor;
+                            break;
+                        case GameData.Enemy.Mix:
+                            enemyText.text = Mix;
+                            break;
+                    }
+                }
+                if(killText != null)
+                {
+                    killText.text = ranking.killCount.ToString();
+                }
+                if (survivalText != null)
+                {
+                    StringBuilder stringBuilder = new StringBuilder();
+                    int hour = 0;
+                    int minute = 0;
+                    float second = ranking.survivalTime;
+                    while (second >= HourSecond)
+                    {
+                        hour++;
+                        second -= HourSecond;
+                    }
+                    while (second >= MinuteSecond)
+                    {
+                        minute++;
+                        second -= MinuteSecond;
+                    }
+                    if (hour > 0 && minute > 0 && second > 0)
+                    {
+                        stringBuilder.Append(hour + Hour + " " + minute + Minute + " " + Mathf.Floor(second) + Second);
+                    }
+                    else if (hour > 0 && minute > 0)
+                    {
+                        stringBuilder.Append(hour + Hour + " " + minute + Minute);
+                    }
+                    else if (hour > 0 && second > 0)
+                    {
+                        stringBuilder.Append(hour + Hour + " " + Mathf.Floor(second) + Second);
+                    }
+                    else if (minute > 0 && second > 0)
+                    {
+                        stringBuilder.Append(minute + Minute + " " + Mathf.Floor(second) + Second);
+                    }
+                    else if (minute > 0)
+                    {
+                        stringBuilder.Append(minute + Minute);
+                    }
+                    else
+                    {
+                        stringBuilder.Append(Mathf.Floor(second) + Second);
+                    }
+                    survivalText.text = stringBuilder.ToString();
+                }
+            }
+        }
 
-        private static string Kill = "처치";
+        [Header("설명 태그"), SerializeField]
+        private Tag descriptionTag;
 
-        private static string Survival = "초 생존";
+        [Header("인덱스 태그들"), SerializeField]
+        private Tag[] indexTags;
 
-        public void Open(bool value)
+        public void Set(bool value)
         {
             if (titleText != null)
             {
                 titleText.gameObject.SetActive(value);
             }
-            if (descriptionText != null)
-            {
-                descriptionText.gameObject.SetActive(value);
-            }
-            int length = recordTexts != null ? recordTexts.Length : 0;
+            descriptionTag.Set(value);
+            int length = indexTags != null ? indexTags.Length : 0;
             for(int i = 0; i < length; i++)
             {
-                if(recordTexts[i] != null)
-                {
-                    recordTexts[i].gameObject.SetActive(value);
-                }
+                indexTags[i].Set(value);
             }
         }
 
         public void Set(GameData.Ranking[] rankings)
         {
-            if (recordTexts != null)
+            if (indexTags != null)
             {
                 int length = rankings != null ? rankings.Length : 0;
-                for (int i = 0; i < recordTexts.Length; i++)
+                for (int i = 0; i < indexTags.Length; i++)
                 {
-                    if (recordTexts[i] != null)
+                    if(i < length)
                     {
-                        if (i < length)
-                        {
-                            StringBuilder stringBuilder = new StringBuilder();
-                            switch (rankings[i].character)
-                            {
-                                case Character.Hunter:
-                                    stringBuilder.Append(Player + ": " + Hunter);
-                                    break;
-                                case Character.Raptor:
-                                    stringBuilder.Append(Player + ": " + Raptor);
-                                    break;
-                            }
-                            switch (rankings[i].enemy)
-                            {
-                                case GameData.Enemy.Hunter:
-                                    stringBuilder.Append(" " + Enemy + ": " + Hunter);
-                                    break;
-                                case GameData.Enemy.Raptor:
-                                    stringBuilder.Append(" " + Enemy + ": " + Raptor);
-                                    break;
-                                case GameData.Enemy.Mix:
-                                    stringBuilder.Append(" " + Enemy + ": " + Mix);
-                                    break;
-                            }
-                            stringBuilder.Append(" " + rankings[i].killCount + " " + Kill);
-                            stringBuilder.Append(" " + rankings[i].survivalTime + Survival);
-                            recordTexts[i].text = stringBuilder.ToString();
-                        }
-                        else
-                        {
-                            recordTexts[i].text = null;
-                        }
+                        indexTags[i].Set(rankings[i]);
+                    }
+                    else
+                    {
+                        indexTags[i].Set();
                     }
                 }
+            }
+        }
+    }
+
+    [Serializable]
+    private struct QuitBundle
+    {
+        [Header("제목 텍스트"), SerializeField]
+        private TMP_Text titleText;
+        [Header("네 버튼"), SerializeField]
+        private Button yesButton;
+        [Header("아니오 버튼"), SerializeField]
+        private Button noButton;
+
+        public void Set(bool value)
+        {
+            if(titleText != null)
+            {
+                titleText.gameObject.SetActive(value);
+            }
+            if (yesButton != null)
+            {
+                yesButton.gameObject.SetActive(value);
+            }
+            if (noButton != null)
+            {
+                noButton.gameObject.SetActive(value);
             }
         }
     }
@@ -261,6 +345,8 @@ public class MainPanel : Panel
     private RankingBundle _rankingBundle;
     [Header("음향 효과"), SerializeField]
     private AudioPanel _audioPanel = null;
+    [Header("종료하기 묶음"), SerializeField]
+    private QuitBundle _quitBundle;
     [Header("로딩 프리팹"), SerializeField]
     private LoadingPanel _loadingPanel = null;
 
@@ -269,6 +355,7 @@ public class MainPanel : Panel
         Play,
         Ranking,
         Audio,
+        Quit
     }
 
     private void Awake()
@@ -279,8 +366,8 @@ public class MainPanel : Panel
     private void Open(Mode mode)
     {
         Open();
-        _playBundle.Open(mode == Mode.Play);
-        _rankingBundle.Open(mode == Mode.Ranking);
+        _playBundle.Set(mode == Mode.Play);
+        _rankingBundle.Set(mode == Mode.Ranking);
         if (mode == Mode.Audio)
         {
             _audioPanel?.Open();
@@ -289,6 +376,7 @@ public class MainPanel : Panel
         {
             _audioPanel?.Close();
         }
+        _quitBundle.Set(mode == Mode.Quit);
     }
 
     public void OpenPlay()
@@ -304,6 +392,11 @@ public class MainPanel : Panel
     public void OpenAudio()
     {
         Open(Mode.Audio);
+    }
+
+    public void OpenQuit()
+    {
+        Open(Mode.Quit);
     }
 
     public void Quit()
@@ -336,12 +429,12 @@ public class MainPanel : Panel
         _playBundle.Select(GameData.Enemy.Mix);
     }
 
-    public void SelectStart()
+    public void SelectStart(string scene)
     {
         if (_loadingPanel != null)
         {
             LoadingPanel loadingPanel = Instantiate(_loadingPanel, getRectTransform);
-            loadingPanel.LoadScene(name);
+            loadingPanel.Open(scene);
         }
     }
 }
