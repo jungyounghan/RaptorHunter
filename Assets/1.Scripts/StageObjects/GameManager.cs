@@ -36,6 +36,8 @@ public sealed class GameManager : MonoBehaviour
 
     [Header("프로퍼티")]
     [SerializeField]
+    private BoxRevealer _boxRevealer = null;
+    [SerializeField]
     private CinemachineVirtualCamera _cinemachineVirtualCamera;
     [SerializeField]
     private State _state;
@@ -145,8 +147,7 @@ public sealed class GameManager : MonoBehaviour
                     {
                         if (transform != null)
                         {
-                            int index = Random.Range(0, count);
-                            SpawnItem(_itemPrefabs[index], transform.position);
+                            SpawnItem(_itemPrefabs[Random.Range(0, count)], transform.position);
                         }
                     }
                 }
@@ -217,11 +218,15 @@ public sealed class GameManager : MonoBehaviour
                 _allyController.Initialize((current, max) => { _state?.SetStamina(current, max); }, SetLife, (value) => { _state?.SetAttackDamage(value); }, (value) => { _state?.SetAttackSpeed(value); });
                 _allyController.Set(getStatBundle.GetAllyStat(human));
                 _allyController.Revive();
+                Transform transform = character.transform;
                 if (_cinemachineVirtualCamera != null)
                 {
-                    Transform transform = character.transform;
                     _cinemachineVirtualCamera.Follow = transform;
-                    _cinemachineVirtualCamera.LookAt = transform;
+                    _cinemachineVirtualCamera.LookAt = transform;                    
+                }
+                if(_boxRevealer != null)
+                {
+                    _boxRevealer.target = transform;
                 }
             }
         }

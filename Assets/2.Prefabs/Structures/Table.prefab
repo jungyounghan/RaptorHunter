@@ -41,7 +41,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
 --- !u!33 &2567047168597798756
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -350,6 +350,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4047aaaa19814be44ae0f40e9b70e1fd, type: 3}
   - {fileID: 8300000, guid: 80213e79ca9796143b5ee8247490a268, type: 3}
   - {fileID: 8300000, guid: cd2b5a4eab0b39b48baeecbb5743ec2c, type: 3}
+  - {fileID: 8300000, guid: 4eac46ace045807419408d588b98061e, type: 3}
+  - {fileID: 8300000, guid: 2144e46ee72fd7f4f912cc68c062bc67, type: 3}
+  - {fileID: 8300000, guid: 201d6a05417f6c044bc903e4d1fad508, type: 3}
+  - {fileID: 8300000, guid: 5c657e6bc23a8ff46ae12003da5afe8b, type: 3}
+  - {fileID: 8300000, guid: 1c67a58f0cc2e8044b8b4341d3ae0a9d, type: 3}
+  - {fileID: 8300000, guid: 8350c2ae2b8fbba4799a79ca44f8598e, type: 3}
   _sensitivity: 3
   _fullLife: 10
   _currentLife: 0

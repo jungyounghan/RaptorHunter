@@ -21,4 +21,4 @@ MonoBehaviour:
   stoppingDistance: 20
   attackSpeed: 10
   attackDamage: 1
-  fullLife: 10
+  fullLife: 50

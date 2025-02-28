@@ -71,6 +71,8 @@ public sealed class Obstacle : MonoBehaviour, IHittable
 
     private Action<Item, Vector3> _action = null;
 
+    private static readonly float SoundValue = 6;
+
 #if UNITY_EDITOR
     private void OnValidate()
     {
@@ -84,6 +86,14 @@ public sealed class Obstacle : MonoBehaviour, IHittable
     private void Awake()
     {
         _currentLife = _fullLife;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(getRigidbody.velocity.magnitude >= SoundValue)
+        {
+            PlaySound();
+        }
     }
 
     private void PlaySound()
@@ -113,10 +123,10 @@ public sealed class Obstacle : MonoBehaviour, IHittable
                 if (force >= _currentLife)
                 {
                     _currentLife = 0;
-                    if (_items.Count > 0)
+                    int count = _items.Count;
+                    if (count > 0)
                     {
-                        int index = UnityEngine.Random.Range(0, _items.Count);
-                        _action?.Invoke(_items[index], getTransform.position);
+                        _action?.Invoke(_items[UnityEngine.Random.Range(0, count)], getTransform.position);
                     }
                     Destroy(gameObject);
                 }

@@ -20,5 +20,5 @@ MonoBehaviour:
   reverseRate: 0.5
   stoppingDistance: 20
   attackSpeed: 10
-  attackDamage: 5
-  fullLife: 50
+  attackDamage: 40
+  fullLife: 400

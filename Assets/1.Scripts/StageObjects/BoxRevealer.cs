@@ -31,6 +31,18 @@ public sealed class BoxRevealer : MonoBehaviour
         }
     }
 
+    public Transform target
+    {
+        get
+        {
+            return _target;
+        }
+        set
+        {
+            _target = value;
+        }
+    }
+
     [Header("바라볼 대상의 트랜스폼"), SerializeField]
     private Transform _target;
     [Header("충돌 처리를 할 물체의 레이어마스크"), SerializeField]
