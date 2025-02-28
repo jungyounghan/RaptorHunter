@@ -125,39 +125,44 @@ public sealed class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(_allyController != null && _allyController.alive == true && Input.GetKeyDown(KeyCode.Escape))
+        if (_allyController != null && _allyController.alive == true)
         {
-            _state?.ShowPause(true);
-            return;
-        }
-        if(_spawnTimer > 0)
-        {
-            _spawnTimer -= Time.deltaTime;
-            if (_spawnTimer <= 0)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                _state?.SetNotice();
-                _spawnCount += getStatBundle.GetEnemyCount(_waveCount);
-                _waveCount++;
-                _state?.SetWave(_waveCount);
-                _spawnTimer = SpawnRestingTime;
-                int count = _itemPrefabs.Count;
-                if (count > 0)
+                _state?.ShowPause(true);
+            }
+            else
+            {
+                if (_spawnTimer > 0)
                 {
-                    foreach (Transform transform in _itemSpawner)
+                    _spawnTimer -= Time.deltaTime;
+                    if (_spawnTimer <= 0)
                     {
-                        if (transform != null)
+                        _state?.SetNotice();
+                        _spawnCount += getStatBundle.GetEnemyCount(_waveCount);
+                        _waveCount++;
+                        _state?.SetWave(_waveCount);
+                        _spawnTimer = SpawnRestingTime;
+                        int count = _itemPrefabs.Count;
+                        if (count > 0)
                         {
-                            SpawnItem(_itemPrefabs[Random.Range(0, count)], transform.position);
+                            foreach (Transform transform in _itemSpawner)
+                            {
+                                if (transform != null)
+                                {
+                                    SpawnItem(_itemPrefabs[Random.Range(0, count)], transform.position);
+                                }
+                            }
                         }
                     }
+                    else if (_spawnTimer < PrepareSpawnTime)
+                    {
+                        _state?.SetNotice("<color=red>" + Mathf.Floor(_spawnTimer).ToString() + "</color>");
+                    }
                 }
-            }
-            else if(_spawnTimer < PrepareSpawnTime)
-            {
-                _state?.SetNotice("<color=red>" + Mathf.Floor(_spawnTimer).ToString() + "</color>");
+                _state?.SetTimer(_spawnTimer);
             }
         }
-        _state?.SetTimer(_spawnTimer);
     }
 
     private void SetProps(bool active)

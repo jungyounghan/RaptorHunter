@@ -15,7 +15,7 @@ MonoBehaviour:
   fullStamina: 255
   recoverStamina: 15
   walkSpeed: 4
-  dashSpeed: 1.5
+  dashSpeed: 1.1
   dashCost: 0.001
   reverseRate: 0.8
   stoppingDistance: 6

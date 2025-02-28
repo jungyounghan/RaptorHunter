@@ -114,6 +114,7 @@ public abstract class Controller : MonoBehaviour, IHittable
 
     private static readonly string FloorTag = "Floor";
     protected static readonly string StairTag = "Stair";
+    public static readonly string PlayerTag = "Player";
 
     protected static readonly float RotationSpeed = 40;
 
@@ -139,7 +140,7 @@ public abstract class Controller : MonoBehaviour, IHittable
 
     private void OnTriggerStay(Collider other)
     {
-        if (alive == true && (other.tag == FloorTag || other.tag == StairTag))
+        if (alive == true && (other.tag == FloorTag || other.tag == StairTag || other.tag == PlayerTag))
         {
             landing = true;
         }

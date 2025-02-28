@@ -90,7 +90,7 @@ public sealed class Obstacle : MonoBehaviour, IHittable
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(getRigidbody.velocity.magnitude >= SoundValue)
+        if(getRigidbody.velocity.magnitude >= SoundValue && (_currentLife > 0 || _currentLife == _fullLife))
         {
             PlaySound();
         }
@@ -117,7 +117,6 @@ public sealed class Obstacle : MonoBehaviour, IHittable
         if (_currentLife > 0 || _currentLife == _fullLife)
         {
             getRigidbody.AddForce(direction.normalized * force * _sensitivity, ForceMode.Impulse);
-            PlaySound();
             if (_fullLife > 0)
             {
                 if (force >= _currentLife)
@@ -129,12 +128,14 @@ public sealed class Obstacle : MonoBehaviour, IHittable
                         _action?.Invoke(_items[UnityEngine.Random.Range(0, count)], getTransform.position);
                     }
                     Destroy(gameObject);
+                    return;
                 }
                 else
                 {
                     _currentLife -= force;
                 }
             }
+            PlaySound();
         }
     }
 }

@@ -98,7 +98,7 @@ public sealed class Item : MonoBehaviour
         if (_acquisition == false)
         {
             Transform transform = other.transform;
-            if (transform.tag == "Player")
+            if (transform.tag == Controller.PlayerTag)
             {
                 ManualController manualController = transform.GetComponent<ManualController>();
                 if (manualController != null)

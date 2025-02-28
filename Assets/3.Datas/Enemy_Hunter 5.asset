@@ -18,7 +18,7 @@ MonoBehaviour:
   dashSpeed: 1
   dashCost: 0.001
   reverseRate: 0.5
-  stoppingDistance: 20
+  stoppingDistance: 10
   attackSpeed: 10
-  attackDamage: 40
-  fullLife: 400
+  attackDamage: 8
+  fullLife: 700

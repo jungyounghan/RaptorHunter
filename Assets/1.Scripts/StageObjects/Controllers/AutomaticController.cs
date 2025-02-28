@@ -124,10 +124,9 @@ public sealed class AutomaticController : Controller
                         float angle = 0;
                         Vector3 direction = (targetPosition - getTransform.position).normalized;
                         direction.y = 0; // 수직 회전 방지 (바닥에서만 회전)
+                        Quaternion quaternion = getTransform.rotation;
                         if (direction != Vector3.zero)
                         {
-                            Quaternion quaternion = getTransform.rotation;
-                            getTransform.rotation = Quaternion.Slerp(getTransform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * RotationSpeed);
                             angle = Quaternion.Angle(quaternion, getTransform.rotation);
                             float directionSign = Mathf.Sign(Vector3.Dot(Vector3.Cross(forward, direction), getTransform.up));
                             if (directionSign > 0)
@@ -141,6 +140,7 @@ public sealed class AutomaticController : Controller
                         }
                         if (Vector3.Distance(myPosition, targetPosition) < getNavMeshAgent.stoppingDistance)
                         {
+                            getTransform.rotation = Quaternion.Slerp(quaternion, Quaternion.LookRotation(direction), Time.deltaTime * RotationSpeed);
                             Vector3 point = _target.GetHitPoint();
                             character.LookAt(point);                           
                             if (_target.alive == true)

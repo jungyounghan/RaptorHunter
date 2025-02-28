@@ -67,6 +67,7 @@ public class GameData
         }
     }
 
+    private readonly static int MaxRankingCount = 5;
     private readonly static string FilePath = Path.Combine(Application.persistentDataPath, "ranking.json");
 
     //랭킹 저장
@@ -77,22 +78,25 @@ public class GameData
         Ranking ranking = new Ranking(character, enemy, killCount, survivalTime);
         int length = rankings != null ? rankings.Length : 0;
         bool done = false;
+        int index = 0;
         for (int i = 0; i < length; i++)
         {
-            if (rankings[i] < ranking)
+            if (done == false && rankings[i] < ranking)
             {
                 list.Add(ranking);
                 done = true;
             }
             list.Add(rankings[i]);
+            index++;
         }
         if (done == false)
         {
             list.Add(ranking);
+            index++;
         }
         string json = JsonUtility.ToJson(new RankingArray(list.ToArray()), true); // true = 보기 좋게 포맷
         File.WriteAllText(FilePath, json); // 파일에 저장
-        return done;
+        return done && index < MaxRankingCount;
     }
 
     public static Ranking[] Load()
