@@ -140,7 +140,7 @@ public abstract class Controller : MonoBehaviour, IHittable
 
     private void OnTriggerStay(Collider other)
     {
-        if (alive == true && (other.tag == FloorTag || other.tag == StairTag || other.tag == PlayerTag))
+        if (alive == true && (other.tag == FloorTag || other.tag == StairTag /*|| other.tag == PlayerTag*/))
         {
             landing = true;
         }
